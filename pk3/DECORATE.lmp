@@ -28,14 +28,14 @@ Actor WWNazisPlayer : DoomPlayer
 {
 	gibhealth -50
 	player.invulnerabilitymode "reflective"
-	Player.WeaponSlot 1,Melee
-	Player.WeaponSlot 2,Luger9mm,WeaselsRevolver
+	Player.WeaponSlot 1,Melee,Firebrand
+	Player.WeaponSlot 2,Walther9mm,Luger9mm,WeaselsRevolver
 	Player.WeaponSlot 3,TrenchShotgun,Browning5
-	Player.WeaponSlot 4,MP40
-	Player.WeaponSlot 5,G41
-	Player.WeaponSlot 6,STG44
+	Player.WeaponSlot 4,Thompson,PPSH41,MP40
+	Player.WeaponSlot 5,G41,Enfield
+	Player.WeaponSlot 6,STG44,FG42
 	Player.WeaponSlot 7,Pyrolight
-	Player.WeaponSlot 8,Nebelwerfer
+	Player.WeaponSlot 8,Nebelwerfer,Panzerschreck
 	Player.WeaponSlot 9,UMG43
 	player.startitem "WeaselsRevolver"
 	player.startitem "Melee"
