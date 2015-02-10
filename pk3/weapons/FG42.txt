@@ -98,9 +98,9 @@ Actor FG42 : Weapon
 	ReloadLoop:
 		TNT1 A 0 A_TakeInventory("MauserAmmo",1,TIF_NOTAKEINFINITE)
 		TNT1 A 0 A_GiveInventory("FG42Ammo",1)
-		TNT1 A 0 A_JumpIfInventory("FG42Ammo",20,"ReloadFinish")
-		TNT1 A 0 A_JumpIfNoAmmo("ReloadFinish")
-		Goto ReloadLoop
+		TNT1 A 0 A_JumpIfInventory("FG42Ammo",8,"ReloadFinish")
+		TNT1 A 0 A_JumpIfInventory("MauserAmmo",1,"ReloadLoop")
+		Goto ReloadFinish
 	ReloadFinish:
 		FG42 A 1 Offset(-10,58)
 		FG42 A 1 Offset(-10,61)

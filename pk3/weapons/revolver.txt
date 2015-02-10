@@ -25,7 +25,7 @@ ACTOR RevolverAmmo : Ammo
 	Inventory.Icon REVPA0
 }
 
-ACTOR WeaselsRevolver : Weapon
+ACTOR WeaselsRevolver : Weapon replaces Pistol
 {
 	Weapon.AmmoType "RevolverAmmo"
 	Weapon.AmmoUse 1

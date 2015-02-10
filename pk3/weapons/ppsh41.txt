@@ -97,8 +97,8 @@ ACTOR PPSH41 : DoomWeapon
 		TNT1 A 0 A_TakeInventory("PPSHClip",1,TIF_NOTAKEINFINITE)
 		TNT1 A 0 A_GiveInventory("PPSHAmmo",1)
 		TNT1 A 0 A_JumpIfInventory("PPSHAmmo",71,"ReloadFinish")
-    TNT1 A 0 A_JumpIfNoAmmo("ReloadFinish")
-    Goto ReloadLoop
+		TNT1 A 0 A_JumpIfInventory("PPSHClip",1,"ReloadLoop")
+		Goto ReloadFinish
 	ReloadFinish:
 		PPSG B 1 Offset(-3,57)
 		PPSG B 1 Offset(-3,59)
