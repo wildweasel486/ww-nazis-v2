@@ -2,7 +2,6 @@ ACTOR MP40Seq : Inventory{}
 
 ACTOR MP40 : DoomWeapon
 {
-	Tag "9x19mm"
 	scale 0.5
 	Weapon.SelectionOrder 600
 	weapon.kickback 60
@@ -99,11 +98,11 @@ ACTOR MP40 : DoomWeapon
 		RIFF B 1 Offset(-1,44)
 		RIFF B 1 Offset(-1,46)
 		RIFF B 1 Offset(-1,47)
-		RIFF B 1 Offset(0,49) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
-		RIFG A 1 Offset(0,44) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
-		RIFG A 1 Offset(0,38) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
-		RIFG A 1 Offset(0,35) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
-		RIFG A 1 Offset(0,32) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
+		RIFF B 1 Offset(0,49) A_WeaponReady(WRF_NOBOB)
+		RIFG A 1 Offset(0,44) A_WeaponReady(WRF_NOBOB)
+		RIFG A 1 Offset(0,38) A_WeaponReady(WRF_NOBOB)
+		RIFG A 1 Offset(0,35) A_WeaponReady(WRF_NOBOB)
+		RIFG A 1 Offset(0,32) A_WeaponReady(WRF_NOBOB)
 		Goto Ready
 	Flash:
 		TNT1 A 3 A_Light2

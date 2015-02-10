@@ -4,6 +4,7 @@
 
 ACTOR EnfieldLoaded : Ammo
 {
+	Tag ".303 British"
 	+IGNORESKILL
 	Inventory.MaxAmount 10
 	Inventory.Icon "ENFPA0"
@@ -76,6 +77,7 @@ ACTOR EnfieldLoaded : Ammo
           ENFG A 1 Offset(-6,35)
           ENFG A 1 Offset(-4,34)
           ENFG A 1 Offset(-2,33)
+		TNT1 A 0 A_CheckReload
           Goto Ready
       
        Reload:

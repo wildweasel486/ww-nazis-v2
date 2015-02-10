@@ -81,6 +81,7 @@ ACTOR Panzerschreck : Weapon
 		PANZ A 1 Offset(1,29)
 		PANZ A 1 Offset(-2,30)
 		PANZ A 1 Offset(-1,32)
+		TNT1 A 0 A_CheckReload
     	Goto Ready
 	Reload:
 		PANZ A 1 Offset(1,33) A_PlayWeaponSound("panzer/load")

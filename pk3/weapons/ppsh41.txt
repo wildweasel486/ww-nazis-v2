@@ -134,6 +134,7 @@ ACTOR PPSH41 : DoomWeapon
 
 ACTOR PPSHClip : Ammo
 {
+	Tag "7.62x25mm"
 	Inventory.Amount 71
 	Inventory.MaxAmount 284
 	Ammo.BackpackAmount 71
@@ -150,6 +151,7 @@ ACTOR PPSHClip : Ammo
 
 ACTOR PPSHAmmo : Ammo
 {
+	Tag "7.62x25mm"
 	+IGNORESKILL
 	Inventory.MaxAmount 71
 	Inventory.Icon "PPSHA0"

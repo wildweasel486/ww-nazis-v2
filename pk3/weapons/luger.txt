@@ -48,10 +48,11 @@ ACTOR Luger9mm : DoomWeapon
 		LUGG A 0 A_SetPitch(pitch - 0.2)
 		LUGG B 1 Offset(0,36)
 		LUGG B 1 Offset(0,41)
-		LUGG C 1 Offset(0,35) A_WeaponReady(1)
-		LUGG C 1 Offset(0,33) A_WeaponReady(1)
-		LUGG C 1 Offset(0,31) A_WeaponReady(1)
-		LUGG A 1 Offset(0,32) A_WeaponReady(1)
+		LUGG C 1 Offset(0,35) A_WeaponReady(WRF_NOBOB)
+		LUGG C 1 Offset(0,33) A_WeaponReady(WRF_NOBOB)
+		LUGG C 1 Offset(0,31) A_WeaponReady(WRF_NOBOB)
+		LUGG A 1 Offset(0,32) A_WeaponReady(WRF_NOBOB)
+		TNT1 A 0 A_CheckReload
 		Goto Ready
 	Reload:
 		TNT1 A 0 A_Jump(192,2)
@@ -93,6 +94,7 @@ ACTOR Luger9mm : DoomWeapon
 
 ACTOR LugerAmmo : Ammo
 {
+	Tag "9x19mm"
 	+IGNORESKILL
 	Inventory.MaxAmount 8
 	Inventory.Icon "LUGPA0"

@@ -1,5 +1,6 @@
 ACTOR FlameLoad : Ammo
 {
+	Tag "Petrol"
 	Inventory.MaxAmount 50
 	+IGNORESKILL
 }
