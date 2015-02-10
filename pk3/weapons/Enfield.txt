@@ -13,17 +13,16 @@ ACTOR EnfieldLoaded : Ammo
     {
        Weapon.AmmoType1 "EnfieldLoaded"
        Weapon.AmmoUse1 1
-       Weapon.AmmoGive1 0
        Weapon.AmmoType2 "MauserAmmo"
        Weapon.AmmoGive2 5
-       Weapon.AmmoUse2 0
+       Weapon.AmmoUse2 1
        Weapon.BobStyle InverseSmooth
        Weapon.BobSpeed 2.2
        Weapon.BobRangeY 0.5
        Weapon.BobRangeX 0.7
        Tag "Lee-Enfield SMLE"
        Inventory.PickupMessage "You got the Lee-Enfield SMLE!"
-       +AMMO_OPTIONAL
+       +WEAPON.AMMO_CHECKBOTH
        +NOAUTOFIRE
        +NOALERT
        States
@@ -39,11 +38,18 @@ ACTOR EnfieldLoaded : Ammo
 		ENFG A 0 A_Lower
           ENFG A 1 A_Lower
           Loop
-       Ready:
-          ENFG A 1 A_WeaponReady(WRF_ALLOWRELOAD)
-          Loop
+		  
+	Ready:
+		ENFG A 0 A_JumpIfInventory("EnfieldLoaded",0,2)
+		ENFG A 0 A_JumpIfInventory("MauserAmmo",1,2)
+		ENFG A 1 A_WeaponReady
+		Loop
+		ENFG A 1 A_WeaponReady(WRF_ALLOWRELOAD)
+		Loop
+		
        Fire:
-          ENFG A 0 A_JumpIfNoAmmo("Dryfire")
+		ENFG A 0 A_JumpIfInventory("EnfieldLoaded",1,1)
+		Goto Reload
           ENFF A 0 A_PlayWeaponSound("Enfield/Fire")
           ENFF A 1 Bright Offset(0,40) A_FireCustomMissile("EnfieldTracer",0,1)
           ENFF B 1 Bright Offset(0,50) A_GunFlash
@@ -71,19 +77,9 @@ ACTOR EnfieldLoaded : Ammo
           ENFG A 1 Offset(-4,34)
           ENFG A 1 Offset(-2,33)
           Goto Ready
-       Dryfire:
-          ENFG A 1
+      
        Reload:
-          ENFG A 0 A_JumpIfInventory("EnfieldLoaded",10,3)
-          ENFG A 0 A_JumpIfInventory("EnfieldLoaded",5,"Halfloaded")
-          ENFG A 0 A_JumpIfInventory("MauserAmmo",1,"FullReload")
-          ENFG A 1
-          Goto Ready
-       Halfloaded:
-          ENFG A 0 A_JumpIfInventory("MauserAmmo",1,"HalfReload")
-          ENFG A 1
-          Goto Ready
-       FullReload:
+          ENFG A 0 A_JumpIfInventory("EnfieldLoaded",5,"HalfReload")
           ENFG A 1 Offset(-2,33) A_PlaySound("Enfield/boltback",CHAN_ITEM)
           ENFG A 1 Offset(-4,34)
           ENFG A 1 Offset(-6,35)

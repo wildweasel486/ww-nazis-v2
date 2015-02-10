@@ -1,17 +1,18 @@
 ACTOR NewShell : Ammo
 {
+	Tag "12 Gauge"
 	Inventory.PickupMessage "Picked up some shotgun shells."
-  Inventory.Amount 4
-  Inventory.MaxAmount 30
-  Ammo.BackpackAmount 4
-  Ammo.BackpackMaxAmount 60
-  Inventory.Icon "SHELA0"
-  States
-  {
-  Spawn:
-    SHEL A -1
-    Stop
-  }
+	Inventory.Amount 4
+	Inventory.MaxAmount 30
+	Ammo.BackpackAmount 4
+	Ammo.BackpackMaxAmount 60
+	Inventory.Icon "SHELA0"
+	States
+	{
+	Spawn:
+		SHEL A -1
+		Stop
+	}
 }
 
 ACTOR NewShellBox : NewShell
@@ -29,32 +30,31 @@ ACTOR NewShellBox : NewShell
 
 ACTOR BrowningLoaded : Ammo
 {
+	Tag "12 Gauge"
 	Inventory.MaxAmount 4
 	+IGNORESKILL
 }
 
 ACTOR Browning5 : Weapon replaces SuperShotgun
 {
-	Game Doom
-	SpawnID 33
 	Weapon.SelectionOrder 400
 	Weapon.AmmoUse1 1
 	Weapon.AmmoGive1 0
 	Weapon.AmmoType1 "BrowningLoaded"
 	Weapon.AmmoType2 "NewShell"
 	Weapon.AmmoGive2 8
-	Weapon.AmmoUse2 0
+	Weapon.AmmoUse2 1
 	Weapon.BobStyle InverseSmooth
 	Weapon.BobSpeed 2.2
 	Weapon.BobRangeY 0.5
 	Weapon.BobRangeX 0.7
 	Scale 0.5
-    Decal BulletChip
+	Decal BulletChip
 	Inventory.PickupMessage "You got the Browning Auto-5!"
 	Obituary "%o was peppered by %k's auto shotgun."
 	Tag "Browning Auto-5"
-    AttackSound "weapons/ba5fire"
-	+Ammo_Optional
+	AttackSound "weapons/ba5fire"
+	+WEAPON.AMMO_CHECKBOTH
 	+NOAUTOFIRE
 	+Weapon.NoAlert
 	States
@@ -71,11 +71,16 @@ ACTOR Browning5 : Weapon replaces SuperShotgun
 		BA5G A 1 A_Lower
 		Loop
 	Ready:
+		BA5G A 0 A_JumpIfInventory("BrowningLoaded",0,2)
+		BA5G A 0 A_JumpIfInventory("NewShell",1,2)
+		BA5G A 1 A_WeaponReady
+		Loop
 		BA5G A 1 A_WeaponReady(WRF_ALLOWRELOAD)
 		Loop
 	Fire:
 		BA5G A 0 A_JumpIfInventory("ShotgunReloading",1,"ReloadFinish")
-		BA5G A 0 A_JumpIfNoAmmo("Dryfire")
+		BA5G A 0 A_JumpIfInventory("BrowningLoaded",1,1)
+		Goto Reload
 		BA5G A 0 A_TakeInventory("BrowningLoaded",1)
 		BA5G A 0 A_PlayWeaponSound("weapons/ba5fire")
 		BA5G AAAAAAAAAA 0 A_FireCustomMissile("ShotgunTracer",frandom(-4.0,4.0),0,0,0,0,frandom(-3,3))
@@ -85,21 +90,15 @@ ACTOR Browning5 : Weapon replaces SuperShotgun
 		BA5G A 1 Offset(0,36) A_SetPitch(pitch - 1.0)
 		BA5G A 1 Offset(0,34) A_SetPitch(pitch + 1.0)
 		BA5G A 1 Offset(0,33) A_SetPitch(pitch + 0.5)
-		BA5G A 1 A_WeaponReady(26)
+		BA5G A 1
 		BA5G A 1 A_AlertMonsters
 		BA5G A 1 Offset(-1,33)
 		TNT1 A 0 A_Jump(250,2)
 		TNT1 A 0 A_PlaySound("*taunt", CHAN_VOICE)
 		BA5G A 1
+		TNT1 A 0 A_CheckReload
 		Goto Ready
-	Dryfire:
-		BA5G A 1
 	Reload:
-		BA5G A 0 A_JumpIfInventory("BrowningLoaded",4,2)
-		BA5G A 0 A_JumpIfInventory("NewShell",1,2)
-		BA5G A 1
-		Goto Ready
-	ProperReload:
 		TNT1 A 0 A_Jump(128,2)
 		TNT1 A 0 A_PlaySound("*taunt", CHAN_VOICE)
 		BA5G E 1 Offset(-1,33) A_GiveInventory("ShotgunReloading",1)
@@ -116,10 +115,10 @@ ACTOR Browning5 : Weapon replaces SuperShotgun
 		BA5G E 1 Offset(-9,66)
 		BA5G E 1 Offset(-9,64)
 		BA5G E 1 Offset(-9,62)
-		BA5G E 1 Offset(-8,61) A_WeaponReady(1)
-		BA5G EE 1 Offset(-8,60) A_WeaponReady(1)
-		BA5G EEE 1 Offset(-8,59) A_WeaponReady(1)
-		BA5G EEEE 1 Offset(-8,58) A_WeaponReady(1)
+		BA5G E 1 Offset(-8,61) A_WeaponReady(WRF_NOBOB)
+		BA5G EE 1 Offset(-8,60) A_WeaponReady(WRF_NOBOB)
+		BA5G EEE 1 Offset(-8,59) A_WeaponReady(WRF_NOBOB)
+		BA5G EEEE 1 Offset(-8,58) A_WeaponReady(WRF_NOBOB)
 		BA5G A 0 A_JumpIfInventory("BrowningLoaded",4,"ReloadFinish")
 		BA5G A 0 A_JumpIfInventory("NewShell",1,"ReloadWork")
 		Goto ReloadFinish
@@ -140,9 +139,8 @@ ACTOR Browning5 : Weapon replaces SuperShotgun
 		BA5G E 1 Offset(-1,32) A_TakeInventory("ShotgunReloading",1)
 		Goto Ready
 	Flash:
-		TNT1 A 2 BRIGHT A_Light2
-		TNT1 A 2 BRIGHT A_Light1
-		TNT1 A 0 A_Light0
-		Stop
+		TNT1 A 2 A_Light2
+		TNT1 A 2 A_Light1
+		Goto LightDone
 	}
 }

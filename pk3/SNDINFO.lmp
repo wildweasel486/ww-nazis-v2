@@ -1,17 +1,13 @@
-$playersound player weasel *death wwdthlo
-$playersound player weasel *wimpydeath wwdthlo
-$playersound player weasel *crazydeath wwdthhi
-$playersound player weasel *xdeath wwdthhi
-$playersound player weasel *gibbed wwdthhi
-$playeralias player weasel *pain100 weasellowpain
-$playeralias player weasel *pain75 weaselmedpain
-$playeralias player weasel *pain50 weaselhipain
-$playeralias player weasel *pain25 weaselcritpain
-$playeralias player weasel *grunt weaseloof
-$playersound player weasel *usefail dsnoway
-$playersound player weasel *weaponlaugh dswpnup
-$playeralias player weasel *taunt player/taunt
-$playeralias player weasel *grenadecall player/grenadecall
+$playersound	weasel	male	*death		wwdthlo
+$playersound	weasel	male	*xdeath		wwdthhi
+$playeralias	weasel	male	*pain100	weasellowpain
+$playeralias	weasel	male	*pain75		weaselmedpain
+$playeralias	weasel	male	*pain50		weaselhipain
+$playeralias	weasel	male	*pain25		weaselcritpain
+$playeralias	weasel	male	*grunt		weaseloof
+$playersound	weasel	male	*usefail	dsnoway
+$playeralias	weasel	male	*taunt		player/taunt
+$playeralias	weasel	male	*grenadecall	player/grenadecall
 $random player/taunt { taunt1 taunt2 taunt3 taunt4 taunt5 taunt6 taunt7 taunt8 taunt9 taunt10 taunt11 taunt12 taunt13 taunt14 taunt15 }
 $random player/grenadecall { grenade1 grenade2 grenade3 }
 grenade1 grenade1

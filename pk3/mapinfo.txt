@@ -1,5 +1,6 @@
 gameinfo
 {
+	playerclasses = "WWNazisPlayer"
 	quitmessages = "$QUITMSG", "$QUITMSG1", "$QUITMSG2", "$QUITMSG3", "$QUITMSG4", "$QUITMSG5", "$QUITMSG6", "$QUITMSG7", "$QUITMSG8", "$QUITMSG9", "$QUITMSG10", "$QUITMSG11", "$QUITMSG12", "$QUITMSG13", "$QUITMSG14"
 	menufontcolor_title = "UNTRANSLATED"
     menufontcolor_label = "UNTRANSLATED"
@@ -310,4 +311,71 @@ Intermission Doom2Cast
 		AttackSound = "Missile", 9, "weapons/chaingun"
 	}
 	Link = Doom2Cast	// restart cast call
+}
+
+MAP TITLEMAP "Nazis!"
+{
+	precachesounds="shovel/impact1","shovel/impact2","shovel/wall","shovel/miss1",
+	"shovel/miss2","shovel/miss3","melee/miss","melee/hit","melee/wall","weapons/revolver",
+	"weapons/revolverout","weapons/revolverin","weapons/revolverload","weapons/luger",
+	"Shotgun/Fire","Shotgun/Load","Shotgun/Pump","Garand/Fire","Garand/Load","Garand/Ping",
+	"weapons/wweshotgunfire","weapons/wweshotguncock","weapons/wweshotgundouble",
+	"Weapons/AK47FIR","Generic/Reload","weapons/flamer","weapons/steam","weapons/napalm",
+	"weapons/mp40","weapons/ba5fire","weapons/ba5load","weapons/ba5cock","weapons/nebelwerfer",
+	"weapons/nebxpl","reloads/p38","reloads/mp40","reloads/stg","reloads/g43","grenthr1",
+	"grenthr2","grenthr3","grenbnc1","grenbnc2","grenbnc3","grenbnc4","grenexp1",
+	"grenexp2","grenexp3","grenexp4","grenade/pickup","guard/sight1","guard/sight2",
+	"guard/sight3","guard/sight4","guard/sight5","guard/sight6","guard/sight7","guard/sight8",
+	"guard/sight9","guard/death1","guard/death2","guard/death3","guard/death4","guard/death5",
+	"guard/death6","guard/death7","guard/death8","guard/death9","officer/sight1",
+	"officer/sight2","officer/sight3","officer/sight4","officer/death1","officer/death2",
+	"officer/death3","officer/death4","ss/sight1","ss/sight2","ss/sight3","ss/sight4",
+	"ss/death1","ss/death2","ss/death3","ss/death4","dog/sight1","dog/sight2","dog/sight3",
+	"dog/act1","dog/act2","dog/death1","dog/death2","dog/death3","dog/pain","dog/attack",
+	"hans/sight","hans/death","franz/sight","franz/death","otto/sight","otto/death",
+	"general/sight","general/death","krist/sight","krist/death","deathknight/sight",
+	"deathknight/death","hitler/sight","hitler/pain","hitler/death","hitler/act",
+	"hitler/gib","fatman/sight","fatman/death","metal/pain","nazi/pain","boss/active",
+	"boss/pain","rico1","rico2","rico3","rico4","rico5","rico6","rico7","rico8","rico9",
+	"whiz1","whiz2","whiz3","hitflesh1","hitflesh2","hitflesh3","hitflesh4","hitflesh5",
+	"hitflesh6","hitflesh7","hitflesh8","hitflesh9","Boss1/Death","Bos1St01","Bos1St02",
+	"Bos1St03","Bos1St04","Bos1St05","Bos1St06","Bos1St07","Bos1St08","Bos1St09",
+	"gretdt1","gretdt2","gretdt3","gretdt4","gretsee1","gretsee2","gretsee3","gretsee4",
+	"BossGirl/Pain","Boss2/Death","Bos2St01","Bos2St02","Bos2St03","Bos2St04","Bos2St05",
+	"Bos2St06","Bos2St07","Bos2St08","Boss3/Death","Boss3/Sighted","Naz1Dt02","Naz1Dt03",
+	"Naz1Dt04","Naz1Dt05","Naz1Dt06","Naz1Dt07","Naz1Dt08","Naz1Dt09","Naz1Dt10",
+	"Naz1Dt11","Naz1Dt12","Naz1Pn02","Naz1Pn03","Naz1Pn04","Naz1Pn05","Naz1Pn06",
+	"Naz1Pn07","Naz1Pn08","Naz1Pn09","Naz1St02","Naz1St03","Naz1St04","Naz1St05",
+	"Naz1St06","Naz1St07","Naz1St08","Naz1St09","Naz1St10","Naz1St11","Naz1St12",
+	"Naz1St13","Naz1St14","Naz1St15","Naz1St16","Naz1St17","Naz1St18","Naz1St19",
+	"Naz1St20","Naz1St21","Naz1St22","Naz1St23","Naz1St24","Naz1St25","Naz1St26",
+	"Naz1St27","Naz1St28","Naz1St29","Naz1St30","Naz1St31","Naz1St32","Naz1St33",
+	"Naz1St34","Naz1St35","Naz1St36","Naz1St37","Naz1St38","Naz1St39","Naz2Dt02",
+	"Naz2Dt03","Naz2Dt04","Naz2Dt05","Naz2Dt06","Naz2Pn02","Naz2Pn03","Naz2Pn04",
+	"Naz2Pn05","Naz2Pn06","Naz2Pn07","Naz2Pn08","Naz2St02","Naz2St03","Naz2St04",
+	"Naz2St05","Naz2St06","Naz2St07","Naz2St08","Naz2St09","Naz2St10","Naz2St11",
+	"Naz2St12","Naz2St13","Naz2St14","Naz2St15","Naz2St16","Naz2St17","Naz2St18",
+	"Naz2St19","Naz2St20","Naz2St21","Naz2St22","Naz2St23","Naz2St24","Naz2St25",
+	"Naz2St26","Naz2St27","Naz2St28","Naz2St29","Naz2St30","Naz2St31","Naz2St32",
+	"Naz2St33","Naz2St34","Naz2St35","Naz2St36","Naz2St37","Naz2St38","Naz2St39",
+	"Naz2St40","Naz2St41","Naz2St42","Naz2St43","Naz2St44","Naz2St45","Naz2St46",
+	"Naz2St47","Naz2St48","Naz2St49","Naz3St02","Naz3St03","Naz3St04","Naz3St05",
+	"Naz3St06","Naz3St07","Naz3St08","Naz3St09","Naz3St10","Naz3St11","Naz3St12",
+	"Naz3St13","Naz3St14","Naz3St15","Naz3St16","Naz3St17","Naz3St18","Naz3St19",
+	"Naz3St20","Naz3St21","Naz3St22","Naz3St23","Naz3St24","Naz3St25","Naz3St26",
+	"Naz3St27","Naz3St28","Naz3St29","Naz3St30","Naz3St31","Naz3St32","Naz3St33",
+	"Naz3St34","Naz3St35","Naz3St36","Naz3St37","Naz3St38","Naz3St39","Naz3St40",
+	"Naz3St41","Naz3St42","Naz3St43","Naz3St44","Naz3St45","Naz3St46","Naz3St47",
+	"Naz3St48","Naz4Dt02","Naz4Dt03","Naz4Dt04","Naz4Dt05","Naz4Dt06","Naz4Dt07",
+	"Naz4Dt08","Naz4Dt09","Naz4Dt10","Naz4Dt11","Naz4Dt12","Naz4Dt13","Naz4Pn02",
+	"Naz4Pn03","Naz4Pn04","Naz4Pn05","Naz4St02","Naz4St03","Naz4St04","Naz4St05",
+	"Naz4St06","Naz4St07","Naz4St08","Naz4St09","Naz4St10","Naz4St11","Naz4St12",
+	"Naz4St13","Naz4St14","Naz4St15","Naz4St16","Naz4St17","Naz4St18","Naz4St19",
+	"Naz4St20","Naz4St21","Naz4St22","Naz4St23","Naz4St24","Naz4St25","Naz4St26",
+	"Naz4St27","Naz4St28","Naz4St29","Naz4St30","Naz4St31","Naz4St32","Naz4St33",
+	"Naz4St34","Naz4St35","Naz4St36","Naz4St37","Naz4St38","Naz4St39","Naz4St40",
+	"Naz4St41","Naz4St42","Naz4St43","Naz4St44","Naz4St45","Naz4St46","Naz4St47",
+	"Naz4St48","hitlerghost/see","hitlerghost/die","geist/pain","geist/die","chaingun/get",
+	"mutant/death","burndth1","burndth2","burndth3","burndth4","burndth5","burndth6",
+	"burndth7","burndth8","burndth9","burndtha","burndthb","burndthc"
 }

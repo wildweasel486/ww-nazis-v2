@@ -17,7 +17,6 @@
 #include "weapons/panzerschreck.txt"
 #include "weapons/granate.txt"
 #include "actors/bullets.txt"
-#include "items/keys.txt"
 #include "items/armor.txt"
 #include "actors/nazis.txt"
 #include "actors/nazis2.txt"
@@ -25,10 +24,19 @@
 #include "actors/nazis4.txt"
 #include "weapons/seekrit!.txt"
 
-Actor WildWeaselPlayer : DoomPlayer 
+Actor WWNazisPlayer : DoomPlayer 
 {
 	gibhealth -50
 	player.invulnerabilitymode "reflective"
+	Player.WeaponSlot 1,Melee
+	Player.WeaponSlot 2,Luger9mm,WeaselsRevolver
+	Player.WeaponSlot 3,TrenchShotgun,Browning5
+	Player.WeaponSlot 4,MP40
+	Player.WeaponSlot 5,G41
+	Player.WeaponSlot 6,STG44
+	Player.WeaponSlot 7,Pyrolight
+	Player.WeaponSlot 8,Nebelwerfer
+	Player.WeaponSlot 9,UMG43
 	player.startitem "WeaselsRevolver"
 	player.startitem "Melee"
 	player.startitem "RevolverClip" 30
@@ -51,7 +59,7 @@ Actor WildWeaselPlayer : DoomPlayer
 	Player.ColorRange 0 0
 	Player.AttackZOffset 18
 	Player.CrouchSprite ""
-	Player.DisplayName "Weasel"
+	Player.DisplayName "Some Guy with a Magnum"
 	Player.SoundClass "Weasel"
 	Scale 1.1
 	States
@@ -61,9 +69,8 @@ Actor WildWeaselPlayer : DoomPlayer
    		Loop
    	See:
       	WEAS ABCD 6
-      	goto Spawn
+      	Loop
     Pain:
-		WEAS G 0
         WEAS G 3 A_Pain
         Goto Spawn
 	Missile:
@@ -79,27 +86,19 @@ Actor WildWeaselPlayer : DoomPlayer
 		WEAS K 5
 		WEAS L -1
 		Stop
-	XDeath:
-		WEAS H 5
-		WEAS I 5 A_XScream
-		WEAS J 5 A_NoBlocking
-		WEAS K 5
-		WEAS L -1
-		Stop
 	}
 }
 
 ACTOR NaziBerserk : Berserk replaces Berserk
 {
-  Inventory.PickupMessage "Machtige!" // "Powerful!"
-  Inventory.PickupSound "misc/p_pkup"
-  States
-  {
-  Pickup:
-    TNT1 A 0 A_GiveInventory("PowerStrength")
-    TNT1 A 0 HealThing(100, 0)
-    Stop
-  }
+	Inventory.PickupMessage "Machtige!" // "Powerful!"
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_GiveInventory("PowerStrength")
+		TNT1 A 0 HealThing(100, 0)
+		Stop
+	}
 }
 
 ACTOR BarrelSpawner : RandomSpawner replaces ExplosiveBarrel
@@ -121,7 +120,7 @@ ACTOR BarrelFrags
 	}
 }
 
-ACTOR TNTBarrelBase
+ACTOR TNTBarrel1
 {
 	Health 20
 	Radius 10
@@ -152,17 +151,7 @@ ACTOR TNTBarrelBase
 	}
 }
 
-ACTOR TNTBarrel1 : TNTBarrelBase
-{
-	States
-	{
-	Spawn:
-		BARL A -1
-		Stop
-	}
-}
-
-ACTOR TNTBarrel2 : TNTBarrelBase
+ACTOR TNTBarrel2 : TNTBarrel1
 {
 	States
 	{
@@ -172,7 +161,7 @@ ACTOR TNTBarrel2 : TNTBarrelBase
 	}
 }
 
-ACTOR TNTBarrel3 : TNTBarrelBase
+ACTOR TNTBarrel3 : TNTBarrel1
 {
 	States
 	{
