@@ -45,8 +45,8 @@ Actor Thompson : Weapon
 	States
 	{
 	Ready:
-		THOM A 0 A_JumpIfInventory("45ACPAmmo",0,2)
-		THOM A 0 A_JumpIfInventory("ThompsonClip",1,2)
+		THOM A 0 A_JumpIfInventory("ThompsonClip",0,2)
+		THOM A 0 A_JumpIfInventory("45ACPAmmo",1,2)
 		THOM A 1 A_WeaponReady
 		Loop
 		THOM A 1 A_WeaponReady(WRF_ALLOWRELOAD)
