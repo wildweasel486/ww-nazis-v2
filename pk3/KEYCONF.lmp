@@ -1,0 +1,18 @@
+clearplayerclasses
+addplayerclass WildWeaselPlayer
+
+weaponsection Nazis
+setslot 1 Melee Firebrand
+setslot 2 Walther9mm Luger9mm WeaselsRevolver
+setslot 3 TrenchShotgun Browning5
+setslot 4 Thompson PPSH41 MP40
+setslot 5 G41 Enfield
+setslot 6 STG44 FG42
+setslot 7 Pyrolight
+setslot 8 Nebelwerfer Panzerschreck
+setslot 9 UMG43
+
+addkeysection "Nazis!" NazisKeys
+addmenukey "Throw Grenade" throwgrenade
+alias throwgrenade "use GrenadePickup"
+defaultbind g "throwgrenade"

@@ -1,0 +1,44 @@
+// Tentative support for Strife. May not be finished.
+
+ACTOR SRevolverClip : RevolverClip replaces ElectricBolts {}
+ACTOR SWalther : RandomSpawner replaces ClipOfBullets
+{
+	DropItem "Walther9mm"
+}
+ACTOR SNewShell : RandomSpawner replaces PoisonBolts
+{
+	DropItem "NewShell"
+	DropItem "MauserAmmoSmall"
+}
+ACTOR SRifleAmmo : MauserAmmo replaces BoxOfBullets {}
+ACTOR SSTGClip : STGClip replaces EnergyPod {}
+ACTOR SSTGClip2 : STGClip replaces EnergyPack {}
+ACTOR SFlameAmmo : FlameAmmo replaces PhosphorusGrenadeRounds {}
+ACTOR SNebAmmo : NebAmmo replaces HEGrenadeRounds {}
+
+ACTOR SG43 : RandomSpawner replaces StrifeCrossbow
+{
+	DropItem "G41"
+}
+ACTOR SSTG44 : RandomSpawner replaces AssaultGun
+{
+	DropItem "MP40"
+	DropItem "STG44"
+}
+ACTOR SSTG442 : RandomSpawner replaces AssaultGunStanding
+{
+	DropItem "MP40"
+	DropItem "STG44"
+}
+ACTOR SPyrolight : RandomSpawner replaces FlameThrower
+{
+	DropItem "Pyrolight"
+}
+ACTOR SUMG43 : RandomSpawner replaces Mauler
+{
+	DropItem "UMG43"
+}
+ACTOR SNebelwerfer : RandomSpawner replaces StrifeGrenadeLauncher
+{
+	DropItem "Nebelwerfer"
+}

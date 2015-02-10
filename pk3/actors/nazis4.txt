@@ -1,0 +1,115 @@
+/*
+	Nazis - Chex Quest Edition
+	Weapons Decorate File
+	written by Snarboo.
+*/
+
+// Super Bootspork
+
+actor CombatRifleSpawnerChex : RandomSpawner replaces SuperBootspork
+{
+	DropItem "Enfield"
+	DropItem "G41"
+}
+
+// Large Zorcher
+
+actor ShotgunSpawnerChex : RandomSpawner replaces LargeZorcher 
+{
+	DropItem "TrenchShotgun"
+	DropItem "Browning5"
+}
+
+// Rapid Zorcher
+
+actor SMGSpawnerChex : RandomSpawner replaces RapidZorcher 
+{
+	DropItem "MP40"
+	DropItem "ThompsonSpawner"
+}
+
+// Zorch Propulsor
+
+actor PyrolightSpawnerChex : RandomSpawner replaces ZorchPropulsor 
+{
+	DropItem "Pyrolight"
+}
+
+// Phasing Zorcher
+
+actor RapidSpawnerChex : RandomSpawner replaces PhasingZorcher 
+{
+	DropItem "PPSHSpawner"
+	DropItem "StG44"
+	DropItem "FG42"
+}
+
+// LAZ Device
+
+actor SuperWeaponSpawnerChex : RandomSpawner replaces LAZDevice 
+{
+	DropItem "UMG43"
+	DropItem "NebelWerfer"
+}
+
+/*
+	Nazis - Chex Quest Edition
+	Pickups Decorate File
+*/
+
+// Ammo
+// Replace the preexisting ammo types with ones more compatible with Nazis
+
+// Mini Zorch
+
+actor PistolSpawnerChex : RandomSpawner replaces MiniZorchRecharge 
+{
+	DropItem "RevolverClip"
+	DropItem "Walther9MM"
+	DropItem "Luger9MM"
+}
+
+actor MPClipSpawnerChex : RandomSpawner replaces MiniZorchPack 
+{
+	DropItem "MPClip"
+}
+
+// Large Zorch
+
+actor ShellSpawnerChex : RandomSpawner replaces LargeZorchRecharge 
+{
+	DropItem "ShellSpawner"
+}
+
+actor ShellSpawner2Chex : RandomSpawner replaces LargeZorchPack 
+{
+	DropItem "ShellSpawner2"
+}
+
+// Propulsor Zorch
+
+actor GrenadePickupSpawnerChex : RandomSpawner replaces PropulsorZorch 
+{
+	DropItem "GrenadePickup"
+}
+
+actor FlameAmmoSpawnerChex : RandomSpawner replaces PropulsorZorchPack 
+{
+	DropItem "FlameAmmo"
+} 
+
+// Phasing Zorch
+
+actor STGClipSpawnerChex : RandomSpawner replaces PhasingZorch 
+{
+	DropItem "STGClip"
+}
+
+actor NebAmmoSpawnerChex : RandomSpawner replaces PhasingZorchPack 
+{
+	DropItem "NebAmmo"
+}
+
+//actor SilverSkelKeyChex : SilverSkelKey 40 { Game Chex }
+//actor GoldSkelKeyChex : GoldSkelKey 39 { Game Chex }
+//actor BronzeSkelKeyChex : BronzeSkelKey 38 { Game Chex }

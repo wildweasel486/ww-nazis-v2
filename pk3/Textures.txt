@@ -1,0 +1,31 @@
+Sprite STGIB0, 43, 117
+{
+	Offset 22, 100
+	Patch STGIA0, 0, 0
+	{
+		Rotate -90
+	}
+}
+
+Sprite M1GPB0, 15, 70
+{
+	Offset 7, 66
+	Patch M1GPA0, 0, 0
+	{
+		Rotate 90
+	}
+}
+
+Sprite MP40B0, 31, 78
+{
+	Offset 15, 74
+	Patch MP40A0, 0, 0
+	{
+		FlipX
+		Rotate 90
+	}
+}
+
+define WLFSTART 3072 1920
+define WLFRATED 3072 1920
+define WLFTITLE 3072 1920

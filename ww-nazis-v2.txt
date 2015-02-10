@@ -1,0 +1,77 @@
+===========================================================================
+Archive Maintainer      : Weapon/enemy/gameplay mod, Combos directory
+                          please
+Update to               : ww-nazis.zip
+Advanced engine needed  : ZDoom SVN r3615 or higher
+Primary purpose         : Single play
+===========================================================================
+Title                   : Weasel Presents: NAZIS! (WWHC: Axis & Abaddon) v1.01
+Filename                : ww-nazis-v2.pk3
+Release date            : 5/13/2011
+Author                  : wildweasel
+Email Address           : wild.weasel@gmail.com
+Other Files By Author   : wwhc-diaz, ww-style
+Misc. Author Info       : I now run a ZDoom weapon-making tutorial site:
+                          http://gunlabs.blogspot.com/
+
+Description             : Nazis, nazis, and more nazis. This mod replaces
+                          ALL Doom 2 enemies with SS, Afrika Korps, and
+                          other Wolfenstein-inspired (but not directly
+                          recreated) enemies, as well as new World War
+                          2-era weaponry. I recommend playing with Epic2.
+						  v2 includes a shitton of new stuff.
+
+Additional Credits to   : Woolie Wool, DavidPH, among others - see
+                          ww-nazis-v2-lore.txt for full list
+===========================================================================
+* What is included *
+
+New levels              : None - weapons and enemies only
+Sounds                  : Yes
+Music                   : Yes, new title screen music
+Graphics                : Yes
+Dehacked/BEX Patch      : ZDoom Decorate scripts included
+Demos                   : Unneeded with included titlemap
+Other                   : Appropriate ZDoom definition files
+Other files required    : None
+
+
+* Play Information *
+
+Game                    : Doom
+Map #                   : n/a
+Single Player           : Designed for
+Cooperative 2-4 Player  : Theoretically supported but was broken last i checked
+Deathmatch 2-4 Player   : Untested but see no reason why it shouldn't work
+Other game styles       : None
+Difficulty Settings     : Redefined; now scales enemy aggression as well as
+						  bullet flight speed and damage to the player.
+
+
+* Construction *
+
+Base                    : ww-nazis.pk3
+Build Time              : A day or so
+Editor(s) used          : SLADE 3.0.2, Paint Shop Pro 9, GoldWave,
+                          ChaosEdit, Notepad++
+Known Bugs              : Shouldn't be any with all the testing I did
+May Not Run With...     : Skulltag (really hope this changes soon)
+
+
+* Copyright / Permissions *
+
+Authors MAY use the contents of this file as a base for modification or
+reuse.  Permissions have been obtained from original authors for any of
+their resources modified or included in this file.
+
+You MAY distribute this file, provided you include this text file, with no
+modifications.  You may distribute this file in any electronic format (BBS,
+Diskette, CD, etc) as long as you include this file intact.  I have 
+received permission from the original authors of most of the modified or included
+content in this file to allow further distribution, and for those that I didn't
+ask, feel free to contact me and I'll see about replacing any content you might
+have a problem with.
+
+* Where to get the file that this text file describes *
+
+The Usual: ftp://archives.3dgamers.com/pub/idgames/ and mirrors

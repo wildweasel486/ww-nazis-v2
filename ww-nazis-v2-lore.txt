@@ -1,0 +1,266 @@
+Weasel Presents: NAZIS (WWHC: Axis & Abaddon - now with 98% less Abaddon!)
+
+While the German Army of World War II certainly had its share of soldiers who were only following orders, it also had a good chunk of men who bought into every last one of the beliefs of Hitler's Germany. This chunk got sent straight to Hell and preserved for at least two hundred years, until Hell attempted an invasion and sent the Third Reich back to Earth to lead the charge, since nobody understands human combat tactics quite like humans.
+
+And so you, the intrepid adventurer Some Guy with a Magnum, are tasked with fighting them off. Joy!
+
+ENEMIES GUIDE
+Most enemy classes come in Afrika Korps (brown), Wehrmacht (grey), and SS (black) versions. They tend to act the same between enemy class, with noted exceptions. Generally, the Afrika Korps are the weakest, the SS have the most health, and the Wehrmacht fire the quickest.
+
+PISTOL SOLDIERS - Ordinary low-ranking Afrika Korps or SS men wielding Walther P-38 handguns. These guys don't pose much of a threat unless they're in groups. They don't carry much ammo, either. The SS version wears black and has slightly more health. (replaces Zombieman)
+
+MP-40 SOLDIERS - Making up for their lower-caliber weaponry with bullet spam, the MP-40 soldier can really become a threat in group or ambush situations. Watch your back. The Afrika Korps version will only fire in bursts, while the SS and Wehrmacht will never stop firing as long as you're in sight. (replaces Shotgunner)
+
+OFFICERS - While their choice of a Luger P-08 as a primary weapon might get them laughed at by any good military tactician, the resulting lighter load from not having to carry a rifle makes them run faster than other soldiers, and their quick-draw skills make them the fastest pistol marksmen in the army. (replaces the Imp)
+
+WAFFEN SS - Wielding the new StG-44 assault rifle, these men can seriously wreck your day if you're not paying attention. He'll drop his rifle and occasionally a grenade when killed. (randomly replaces the Chaingunner)
+
+RIFLEMEN - Deadly accurate snipers carrying the Gewehr 43 semi-automatic rifle. They take a while to draw a bead, though, so as long as you don't poke your head out for too long, you might survive an encounter. (randomly replaces the Chaingunner)
+
+DOGS - While the dogs can't stand up to much abuse, they're vicious and can dish out some serious hurt if they can get close enough. Keep something rapid-fire on hand; they move quickly. There are two random variants of dog, but they don't act any differently; they're dogs, for chrissakes. (replaces the Pinky)
+
+FALLSCHIRMJAGER - Combining the air superiority of the Luftwaffe with the intensive tactics training of the SS, the paratoopers carry special FG-42 rifles and can take more of a beating than the Waffen SS. You can identify them by their goggles and backpacks. (randomly replaces the Spectre)
+
+SCHABBS' TEST SUBJECTS - The silent-but-deadly (heh) mutants make their return. You literally will not hear these guys coming until they start their Dance of Doom. (randomly replaces the Spectre)
+
+HANS GROSSE, UBERSOLDAT - Major Wilhelm "Death's Head" Strausse headed up an Ubersoldat weapons project, intended to turn any Wehrmacht personnel into a walking machine gun platform. Among the successful applicants was Hans Grosse, member of Germany's prestigious (and widespread) Grosse family. Hans' special mechanized Ubersoldat suit enables him to carry two UMG-43 chainguns, however it does not assist him in aiming them, so his likelihood of hitting you at a distance is low. (replaces the Hell Knight)
+
+FRANZ GROSSE, UBERSOLDAT ELITE - One of Hans' elder cousins, Franz entered into the Ubersoldat program months before his younger relative, and thus received better training in using the Ubersoldat platform to carry heavier loads. Therefore, Franz's armored suit has thicker plating, enabling him to receive more damage than Hans. He is still not a great shot with his two UMG-43 chainguns, however. (replaces the Baron of Hell)
+
+GRETEL GROSSE, UBERSOLDAT MK.II PROTOTYPE - Kind of in between Hans and Franz. While there are doubts as to whether Gretel is actually female or not, there are no doubts as to how much damage she can dish out with her pair of automatic shotguns. (very rarely spawns in place of Hans)
+
+BOSS GROSSE - The illustrious (and borderline psychopathic) father of the Grosse family, Boss Grosse (Big Boss) refused to join the Ubersoldat program, favoring instead a good old-fashioned exercise and strength-building regimen. Boss carries a Pyrolight flamethrower and will use both firing modes of it, depending on his distance to you. At longer ranges, he'll fire single fireballs, dealing moderate splash damage. As he closes in, he'll hose you down with a spray of fire which will incinerate you if you aren't out of the way quickly. (replaces the Arachnotron)
+
+HITLER? - Adolf Hitler remains alive and completely preserved by Hell's legions, but old tricks die hard, so in addition to taking to the front lines himself, Hitler also ordered construction of a division of "fakes" - actually floating automatons equipped with ball-lightning generators. Distinguishable from the real Hitler by their black robes (and the ability to fly), these fake Hitlers will also try to dodge your fire. Heavy weapons or shotguns recommended. (replaces the Cacodemon)
+
+GEIST - The Third Reich often experimented with occult science, ranging from their attempts in 1943 to capture the Spear of Destiny to their further experimentation a year later with the Thule Medallion and the Black Sun dimension. While the Thule Medallions were thought destroyed near the end of the second World War, the Black Sun dimension appears to be leaking into the real world, as evidenced by these "Geists." Difficult to see with the naked eye, and capable of leeching the very life force from you if they get too close. Keep an ear out for the distinctive low humming noise they make, and if in doubt, bullet-spam. It IS possible to defeat the Geists with only your shovel, according to Sotenga - "If you back away at the right time, they pause for a second. It's all a matter of keeping distance and knowing how far out the shovel goes." (replaces the Lost Soul)
+
+OTTO GIFTMACHER - The spearhead of Nazi Germany's chemical weapons program, Giftmacher wields a rocket launcher but otherwise is unremarkable. (randomly replaces the Revenant)
+
+DR. SCHABBS - We're pretty sure this guy never swore the Hippocratic Oath. He throws needles full of mutagen at you, which is actually not all that great of an idea, because it takes several to kill you (compared to a theoretical instant effect if he were to think to directly inject you with it - which he doesn't). Geneva Protocol be damned, he says. (randomly replaces the Revenant)
+
+HEINRICH KRIST - We don't really know a lot about this guy, except that he rides a flying wheelchair with rocket launchers, and that he probably won't be in this mod for very much longer. (replaces the Pain Elemental, for now)
+
+COLONEL ZWEIMELTOD - A higher-ranking officer wielding a pair of rocket launchers. Take heed to not be in this guy's sights for very long, as his devastating barrages have little potential for dodging. The upshot, however, is that he will drop a Klein Nebelwerfer when killed...just not much ammo for it, since he uses a lot of it. (replaces the Mancubus...oh and by the way, his name is Google-translated from "twice death")
+
+GENERAL FETTGESICHT - The General ordered the start of the chemical weapons program in 1942 and is still entirely willing to defend it to the death with both a Klein Nebelwerfer rocket launcher and a UMG-43 chaingun. Along with Zweimeltod, he's probably going to get replaced with a better boss sometime in the future. (replaces the Arch-Vile)
+
+DEATH KNIGHT - The ultimate result of the Ubersoldat program and quite possibly the strongest man to have ever joined Hitler's army, Death Knight (actual identity unknown) wears a powerful mechanized suit that enables him to carry two UMG-43 chainguns and two rocket launchers on his shoulders. Because of the sheer amount of mechanical power needed to carry such a load, Death Knight's footsteps are very loud and distinctive. Stay behind cover if you want to survive an encounter with him. (replaces the Cyberdemon)
+
+ADOLF HITLER - The man himself. Hitler still wears his mechanized suit - actually an advanced prototype of that used on the Ubersoldats - and is still looking for a fight. Watch out for his four UMG-43's - the sheer bullet spam can take you down in seconds. But on the up side, you might be able to take one for yourself if you can beat him. (replaces the Spider Mastermind)
+
+WEAPONS GUIDE
+
+SHOVEL - Nothing more satisfying than the dull CLANG! of a metal shovel contacting with someone's head. Can be enhanced by finding the "Machtige" powerup.
+
+.357 REVOLVER - Your old trusty sidearm. Deals above-average damage to foes, taking only one or two shots to kill most Afrika Korps personnel. Does take a bit to reload, and ammo is not easy to come by.
+
+WALTHER P-38 - The standard sidearm of the Third Reich (and also popular with such notable figures as Arsene Lupin III and UNITY agent Cate Archer), the P-38 might not do a lot of damage, but it's quick in every way, having a decent rate of fire and also the quickest reload of any of the arsenal, making it a good early weapon for close range fights before you get an MP-40 and enough ammo for it.
+
+LUGER P-08 - Contrary to common belief (the somewhat ambiguous appearance of the Wolfenstein pistol doesn't help matters either), the Luger and the Walther are two entirely different handguns. Such is the same case here; the Luger can fire quicker (though it is semi-automatic only), and is slightly more accurate, but its slugs do slightly less damage than the Walther. Even still, this one could be more useful than the Walther over longer distances.
+
+M1897 TRENCH SHOTGUN - A pump-action favorite from the first World War, the Trench Shotgun is handy for putting out a lot of lead in a single instant. It's good against lines of weaker foes, or against stubborn targets that take a lot of damage, such as Otto Giftmacher or the Fake Hitlers. Its sole drawbacks are the fact that ammo is somewhat hard to come by and that it takes a while to reload.
+
+BROWNING AUTO-5 SHOTGUN - The recoil-operated semi-automatic Auto-5 shotgun might not have as large of a tube magazine as the M1897, and is slightly harder to load, but the ability to quickly squeeze off four shots (of the same power and velocity as the trench gun, at that) will come in very, very handy against bosses. Just stay close - the spread is a fair bit wider than the trench gun's.
+
+MP-40 MACHINEPISTOL - Clocking in at a very manageable 500-600 rounds per minute and sporting a generous 32-round magazine, the MP-40 is likely the first good weapon you'll find in a majority of situations. Its relatively low fire rate does not lend well to spray-and-pray tactics, and its somewhat lacking accuracy makes it difficult to use at range, but it's quite good for dealing with groups of enemies in close quarters.
+
+THOMPSON M1A1 - While arguably more famously employed by the mafia families of Chicago during the Great Depression, the Thompson was adopted for use by the United States Army just before the war. Its .45 ACP cartridge does somewhat greater damage than the 9mm MP-40, but it is more difficult to come by (since you're behind enemy lines), and its box magazine only holds 20 of these rounds, but you'll find quite a lot of ammo wherever a Thompson may be found. The weapon, and its pile of ammo, replace the Chaingun spawns.
+
+SHPAGIN PPSh-41 - Soviet Russia cannot be forgotten for their efforts during the War. The Red Army managed to push German invaders all the way back to Berlin, and this was one of their greatest tools. Nicknamed the "burp gun" due to its distinctive sound and extremely high rate of fire, the PPSh-41 is simultaneously the fastest, weakest, and least accurate of the SMGs, and admittedly you won't find a terrible lot of ammo for it outside of where you get the gun itself, but this thing is probably the best bullet-hose you'll get. It, and the ammo pile it comes with, replace the Plasma Rifle spawns.
+
+GEWEHR 43 - Sensing the impending outdatedness of their Karabiner 98 rifles compared to Soviet Russia's SVT-40, Germany's Walther Arms borrowed some design elements from the SVT series and produced the Gewehr 43, a semi-automatic rifle that takes the 7.92x57mm Mauser round. The G43's shots travel much faster than those of other weapons, making it easier to hit distant targets without leading your shots. It also has perfect accuracy, but over extremely long distances, make sure to factor in the movement of your target, or you will most certainly miss. Weaker foes like the Pistol and MP-40 soldiers will likely go down from only one shot.
+
+SHORT-MAGAZINE LEE-ENFIELD, NO.1 MARK III - Great Britain's premier bolt-action marksman's rifle, this particular SMLE was modified to accept the 7.92mm Mauser cartridge instead of the .303 Enfield. It still bears the same 10-round internal magazine (which needs to be filled via 5-round stripper clips). Its bullets have the same power and muzzle velocity as they would in the Gewehr 43, but it is somewhat easier to find these in the field (especially in Doom 1). It replaces the Chainsaw.
+
+STURMGEWEHR 44 - Widely acknowledged as the first "assault rifle" (though the weapon's name translates from German as "storm rifle"), the StG-44 is chambered for an "intermediate" round, the 7.92x33 "Kurz" round, making it nearly as powerful as a full-sized rifle, but as quick and easy to wield and fire as a regular machine-pistol. The StG-44 deals significantly more damage than the SMGs, but slightly less rate of fire; as the StG-44 is still a very new invention that hasn't quite made its way to front lines, the weapon is somewhat difficult to locate ammo for. That said, feel free to whip it out if you have an Ubersoldat to take down.
+
+FALLSCHIRMJAGERGEWEHR 42 - The FG 42 is a unique "paratrooper rifle" that was designed specifically for the Luftwaffe's only infantry division. As it was developed prior to the StG-44, it is chambered for the standard 7.92mm Mauser cartridge. That, plus the weapon's uncontrollably fast rate of fire, gives it near-impossible recoil, but those who persevere (and have strong shoulders) might find that this weapon will chew through Ubersoldats and heavier foes with no problem whatsoever. It will, however, chew through your rifle ammo quite quickly, so use is recommended only in emergencies or if you have a full Backpack.
+
+KLEIN-NEBELWERFER - A portable, miniaturized version of the Nebelwerfer-42 artillery rocket launcher, the Klein Nebelwerfer fires 3cm rocket-propelled grenades on a belt-feed mechanism at roughly 150-200 rounds per minute. While the weapon is somewhat common among higher-ranking officers, its ammo is not, so save your rockets for heavier foes like Franz Grosse and the Death Knight.
+
+PYROLIGHT - Actually designed for pest control, the Pyrolight was created to reduce the risk of carrying a backpack of volatile fuel to use a flamethrower. The fuel reservoir is directly attached to the underside of the weapon, instead of being mounted on one's back. Should the weapon sustain any damage from high heat, the weapon can be discarded instead of engulfing its user in flames. The Pyrolight has two modes of fire. Primary fire is a simple burst of flame with limited range but extremely high damage, while secondary fire launches a fireball that explodes with a reasonably large blast radius, excellent for crowd control at range (or knocking down troublesome Ubersoldats with direct hits). It needs to be reloaded every so often (50 units of fuel), and is the slowest-reloading weapon available. It replaces Doom's rocket launcher.
+
+UBERMASCHINENGEWEHR 43 - An extremely experimental small-arm (small? hah!) developed by Major Wilhelm Strausse, codenamed "Venom" by the SS Special Projects Division, the UMG-43 is a belt-fed machine gun with several rotating barrels. It is chambered for 9x19mm Parabellum (to reduce the weight requirements of carrying large amounts of ammo, as well as aid in recoil reduction) and is capable of nearly 3,000 rounds per minute at the highest speed setting. Special training is required to lift and fire the weapon, so you may find yourself aiming at the ceiling very quickly when firing. Accuracy is also very low, so its usage should be limited to the control of large crowds of enemies or close range dueling with Ubersoldats. Make sure you have plenty of 9mm ammo before attempting to use this weapon. The weapon is somewhat fragile and may not be intact if the weapon is dropped by an enemy, so just because you've killed a chaingun-wielding opponent does not guarantee that you will get one from them.
+
+STEILHANDGRANATE - A stick-shaped hand grenade, occasionally nicknamed "potato masher" by Russian forces. Its design places most of the weight towards one end of the grenade, allowing soldiers to throw it farther. It has a wide blast radius, and deals moderate damage to most enemies, but is not especially effective against bosses. Best for crowd control.
+
+RECOMMENDED LEVEL SELECTIONS
+
+Since this mod is themed after World War II enemies and weapons, not everything will fit the theme, so some map sets might badly clash with it. However, there are some that work exceedingly well.
+
+EPIC and EPIC2 by Eternal - This mod was actually designed with Epic2 in mind, to provide an Indiana Jones-ish feel. The Afrika Korps enemies were specifically chosen to match Epic2's primarily desert-themed levels.
+
+REVOLUTION! (TVR!) by Thomas van der Velden - TVR!'s mainly domestic settings are well suited for encounters with human enemies. Just watch out for the Twin Hitlers on the beach on map04.
+
+EQUINOX by BPRD - While Equinox's futuristic setting might seem to clash with the mod, its enemy placement actually works nicely with this mod (good luck with Map04 though!)
+
+SCYTHE 2 by Erik Alm - Particularly the second episode, which takes place in Egypt.
+
+CREDITS LISTING
+
+SPRITES FOLDER
+Weasel sprites - based on Hostage sprites by MrWolf from Monkee's Image World, edit by wildweasel
+Shovel sprites - Lifted wholesale from Massmouth 2 by Cyb. Probably based on a Day of Defeat model rip.
+Revolver sprites - based on Powerslave sprites by Lobotomy Software, edit by Mike12
+P-38 sprites - based on Doom pistol, edit by Mike12. Pickup from Rise of the Triad: Wolfenstein 3D Part II prototype images.
+Luger sprites - drawn by JoeyTD. Pickup drawn from scratch by wildweasel.
+Trench shotgun sprites - based on Doom shotgun, edit by MidoriMan. Pickup sprite by SamVision.
+Browning Auto-5 sprites - based on Doom shotgun, edit by Mike12. Pickup sprite by SamVision, edited by wildweasel
+MP-40 sprites - based on MP-40 from Rise of the Triad by Apogee, edit by wildweasel.
+Thompson Sprites - based on the cover artwork of Hired Guns by Psygnosis, edit by Bourbon Cowboy, further edit by wildweasel. Pickup sprite's source unknown.
+PPSh-41 Sprites - by Nosehair26, edited from Doom Alpha and Blood graphics originally edited by JoeyTD. muzzle flash from Blood with recolor by wildweasel. Pickup sprite from scratch by wildweasel.
+Gewehr 43 sprites - original sprite by Deimus, edits by wildweasel from photo source. Pickup by wildweasel, minor edit by lizardcommando. Ammo sprite by TheDarkArchon.
+Lee-Enfield sprites - based on a Day of Defeat model, edit by wildweasel, muzzle flash from Powerslave. Pickup sprite from scratch by wildweasel.
+StG-44 sprites - based on machinegun from Jaguar Wolfenstein 3D by Atari, edit by wildweasel using portions of Doom Alpha machinegun by id software. Pickup sprite by SamVision.
+FG-42 sprites - based on a Day of Defeat model replacement, original author unknown, edit by wildweasel with muzzle flash from Blood. Pickup sprite from scratch by wildweasel.
+Pyrolight sprites - from Powerslave by Lobotomy Software
+Klein Nebelwerfer sprites - from Necrodome by Raven Software, Duke Nukem 3D by 3D Realms, Doom 2.5 by Kronos. Pickup by SamVision.
+Chaingun sprites - original from Doom 64 by Midway, edits by Cage, recolor by wildweasel, muzzle flash from Blood. Pickup from Macintosh Wolfenstein 3D by MacPlay, edit by Turbo.
+Items sprites - from Duke Nukem 3D, Doom, and Strife.
+Key sprites - Original source unknown (Laz Rojas?), edits by Woolie Wool and wildweasel.
+Nazi sprites - Various Monkee's Image World sources (original authors unknown), edits by Woolie Wool, CaptainToenail, BouncyTEM, wildweasel, and others. Some unmodified graphics from Wolfenstein 3D and Spear of Destiny. Heinrich Krist appears courtesy of 3D Realms' ROTT alpha page and Monkee's Image World. Some unused monster sprites sourced from Laz Rojas' Wolfendoom: The Portal and Wolfendoom: Operation Arctic Wolf.
+Barrel sprites - TNT barrels, boxes, and explosion from Blood Alpha by Monolith. Wood fragment effect from Rise of the Triad.
+Grenade sprites - by wildweasel.
+Panzerschreck sprites - from Wolfenstein 2009 by Raven Software, rip by BouncyTEM, very minor edit by wildweasel. Pickup sprite drawn from scratch by wildweasel. Ammo sprite from Resident Evil.
+
+SOUNDS FOLDER
+Weasel sounds - recorded by Vosvoy of Freesound Project, licensed under Creative Commons Sampling Plus 1.0. Death sounds from Red Faction by Volition.
+Shovel sounds - from Postal 2 by Running With Scissors and other unknown source (HL2 SMOD).
+Revolver sounds - Mashed up from No One Lives Forever, Medal of Honor: Pacific Assault, Trigun, Crimsonland, and Call of Duty 2.
+Luger sounds - from No One Lives Forever with edits by wildweasel.
+Trench shotgun sounds - Call of Duty 2 by Infinity Ward and Freesound Project (author unknown).
+Flamer sounds - from Hexen by Raven Software, Blood by Monolith, and unknown Internet source (steam).
+Browning sounds - from Grand Theft Auto IV by Rockstar North, edited by wildweasel.
+StG-44 sounds - from Call of Duty 2 and Medal of Honor: Pacific Assault by EA Games.
+MP-40 sounds - from Call of Duty 2 and Medal of Honor: Pacific Assault.
+Thompson sounds - from Metal Gear Solid 3 by Konami, X-COM: UFO Defense by MicroProse, and Contract JACK by Monolith.
+PPSh-41 sounds - from Call of Duty 2.
+Nebelwerfer sounds - Unknown source and Powerslave.
+Items sounds - by wildweasel and from Medal of Honor: Allied Assault.
+Nazis sounds - Various sources from Wolfenstein 3D, Wolf Skevos-Jones, Call of Duty 2, Jedi Outcast, Wolfenstein 3D Macintosh version.
+Walther P38 sounds - from Wolfenstein (2009) by Raven Software and Medal of Honor: Pacific Assault.
+Gewehr 43 sounds - from Call of Duty 2 and Medal of Honor: Pacific Assault.
+Lee-Enfield sounds - from Medal of Honor: Allied Assault - Breakthrough and No One Lives Forever.
+FG-42 sounds - from Grand Theft Auto IV with edits by wildweasel.
+Bullet sounds - from Medal of Honor: Allied Assault and No One Lives Forever 2.
+Chaingun sounds - from Call of Duty 2, Return to Castle Wolfenstein by Grey Matter, and sound recording by The_Funktasm.
+Geist sounds - from Marathon 2 by Bungie Software and Doom 2.
+Other sounds - Explosions from MoH: Allied Assault. Some enemy weapon sounds from No One Lives Forever, Wolfenstein: Enemy Territory by Splash Damage, Medal of Honor: Allied Assault.
+Grenade sounds - Call of Duty 2.
+Panzerschreck sounds - from MoH: Allied Assault, Unreal Tournament, and Soldier of Fortune 2.
+
+WEAPONS FOLDER
+Code written by wildweasel. Klein Nebelwerfer, Grenade code provided by Woolie Wool with edits by wildweasel. "Proper" Infinite Ammo flag support written by DavidPH. Special thanks to Xaser for implementing weapon bob customization and proper Reload key support in ZDoom. Some bug fixing assistance by Woolie Wool, TheDarkArchon, BouncyTEM and other members of ZDoom Forums and #ZDoom IRC channel on EsperNet.
+
+ITEMS FOLDER
+Items and keys code written by Woolie Wool.
+
+ACTORS FOLDER
+Most enemies coded by Woolie Wool. Fake Hitler and Geist written by wildweasel.
+
+GRAPHICS FOLDER
+HUD graphics by wildweasel, some edits by Woolie Wool. THREEFIV byte-map font by crs/broncs.
+Title screen graphics by wildweasel, stylistically inspired by Wolfenstein 3D.
+
+MAPS FOLDER
+Titlemap and scripting by Jallamann.
+
+MUSIC FOLDER
+Ogg Vorbis recording of "Horst Wessel Lied" (Nazi Germany national anthem).
+
+LIST OF (HONORARY) ACHIEVEMENTS
+(Because a real achievement system would suck and take too much effort)
+Consider yourself awesome if you can satisfy all of these challenges (bonus points if you record a video of yourself doing so for proof!)
+
+BWONGG! - Took down at least five Nazis from behind in one level, without alerting everybody.
+
+The Dogs of War - Shoveled 20 dogs in one level.
+
+Dogs of the Federation - Killed 10 dogs with the MP-40 in less than five seconds.
+
+Spion! - Kill twenty officers on the same level with just the Luger.
+
+Luger Me Now - Defeated Otto Giftmacher (or stronger) using only the Luger.
+
+Should Have Done This In 1945 - Laid the finishing blow to Hitler (or one of his fakes) with your shovel.
+
+Patrick Swayze Wannabe - Shoveled a Geist to death.
+
+You May Wield The Spear - Shoveled 20 Geists to death on the same level.
+
+Their Own Medicine - Kill Hitler with a UMG-43 dropped by an Ubersoldat or another Hitler.
+
+Sharpshooter - In less than three shots, killed any Nazi from most of the way across Map02 of Epic.wad. (Zoom aliases allowed.)
+
+Der Ubermensch - Survive a level after taking more than 500 points of damage.
+
+Blast Hardcheese - Kill 15 nazis (or dogs) with one grenade.
+
+Die, Allied Schweinhundt! - Kill Hitler without using the Pyrolight, Nebelwerfer, Panzerschreck, or any of the machine guns.
+
+Super Turbo Nazi Whacker 3 - Shoveled at least one of every type of Nazi to death. (bonus points if you NEVER use anything OTHER than your shovel)
+
+Skeet Champion - Killed five Fake Hitlers with the Gewehr 43 or Lee-Enfield (harder than it sounds!)
+
+Old Faithful - Completed any level with only your Revolver (and shovel). Ubermensch difficulty or higher only.
+
+More Huge - Show General Fettgesicht who's the bigger man by killing him in close combat.
+
+Your Number's Up, Monster! - After weakening him with other weapons, finish off Hitler with a single Nebelwerfer rocket, Panzerschreck missile, or Pyrolight alt-fire.
+
+Project Eisenritter Aborted - Same, but for the Death Knight.
+
+Der Fuehrer's Face - Heil Hitler right in the face by killing him with ONLY your shovel. (Any difficulty setting; Machtige! powerups allowed)
+
+Der'Sparil's Face - Give D'sparil a similar treatment.
+
+I Believe Ya, But My Tommy Gun Don't! - Complete a particularly tough level with only the Thompson.
+
+Never Mess With A Soviet! - Complete a particularly tough level with only the PPSh-41.
+
+Discerning Pistolero - Wield, fire, and understand the differences between the P-38, Luger, and the .357 Magnum, and complete a level using only these three weapons.
+
+FPS Cliche Aficionado - Clear a level using only one of the shotguns and no other weapon.
+
+New York Reload - Defeat all Nazis in one level, having emptied every weapon in your inventory and never reloaded.
+
+Ya Need A Little Reviiive - Use the resurrect command to bail out of a completely unfair firefight in a difficult megawad.
+
+How's That For A Hair Trigger? - Kill a test subject, with it having spotted you and not having managed to shoot at you.
+
+Bloody Yankees - Kill exactly one enemy with an entire Thompson magazine.
+
+I'm Outta Gun Juice! - Run completely out of ammo. Surprisingly hard to do.
+
+Fun For The Whole Family - Encounter, and defeat, all four members of the Grosse family in a single level.
+
+The Rocketeer - Kill a Nazi with a point-blank shot from the Panzerschreck, without killing yourself in the process. (powerups allowed)
+
+The Rocketeer Returns - Cross a wide chasm (at least 512 map units wide) by propelling yourself with the Panzerschreck. (powerups allowed)
+
+Ramirez! Do Everything! - Take down that flying wheelchair with your tactical shovel!
+
+Batter Up! - In Heretic, use the powered-up shovel to hit an explosive pod towards an enemy and kill them with it.
+
+Yeeeeer Out! - While attempting the above, manage to kill yourself with the pod.
+
+Pull! - Killed a Gargoyle or a Disciple from a long (>1024) distance using one of the shotguns.
+
+Just Throw Grenades At Me - Kill a boss by throwing all of your grenades at it.
+
+The Counter-Strike Award - Kill any Nazi by bouncing a grenade off their head (not with the explosion).
+
+Heat Level Critical! Shutdown Sequence Initiated! - Kill yourself with the flamethrower's primary fire while running forward.
+
+Controllable Recoil - Manage to kill any enemy from a long distance with the FG-42. Certainly not the most optimal use of your Mauser ammo.
+
+Simo Hayha Award - Eliminate a Wehrmacht Rifleman from more than 2048 map units away with the Lee-Enfield. (No zoom aliases allowed.)
+
+Audie Murphy Award - Fend off an assault of at least 50 Nazis using the UMG-43, without touching the movement keys.
+
+Alvin York Award - Take down Equinox Map04's first room full of enemies with only the pistols and Lee-Enfield.
+
+Manfred von Richthofen Award - After clearing an entire room of Nazis, die from a single shot by a pistol soldier or Officer.
+
+Mad Jack Churchill Award - Manage to get every shovel-related achievement during the same playthrough of a megawad.

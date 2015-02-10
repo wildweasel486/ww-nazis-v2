@@ -1,0 +1,32 @@
+CHANGES SINCE INITIAL V2 PUBLIC BETA:
+	Luger's firing animation got fixed.
+	PPSh-41's recoil reduced.
+	Fixed PPSh-41's initial ammo dump that wasn't spawning.
+	Thompson and Lee-Enfield now start loaded.
+	Added Panzerschreck, replacing BFG. Thanks to BouncyTEM for graphics.
+	PPSh-41 now has new graphic by Nosehair26.
+	Adjusted weapon ordering in KEYCONF so that MP40 is first on slot 4.
+	Adjusted selection priority so that the pistols will not get autoselected when picked up.
+	BouncyTEM submitted extra Wehrmacht soldiers and officers; they are now added among the regular spawns.
+	Added Blox's improved flame death frames.
+	Lee-Enfield and Gewehr 43 rebalanced. Gewehr's projectiles now fly slightly slower, while Lee-Enfield's fly faster and do more damage to compensate for bolt-action.
+	Thompson's damage and muzzle velocity increased.
+	Heretic support given a much-needed kick in the teeth - more available weapons, ammo now actually available for all of them, and shotgun spawns are fixed so that they now actually give you shotguns 100% of the time.
+	Massive exploits regarding the two shotguns were plugged up - reloading no longer skips over the pumping animation, and it is now slower to fire the Browning Auto-5 with the Reload key held down than it is naturally. Shotgun reloads are now required to pump afterwards if interrupted with the fire button.
+	Weapon selection now occurs twice as fast on all weapons except the Panzerschreck.
+	Added Chex Quest support, courtesy of Snarboo...with a twist.
+	Renamed some of the sprites and one sound file so that they do not replace things that they shouldn't.
+	Backpack recolored.
+	Enemies are now capable of hurting each other on Bund Deutscher Madel and Morgenspaziergang difficulties.
+
+CHANGES SINCE "FINAL" VERSION:
+    Most weapons that are placed in maps were changed - instead of being the same guns you can get off the nazis themselves, they are now the Thompson (replaces Chaingun), the PPSh-41 (replaces the Plasma Rifle), and the Lee-Enfield (replaces the Chainsaw). With the exception of the Enfield, they take unique ammo types and come with piles of ammo.
+    The FG-42 is now dropped (half the time) by Paratroopers. The other half the time, he drops a 5-round Mauser clip.
+    MP-40 sped up by half a tic.
+    StG-44 slowed down by two tics, power beefed, and ammo drops reduced to suit.
+    Officers now drop Lugers instead of P-38s. The Luger does slightly less damage but is more accurate, and can be fired as fast as you can click the trigger.
+    Dr. Schabbs no longer glows in the dark.
+    Weapon bobbing now altered, thanks to Xaser for implementing that in ZDoom.
+    Reloading now requires a press of the ZDoom standard issue Weapon Reload key instead of Altfire.
+    Flamethrower received a crap ton of updates, including better animations, MUCH improved flame projectiles, and it now needs to be reloaded!
+    Majorly fixed up and updated the Lore text.

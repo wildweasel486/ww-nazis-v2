@@ -1,0 +1,114 @@
+// Okay so most of this shit is copy-pasted from gzdoom.pk3's menudef, so
+// if it breaks, I want you to go yell at Graf Zahl about it. Kay? -ww
+
+DEFAULTLISTMENU
+{
+	Font "har22", "Untranslated"
+	IfGame(Doom, Chex)
+	{
+		Selector "M_SKULL1", -32, -5
+		Linespacing 22
+	}
+	IfGame(Strife)
+	{
+		Selector "M_CURS1", -28, -5
+		Linespacing 22
+	}
+	IfGame(Heretic, Hexen)
+	{
+		Selector "M_SLCTR1", -28, -1
+		Linespacing 22
+	}
+}
+
+LISTMENU "MainMenu"
+{
+	IfGame(Doom, Chex)
+	{
+		StaticPatch 94, 2, "M_DOOM"
+		Position 97, 72
+	}
+	IfGame(Strife)
+	{
+		StaticPatch 84, 2, "M_STRIFE"
+		Position 97, 45
+	}
+	IfGame(Heretic)
+	{
+		StaticPatch 88, 0, "M_HTIC"
+		StaticPatch 40, 10, "M_SKL01"
+		StaticPatch 232, 10, "M_SKL00"
+		Position 110, 56
+	}
+	IfGame(Hexen)
+	{
+		StaticPatch 88, 0, "M_HTIC"
+		StaticPatch 37, 80, "FBULB0"
+		StaticPatch 278, 80, "FBULA0"
+		Position 110, 56
+	}
+	
+	IfGame(Doom, Strife, Chex, Heretic, Hexen)
+	{
+		TextItem "New", "n", "PlayerclassMenu"
+		TextItem "Options","o", "OptionsMenu"
+		TextItem "Load", "l", "LoadGameMenu"
+		TextItem "Save", "s", "SaveGameMenu"
+		TextItem "Quit", "q", "QuitMenu"
+	}
+}
+
+ListMenu "EpisodeMenu"
+{
+	IfGame(Doom, Heretic, Hexen, Strife)
+	{
+		NetgameMessage "$NETGAME"
+	}
+	IfGame(Chex)
+	{
+		NetgameMessage "$CNETGAME"
+	}
+
+	IfGame(Doom, Chex)
+	{
+		Position 48, 63
+		StaticText 54, 38, "Pick Your Mission"
+	}
+	IfGame(Strife)
+	{
+		Position 48, 63
+		StaticText 54, 38, "Pick Your Mission"
+	}
+	IfGame(Heretic, Hexen)
+	{
+		Position 80, 50
+	}
+	// items will be filled in by MAPINFO
+}
+
+ListMenu "SkillMenu"
+{
+
+	IfGame(Doom, Chex, Strife)
+	{
+		StaticText 96, 14, "New Game"
+	}
+	IfGame(Doom, Strife, Chex)
+	{
+		StaticText 54, 38, "How Tough Are You?"
+		Position 48, 63
+		Font "wen18", "Untranslated"
+	}
+	IfGame (Heretic)
+	{
+		Position 38, 30
+		Font "wen18", "Untranslated"
+	}
+	IfGame (Hexen)
+	{
+		StaticText 74, 16, "How Tough Are You?"
+		Position 160, 44
+		centermenu
+		Font "wen18", "Untranslated"
+	}
+}

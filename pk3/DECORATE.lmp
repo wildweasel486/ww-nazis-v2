@@ -1,0 +1,183 @@
+#include "weapons/shovel.txt"
+#include "weapons/revolver.txt"
+#include "weapons/P38.txt"
+#include "weapons/Luger.txt"
+#include "weapons/shotgun.txt"
+#include "weapons/g41.txt"
+#include "weapons/browning.txt"
+#include "weapons/stg44.txt"
+#include "weapons/mp40.txt"
+#include "weapons/ppsh41.txt"
+#include "weapons/flamer.txt"
+#include "weapons/nebelwerfer.txt"
+#include "weapons/umg43.txt"
+#include "weapons/Enfield.txt"
+#include "weapons/fg42.txt"
+#include "weapons/thompson.txt"
+#include "weapons/panzerschreck.txt"
+#include "weapons/granate.txt"
+#include "actors/bullets.txt"
+#include "items/keys.txt"
+#include "items/armor.txt"
+#include "actors/nazis.txt"
+#include "actors/nazis2.txt"
+#include "actors/nazis3.txt"
+#include "actors/nazis4.txt"
+#include "weapons/seekrit!.txt"
+
+Actor WildWeaselPlayer : DoomPlayer 
+{
+	gibhealth -50
+	player.invulnerabilitymode "reflective"
+	player.startitem "WeaselsRevolver"
+	player.startitem "Melee"
+	player.startitem "RevolverClip" 30
+	player.startitem "RevolverAmmo" 6
+	player.startitem "ShotgunClip" 8
+	player.startitem "BrowningLoaded" 4
+	player.startitem "STGAmmo" 30
+	player.startitem "MPAmmo" 32
+	player.startitem "G41Clip" 10
+	player.startitem "WaltherAmmo" 8
+	player.startitem "LugerAmmo" 8
+	player.startitem "FG42Ammo" 20
+	player.startitem "PPSHAmmo" 71
+	player.startitem "ThompsonClip" 20
+	player.startitem "EnfieldLoaded" 10
+	player.startitem "FlameLoad" 25
+	player.startitem "GrenadePickup" 1
+	Player.ViewHeight 49
+	Player.AttackZOffset 17
+	Player.ColorRange 0 0
+	Player.AttackZOffset 18
+	Player.CrouchSprite ""
+	Player.DisplayName "Weasel"
+	Player.SoundClass "Weasel"
+	Scale 1.1
+	States
+	{
+	Spawn:
+		WEAS A 1
+   		Loop
+   	See:
+      	WEAS ABCD 6
+      	goto Spawn
+    Pain:
+		WEAS G 0
+        WEAS G 3 A_Pain
+        Goto Spawn
+	Missile:
+		WEAS E 12 
+		Goto Spawn
+	Melee:
+		WEAS F 6 BRIGHT
+		Goto Missile
+	Death:
+		WEAS H 5 A_PlayerScream
+		WEAS I 5 
+		WEAS J 5 A_NoBlocking
+		WEAS K 5
+		WEAS L -1
+		Stop
+	XDeath:
+		WEAS H 5
+		WEAS I 5 A_XScream
+		WEAS J 5 A_NoBlocking
+		WEAS K 5
+		WEAS L -1
+		Stop
+	}
+}
+
+ACTOR NaziBerserk : Berserk replaces Berserk
+{
+  Inventory.PickupMessage "Machtige!" // "Powerful!"
+  Inventory.PickupSound "misc/p_pkup"
+  States
+  {
+  Pickup:
+    TNT1 A 0 A_GiveInventory("PowerStrength")
+    TNT1 A 0 HealThing(100, 0)
+    Stop
+  }
+}
+
+ACTOR BarrelSpawner : RandomSpawner replaces ExplosiveBarrel
+{
+	DropItem "TNTBarrel1"
+	DropItem "TNTBarrel2"
+	DropItem "TNTBarrel3"
+}
+
+ACTOR BarrelFrags
+{
+	Scale 0.75
+	States
+	{
+	Spawn:
+		FRAG ABCDEFGHIJKLM 3
+		FRAG N -1
+		Stop
+	}
+}
+
+ACTOR TNTBarrelBase
+{
+	Health 20
+	Radius 10
+	Height 34
+	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+ACTIVATEMCROSS
+	+DONTGIB
+	+NOICEDEATH
+	+OLDRADIUSDMG
+	DeathSound "weapons/rocklx"
+	Obituary "$OB_BARREL" // "%o went boom."
+	States
+	{
+	Spawn:
+		BARL A -1
+		Loop
+	Death:
+		BARX A 2 BRIGHT A_SpawnItemEx("BarrelFrags")
+		BARX B 2 BRIGHT A_Scream
+		BARX CDEFG 2 BRIGHT
+		BARX H 2 BRIGHT A_Explode
+		BARX IJKLM 2 BRIGHT
+		BARX M 1050 BRIGHT A_BarrelDestroy
+		BARX M 5 A_Respawn
+		Wait
+	}
+}
+
+ACTOR TNTBarrel1 : TNTBarrelBase
+{
+	States
+	{
+	Spawn:
+		BARL A -1
+		Stop
+	}
+}
+
+ACTOR TNTBarrel2 : TNTBarrelBase
+{
+	States
+	{
+	Spawn:
+		BARL B -1
+		Stop
+	}
+}
+
+ACTOR TNTBarrel3 : TNTBarrelBase
+{
+	States
+	{
+	Spawn:
+		BARL C -1
+		Stop
+	}
+}
