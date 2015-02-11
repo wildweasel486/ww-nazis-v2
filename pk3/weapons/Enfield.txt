@@ -4,7 +4,8 @@
 
 ACTOR EnfieldLoaded : Ammo
 {
-	Tag ".303 British"
+	//Tag ".303 British"
+	Tag "7.92x57mm"
 	+IGNORESKILL
 	Inventory.MaxAmount 10
 	Inventory.Icon "ENFPA0"
