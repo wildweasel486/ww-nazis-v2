@@ -2,13 +2,13 @@
 
 ACTOR FG42Ammo : Ammo
 {
+	Tag "7.92x57mm"	
 	Inventory.MaxAmount 20
 	+IGNORESKILL
 }
 
 Actor FG42 : Weapon
 {
-	attacksound "Weapons/AK47FIR"
 	inventory.pickupmessage "You got the Fallschirmjagergewehr 42!"
 	Weapon.SlotNumber 6
 	weapon.kickback 100
@@ -24,8 +24,8 @@ Actor FG42 : Weapon
 	ConversationID 195
 	Scale 0.38
 	Tag "FG 42"
-	Decal "BulletChip"
-       +WEAPON.AMMO_CHECKBOTH
+	Decal "BulletChip"	
+	+WEAPON.AMMO_CHECKBOTH
 	+Weapon.NoAlert
 	States
 	{
@@ -98,7 +98,7 @@ Actor FG42 : Weapon
 	ReloadLoop:
 		TNT1 A 0 A_TakeInventory("MauserAmmo",1,TIF_NOTAKEINFINITE)
 		TNT1 A 0 A_GiveInventory("FG42Ammo",1)
-		TNT1 A 0 A_JumpIfInventory("FG42Ammo",8,"ReloadFinish")
+		TNT1 A 0 A_JumpIfInventory("FG42Ammo",20,"ReloadFinish")
 		TNT1 A 0 A_JumpIfInventory("MauserAmmo",1,"ReloadLoop")
 		Goto ReloadFinish
 	ReloadFinish:
