@@ -1,6 +1,6 @@
-
 ACTOR RevolverClip : Ammo replaces Clip
 {
+	Tag ".357 Magnum"
 	Inventory.Amount 6
 	Inventory.MaxAmount 72
 	Ammo.BackpackAmount 12
@@ -16,23 +16,24 @@ ACTOR RevolverClip : Ammo replaces Clip
 		Stop
 	}
 }
-	
+
 ACTOR RevolverAmmo : Ammo
 {
+	Tag ".357 Magnum"
 	+IGNORESKILL
 	Inventory.MaxAmount 6
 	Inventory.Icon REVPA0
 }
 
-ACTOR WeaselsRevolver : Weapon
+ACTOR WeaselsRevolver : Weapon replaces Pistol
 {
 	Weapon.AmmoType "RevolverAmmo"
-	Weapon.AmmoUse 0
+	Weapon.AmmoUse 1
 	Weapon.AmmoGive 0
 	Weapon.AmmoType2 "RevolverClip"
 	Weapon.AmmoUse2 1
 	Weapon.AmmoGive2 9
-	Weapon.Kickback 45
+	Weapon.Kickback 45	
 	Weapon.BobStyle InverseSmooth
 	Weapon.BobSpeed 2.2
 	Weapon.BobRangeY 0.5
@@ -43,11 +44,9 @@ ACTOR WeaselsRevolver : Weapon
 	Inventory.PickupMessage "You got the revolver! (slot 2)"
 	Decal BulletChip
 	Scale 0.5
-	+Ammo_Optional
-	+Alt_Ammo_Optional
-	+WEAPON.PRIMARY_USES_BOTH
+	+WEAPON.AMMO_CHECKBOTH
 	+Weapon.NoAlert
-   	// weapon.sisterweapon TargeterRevolver
+	// weapon.sisterweapon TargeterRevolver
 	States
 	{
 	Spawn:
@@ -62,6 +61,10 @@ ACTOR WeaselsRevolver : Weapon
 		REVG A 1 A_Lower
 		Loop
 	Ready:
+		REVG A 0 A_JumpIfInventory("RevolverAmmo",0,2)
+		REVG A 0 A_JumpIfInventory("RevolverClip",1,2)
+		REVG A 1 A_WeaponReady
+		Loop
 		REVG A 1 A_WeaponReady(WRF_ALLOWRELOAD)
 		Loop
 	Fire:
@@ -70,7 +73,7 @@ ACTOR WeaselsRevolver : Weapon
 		REVG A 0 A_GunFlash
 		REVG A 0 A_PlayWeaponSound("Weapons/Revolver")
 		REVG A 0 A_TakeInventory("RevolverAmmo",1)
-			  TNT1 A 0 A_Jump(250,2)
+		TNT1 A 0 A_Jump(250,2)
 		TNT1 A 0 A_PlaySound("*taunt", CHAN_VOICE)
 		REVG B 2 BRIGHT A_FireCustomMissile("RevolverTracer",frandom(-1.5,1.5),0,0,0,0,frandom(-0.8,0.8))
 		REVG C 1 Offset(0,38) A_SetPitch (pitch - 0.6)
@@ -85,6 +88,7 @@ ACTOR WeaselsRevolver : Weapon
 		REVG A 1 Offset(0,34)
 		REVG A 1 Offset(0,33)
 		REVG A 1 Offset(0,32)
+		TNT1 A 0 A_CheckReload
 		Goto Ready
 	Flash:
 		TNT1 A 2 BRIGHT A_Light2
@@ -92,13 +96,7 @@ ACTOR WeaselsRevolver : Weapon
 		TNT1 A 0 A_Light0
 		Stop
 	Reload:
-		REVG A 0 A_JumpIfInventory("RevolverAmmo",6,2)
-		REVG A 0 A_JumpIfNoAmmo(1)
-		Goto ProperReload
-		REVG A 1
-		Goto Ready
-	ProperReload:
-		  TNT1 A 0 A_Jump(160,2)
+		TNT1 A 0 A_Jump(160,2)
 		TNT1 A 0 A_PlaySound("*taunt", CHAN_VOICE)
 		REVG A 1 Offset(0,35) A_PlaySound("weapons/revolverout",CHAN_ITEM)
 		REVG C 1 Offset(0,38)
@@ -112,8 +110,8 @@ ACTOR WeaselsRevolver : Weapon
 		TNT1 A 0 A_TakeInventory("RevolverClip",1,TIF_NOTAKEINFINITE)
 		TNT1 A 0 A_GiveInventory("RevolverAmmo",1)
 		TNT1 A 0 A_JumpIfInventory("RevolverAmmo",6,"ReloadFinish")
-		TNT1 A 0 A_JumpIfNoAmmo("ReloadFinish")
-		Goto ReloadLoop
+		TNT1 A 0 A_JumpIfInventory("RevolverClip",1,"ReloadLoop")
+		Goto ReloadFinish
 	ReloadFinish:
 		TNT1 A 3
 		RHND A 3 Offset(0,32)

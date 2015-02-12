@@ -1,9 +1,5 @@
 Actor FlakJacket : BasicArmorPickup replaces GreenArmor
 {
-  Game Doom
-  SpawnID 68
-  Radius 20
-  Height 16
   Inventory.Pickupmessage "Picked up a flak jacket."
   Inventory.Icon "ARM3A0"
   Armor.Savepercent 33
@@ -19,10 +15,6 @@ Actor FlakJacket : BasicArmorPickup replaces GreenArmor
 
 Actor HeavyArmor : BasicArmorPickup replaces BlueArmor
 {
-  Game Doom
-  SpawnID 68
-  Radius 20
-  Height 16
   Inventory.Pickupmessage "Picked up a heavy armor vest!"
   Inventory.Icon "ARM4A0"
   Armor.Savepercent 50
@@ -39,7 +31,6 @@ Actor HeavyArmor : BasicArmorPickup replaces BlueArmor
 Actor NazisBackpack : BackpackItem
 {
 	Height 26
-	ConversationID 187
 	Inventory.PickupMessage "Picked up an ammo pack."
 	States
 	{
@@ -57,8 +48,7 @@ ACTOR BackpackSpawner replaces Backpack
 	States
 	{
 	Spawn:
-		TNT1 A 0
-		TNT1 A 1 A_Fall
+		TNT1 A 1 NODELAY A_NoBlocking
 		Stop
 	}
 }
