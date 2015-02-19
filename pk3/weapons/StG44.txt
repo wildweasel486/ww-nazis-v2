@@ -24,9 +24,8 @@ ACTOR STGAmmo : Ammo
 	Inventory.Icon STGIA0
 }
 
-Actor STG44 : Weapon  
+Actor STG44 : NaziWeapon
 {
-	attacksound "Weapons/STGFIRE"
 	inventory.pickupmessage "You got the Sturmgewehr 44!"
 	weapon.kickback 100
 	Weapon.AmmoType "STGAmmo"
@@ -34,16 +33,9 @@ Actor STG44 : Weapon
 	weapon.ammotype2 "STGClip"
 	weapon.ammouse2 1
 	weapon.ammogive2 20
-	Weapon.BobStyle InverseSmooth
-	Weapon.BobSpeed 2.2
-	Weapon.BobRangeY 0.5
-	Weapon.BobRangeX 0.7
 	ConversationID 195
 	Scale 0.5
 	Tag "Sturmgewehr 44"
-	Decal "BulletChip"
-	+WEAPON.AMMO_CHECKBOTH
-	+Weapon.NoAlert
 	States
 	{
 	Ready:
@@ -67,7 +59,7 @@ Actor STG44 : Weapon
 		STGF A 0 A_GunFlash
 		TNT1 A 0 A_Jump(250,2)
 		TNT1 A 0 A_PlaySound("*taunt", CHAN_VOICE)
-		STGF A 0 A_PlayWeaponSound("Weapons/STGFIRE")
+		STGF A 0 A_PlaySound("Weapons/STGFIRE",CHAN_WEAPON)
 		STGF A 0 A_TakeInventory("STGAmmo",1)
 		STGF A 1 bright A_FireCustomMissile("STGTracer",frandom(-2.5,2.5),0,0,0,0,frandom(-1.0,1.0))
 		STGF B 1 bright Offset(0,38) A_SetPitch(pitch - 1.0)
@@ -114,10 +106,9 @@ Actor STG44 : Weapon
 		STGG A 1 Offset(0,32)
 		Goto Ready
 	Flash:
-		TNT1 A 2 BRIGHT A_Light2
-		TNT1 A 2 BRIGHT A_Light1
-		TNT1 A 0 A_Light0
-		Stop
+		TNT1 A 2 A_Light2
+		TNT1 A 2 A_Light1
+		Goto LightDone
 	Spawn:
 		STGI A -1
 		Stop

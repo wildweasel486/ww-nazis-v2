@@ -36,10 +36,10 @@ ACTOR Firebrand : Weapon
 		SRDG B 1
 		SRDG C 1 A_GiveInventory("SwordSeq",1)
 		TNT1 A 4
-		SRDG DE 1 
+		SRDG DE 1
 		SRDG F 1 A_PlaySound("weapons/swordswing")
 		SRDG GHI 1
-		SRDG J 1  A_CustomPunch(35,1,0,"SwordPuff",96)
+		SRDG J 1 A_CustomPunch(35,1,0,"SwordPuff",96)
 		SRDG KLM 1
 		TNT1 AAAAAAAA 1 A_WeaponReady
 		SRDG C 1
@@ -58,10 +58,10 @@ ACTOR Firebrand : Weapon
 		Goto Ready
 	Fire3:
 		TNT1 A 4
-		SRDG DE 1 
+		SRDG DE 1
 		SRDG F 1 A_PlaySound("weapons/swordswing")
 		SRDG GHI 1
-		SRDG J 1  A_CustomPunch(35,1,0,"SwordPuff",96)
+		SRDG J 1 A_CustomPunch(35,1,0,"SwordPuff",96)
 		SRDG KL 1
 		SRDG M 1 A_TakeInventory("SwordSeq",1)
 		TNT1 AAAAAAAA 1 A_WeaponReady
@@ -77,7 +77,7 @@ ACTOR Firebrand : Weapon
 	}
 }
 
-ACTOR FlameSword : Weapon
+ACTOR FlameSword : Firebrand
 {
 	Weapon.Kickback 30
 	Weapon.SisterWeapon Firebrand
@@ -104,10 +104,10 @@ ACTOR FlameSword : Weapon
 		SRDF B 1
 		SRDF C 1 A_GiveInventory("SwordSeq",1)
 		TNT1 A 4
-		SRDG DE 1 
+		SRDG DE 1
 		SRDF F 1 A_PlaySound("weapons/flameswordswing")
 		SRDF GHI 1
-		SRDF J 1  A_CustomPunch(80,1,0,"FireSwordPuff",96)
+		SRDF J 1 A_CustomPunch(80,1,0,"FireSwordPuff",96)
 		SRDF KLM 1
 		TNT1 AAAAAAAA 1 A_WeaponReady
 		SRDF C 1
@@ -126,10 +126,10 @@ ACTOR FlameSword : Weapon
 		Goto Ready
 	Fire3:
 		TNT1 A 4
-		SRDG DE 1 
+		SRDG DE 1
 		SRDF F 1 A_PlaySound("weapons/flameswordswing")
 		SRDF GHI 1
-		SRDF J 1  A_CustomPunch(80,1,0,"FireSwordPuff",96)
+		SRDF J 1 A_CustomPunch(80,1,0,"FireSwordPuff",96)
 		SRDF KL 1
 		SRDF M 1 A_TakeInventory("SwordSeq",1)
 		TNT1 AAAAAAAA 1 A_WeaponReady
@@ -139,7 +139,7 @@ ACTOR FlameSword : Weapon
 	Altfire:
 		SRDF BC 1
 		TNT1 A 4
-		SRDG DE 1 
+		SRDG DE 1
 		SRDF F 1 A_PlaySound("weapons/flameswordswing")
 		SRDF GH 1
 		SRDF I 1 Thing_Damage(0,2)
@@ -234,10 +234,11 @@ ACTOR SwordPuffSpark
 	+DONTSPLASH
 	States
 	{
+	States:
 		PUFF A 1
-		PUFF AAAAA 1  Bright A_SetTranslucent(.8,1)
-		PUFF AAAAAA 1  Bright A_SetTranslucent(.6,1)
-		PUFF AAAAAAAA 1  Bright A_SetTranslucent(.4,1)
+		PUFF AAAAA 1 Bright A_SetTranslucent(.8,1)
+		PUFF AAAAAA 1 Bright A_SetTranslucent(.6,1)
+		PUFF AAAAAAAA 1 Bright A_SetTranslucent(.4,1)
 		PUFF AAAAAAAAAA 1 Bright A_SetTranslucent(.2,1)
 		Stop
 	}

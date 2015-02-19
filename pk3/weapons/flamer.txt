@@ -40,7 +40,7 @@ ACTOR Flamebolt
 	SeeSound "weapons/flamer"
 	DamageType Fire
 	Decal Scorch
-    States
+	States
 	{
 	Spawn:
 		FBLX A 2 BRIGHT A_SetScale(0.15,0.15)
@@ -131,7 +131,7 @@ ACTOR EnemyFlamebolt2 : Flameball
 }
 
 
-ACTOR Pyrolight : Weapon replaces RocketLauncher
+ACTOR Pyrolight : NaziWeapon replaces RocketLauncher
 {
 	Weapon.SelectionOrder 195
 	Inventory.PickupMessage "You got the Pyrolight!"
@@ -141,14 +141,10 @@ ACTOR Pyrolight : Weapon replaces RocketLauncher
 	Weapon.AmmoGive2 25
 	Weapon.AmmoUse1 1
 	Weapon.AmmoUse2 1
-	Weapon.BobStyle InverseSmooth
-	Weapon.BobSpeed 2.2
-	Weapon.BobRangeY 0.5
-	Weapon.BobRangeX 0.7
 	ConversationID 190
-	+WEAPON.AMMO_CHECKBOTH
 	Tag "PyroLight"
 	Scale 0.5
+	-WEAPON.NOALERT
 	States
 	{
 	Spawn:

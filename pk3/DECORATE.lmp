@@ -1,3 +1,13 @@
+ACTOR NaziWeapon : Weapon
+{
+	Weapon.BobStyle InverseSmooth
+	Weapon.BobSpeed 2.2
+	Weapon.BobRangeY 0.5
+	Weapon.BobRangeX 0.7
+	+WEAPON.AMMO_CHECKBOTH
+	+WEAPON.NOALERT
+}
+
 #include "weapons/shovel.txt"
 #include "weapons/revolver.txt"
 #include "weapons/P38.txt"
@@ -24,7 +34,7 @@
 #include "actors/nazis4.txt"
 #include "weapons/seekrit!.txt"
 
-Actor WWNazisPlayer : DoomPlayer 
+Actor WWNazisPlayer : DoomPlayer
 {
 	gibhealth -50
 	player.invulnerabilitymode "reflective"
@@ -74,14 +84,14 @@ Actor WWNazisPlayer : DoomPlayer
         WEAS G 3 A_Pain
         Goto Spawn
 	Missile:
-		WEAS E 12 
+		WEAS E 12
 		Goto Spawn
 	Melee:
 		WEAS F 6 BRIGHT
 		Goto Missile
 	Death:
 		WEAS H 5 A_PlayerScream
-		WEAS I 5 
+		WEAS I 5
 		WEAS J 5 A_NoBlocking
 		WEAS K 5
 		WEAS L -1
@@ -120,20 +130,10 @@ ACTOR BarrelFrags
 	}
 }
 
-ACTOR TNTBarrel1
+ACTOR TNTBarrel1 : ExplosiveBarrel
 {
-	Health 20
-	Radius 10
 	Height 34
-	+SOLID
-	+SHOOTABLE
-	+NOBLOOD
-	+ACTIVATEMCROSS
-	+DONTGIB
-	+NOICEDEATH
-	+OLDRADIUSDMG
 	DeathSound "weapons/rocklx"
-	Obituary "$OB_BARREL" // "%o went boom."
 	States
 	{
 	Spawn:

@@ -35,28 +35,19 @@ ACTOR BrowningLoaded : Ammo
 	+IGNORESKILL
 }
 
-ACTOR Browning5 : Weapon replaces SuperShotgun
+ACTOR Browning5 : NaziWeapon replaces SuperShotgun
 {
 	Weapon.SelectionOrder 400
 	Weapon.AmmoUse1 1
-	Weapon.AmmoGive1 0
 	Weapon.AmmoType1 "BrowningLoaded"
 	Weapon.AmmoType2 "NewShell"
 	Weapon.AmmoGive2 8
 	Weapon.AmmoUse2 1
-	Weapon.BobStyle InverseSmooth
-	Weapon.BobSpeed 2.2
-	Weapon.BobRangeY 0.5
-	Weapon.BobRangeX 0.7
 	Scale 0.5
-	Decal BulletChip
 	Inventory.PickupMessage "You got the Browning Auto-5!"
 	Obituary "%o was peppered by %k's auto shotgun."
 	Tag "Browning Auto-5"
-	AttackSound "weapons/ba5fire"
-	+WEAPON.AMMO_CHECKBOTH
 	+NOAUTOFIRE
-	+Weapon.NoAlert
 	States
 	{
 	Spawn:
@@ -82,7 +73,7 @@ ACTOR Browning5 : Weapon replaces SuperShotgun
 		BA5G A 0 A_JumpIfInventory("BrowningLoaded",1,1)
 		Goto Reload
 		BA5G A 0 A_TakeInventory("BrowningLoaded",1)
-		BA5G A 0 A_PlayWeaponSound("weapons/ba5fire")
+		BA5G A 0 A_PlaySound("weapons/ba5fire",CHAN_WEAPON)
 		BA5G AAAAAAAAAA 0 A_FireCustomMissile("ShotgunTracer",frandom(-4.0,4.0),0,0,0,0,frandom(-3,3))
 		BA5G B 1 BRIGHT A_GunFlash
 		BA5G C 1 BRIGHT A_SetPitch(pitch - 4.0)

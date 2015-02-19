@@ -36,7 +36,7 @@ ACTOR Tracer : FastProjectile
 }
 
 ACTOR TracerTrail
-{ 
+{
 	Alpha 0.75
 	RenderStyle Add
 	Speed 0
@@ -61,20 +61,20 @@ ACTOR TracerSpark
 	height 6
 	speed .1
 	RenderStyle ADD
-	Alpha		1
 	Scale 0.5
-	Mass		0
+	Mass 0
 	+missile
-	+doombounce
+	BounceType Doom
 	+FLOORCLIP
 	+DONTSPLASH
 	+NOTELEPORT
 	States
 	{
+	Spawn:
 		PUFF A 1
-		PUFF AAAAA 1  Bright A_SetTranslucent(.8,1)
-		PUFF AAAAAA 1  Bright A_SetTranslucent(.6,1)
-		PUFF AAAAAAAA 1  Bright A_SetTranslucent(.4,1)
+		PUFF AAAAA 1 Bright A_SetTranslucent(.8,1)
+		PUFF AAAAAA 1 Bright A_SetTranslucent(.6,1)
+		PUFF AAAAAAAA 1 Bright A_SetTranslucent(.4,1)
 		PUFF AAAAAAAAAA 1 Bright A_SetTranslucent(.2,1)
 		Stop
 	}
@@ -162,151 +162,128 @@ ACTOR ChaingunTracer : Tracer
 	Speed 90
 }
 
-
 // Enemy tracer variants for Baby mode
+ACTOR BabyEnemyTracer : Tracer
+{
+	DamageType "EasyEnemy"
+	Speed 30
+}
 
-ACTOR BabyEnemyPistolTracer : Tracer
+ACTOR BabyEnemyPistolTracer : BabyEnemyTracer
 {
 	Damage (random(4,8))
-	DamageType "EasyEnemy"
-	Speed 30
 }
 
-ACTOR BabyEnemySMGTracer : Tracer
+ACTOR BabyEnemySMGTracer : BabyEnemyTracer
 {
 	Damage (random(6,7))
-	DamageType "EasyEnemy"
-	Speed 30
 }
 
-ACTOR BabyEnemyRifleTracer : Tracer
+ACTOR BabyEnemyRifleTracer : BabyEnemyTracer
 {
 	Damage (random(15,30))
-	DamageType "EasyEnemy"
-	Speed 30
 }
 
-ACTOR BabyEnemyStGTracer : Tracer
+ACTOR BabyEnemyStGTracer : BabyEnemyTracer
 {
 	Damage (random(7,8))
-	DamageType "EasyEnemy"
-	Speed 30
 }
 
-ACTOR BabyEnemyChaingunTracer : Tracer
+ACTOR BabyEnemyChaingunTracer : BabyEnemyTracer
 {
 	Damage (random(6,8))
-	DamageType "EasyEnemy"
-	Speed 30
 }
 
 // Enemy tracer variants for Easy mode
+ACTOR EasyEnemyTracer : BabyEnemyTracer
+{
+	Speed 50
+}
 
-ACTOR EasyEnemyPistolTracer : Tracer
+ACTOR EasyEnemyPistolTracer : EasyEnemyTracer
 {
 	Damage (random(4,8))
-	DamageType "EasyEnemy"
-	Speed 50
 }
 
-ACTOR EasyEnemySMGTracer : Tracer
+ACTOR EasyEnemySMGTracer : EasyEnemyTracer
 {
 	Damage (random(6,7))
-	DamageType "EasyEnemy"
-	Speed 50
 }
 
-ACTOR EasyEnemyRifleTracer : Tracer
+ACTOR EasyEnemyRifleTracer : EasyEnemyTracer
 {
 	Damage (random(15,30))
-	DamageType "EasyEnemy"
-	Speed 50
 }
 
-ACTOR EasyEnemyStGTracer : Tracer
+ACTOR EasyEnemyStGTracer : EasyEnemyTracer
 {
 	Damage (random(7,8))
-	DamageType "EasyEnemy"
-	Speed 50
 }
 
-ACTOR EasyEnemyChaingunTracer : Tracer
+ACTOR EasyEnemyChaingunTracer : EasyEnemyTracer
 {
 	Damage (random(6,8))
-	DamageType "EasyEnemy"
-	Speed 50
 }
 
 // Enemy tracer variants for Normal mode.
+ACTOR EnemyTracer : Tracer
+{
+	DamageType "Enemy"
+}
 
-ACTOR EnemyPistolTracer : Tracer
+ACTOR EnemyPistolTracer : EnemyTracer
 {
 	Damage (random(4,8))
-	DamageType "Enemy"
 }
 
-ACTOR EnemySMGTracer : Tracer
+ACTOR EnemySMGTracer : EnemyTracer
 {
 	Damage (random(6,7))
-	DamageType "Enemy"
 }
 
-ACTOR EnemyRifleTracer : Tracer
+ACTOR EnemyRifleTracer : EnemyTracer
 {
 	Damage (random(15,30))
-	DamageType "Enemy"
 }
 
-ACTOR EnemyStGTracer : Tracer
+ACTOR EnemyStGTracer : EnemyTracer
 {
 	Damage (random(7,8))
-	DamageType "Enemy"
 }
 
-ACTOR EnemyChaingunTracer : Tracer
+ACTOR EnemyChaingunTracer : EnemyTracer
 {
 	Damage (random(6,8))
-	DamageType "Enemy"
 }
 
 // Enemy tracer variants for Hard and Nightmare mode
+ACTOR HardEnemyTracer : EnemyTracer
+{
+	Speed 90
+	+THRUGHOST
+}
 
-ACTOR HardEnemyPistolTracer : Tracer
+ACTOR HardEnemyPistolTracer : HardEnemyTracer
 {
 	Damage (random(4,8))
-	DamageType "Enemy"
-	Speed 90
-	+THRUGHOST
 }
 
-ACTOR HardEnemySMGTracer : Tracer
+ACTOR HardEnemySMGTracer : HardEnemyTracer
 {
 	Damage (random(6,7))
-	DamageType "Enemy"
-	Speed 90
-	+THRUGHOST
 }
 
-ACTOR HardEnemyRifleTracer : Tracer
+ACTOR HardEnemyRifleTracer : HardEnemyTracer
 {
 	Damage (random(15,30))
-	DamageType "Enemy"
-	Speed 90
-	+THRUGHOST
 }
 
-ACTOR HardEnemyStGTracer : Tracer
+ACTOR HardEnemyStGTracer : HardEnemyTracer
 {
 	Damage (random(7,8))
-	DamageType "Enemy"
-	Speed 90
-	+THRUGHOST
 }
 
-ACTOR HardEnemyChaingunTracer : Tracer
+ACTOR HardEnemyChaingunTracer : HardEnemyTracer
 {
 	Damage (random(6,8))
-	DamageType "Enemy"
-	Speed 90
-	+THRUGHOST
 }

@@ -1,31 +1,31 @@
 Actor FlakJacket : BasicArmorPickup replaces GreenArmor
 {
-  Inventory.Pickupmessage "Picked up a flak jacket."
-  Inventory.Icon "ARM3A0"
-  Armor.Savepercent 33
-  Armor.Saveamount 100
-  States
-  {
-  Spawn:
-    ARM3 A 6
-    ARM3 A 7 bright
-    loop
-  }
+	Inventory.Pickupmessage "Picked up a flak jacket."
+	Inventory.Icon "ARM3A0"
+	Armor.Savepercent 33
+	Armor.Saveamount 100
+	States
+	{
+	Spawn:
+		ARM3 A 6
+		ARM3 A 7 bright
+		loop
+	}
 }
 
 Actor HeavyArmor : BasicArmorPickup replaces BlueArmor
 {
-  Inventory.Pickupmessage "Picked up a heavy armor vest!"
-  Inventory.Icon "ARM4A0"
-  Armor.Savepercent 50
-  Armor.Saveamount 200
-  States
-  {
-  Spawn:
-    ARM4 A 6
-    ARM4 A 7 bright
-    loop
-  }
+	Inventory.Pickupmessage "Picked up a heavy armor vest!"
+	Inventory.Icon "ARM4A0"
+	Armor.Savepercent 50
+	Armor.Saveamount 200
+	States
+	{
+	Spawn:
+		ARM4 A 6
+		ARM4 A 7 bright
+		loop
+	}
 }
 
 Actor NazisBackpack : BackpackItem
