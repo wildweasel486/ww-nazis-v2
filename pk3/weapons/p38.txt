@@ -1,4 +1,4 @@
-ACTOR Walther9mm : DoomWeapon
+ACTOR Walther9mm : NaziWeapon
 {
 	Weapon.SelectionOrder 9999
 	weapon.kickback 60
@@ -7,16 +7,8 @@ ACTOR Walther9mm : DoomWeapon
 	weapon.ammotype2 "MPClip"
 	weapon.ammouse2 1
 	weapon.ammogive2 10
-	Weapon.BobStyle InverseSmooth
-	Weapon.BobSpeed 2.2
-	Weapon.BobRangeY 0.5
-	Weapon.BobRangeX 0.7
-	Decal "BulletChip"
 	Tag "Walther P-38"
-	attacksound "weapons/Walther"
 	Inventory.PickupMessage "You got the P-38!"
-	+WEAPON.AMMO_CHECKBOTH
-	+Weapon.NoAlert
 	States
 	{
 	Ready:
@@ -39,7 +31,7 @@ ACTOR Walther9mm : DoomWeapon
 		Goto Reload
 		WALF A 0 A_GunFlash
 		WALF A 0 A_SetPitch(pitch - 0.2)
-		WALF A 0 A_PlayWeaponSound("weapons/Walther")
+		WALF A 0 A_PlaySound("weapons/Walther",CHAN_WEAPON)
 		WALF A 0 A_TakeInventory("WaltherAmmo",1)
 		WALF A 1 BRIGHT A_FireCustomMissile("PistolTracer",frandom(-1,1),0)
 		WALG B 2 A_AlertMonsters

@@ -1,4 +1,4 @@
-ACTOR UMG43 : Weapon
+ACTOR UMG43 : NaziWeapon
 {
 	Inventory.PickupMessage "You got the Ubermaschinengewehr 43!"
 	Inventory.PickupSound "chaingun/get"
@@ -6,11 +6,8 @@ ACTOR UMG43 : Weapon
 	Weapon.AmmoType1 "MPClip"
 	Weapon.AmmoUse1 1
 	Weapon.AmmoGive1 30
-	Weapon.BobStyle InverseSmooth
-	Weapon.BobSpeed 2.2
-	Weapon.BobRangeY 0.5
-	Weapon.BobRangeX 0.7
-	Decal "BulletChip"
+	-WEAPON.NOALERT
+	-WEAPON.AMMO_CHECKBOTH
 	States
 	{
 	Spawn:
