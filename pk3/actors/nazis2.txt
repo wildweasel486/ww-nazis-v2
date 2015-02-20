@@ -50,6 +50,7 @@ ACTOR HGrenade : RandomSpawner replaces ArtiTimebomb
 
 ACTOR HNaziBerserk : CustomInventory replaces ArtiTomeOfPower
 {
+	Game Heretic
 	Inventory.PickupMessage "Foliant der Macht" // "Powerful!"
 	Inventory.PickupSound "misc/p_pkup"
 	Tag "Foliant der Macht"
