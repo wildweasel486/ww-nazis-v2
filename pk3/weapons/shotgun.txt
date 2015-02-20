@@ -18,6 +18,7 @@ ACTOR TrenchShotgun : NaziWeapon replaces Shotgun
 	+WEAPON.NOAUTOFIRE
 	Scale 0.5
 	Tag "M1897 Trenchgun"
+	ConversationID 194
 	States
 	{
 	Spawn:

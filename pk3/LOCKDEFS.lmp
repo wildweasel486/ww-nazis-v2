@@ -26,3 +26,26 @@ Lock 133 Doom
 	RemoteMessage "$PD_BLUEO"
 	Mapcolor 255 255 255
 }
+
+Lock 2 Chex
+{
+	ChexBlueCard
+	Message "$PD_BLUEC"
+	RemoteMessage "$PD_BLUECO"
+	Mapcolor 255 255 255
+}
+//Can't use these reliably... the lines on the map will just have to stay blue
+/*Lock 5 Chex
+{
+	BlueFlemKey
+	Message "$PD_BLUEF"
+	RemoteMessage "$PD_BLUEFO"
+	Mapcolor 255 255 255
+}
+Lock 130 Chex
+{
+	Any{ChexBlueCard BlueFlemKey}
+	Message "$PD_BLUEK"
+	RemoteMessage "$PD_BLUEO"
+	Mapcolor 255 255 255
+}*/

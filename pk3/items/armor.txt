@@ -4,6 +4,7 @@ Actor FlakJacket : BasicArmorPickup replaces GreenArmor
 	Inventory.Icon "ARM3A0"
 	Armor.Savepercent 33
 	Armor.Saveamount 100
+	ConversationID 130
 	States
 	{
 	Spawn:
@@ -19,6 +20,7 @@ Actor HeavyArmor : BasicArmorPickup replaces BlueArmor
 	Inventory.Icon "ARM4A0"
 	Armor.Savepercent 50
 	Armor.Saveamount 200
+	ConversationID 129
 	States
 	{
 	Spawn:
@@ -32,6 +34,7 @@ Actor NazisBackpack : BackpackItem
 {
 	Height 26
 	Inventory.PickupMessage "Picked up an ammo pack."
+	ConversationID 187
 	States
 	{
 	Spawn:

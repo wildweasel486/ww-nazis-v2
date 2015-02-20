@@ -9,6 +9,7 @@ ACTOR Walther9mm : NaziWeapon
 	weapon.ammogive2 10
 	Tag "Walther P-38"
 	Inventory.PickupMessage "You got the P-38!"
+	ConversationID 179
 	States
 	{
 	Ready:

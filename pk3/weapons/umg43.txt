@@ -8,6 +8,7 @@ ACTOR UMG43 : NaziWeapon
 	Weapon.AmmoGive1 30
 	-WEAPON.NOALERT
 	-WEAPON.AMMO_CHECKBOTH
+	ConversationID 193
 	States
 	{
 	Spawn:

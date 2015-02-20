@@ -19,9 +19,9 @@ ACTOR MauserAmmo : Ammo
 	Inventory.MaxAmount 40
 	Ammo.BackpackAmount 5
 	Ammo.BackpackMaxAmount 100
-	ConversationID 185
 	Inventory.Icon "M1GAA0"
 	Inventory.PickupMessage "Picked up a box of 7.92mm Mauser ammo."
+	ConversationID 180
 	States
 	{
 	Spawn:
@@ -61,7 +61,6 @@ ACTOR G41 : NaziWeapon
 	Weapon.AmmoUse2 1
 	Inventory.PickupMessage "You got the Gewehr 43!"
 	Tag "Gewehr 43"
-	ConversationID 194
 	+NOAUTOFIRE
 	States
 	{

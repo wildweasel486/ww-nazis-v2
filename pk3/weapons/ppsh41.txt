@@ -10,7 +10,6 @@ ACTOR PPSH41 : NaziWeapon
 	weapon.ammogive2 71
 	Tag "PPSh-41"
 	Inventory.PickupMessage "You got the PPSh-41! (slot 4)"
-	ConversationID 188
 	States
 	{
 	Ready:
