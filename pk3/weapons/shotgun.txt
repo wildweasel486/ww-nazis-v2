@@ -29,6 +29,7 @@ ACTOR TrenchShotgun : NaziWeapon replaces Shotgun
 		SHTG A 1 A_Raise
 		Loop
 	Deselect:
+		SHTG A 0 A_TakeInventory("ShotgunReloading")
 		SHTG A 0 A_Lower
 		SHTG A 1 A_Lower
 		Loop
