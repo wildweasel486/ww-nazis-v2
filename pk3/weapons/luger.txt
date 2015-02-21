@@ -1,6 +1,6 @@
 ACTOR Luger9mm : NaziWeapon
 {
-	Weapon.SelectionOrder 9999
+	Weapon.SelectionOrder 9997
 	weapon.kickback 60
 	Weapon.AmmoType "LugerAmmo"
 	Weapon.AmmoUse1 1

@@ -32,7 +32,6 @@ Actor Thompson : NaziWeapon
 	weapon.ammotype2 "45ACPAmmo"
 	weapon.ammouse2 1
 	weapon.ammogive2 100
-	ConversationID 195
 	Scale 0.5
 	Tag "Thompson M1A1"
 	States

@@ -1,6 +1,6 @@
 // Tentative support for Strife. May not be finished.
 
-ACTOR SRevolverClip : RevolverClip replaces ElectricBolts {}
+ACTOR SRevolverClip : RevolverClip replaces ElectricBolts{}
 ACTOR SWalther : RandomSpawner replaces ClipOfBullets
 {
 	DropItem "Walther9mm"
@@ -10,11 +10,17 @@ ACTOR SNewShell : RandomSpawner replaces PoisonBolts
 	DropItem "NewShell"
 	DropItem "MauserAmmoSmall"
 }
-ACTOR SRifleAmmo : MauserAmmo replaces BoxOfBullets {}
-ACTOR SSTGClip : STGClip replaces EnergyPod {}
-ACTOR SSTGClip2 : STGClip replaces EnergyPack {}
-ACTOR SFlameAmmo : FlameAmmo replaces PhosphorusGrenadeRounds {}
-ACTOR SNebAmmo : NebAmmo replaces HEGrenadeRounds {}
+ACTOR SRifleAmmo : MauserAmmo replaces BoxOfBullets{}
+ACTOR SSTGClip : STGClip replaces EnergyPod{}
+ACTOR SSTGClip2 : STGClip replaces EnergyPack{}
+ACTOR SFlameAmmo : FlameAmmo replaces PhosphorusGrenadeRounds{}
+ACTOR SNebAmmo : NebAmmo replaces HEGrenadeRounds{}
+ACTOR SGrenade : RandomSpawner replaces MiniMissiles
+{
+	DropItem "GrenadePickup"
+}
+//CrateOfMissiles
+//	ConversationID 182
 
 ACTOR SG43 : RandomSpawner replaces StrifeCrossbow
 {
@@ -25,11 +31,9 @@ ACTOR SSTG44 : RandomSpawner replaces AssaultGun
 	DropItem "MP40"
 	DropItem "STG44"
 }
-ACTOR SSTG442 : RandomSpawner replaces AssaultGunStanding
-{
-	DropItem "MP40"
-	DropItem "STG44"
-}
+ACTOR SSTG442 : SSTG44 replaces AssaultGunStanding{}
+//MiniMissileLauncher
+//	ConversationID 192
 ACTOR SPyrolight : RandomSpawner replaces FlameThrower
 {
 	DropItem "Pyrolight"
@@ -42,3 +46,13 @@ ACTOR SNebelwerfer : RandomSpawner replaces StrifeGrenadeLauncher
 {
 	DropItem "Nebelwerfer"
 }
+
+ACTOR SFlakJacket : RandomSpawner replaces LeatherArmor
+{
+	DropItem "FlakJacket"
+}
+ACTOR SHeavyArmor : RandomSpawner replaces MetalArmor
+{
+	DropItem "HeavyArmor"
+}
+ACTOR SBackpackSpawner : BackpackSpawner replaces AmmoSatchel{}

@@ -33,12 +33,11 @@ ACTOR WeaselsRevolver : NaziWeapon replaces Pistol
 	Weapon.AmmoUse2 1
 	Weapon.AmmoGive2 9
 	Weapon.Kickback 45
-	Weapon.SelectionOrder 9999
+	Weapon.SelectionOrder 9996
 	Tag ".357 Revolver"
 	Obituary "%o was breached by %k's revolver."
 	Inventory.PickupMessage "You got the revolver! (slot 2)"
 	Scale 0.5
-	// weapon.sisterweapon TargeterRevolver
 	States
 	{
 	Spawn:

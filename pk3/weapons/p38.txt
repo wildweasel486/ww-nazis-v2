@@ -1,6 +1,6 @@
 ACTOR Walther9mm : NaziWeapon
 {
-	Weapon.SelectionOrder 9999
+	Weapon.SelectionOrder 9998
 	weapon.kickback 60
 	Weapon.AmmoType "WaltherAmmo"
 	Weapon.AmmoUse1 1
@@ -9,6 +9,7 @@ ACTOR Walther9mm : NaziWeapon
 	weapon.ammogive2 10
 	Tag "Walther P-38"
 	Inventory.PickupMessage "You got the P-38!"
+	ConversationID 179
 	States
 	{
 	Ready:

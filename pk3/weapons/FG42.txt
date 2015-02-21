@@ -14,7 +14,6 @@ Actor FG42 : NaziWeapon
 	weapon.ammotype2 "MauserAmmo"
 	weapon.ammouse2 1
 	weapon.ammogive2 10
-	ConversationID 195
 	Scale 0.38
 	Tag "FG 42"
 	States

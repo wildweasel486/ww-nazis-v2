@@ -15,9 +15,9 @@ ACTOR FlameAmmo : Ammo replaces RocketBox
 	Inventory.MaxAmount 175
 	Ammo.BackpackAmount 10
 	Ammo.BackpackMaxAmount 350
-	ConversationID 184
 	Inventory.Icon FAMOA0
 	Scale 0.8
+	ConversationID 178
 	States
 	{
 	Spawn:

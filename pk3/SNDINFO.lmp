@@ -1,13 +1,19 @@
 $playersound	weasel	male	*death		wwdthlo
+$playersound	weasel	male	*wimpydeath	wwdthlo
+$playersound	weasel	male	*crazydeath	wwdthhi
 $playersound	weasel	male	*xdeath		wwdthhi
 $playeralias	weasel	male	*pain100	weasellowpain
 $playeralias	weasel	male	*pain75		weaselmedpain
 $playeralias	weasel	male	*pain50		weaselhipain
 $playeralias	weasel	male	*pain25		weaselcritpain
 $playeralias	weasel	male	*grunt		weaseloof
+$playersound	weasel	male	*land		dsoof
 $playersound	weasel	male	*usefail	dsnoway
 $playeralias	weasel	male	*taunt		player/taunt
 $playeralias	weasel	male	*grenadecall	player/grenadecall
+$playersound	weasel	male	*weaponlaugh	dswpnup
+$playersound	weasel	male	*evillaugh	dsempty
+
 $random player/taunt { taunt1 taunt2 taunt3 taunt4 taunt5 taunt6 taunt7 taunt8 taunt9 taunt10 taunt11 taunt12 taunt13 taunt14 taunt15 }
 $random player/grenadecall { grenade1 grenade2 grenade3 }
 grenade1 grenade1
@@ -212,16 +218,16 @@ ss/death4			dspodth4
 
 // Dogs
 $random dog/sight 		{ dog/sight1  dog/sight2  dog/sight3 }
-dog/sight1  			DSDGSIT1  
-dog/sight2  			DSDGSIT2 
-dog/sight3  			DSDGSIT3 
+dog/sight1  			DSDGSIT1
+dog/sight2  			DSDGSIT2
+dog/sight3  			DSDGSIT3
 $random dog/active 		{ dog/act1  dog/act2 }
-dog/act1  			DSDGACT1  
-dog/act2 			DSDGACT2 
+dog/act1  			DSDGACT1
+dog/act2 			DSDGACT2
 $random dog/death 		{ dog/death1  dog/death2  dog/death3 }
-dog/death1  			DSDGDIE1  
-dog/death2  			DSDGDIE2 
-dog/death3  			DSDGDIE3 
+dog/death1  			DSDGDIE1
+dog/death2  			DSDGDIE2
+dog/death3  			DSDGDIE3
 dog/pain			dsdgpai
 dog/attack			dsdogatk
 

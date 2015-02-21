@@ -6,7 +6,7 @@
 
 // Super Bootspork
 
-actor CombatRifleSpawnerChex : RandomSpawner replaces SuperBootspork
+ACTOR CombatRifleSpawnerChex : RandomSpawner replaces SuperBootspork
 {
 	DropItem "Enfield"
 	DropItem "G41"
@@ -14,7 +14,7 @@ actor CombatRifleSpawnerChex : RandomSpawner replaces SuperBootspork
 
 // Large Zorcher
 
-actor ShotgunSpawnerChex : RandomSpawner replaces LargeZorcher 
+ACTOR ShotgunSpawnerChex : RandomSpawner replaces LargeZorcher
 {
 	DropItem "TrenchShotgun"
 	DropItem "Browning5"
@@ -22,7 +22,7 @@ actor ShotgunSpawnerChex : RandomSpawner replaces LargeZorcher
 
 // Rapid Zorcher
 
-actor SMGSpawnerChex : RandomSpawner replaces RapidZorcher 
+ACTOR SMGSpawnerChex : RandomSpawner replaces RapidZorcher
 {
 	DropItem "MP40"
 	DropItem "ThompsonSpawner"
@@ -30,14 +30,14 @@ actor SMGSpawnerChex : RandomSpawner replaces RapidZorcher
 
 // Zorch Propulsor
 
-actor PyrolightSpawnerChex : RandomSpawner replaces ZorchPropulsor 
+ACTOR PyrolightSpawnerChex : RandomSpawner replaces ZorchPropulsor
 {
 	DropItem "Pyrolight"
 }
 
 // Phasing Zorcher
 
-actor RapidSpawnerChex : RandomSpawner replaces PhasingZorcher 
+ACTOR RapidSpawnerChex : RandomSpawner replaces PhasingZorcher
 {
 	DropItem "PPSHSpawner"
 	DropItem "StG44"
@@ -46,7 +46,7 @@ actor RapidSpawnerChex : RandomSpawner replaces PhasingZorcher
 
 // LAZ Device
 
-actor SuperWeaponSpawnerChex : RandomSpawner replaces LAZDevice 
+ACTOR SuperWeaponSpawnerChex : RandomSpawner replaces LAZDevice
 {
 	DropItem "UMG43"
 	DropItem "NebelWerfer"
@@ -62,54 +62,60 @@ actor SuperWeaponSpawnerChex : RandomSpawner replaces LAZDevice
 
 // Mini Zorch
 
-actor PistolSpawnerChex : RandomSpawner replaces MiniZorchRecharge 
+ACTOR PistolSpawnerChex : RandomSpawner replaces MiniZorchRecharge
 {
 	DropItem "RevolverClip"
 	DropItem "Walther9MM"
 	DropItem "Luger9MM"
 }
 
-actor MPClipSpawnerChex : RandomSpawner replaces MiniZorchPack 
+ACTOR MPClipSpawnerChex : RandomSpawner replaces MiniZorchPack
 {
 	DropItem "MPClip"
 }
 
 // Large Zorch
 
-actor ShellSpawnerChex : RandomSpawner replaces LargeZorchRecharge 
+ACTOR ShellSpawnerChex : RandomSpawner replaces LargeZorchRecharge
 {
 	DropItem "ShellSpawner"
 }
 
-actor ShellSpawner2Chex : RandomSpawner replaces LargeZorchPack 
+ACTOR ShellSpawner2Chex : RandomSpawner replaces LargeZorchPack
 {
 	DropItem "ShellSpawner2"
 }
 
 // Propulsor Zorch
 
-actor GrenadePickupSpawnerChex : RandomSpawner replaces PropulsorZorch 
+ACTOR GrenadePickupSpawnerChex : RandomSpawner replaces PropulsorZorch
 {
 	DropItem "GrenadePickup"
 }
 
-actor FlameAmmoSpawnerChex : RandomSpawner replaces PropulsorZorchPack 
+ACTOR FlameAmmoSpawnerChex : RandomSpawner replaces PropulsorZorchPack
 {
 	DropItem "FlameAmmo"
-} 
+}
 
 // Phasing Zorch
 
-actor STGClipSpawnerChex : RandomSpawner replaces PhasingZorch 
+ACTOR STGClipSpawnerChex : RandomSpawner replaces PhasingZorch
 {
 	DropItem "STGClip"
 }
 
-actor NebAmmoSpawnerChex : RandomSpawner replaces PhasingZorchPack 
+ACTOR NebAmmoSpawnerChex : RandomSpawner replaces PhasingZorchPack
 {
 	DropItem "NebAmmo"
 }
 
-//actor SilverSkelKeyChex : SilverSkelKey 40 { Game Chex }
-//actor GoldSkelKeyChex : GoldSkelKey 39 { Game Chex }
-//actor BronzeSkelKeyChex : BronzeSkelKey 38 { Game Chex }
+ACTOR FlakJacketChex : RandomSpawner replaces ChexArmor
+{
+	DropItem "FlakJacket"
+}
+ACTOR HeavyArmorChex : RandomSpawner replaces SuperChexArmor
+{
+	DropItem "HeavyArmor"
+}
+ACTOR BackpackSpawnerChex : BackpackSpawner replaces Zorchpack{}

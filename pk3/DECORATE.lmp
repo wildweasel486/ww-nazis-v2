@@ -36,7 +36,6 @@ ACTOR NaziWeapon : Weapon
 
 Actor WWNazisPlayer : DoomPlayer
 {
-	gibhealth -50
 	player.invulnerabilitymode "reflective"
 	Player.WeaponSlot 1,Melee,Firebrand
 	Player.WeaponSlot 2,Walther9mm,Luger9mm,WeaselsRevolver
@@ -90,6 +89,7 @@ Actor WWNazisPlayer : DoomPlayer
 		WEAS F 6 BRIGHT
 		Goto Missile
 	Death:
+	XDeath:
 		WEAS H 5 A_PlayerScream
 		WEAS I 5
 		WEAS J 5 A_NoBlocking

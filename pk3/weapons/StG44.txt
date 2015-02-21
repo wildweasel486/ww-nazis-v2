@@ -5,9 +5,9 @@ ACTOR STGClip : Ammo replaces Cell
 	Inventory.MaxAmount 150
 	Ammo.BackpackAmount 30
 	Ammo.BackpackMaxAmount 270
-	ConversationID 183
 	Inventory.PickupMessage "Picked up some Rifle ammo."
 	Inventory.Icon "762AA0"
+	ConversationID 183
 	States
 	{
 	Spawn:
@@ -33,9 +33,9 @@ Actor STG44 : NaziWeapon
 	weapon.ammotype2 "STGClip"
 	weapon.ammouse2 1
 	weapon.ammogive2 20
-	ConversationID 195
 	Scale 0.5
 	Tag "Sturmgewehr 44"
+	ConversationID 189
 	States
 	{
 	Ready:

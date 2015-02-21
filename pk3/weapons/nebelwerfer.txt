@@ -62,6 +62,7 @@ actor Nebelwerfer : NaziWeapon
 	Inventory.PickupMessage "You got the Klein Nebelwerfer!"
 	-WEAPON.NOALERT
 	-WEAPON.AMMO_CHECKBOTH
+	ConversationID 195
 	States
 	{
 	Ready:
@@ -99,7 +100,7 @@ ACTOR NebAmmo : Ammo replaces CellPack
 	Inventory.MaxAmount 150
 	Ammo.BackpackAmount 20
 	Ammo.BackpackMaxAmount 300
-	ConversationID 182
+	ConversationID 177
 	Inventory.Icon "MNRBA0"
 	States
 	{
