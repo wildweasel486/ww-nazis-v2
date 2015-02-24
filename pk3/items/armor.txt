@@ -45,13 +45,11 @@ Actor NazisBackpack : BackpackItem
 
 ACTOR BackpackSpawner replaces Backpack
 {
-	Dropitem "NazisBackpack"
-	Dropitem "GrenadePickup"
-	Dropitem "GrenadePickup"
 	States
 	{
 	Spawn:
-		TNT1 A 1 NODELAY A_NoBlocking
+		TNT1 A 0 NODELAY A_SpawnItemEx("NazisBackpack",frandom(-16,16),frandom(-16,16),0,0,0,0,0,SXF_NOCHECKPOSITION)
+		TNT1 AA 0 A_SpawnItemEx("GrenadePickup",frandom(-16,16),frandom(-16,16),0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }

@@ -45,7 +45,7 @@ ACTOR Enfield : NaziWeapon replaces Chainsaw
 		ENFG A 0 A_JumpIfInventory("EnfieldLoaded",1,1)
 		Goto Reload
 		ENFF A 0 A_PlaySound("Enfield/Fire",CHAN_WEAPON)
-		ENFF A 1 Bright Offset(0,40) A_FireCustomMissile("EnfieldTracer",0,1)
+		ENFF A 1 Bright Offset(0,40) A_FireCustomMissile("EnfieldTracer")
 		ENFF B 1 Bright Offset(0,50) A_GunFlash
 		ENFG A 0 A_AlertMonsters
 		ENFG A 1 Offset(0,45) A_SetPitch(pitch - 4.0)
