@@ -41,7 +41,7 @@ Actor STG44 : NaziWeapon
 	Ready:
 		STGG A 0 A_JumpIfInventory("STGAmmo",0,2)
 		STGG A 0 A_JumpIfInventory("STGClip",1,2)
-		STGG A 1 A_WeaponReady(WRF_NOSECONDARY)
+		STGG A 1 A_WeaponReady
 		Loop
 		STGG A 1 A_WeaponReady(WRF_ALLOWRELOAD)
 		Loop
