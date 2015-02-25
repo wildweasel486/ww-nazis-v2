@@ -150,7 +150,7 @@ ACTOR PPSHSpawner replaces PlasmaRifle
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_SpawnItemEx("PPSH41",frandom(-16,16),frandom(-16,16),0,0,0,0,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 NODELAY A_SpawnItemEx("PPSH41")
 		TNT1 AA 0 A_SpawnItemEx("PPSHClip",frandom(-16,16),frandom(-16,16),0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
 	}

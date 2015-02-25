@@ -113,7 +113,7 @@ ACTOR ThompsonSpawner replaces Chaingun
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_SpawnItemEx("Thompson",frandom(-16,16),frandom(-16,16),0,0,0,0,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 NODELAY A_SpawnItemEx("Thompson")
 		TNT1 AAA 0 A_SpawnItemEx("45ACPAmmo",frandom(-16,16),frandom(-16,16),0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
 	}

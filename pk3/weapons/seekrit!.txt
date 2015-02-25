@@ -6,7 +6,6 @@ ACTOR SwordSeq : Inventory
 ACTOR Firebrand : Weapon
 {
 	Weapon.SelectionOrder 0
-	Weapon.SlotNumber 1
 	Weapon.Kickback 10
 	Weapon.SisterWeapon FlameSword
 	Inventory.PickupMessage "Mad Jack Churchill now considers you properly dressed!"
@@ -30,11 +29,10 @@ ACTOR Firebrand : Weapon
 		SRDG A 1 A_weaponready
 		loop
 	Fire:
-		SRDG B 0
 		SRDG B 0 A_JumpIfInventory("SwordSeq",2,"Fire3")
 		SRDG B 0 A_JumpIfInventory("SwordSeq",1,"Fire2")
 		SRDG B 1
-		SRDG C 1 A_GiveInventory("SwordSeq",1)
+		SRDG C 1 A_GiveInventory("SwordSeq")
 		TNT1 A 4
 		SRDG DE 1
 		SRDG F 1 A_PlaySound("weapons/swordswing")
@@ -43,18 +41,18 @@ ACTOR Firebrand : Weapon
 		SRDG KLM 1
 		TNT1 AAAAAAAA 1 A_WeaponReady
 		SRDG C 1
-		SRDG B 1 A_TakeInventory("SwordSeq",999)
+		SRDG B 1 A_TakeInventory("SwordSeq")
 		Goto ready
 	Fire2:
 		TNT1 A 5
 		SRDG N 0
-		SRDG N 1 A_GiveInventory("SwordSeq",1)
+		SRDG N 1 A_GiveInventory("SwordSeq")
 		SRDG O 1 A_PlaySound("weapons/swordswing")
 		SRDG PQR 1
 		SRDG S 1 A_CustomPunch(45,1,0,"SwordPuff",96)
 		SRDG TUV 1
 		TNT1 AAAAAAAA 1 A_WeaponReady
-		TNT1 A 0 A_TakeInventory("SwordSeq",999)
+		TNT1 A 0 A_TakeInventory("SwordSeq")
 		Goto Ready
 	Fire3:
 		TNT1 A 4
@@ -66,7 +64,7 @@ ACTOR Firebrand : Weapon
 		SRDG M 1 A_TakeInventory("SwordSeq",1)
 		TNT1 AAAAAAAA 1 A_WeaponReady
 		SRDG C 1
-		SRDG B 1 A_TakeInventory("SwordSeq",999)
+		SRDG B 1 A_TakeInventory("SwordSeq")
 		Goto Ready
 	AltFire:
 		SRDG ABC 1
@@ -102,7 +100,7 @@ ACTOR FlameSword : Firebrand
 		SRDF B 0 A_JumpIfInventory("SwordSeq",2,"Fire3")
 		SRDF B 0 A_JumpIfInventory("SwordSeq",1,"Fire2")
 		SRDF B 1
-		SRDF C 1 A_GiveInventory("SwordSeq",1)
+		SRDF C 1 A_GiveInventory("SwordSeq")
 		TNT1 A 4
 		SRDG DE 1
 		SRDF F 1 A_PlaySound("weapons/flameswordswing")
@@ -111,18 +109,18 @@ ACTOR FlameSword : Firebrand
 		SRDF KLM 1
 		TNT1 AAAAAAAA 1 A_WeaponReady
 		SRDF C 1
-		SRDF B 1 A_TakeInventory("SwordSeq",999)
+		SRDF B 1 A_TakeInventory("SwordSeq")
 		Goto ready
 	Fire2:
 		TNT1 A 5
 		SRDF N 0
-		SRDF N 1 A_GiveInventory("SwordSeq",1)
+		SRDF N 1 A_GiveInventory("SwordSeq")
 		SRDF O 1 A_PlaySound("weapons/flameswordswing")
 		SRDF PQR 1
 		SRDF S 1 A_CustomPunch(100,1,0,"FireSwordPuff",96)
 		SRDF TUV 1
 		TNT1 AAAAAAAA 1 A_WeaponReady
-		TNT1 A 0 A_TakeInventory("SwordSeq",999)
+		TNT1 A 0 A_TakeInventory("SwordSeq")
 		Goto Ready
 	Fire3:
 		TNT1 A 4
@@ -134,7 +132,7 @@ ACTOR FlameSword : Firebrand
 		SRDF M 1 A_TakeInventory("SwordSeq",1)
 		TNT1 AAAAAAAA 1 A_WeaponReady
 		SRDF C 1
-		SRDF B 1 A_TakeInventory("SwordSeq",999)
+		SRDF B 1 A_TakeInventory("SwordSeq")
 		Goto Ready
 	Altfire:
 		SRDF BC 1
@@ -147,7 +145,7 @@ ACTOR FlameSword : Firebrand
 		SRDF KLM 1
 		TNT1 A 20 A_WeaponReady
 		SRDF C 1
-		SRDF B 1 A_TakeInventory("SwordSeq",999)
+		SRDF B 1 A_TakeInventory("SwordSeq")
 		Goto ready
 	}
 }
@@ -160,7 +158,6 @@ ACTOR FirebrandFireball
 	Speed 40
 	Damage (40)
 	RenderStyle Add
-	Alpha 1.0
 	DeathSound "weapons/rocklx"
 	DamageType Fire
 	States
@@ -198,15 +195,10 @@ ACTOR SwordPuff
 	States
 	{
 	Spawn:
-		TNT1 A 0
-		TNT1 A 1
-		stop
 	Melee:
-		TNT1 A 0
 		TNT1 A 1
 		stop
 	Crash:
-		TNT1 A 0
 		TNT1 A 1 A_SpawnDebris("SwordPuffSpark")
 		TNT1 A 1 A_AlertMonsters
 		Stop
