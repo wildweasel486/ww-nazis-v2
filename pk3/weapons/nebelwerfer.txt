@@ -24,25 +24,14 @@ actor NebRocket
 	}
 }
 
-actor NebRocketEnemy
+actor NebRocketEnemy : NebRocket
 {
-	scale 0.5
-	Radius 11
-	Height 8
 	Speed 15
-	Damage 8
-	Projectile
 	Damagetype "Enemy"
-	+RANDOMIZE
+	-FORCERADIUSDMG
 	SeeSound "weapons/nebelwerfer"
-	DeathSound "weapons/nebxpl"
-	Obituary "$OB_MPROCKET" // "%o rode %k's rocket."
-	Decal Scorch
 	States
 	{
-	Spawn:
-		MNSS A 1 bright A_CustomMissile("RocketFlameSpawner",0,0,0,5)
-		loop
 	Death:
 		FRME A 1 bright A_Explode(40,40)
 		FRME BCDEFGHIHJKLMNOPQRS 1 bright
@@ -58,7 +47,6 @@ actor Nebelwerfer : NaziWeapon
 	Weapon.AmmoGive 10
 	Weapon.AmmoType "NebAmmo"
 	Tag "Klein Nebelwerfer"
-	ConversationID 192
 	Inventory.PickupMessage "You got the Klein Nebelwerfer!"
 	-WEAPON.NOALERT
 	-WEAPON.AMMO_CHECKBOTH
@@ -110,19 +98,15 @@ ACTOR NebAmmo : Ammo replaces CellPack
 	}
 }
 
-
 ACTOR RocketFlameSpawner
 {
 	Projectile
-	Speed 0
 	Scale 0.15
 	Alpha 0.5
-	Height 0
 	+NOCLIP
 	+NOTELEPORT
 	+NOBLOCKMAP
 	-FLOORCLIP
-	Renderstyle None
 	States
 	{
 	Spawn:
@@ -132,17 +116,8 @@ ACTOR RocketFlameSpawner
 	}
 }
 
-ACTOR RocketFlame
+ACTOR RocketFlame : RocketFlameSpawner
 {
-	Projectile
-	Speed 0
-	Scale 0.15
-	Alpha 0.5
-	Height 0
-	+NOCLIP
-	+NOTELEPORT
-	+NOBLOCKMAP
-	-FLOORCLIP
 	Renderstyle Add
 	States
 	{

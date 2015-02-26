@@ -105,31 +105,26 @@ ACTOR EnemyFlamebolt : Flameball
 		FBAL ABC 3 BRIGHT
 		Loop
 	Death:
-		FBLX A 0 BRIGHT A_PlaySound("weapons/nebxpl")
+		FBLX A 0 A_PlaySound("weapons/nebxpl")
 		FBLX A 2 BRIGHT A_Explode(8,64)
 		FBLX BCDEFGHIJK 2 BRIGHT
 		Stop
 	}
 }
 
-ACTOR EnemyFlamebolt2 : Flameball
+ACTOR EnemyFlamebolt2 : EnemyFlamebolt
 {
-	DamageType "Enemy"
 	Damage 5
 	Scale 0.35
 	+STRIFEDAMAGE
 	States
 	{
-	Spawn:
-		FBAL ABC 3 BRIGHT
-		Loop
 	Death:
-		FBLX A 0 BRIGHT A_PlaySound("weapons/nebxpl")
+		FBLX A 0 A_PlaySound("weapons/nebxpl")
 		FBLX ABCDEFGHIJK 2 BRIGHT
 		Stop
 	}
 }
-
 
 ACTOR Pyrolight : NaziWeapon replaces RocketLauncher
 {
@@ -197,7 +192,7 @@ ACTOR Pyrolight : NaziWeapon replaces RocketLauncher
 		Goto Ready
 		FFTR B 0 A_Jump(128,2)
 		FFTR B 0 A_PlaySound("*taunt", CHAN_VOICE)
-		FFTR B 1 Offset(0,35) A_PlaySound("reloads/flamer",CHAN_ITEM)
+		FFTR B 1 Offset(0,35) A_PlaySound("reloads/flamer",5)
 		FFTR B 1 Offset(0,38)
 		FFTR B 1 Offset(0,40)
 		FFTR B 1 Offset(0,42)

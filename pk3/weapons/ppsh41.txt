@@ -34,8 +34,7 @@ ACTOR PPSH41 : NaziWeapon
 		TNT1 A 0 A_Jump(250,2)
 		TNT1 A 0 A_PlaySound("*taunt", CHAN_VOICE)
 		PPSF B 0 A_PlaySound("PPSH/fire",CHAN_WEAPON)
-		PPSF B 0 A_TakeInventory("PPSHAmmo",1)
-		PPSF A 1 bright A_FireCustomMissile("PPSHTracer",frandom(-2.5,2.5),0,0,0,0,frandom(-1.0,1.0))
+		PPSF A 1 bright A_FireCustomMissile("PPSHTracer",frandom(-2.5,2.5),1,0,0,0,frandom(-1.0,1.0))
 		PPSF B 1 bright Offset(0,38) A_SetPitch(pitch - 0.6)
 		PPSG A 0 A_AlertMonsters
 		PPSF C 1 A_Refire
@@ -53,8 +52,7 @@ ACTOR PPSH41 : NaziWeapon
 		TNT1 A 0 A_Jump(250,2)
 		TNT1 A 0 A_PlaySound("*taunt", CHAN_VOICE)
 		PPSG A 0 A_PlaySound("PPSH/fire",CHAN_WEAPON)
-		PPSG A 0 A_TakeInventory("PPSHAmmo",1)
-		PPSF A 1 bright A_FireCustomMissile("PPSHTracer",frandom(-2.5,2.5),0,0,0,0,frandom(-1.0,1.0))
+		PPSF A 1 bright A_FireCustomMissile("PPSHTracer",frandom(-2.5,2.5),1,0,0,0,frandom(-1.0,1.0))
 		PPSF B 1 bright Offset(0,50) A_SetPitch(pitch - 0.8)
 		PPSG A 0 A_AlertMonsters
 		PPSF C 1 A_Refire
@@ -70,7 +68,7 @@ ACTOR PPSH41 : NaziWeapon
 	Reload:
 		PPSG A 0 A_Jump(128,2)
 		PPSG A 0 A_PlaySound("*taunt", CHAN_VOICE)
-		PPSG A 1 Offset(0,35) A_PlaySound("ppsh/reload",CHAN_ITEM)
+		PPSG A 1 Offset(0,35) A_PlaySound("ppsh/reload",5)
 		PPSG A 1 Offset(0,38)
 		PPSG A 1 Offset(0,44)
 		PPSG B 1 Offset(0,52)
@@ -106,11 +104,11 @@ ACTOR PPSH41 : NaziWeapon
 		PPSG A 1 Offset(-1,44)
 		PPSG A 1 Offset(-1,46)
 		PPSG A 1 Offset(-1,47)
-		PPSG A 1 Offset(0,49) A_WeaponReady(1)
-		PPSG A 1 Offset(0,44) A_WeaponReady(1)
-		PPSG A 1 Offset(0,38) A_WeaponReady(1)
-		PPSG A 1 Offset(0,35) A_WeaponReady(1)
-		PPSG A 1 Offset(0,32) A_WeaponReady(1)
+		PPSG A 1 Offset(0,49) A_WeaponReady(WRF_NOBOB)
+		PPSG A 1 Offset(0,44) A_WeaponReady(WRF_NOBOB)
+		PPSG A 1 Offset(0,38) A_WeaponReady(WRF_NOBOB)
+		PPSG A 1 Offset(0,35) A_WeaponReady(WRF_NOBOB)
+		PPSG A 1 Offset(0,32) A_WeaponReady(WRF_NOBOB)
 		Goto Ready
 	Flash:
 		TNT1 A 3 A_Light2
@@ -149,13 +147,11 @@ ACTOR PPSHAmmo : Ammo
 
 ACTOR PPSHSpawner replaces PlasmaRifle
 {
-	DropItem "PPSH41"
-	DropItem "PPSHClip"
-	DropItem "PPSHClip"
 	States
 	{
 	Spawn:
-		TNT1 A 1 NODELAY A_NoBlocking
+		TNT1 A 0 NODELAY A_SpawnItemEx("PPSH41")
+		TNT1 AA 0 A_SpawnItemEx("PPSHClip",frandom(-16,16),frandom(-16,16),0,0,0,0,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }

@@ -63,10 +63,9 @@ ACTOR WeaselsRevolver : NaziWeapon replaces Pistol
 		Goto Reload
 		REVG A 0 A_GunFlash
 		REVG A 0 A_PlaySound("Weapons/Revolver",CHAN_WEAPON)
-		REVG A 0 A_TakeInventory("RevolverAmmo",1)
 		TNT1 A 0 A_Jump(250,2)
 		TNT1 A 0 A_PlaySound("*taunt", CHAN_VOICE)
-		REVG B 2 BRIGHT A_FireCustomMissile("RevolverTracer",frandom(-1.5,1.5),0,0,0,0,frandom(-0.8,0.8))
+		REVG B 2 BRIGHT A_FireCustomMissile("RevolverTracer",frandom(-1.5,1.5),1,0,0,0,frandom(-0.8,0.8))
 		REVG C 1 Offset(0,38) A_SetPitch (pitch - 0.6)
 		REVG D 1 Offset(0,44) A_SetPitch (pitch - 0.6)
 		REVG D 1 Offset(0,56) A_SetPitch (pitch - 0.6)
@@ -88,7 +87,7 @@ ACTOR WeaselsRevolver : NaziWeapon replaces Pistol
 	Reload:
 		TNT1 A 0 A_Jump(160,2)
 		TNT1 A 0 A_PlaySound("*taunt", CHAN_VOICE)
-		REVG A 1 Offset(0,35) A_PlaySound("weapons/revolverout",CHAN_ITEM)
+		REVG A 1 Offset(0,35) A_PlaySound("weapons/revolverout",5)
 		REVG C 1 Offset(0,38)
 		REVG C 1 Offset(0,44)
 		REVG C 1 Offset(0,52)
@@ -105,11 +104,11 @@ ACTOR WeaselsRevolver : NaziWeapon replaces Pistol
 	ReloadFinish:
 		TNT1 A 3
 		RHND A 3 Offset(0,32)
-		RHND B 3 A_PlaySound("weapons/revolverload",CHAN_ITEM)
+		RHND B 3 A_PlaySound("weapons/revolverload",5)
 		RHND C 2
 		RHND BAD 3
 		TNT1 A 4
-		REVG D 1 Offset(0,82) A_PlaySound("weapons/revolverin",CHAN_ITEM)
+		REVG D 1 Offset(0,82) A_PlaySound("weapons/revolverin",5)
 		REVG D 1 Offset(0,72)
 		REVG D 1 Offset(0,62)
 		REVG C 1 Offset(0,52)

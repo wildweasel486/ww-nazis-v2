@@ -12,6 +12,20 @@ ACTOR BigNazi
 	+NOTARGET
 	+NOINFIGHTING
 	+LOOKALLAROUND
+	painsound "boss/pain"
+	States
+	{
+	Idle:
+		"####" AA 4 A_Wander
+		"####" A 0 A_Look
+		"####" BB 4 A_Wander
+		"####" A 0 A_Look
+		"####" CC 4 A_Wander
+		"####" A 0 A_Look
+		"####" DD 4 A_Wander
+		"####" A 0 A_Look
+		loop
+	}
 }
 ACTOR Nazi : BigNazi
 {
@@ -24,6 +38,13 @@ ACTOR Nazi : BigNazi
 	deathsound "Nazi1/Death"
 	States
 	{
+	Death:
+		"####" I 5
+		"####" J 5 A_Scream
+		"####" K 5 A_NoBlocking
+		"####" L 5
+		"####" M -1
+		stop
 	Death.Fire:
 		TNT1 A 0 A_SetScale(1.0)
 		BURN ABC 5 BRIGHT
@@ -65,26 +86,9 @@ ACTOR Guard : Nazi
 		GARD H 3
 		GARD H 3 A_Pain
 		goto See
-	Death:
-		GARD I 5
-		GARD J 5 A_Scream
-		GARD K 5 A_NoBlocking
-		GARD L 5
-		GARD M -1
-		stop
 	Raise:
 		GARD MLKJI 5
 		goto See
-	Idle:
-		GARD AA 4 A_Wander
-		GARD A 0 A_Look
-		GARD BB 4 A_Wander
-		GARD A 0 A_Look
-		GARD CC 4 A_Wander
-		GARD A 0 A_Look
-		GARD DD 4 A_Wander
-		GARD A 0 A_Look
-		loop
 	}
 }
 
@@ -110,26 +114,9 @@ ACTOR SSGuard : Guard
 		SSPG H 3
 		SSPG H 3 A_Pain
 		goto See
-	Death:
-		SSPG I 5
-		SSPG J 5 A_Scream
-		SSPG K 5 A_NoBlocking
-		SSPG L 5
-		SSPG M -1
-		stop
 	Raise:
 		SSPG MLKJI 5
 		goto See
-	Idle:
-		SSPG AA 4 A_Wander
-		SSPG A 0 A_Look
-		SSPG BB 4 A_Wander
-		SSPG A 0 A_Look
-		SSPG CC 4 A_Wander
-		SSPG A 0 A_Look
-		SSPG DD 4 A_Wander
-		SSPG A 0 A_Look
-		loop
 	}
 }
 
@@ -162,26 +149,9 @@ ACTOR WGuard : Guard
 		GRD2 H 3
 		GRD2 H 3 A_Pain
 		goto See
-	Death:
-		GRD2 I 5
-		GRD2 J 5 A_Scream
-		GRD2 K 5 A_NoBlocking
-		GRD2 L 5
-		GRD2 M -1
-		stop
 	Raise:
 		GRD2 MLKJI 5
 		goto See
-	Idle:
-		GRD2 AA 4 A_Wander
-		GRD2 A 0 A_Look
-		GRD2 BB 4 A_Wander
-		GRD2 A 0 A_Look
-		GRD2 CC 4 A_Wander
-		GRD2 A 0 A_Look
-		GRD2 DD 4 A_Wander
-		GRD2 A 0 A_Look
-		loop
 	}
 }
 
@@ -232,26 +202,9 @@ ACTOR MP40Guard : Nazi
 		MGRD H 3
 		MGRD H 3 A_Pain
 		goto See
-	Death:
-		MGRD I 5
-		MGRD J 5 A_Scream
-		MGRD K 5 A_NoBlocking
-		MGRD L 5
-		MGRD M -1
-		stop
 	Raise:
 		MGRD MLKJI 5
 		goto See
-	Idle:
-		MGRD AA 4 A_Wander
-		MGRD A 0 A_Look
-		MGRD BB 4 A_Wander
-		MGRD A 0 A_Look
-		MGRD CC 4 A_Wander
-		MGRD A 0 A_Look
-		MGRD DD 4 A_Wander
-		MGRD A 0 A_Look
-		loop
 	}
 }
 
@@ -283,26 +236,9 @@ ACTOR WMP40Guard : MP40Guard
 		MGR2 H 3
 		MGR2 H 3 A_Pain
 		goto See
-	Death:
-		MGR2 I 5
-		MGR2 J 5 A_Scream
-		MGR2 K 5 A_NoBlocking
-		MGR2 L 5
-		MGR2 M -1
-		stop
 	Raise:
 		MGR2 MLKJI 5
 		goto See
-	Idle:
-		MGR2 AA 4 A_Wander
-		MGR2 A 0 A_Look
-		MGR2 BB 4 A_Wander
-		MGR2 A 0 A_Look
-		MGR2 CC 4 A_Wander
-		MGR2 A 0 A_Look
-		MGR2 DD 4 A_Wander
-		MGR2 A 0 A_Look
-		loop
 	}
 }
 
@@ -328,26 +264,9 @@ ACTOR SSMP40Guard : MP40Guard
 		SSMG H 3
 		SSMG H 3 A_Pain
 		goto See
-	Death:
-		SSMG I 5
-		SSMG J 5 A_Scream
-		SSMG K 5 A_NoBlocking
-		SSMG L 5
-		SSMG M -1
-		stop
 	Raise:
 		SSMG MLKJI 5
 		goto See
-	Idle:
-		SSMG AA 4 A_Wander
-		SSMG A 0 A_Look
-		SSMG BB 4 A_Wander
-		SSMG A 0 A_Look
-		SSMG CC 4 A_Wander
-		SSMG A 0 A_Look
-		SSMG DD 4 A_Wander
-		SSMG A 0 A_Look
-		loop
 	}
 }
 
@@ -383,26 +302,9 @@ ACTOR RifleGuard : Nazi
 		RGRD H 3
 		RGRD H 3 A_Pain
 		goto See
-	Death:
-		RGRD I 5
-		RGRD J 5 A_Scream
-		RGRD K 5 A_NoBlocking
-		RGRD L 5
-		RGRD M -1
-		stop
 	Raise:
 		RGRD MLKJI 5
 		goto See
-	Idle:
-		RGRD AA 4 A_Wander
-		RGRD A 0 A_Look
-		RGRD BB 4 A_Wander
-		RGRD A 0 A_Look
-		RGRD CC 4 A_Wander
-		RGRD A 0 A_Look
-		RGRD DD 4 A_Wander
-		RGRD A 0 A_Look
-		loop
 	}
 }
 
@@ -434,26 +336,9 @@ ACTOR WRifleGuard : RifleGuard
 		RGR2 H 3
 		RGR2 H 3 A_Pain
 		goto See
-	Death:
-		RGR2 I 5
-		RGR2 J 5 A_Scream
-		RGR2 K 5 A_NoBlocking
-		RGR2 L 5
-		RGR2 M -1
-		stop
 	Raise:
 		RGR2 MLKJI 5
 		goto See
-	Idle:
-		RGR2 AA 4 A_Wander
-		RGR2 A 0 A_Look
-		RGR2 BB 4 A_Wander
-		RGR2 A 0 A_Look
-		RGR2 CC 4 A_Wander
-		RGR2 A 0 A_Look
-		RGR2 DD 4 A_Wander
-		RGR2 A 0 A_Look
-		loop
 	}
 }
 
@@ -481,26 +366,9 @@ ACTOR WaffenSS : RifleGuard
 		WAFF H 3
 		WAFF H 3 A_Pain
 		goto See
-	Death:
-		WAFF I 5
-		WAFF J 5 A_Scream
-		WAFF K 5 A_NoBlocking
-		WAFF L 5
-		WAFF M -1
-		stop
 	Raise:
 		WAFF MLKJI 5
 		goto See
-	Idle:
-		WAFF AA 4 A_Wander
-		WAFF A 0 A_Look
-		WAFF BB 4 A_Wander
-		WAFF A 0 A_Look
-		WAFF CC 4 A_Wander
-		WAFF A 0 A_Look
-		WAFF DD 4 A_Wander
-		WAFF A 0 A_Look
-		loop
 	}
 }
 
@@ -534,26 +402,9 @@ ACTOR Paratrooper : RifleGuard
 		PARA H 3
 		PARA H 3 A_Pain
 		goto See
-	Death:
-		PARA I 5
-		PARA J 5 A_Scream
-		PARA K 5 A_NoBlocking
-		PARA L 5
-		PARA M -1
-		stop
 	Raise:
 		PARA MLKJI 5
 		goto See
-	Idle:
-		PARA AA 4 A_Wander
-		PARA A 0 A_Look
-		PARA BB 4 A_Wander
-		PARA A 0 A_Look
-		PARA CC 4 A_Wander
-		PARA A 0 A_Look
-		PARA DD 4 A_Wander
-		PARA A 0 A_Look
-		loop
 	}
 }
 
@@ -600,16 +451,6 @@ ACTOR Mutant : Nazi
 	Raise:
 		MTNT MLKJI 5
 		goto See
-	Idle:
-		MTNT AA 4 A_Wander
-		MTNT A 0 A_Look
-		MTNT BB 4 A_Wander
-		MTNT A 0 A_Look
-		MTNT CC 4 A_Wander
-		MTNT A 0 A_Look
-		MTNT DD 4 A_Wander
-		MTNT A 0 A_Look
-		loop
 	}
 }
 
@@ -645,26 +486,9 @@ ACTOR Officer : Nazi
 		OFFI H 3
 		OFFI H 3 A_Pain
 		goto See
-	Death:
-		OFFI I 5
-		OFFI J 5 A_Scream
-		OFFI K 5 A_NoBlocking
-		OFFI L 5
-		OFFI M -1
-		stop
 	Raise:
 		OFFI MLKJI 5
 		goto See
-	Idle:
-		OFFI AA 4 A_Wander
-		OFFI A 0 A_Look
-		OFFI BB 4 A_Wander
-		OFFI A 0 A_Look
-		OFFI CC 4 A_Wander
-		OFFI A 0 A_Look
-		OFFI DD 4 A_Wander
-		OFFI A 0 A_Look
-		loop
 	}
 }
 
@@ -703,26 +527,9 @@ ACTOR WOfficer : Officer
 		OFR2 H 3
 		OFR2 H 3 A_Pain
 		goto See
-	Death:
-		OFR2 I 5
-		OFR2 J 5 A_Scream
-		OFR2 K 5 A_NoBlocking
-		OFR2 L 5
-		OFR2 M -1
-		stop
 	Raise:
 		OFR2 MLKJI 5
 		goto See
-	Idle:
-		OFR2 AA 4 A_Wander
-		OFR2 A 0 A_Look
-		OFR2 BB 4 A_Wander
-		OFR2 A 0 A_Look
-		OFR2 CC 4 A_Wander
-		OFR2 A 0 A_Look
-		OFR2 DD 4 A_Wander
-		OFR2 A 0 A_Look
-		loop
 	}
 }
 
@@ -748,26 +555,9 @@ ACTOR SSOfficer : Officer
 		SSOF H 3
 		SSOF H 3 A_Pain
 		goto See
-	Death:
-		SSOF I 5
-		SSOF J 5 A_Scream
-		SSOF K 5 A_NoBlocking
-		SSOF L 5
-		SSOF M -1
-		stop
 	Raise:
 		SSOF MLKJI 5
 		goto See
-	Idle:
-		SSOF AA 4 A_Wander
-		SSOF A 0 A_Look
-		SSOF BB 4 A_Wander
-		SSOF A 0 A_Look
-		SSOF CC 4 A_Wander
-		SSOF A 0 A_Look
-		SSOF DD 4 A_Wander
-		SSOF A 0 A_Look
-		loop
 	}
 }
 
@@ -857,7 +647,6 @@ ACTOR RocketMan : BigNazi
 {
 	obituary "%o was splattered by Otto Giftmacher."
 	seesound "Boss2/Sighted"
-	painsound "boss/pain"
 	deathsound "Boss2/Death"
 	states
 	{
@@ -865,7 +654,7 @@ ACTOR RocketMan : BigNazi
 		OTTO A 10 A_Look
 		loop
 	See:
-		OTTO AABBCCDD 4 A_Chase
+		"####" AABBCCDD 4 A_Chase
 		loop
 	Missile:
 		OTTO E 10 A_FaceTarget
@@ -877,40 +666,24 @@ ACTOR RocketMan : BigNazi
 		OTTO A 3 A_Pain
 		goto See
 	Death:
-		OTTO G 5
-		OTTO H 5 A_Scream
-		OTTO I 5
-		OTTO J -1 A_NoBlocking
+		"####" G 5
+		"####" H 5 A_Scream
+		"####" I 5
+		"####" J -1 A_NoBlocking
 		stop
 	Raise:
-		OTTO JIHG 5
+		"####" JIHG 5
 		goto See
-	Idle:
-		OTTO AA 4 A_Wander
-		OTTO A 0 A_Look
-		OTTO BB 4 A_Wander
-		OTTO A 0 A_Look
-		OTTO CC 4 A_Wander
-		OTTO A 0 A_Look
-		OTTO DD 4 A_Wander
-		OTTO A 0 A_Look
-		loop
 	}
 }
 
-ACTOR MadDoctor : BigNazi
+ACTOR MadDoctor : RocketMan
 {
 	obituary "%o was used as an unwitting test subject by Dr. Schabbs."
-	seesound "Boss2/Sighted"
-	painsound "boss/pain"
-	deathsound "Boss2/Death"
 	states
 	{
 	Spawn:
 		SCHB A 10 A_Look
-		loop
-	See:
-		SCHB AABBCCDD 4 A_Chase
 		loop
 	Missile:
 		SCHB E 10 A_FaceTarget
@@ -921,25 +694,6 @@ ACTOR MadDoctor : BigNazi
 		SCHB G 3
 		SCHB A 3 A_Pain
 		goto See
-	Death:
-		SCHB G 5
-		SCHB H 5 A_Scream
-		SCHB I 5
-		SCHB J -1 A_NoBlocking
-		stop
-	Raise:
-		SCHB JIHG 5
-		goto See
-	Idle:
-		SCHB AA 4 A_Wander
-		SCHB A 0 A_Look
-		SCHB BB 4 A_Wander
-		SCHB A 0 A_Look
-		SCHB CC 4 A_Wander
-		SCHB A 0 A_Look
-		SCHB DD 4 A_Wander
-		SCHB A 0 A_Look
-		loop
 	}
 }
 
@@ -954,7 +708,6 @@ ACTOR FlyingNeedle
 	+RANDOMIZE
 	+STRIFEDAMAGE
 	DamageType "Enemy"
-	Obituary "$OB_MPROCKET" // "%o rode %k's rocket."
 	States
 	{
 	Spawn:
@@ -987,7 +740,6 @@ ACTOR SuperSoldier : BigNazi
 	mass 500
 	painchance 150
 	seesound "Boss1/Sighted"
-	painsound "boss/pain"
 	deathsound "Boss1/Death"
 	DropItem "UMG43" 8
 	+NOBLOOD
@@ -1027,16 +779,6 @@ ACTOR SuperSoldier : BigNazi
 	Raise:
 		HANS LKJI 5
 		goto See
-	Idle:
-		HANS AA 4 A_Wander
-		HANS A 0 A_Look
-		HANS BB 4 A_Wander
-		HANS A 0 A_Look
-		HANS CC 4 A_Wander
-		HANS A 0 A_Look
-		HANS DD 4 A_Wander
-		HANS A 0 A_Look
-		loop
 	}
 }
 
@@ -1089,16 +831,6 @@ ACTOR SuperSoldierGirl : SuperSoldier
 	Raise:
 		WBO4 KJI 5
 		goto See
-	Idle:
-		WBO4 AA 4 A_Wander
-		WBO4 A 0 A_Look
-		WBO4 BB 4 A_Wander
-		WBO4 A 0 A_Look
-		WBO4 CC 4 A_Wander
-		WBO4 A 0 A_Look
-		WBO4 DD 4 A_Wander
-		WBO4 A 0 A_Look
-		loop
 	}
 }
 
@@ -1147,16 +879,6 @@ ACTOR SuperSoldierElite : SuperSoldier replaces BaronOfHell
 	Raise:
 		TRAN LKJI 5
 		goto See
-	Idle:
-		TRAN AA 4 A_Wander
-		TRAN A 0 A_Look
-		TRAN BB 4 A_Wander
-		TRAN A 0 A_Look
-		TRAN CC 4 A_Wander
-		TRAN A 0 A_Look
-		TRAN DD 4 A_Wander
-		TRAN A 0 A_Look
-		loop
 	}
 }
 
@@ -1171,7 +893,6 @@ ACTOR MiniRocket
 	DamageType "Enemy"
 	SeeSound "weapons/rocklf"
 	DeathSound "weapons/rocklx"
-	Obituary "$OB_MPROCKET" // "%o rode %k's rocket."
 	States
 	{
 	Spawn:
@@ -1198,7 +919,6 @@ ACTOR General : BigNazi replaces Archvile
 	health 800
 	mass 1000
 	seesound "Boss3/Sighted"
-	painsound "boss/pain"
 	deathsound "Boss3/Death"
 	DropItem "Nebelwerfer" 64
 	DropItem "UMG43" 8
@@ -1240,16 +960,6 @@ ACTOR General : BigNazi replaces Archvile
 	Raise:
 		FETT LKJI 5
 		goto See
-	Idle:
-		FETT AA 4 A_Wander
-		FETT A 0 A_Look
-		FETT BB 4 A_Wander
-		FETT A 0 A_Look
-		FETT CC 4 A_Wander
-		FETT A 0 A_Look
-		FETT DD 4 A_Wander
-		FETT A 0 A_Look
-		loop
 	}
 }
 
@@ -1258,7 +968,6 @@ ACTOR FlamerMan : BigNazi replaces Arachnotron
 	obituary "%o was roasted by a Nazi with a flamethrower."
 	health 500
 	seesound "Boss1/Sighted"
-	painsound "boss/pain"
 	deathsound "Boss1/Death"
 	dropitem "Pyrolight"
 	states
@@ -1292,16 +1001,6 @@ ACTOR FlamerMan : BigNazi replaces Arachnotron
 	Raise:
 		FLAM JIHG 5
 		goto See
-	Idle:
-		FLAM AA 4 A_Wander
-		FLAM A 0 A_Look
-		FLAM BB 4 A_Wander
-		FLAM A 0 A_Look
-		FLAM CC 4 A_Wander
-		FLAM A 0 A_Look
-		FLAM DD 4 A_Wander
-		FLAM A 0 A_Look
-		loop
 	}
 }
 
@@ -1311,7 +1010,6 @@ ACTOR ChairGuy : BigNazi replaces PainElemental
 	health 600
 	mass 2000
 	seesound "krist/sight"
-	painsound "boss/pain"
 	deathsound "krist/death"
 	-FLOORCLIP
 	+FLOAT
@@ -1348,16 +1046,6 @@ ACTOR ChairGuy : BigNazi replaces PainElemental
 		MISL C 6 bright
 		MISL D 4 bright
 		Stop
-	Idle:
-		KRIS AA 4 A_Wander
-		KRIS A 0 A_Look
-		KRIS BB 4 A_Wander
-		KRIS A 0 A_Look
-		KRIS CC 4 A_Wander
-		KRIS A 0 A_Look
-		KRIS DD 4 A_Wander
-		KRIS A 0 A_Look
-		loop
 	}
 }
 
@@ -1593,7 +1281,6 @@ ACTOR DeathKnight : BigNazi replaces Cyberdemon
 	speed 14
 	painchance 20
 	seesound "deathknight/sight"
-	painsound "boss/pain"
 	deathsound "deathknight/death"
 	dropitem "Nebelwerfer"
 	+MISSILEEVENMORE
@@ -1650,6 +1337,8 @@ ACTOR DeathKnight : BigNazi replaces Cyberdemon
 		DKGT R 5
 		DKGT S -1 A_BossDeath
 		stop
+	Idle:
+		Stop
 	}
 }
 
@@ -1703,6 +1392,8 @@ ACTOR Hitler : BigNazi replaces SpiderMastermind
 		HITL NO 10
 		HITL P -1 A_BossDeath
 		stop
+	Idle:
+		Stop
 	}
 }
 
@@ -1712,7 +1403,6 @@ ACTOR FatMan : BigNazi replaces Fatso
 	health 600
 	mass 1000
 	seesound "fatman/sight"
-	painsound "boss/pain"
 	deathsound "fatman/death"
 	DropItem "Nebelwerfer" 64
 	DropItem "GrenadePickup" 128
@@ -1749,16 +1439,6 @@ ACTOR FatMan : BigNazi replaces Fatso
 	Raise:
 		GOER KJIH 5
 		goto See
-	Idle:
-		GOER AA 4 A_Wander
-		GOER A 0 A_Look
-		GOER BB 4 A_Wander
-		GOER A 0 A_Look
-		GOER CC 4 A_Wander
-		GOER A 0 A_Look
-		GOER DD 4 A_Wander
-		GOER A 0 A_Look
-		loop
 	}
 }
 

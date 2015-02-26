@@ -38,9 +38,9 @@ Actor WWNazisPlayer : DoomPlayer
 {
 	player.invulnerabilitymode "reflective"
 	Player.WeaponSlot 1,Melee,Firebrand
-	Player.WeaponSlot 2,Walther9mm,Luger9mm,WeaselsRevolver
+	Player.WeaponSlot 2,Luger9mm,Walther9mm,WeaselsRevolver
 	Player.WeaponSlot 3,TrenchShotgun,Browning5
-	Player.WeaponSlot 4,Thompson,PPSH41,MP40
+	Player.WeaponSlot 4,MP40,PPSH41,Thompson
 	Player.WeaponSlot 5,G41,Enfield
 	Player.WeaponSlot 6,STG44,FG42
 	Player.WeaponSlot 7,Pyrolight

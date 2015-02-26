@@ -86,9 +86,8 @@ ACTOR G41 : NaziWeapon
 		M1GG A 0 A_JumpIfInventory("G41Clip",1,1)
 		Goto Reload
 		M1GF A 0 A_PlaySound("garand/fire",CHAN_WEAPON)
-		M1GF A 0 A_TakeInventory("G41Clip",1)
 		M1GF A 0 A_GunFlash
-		M1GF A 1 BRIGHT A_FireCustomMissile("RifleTracer",0,0)
+		M1GF A 1 BRIGHT A_FireCustomMissile("RifleTracer")
 		M1GF B 1 BRIGHT A_SetPitch (pitch - 1.4)
 		M1GG CDEDC 1 A_AlertMonsters
 		TNT1 A 0 A_CheckReload
@@ -97,7 +96,7 @@ ACTOR G41 : NaziWeapon
 	Reload:
 		TNT1 A 0 A_Jump(180,2)
 		TNT1 A 0 A_PlaySound("*taunt", CHAN_VOICE)
-		M1GG A 1 Offset(0,35) A_PlaySound("reloads/g43",CHAN_ITEM)
+		M1GG A 1 Offset(0,35) A_PlaySound("reloads/g43",5)
 		M1GG A 1 Offset(-2,38)
 		M1GG A 1 Offset(-4,44)
 		M1GG A 1 Offset(-6,52)

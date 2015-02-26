@@ -39,7 +39,6 @@ ACTOR TracerTrail
 {
 	Alpha 0.75
 	RenderStyle Add
-	Speed 0
 	+NOBLOCKMAP
 	+NOGRAVITY
 	+NOTELEPORT

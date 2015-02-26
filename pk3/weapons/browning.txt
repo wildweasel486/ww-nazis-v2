@@ -100,7 +100,7 @@ ACTOR Browning5 : NaziWeapon replaces SuperShotgun
 	ReloadWork:
 		BA5G A 0 A_TakeInventory("NewShell",1,TIF_NOTAKEINFINITE)
 		BA5G A 0 A_GiveInventory("BrowningLoaded",1)
-		BA5G E 1 Offset(-8,58) A_PlaySound("weapons/ba5Load",CHAN_ITEM)
+		BA5G E 1 Offset(-8,58) A_PlaySound("weapons/ba5Load",5)
 		BA5G E 1 Offset(-9,64)
 		BA5G E 1 Offset(-10,70)
 		BA5G E 1 Offset(-10,68)
