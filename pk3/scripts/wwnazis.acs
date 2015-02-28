@@ -9,7 +9,7 @@ SCRIPT "WWNaziTaunt" (int tauntType)
 	delay(20); // Appropriate wait time until player is done with the taunt-worthy action.
 	tauntChance = random(1,5);
 	tauntDelay = 5 * 35;
-	Print(i:tauntChance);
+	//Print(i:tauntChance);
 	
 	if(tauntType == 1 && tauntChance == 5) {
 		PlaySound(0, "player/taunt", CHAN_VOICE, 1.0);
@@ -20,5 +20,5 @@ SCRIPT "WWNaziTaunt" (int tauntType)
 	if(tauntType == 3 && tauntChance >= 3) { 
 		PlaySound(0, "player/grenadecall", CHAN_VOICE, 1.0);
 		Delay(tauntDelay); } // 3: throwing a grenade
-	Log(s:"Taunt ready!");
+	//Log(s:"Taunt ready!");
 }
