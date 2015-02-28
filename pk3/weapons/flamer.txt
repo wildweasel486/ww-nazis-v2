@@ -167,6 +167,7 @@ ACTOR Pyrolight : NaziWeapon replaces RocketLauncher
 		Goto Ready
 	Flash:
 		FFTF B 2 A_PlaySound("weapons/steam")
+		FFTF B 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
 		FFTF CDEF 2 A_Light0
 		Stop
 	AltFire:
@@ -190,8 +191,7 @@ ACTOR Pyrolight : NaziWeapon replaces RocketLauncher
 		FFTR B 0 A_JumpIfInventory("FlameAmmo",1,2)
 		FFTR B 1 A_WeaponReady(WRF_NOFIRE)
 		Goto Ready
-		FFTR B 0 A_Jump(128,2)
-		FFTR B 0 A_PlaySound("*taunt", CHAN_VOICE)
+		FFTR B 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)
 		FFTR B 1 Offset(0,35) A_PlaySound("reloads/flamer",5)
 		FFTR B 1 Offset(0,38)
 		FFTR B 1 Offset(0,40)
