@@ -27,7 +27,7 @@ ACTOR NaziWeapon : Weapon
 #include "actors/weapons/panzerschreck.txt"
 #include "actors/weapons/granate.txt"
 #include "actors/bullets.txt"
-#include "items/armor.txt"
+#include "actors/armor.txt"
 #include "actors/nazis.txt"
 #include "actors/nazis2.txt"
 #include "actors/nazis3.txt"
