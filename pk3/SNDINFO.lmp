@@ -9,14 +9,12 @@ $playeralias	weasel	male	*pain25		weaselcritpain
 $playeralias	weasel	male	*grunt		weaseloof
 $playersound	weasel	male	*land		dsoof
 $playersound	weasel	male	*usefail	dsnoway
-$playeralias	weasel	male	*tauntfire		player/taunt
-$playeralias	weasel	male	*tauntreload		player/reload
 $playeralias	weasel	male	*grenadecall	player/grenadecall
 $playersound	weasel	male	*weaponlaugh	dswpnup
 $playersound	weasel	male	*evillaugh	dsempty
 
 $random player/taunt { taunt1 taunt2 taunt3 taunt4 taunt5 taunt6 taunt7 taunt8 taunt9 taunt10 taunt11 taunt12 taunt13 taunt14 taunt15 }
-$alias player/reload player/taunt
+$random player/reload { reload1 reload2 reload3 reload4 reload5 reload6 reload7 reload8 reload9 }
 $random player/grenadecall { grenade1 grenade2 grenade3 }
 grenade1 grenade1
 grenade2 grenade2
@@ -36,6 +34,15 @@ taunt12 taunt12
 taunt13 taunt13
 taunt14 taunt14
 taunt15 taunt15
+reload1 reload1
+reload2 reload2
+reload3 reload3
+reload4 reload4
+reload5 reload5
+reload6 reload6
+reload7 reload7
+reload8 reload8
+reload9 reload9
 $random weaselcritpain { p1-1 p1-2 p1-3 p1-4 p1-5 p1-6 }
 $random weaselhipain { p2-1 p2-2 p2-3 p2-4 p2-5 p2-6 }
 $random weaselmedpain { p3-1 p3-2 p3-3 p3-4 p3-5 }
