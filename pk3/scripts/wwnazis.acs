@@ -1,6 +1,56 @@
 #library "WWNAZIS"
 #include "zcommon.acs"
 
+/*
+Weapon name constants. Pattern is NWEP_WEAPONNAME, [slotnum][weapnum].
+i.e. the Revolver is weapon 1 of category 2, so its constant is NWEP_REVOLVER 21.
+Note: just because I've defined a constant here doesn't necessarily mean it'll make it in.
+
+Categories:
+1 - Melee
+2 - Pistols
+3 - Rifles/Shotguns
+4 - Light Automatics (SMGs)
+5 - Power Weapons (Rockets, Flamers, etc)
+*/
+#define NWEP_SHOVEL 11
+#define NWEP_SWORD 12
+#define NWEP_DAGGER 13
+#define NWEP_HATCHET 14
+#define NWEP_KNUCKLES 15
+
+#define NWEP_REVOLVER 21
+#define NWEP_LUGER 22
+#define NWEP_WALTHER 23
+#define NWEP_COLT 24
+#define NWEP_TOKAREV 25
+#define NWEP_HISTANDARD 26 // Because we didn't have any silenced weapons...
+
+#define NWEP_TRENCHGUN 31
+#define NWEP_AUTOSHOTGUN 32
+#define NWEP_DOUBLESHOTGUN 33 // Yeah it MIGHT come back maybe
+#define NWEP_ENFIELD 34
+#define NWEP_GARAND 35
+#define NWEP_MAUSER 36
+#define NWEP_MAUSERSNIPER 37
+#define NWEP_GEWEHR 37
+
+#define NWEP_MP40 41
+#define NWEP_THOMPSON 42
+#define NWEP_SHPAGIN 43 // PPSh-41
+#define NWEP_STEN 44
+#define NWEP_SILENTSTEN 45
+#define NWEP_STG44 46
+#define NWEP_FG42 47
+
+#define NWEP_FLAMER 51
+#define NWEP_BIGROCKET 52 // Panzerschreck
+#define NWEP_LITTLEROCKET 53 // Panzerfaust
+#define NWEP_TINYROCKET 54 // Klein Nebelwerfer
+#define NWEP_CHAINGUN 55 // UMG 43
+
+SCRIPT "WeaponPickup" (int weaponNum)
+
 SCRIPT "WWNaziTaunt" (int tauntType)
 {
 	int tauntChance = 0;
