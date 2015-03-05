@@ -8,31 +8,31 @@ ACTOR NaziWeapon : Weapon
 	+WEAPON.NOALERT
 }
 
-#include "weapons/shovel.txt"
-#include "weapons/revolver.txt"
-#include "weapons/P38.txt"
-#include "weapons/Luger.txt"
-#include "weapons/shotgun.txt"
-#include "weapons/g41.txt"
-#include "weapons/browning.txt"
-#include "weapons/stg44.txt"
-#include "weapons/mp40.txt"
-#include "weapons/ppsh41.txt"
-#include "weapons/flamer.txt"
-#include "weapons/nebelwerfer.txt"
-#include "weapons/umg43.txt"
-#include "weapons/Enfield.txt"
-#include "weapons/fg42.txt"
-#include "weapons/thompson.txt"
-#include "weapons/panzerschreck.txt"
-#include "weapons/granate.txt"
+#include "actors/weapons/shovel.txt"
+#include "actors/weapons/revolver.txt"
+#include "actors/weapons/P38.txt"
+#include "actors/weapons/Luger.txt"
+#include "actors/weapons/shotgun.txt"
+#include "actors/weapons/g41.txt"
+#include "actors/weapons/browning.txt"
+#include "actors/weapons/stg44.txt"
+#include "actors/weapons/mp40.txt"
+#include "actors/weapons/ppsh41.txt"
+#include "actors/weapons/flamer.txt"
+#include "actors/weapons/nebelwerfer.txt"
+#include "actors/weapons/umg43.txt"
+#include "actors/weapons/Enfield.txt"
+#include "actors/weapons/fg42.txt"
+#include "actors/weapons/thompson.txt"
+#include "actors/weapons/panzerschreck.txt"
+#include "actors/weapons/granate.txt"
 #include "actors/bullets.txt"
-#include "items/armor.txt"
+#include "actors/armor.txt"
 #include "actors/nazis.txt"
 #include "actors/nazis2.txt"
 #include "actors/nazis3.txt"
 #include "actors/nazis4.txt"
-#include "weapons/seekrit!.txt"
+#include "actors/weapons/seekrit!.txt"
 
 Actor WWNazisPlayer : DoomPlayer
 {
@@ -133,7 +133,7 @@ ACTOR BarrelFrags
 ACTOR TNTBarrel1 : ExplosiveBarrel
 {
 	Height 34
-	DeathSound "weapons/rocklx"
+	DeathSound "actors/weapons/rocklx"
 	States
 	{
 	Spawn:
