@@ -4,7 +4,7 @@ ACTOR PanzerLoaded : Ammo
 	Tag "Loaded"
 }
 
-ACTOR PanzerAmmo : Ammo replaces RocketAmmo
+ACTOR PanzerAmmo : Ammo
 {
 	//$Category ammunition
 	Inventory.MaxAmount 10

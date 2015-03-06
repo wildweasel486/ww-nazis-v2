@@ -35,7 +35,7 @@ ACTOR BrowningLoaded : Ammo
 	+IGNORESKILL
 }
 
-ACTOR Browning5 : NaziWeapon replaces SuperShotgun
+ACTOR Browning5 : NaziWeapon
 {
 	Weapon.SelectionOrder 400
 	Weapon.AmmoUse1 1
