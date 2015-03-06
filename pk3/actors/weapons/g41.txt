@@ -57,7 +57,6 @@ ACTOR G41 : NaziWeapon
 	Weapon.AmmoType1 "G41Clip"
 	Weapon.AmmoUse1 1
 	Weapon.AmmoType2 "MauserAmmo"
-	Weapon.AmmoGive2 10
 	Weapon.AmmoUse2 1
 	Inventory.PickupMessage "You got the Gewehr 43!"
 	Tag "Gewehr 43"
