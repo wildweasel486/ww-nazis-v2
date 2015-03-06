@@ -348,9 +348,8 @@ ACTOR WRifleGuard : RifleGuard
 ACTOR WaffenSS : RifleGuard
 {
 	obituary "%o was shot to pieces by a Waffen-SS."
-	health 80
-	dropitem "STG44"
-	DropItem STGClip
+	Health 80
+	DropItem STG44Spawner
 	dropitem "GrenadePickup" 32
 	states
 	{

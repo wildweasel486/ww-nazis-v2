@@ -4,6 +4,7 @@ ACTOR Melee : NaziWeapon
 	Weapon.Kickback 100
 	AttackSound "shovel/impact"
 	Tag "The Shovel!"
+	Inventory.PickupMessage "You got the shovel! (slot 1)"
 	Obituary "%o was shcklonked with %k's shovel."
 	+NOEXTREMEDEATH
 	+NOAUTOFIRE
@@ -68,6 +69,9 @@ ACTOR Melee : NaziWeapon
 		SHUV A 1 Offset(20,40) A_WeaponReady(WRF_NOBOB)
 		SHUV A 1 Offset(10,35) A_WeaponReady(WRF_NOBOB)
 		Goto Ready
+	Spawn:
+		SHUV Z -1
+		Stop
 	}
 }
 
