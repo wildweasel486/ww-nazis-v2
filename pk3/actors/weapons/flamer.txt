@@ -129,7 +129,7 @@ ACTOR EnemyFlamebolt2 : EnemyFlamebolt
 ACTOR Pyrolight : NaziWeapon
 {
 	Weapon.SelectionOrder 195
-	Inventory.PickupMessage "You got the Pyrolight!"
+	Inventory.PickupMessage "You got the Pyrolight! (slot 7)"
 	Weapon.Kickback 20
 	Weapon.AmmoType1 "FlameLoad"
 	Weapon.AmmoType2 "FlameAmmo"

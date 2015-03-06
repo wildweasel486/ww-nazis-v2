@@ -18,7 +18,7 @@ ACTOR Enfield : NaziWeapon
 	Weapon.AmmoType2 "MauserAmmo"
 	Weapon.AmmoUse2 1
 	Tag "Lee-Enfield SMLE"
-	Inventory.PickupMessage "You got the Lee-Enfield SMLE!"
+	Inventory.PickupMessage "You got the Lee-Enfield SMLE! (slot 5)"
 	+NOAUTOFIRE
 	States
 	{

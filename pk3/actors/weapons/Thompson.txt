@@ -25,7 +25,7 @@ ACTOR 45ACPAmmo : Ammo
 
 Actor Thompson : NaziWeapon
 {
-	inventory.pickupmessage "You got the Thompson M1A1!"
+	inventory.pickupmessage "You got the Thompson M1A1! (slot 4)"
 	weapon.kickback 100
 	Weapon.AmmoType "ThompsonClip"
 	Weapon.AmmoUse1 1

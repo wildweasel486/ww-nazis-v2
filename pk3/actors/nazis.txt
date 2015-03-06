@@ -286,8 +286,7 @@ ACTOR RifleGuard : Nazi
 	seesound "Nazi3/Sighted"
 	painsound "Nazi2/Pain"
 	deathsound "Nazi2/Death"
-	dropitem "G41"
-	DropItem MauserAmmo
+	DropItem G43Spawner
 	states
 	{
 	Spawn:

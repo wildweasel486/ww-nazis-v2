@@ -3,7 +3,9 @@
 ACTOR SRevolverClip : RevolverClip replaces ElectricBolts{}
 ACTOR SWalther : RandomSpawner replaces ClipOfBullets
 {
-	DropItem "Walther9mm"
+	DropItem "WeaselsRevolverSpawner"
+	DropItem "Luger9mmSpawner"
+	DropItem "Walther9mmSpawner"
 }
 ACTOR SNewShell : RandomSpawner replaces PoisonBolts
 {
@@ -22,30 +24,18 @@ ACTOR SGrenade : RandomSpawner replaces MiniMissiles
 //CrateOfMissiles
 //	ConversationID 182
 
-ACTOR SG43 : RandomSpawner replaces StrifeCrossbow
-{
-	DropItem "G41"
-}
+ACTOR SG43Spawner : G43Spawner replaces StrifeCrossbow{}
 ACTOR SSTG44 : RandomSpawner replaces AssaultGun
 {
-	DropItem "MP40"
-	DropItem "STG44"
+	DropItem "MP40Spawner"
+	DropItem "STG44Spawner"
 }
 ACTOR SSTG442 : SSTG44 replaces AssaultGunStanding{}
 //MiniMissileLauncher
 //	ConversationID 192
-ACTOR SPyrolight : RandomSpawner replaces FlameThrower
-{
-	DropItem "Pyrolight"
-}
-ACTOR SUMG43 : RandomSpawner replaces Mauler
-{
-	DropItem "UMG43"
-}
-ACTOR SNebelwerfer : RandomSpawner replaces StrifeGrenadeLauncher
-{
-	DropItem "Nebelwerfer"
-}
+ACTOR SPyrolightSpawner : PyrolightSpawner replaces FlameThrower{}
+ACTOR SUMG43Spawner : UMG43Spawner replaces Mauler{}
+ACTOR SNebelwerferSpawner : NebelwerferSpawner replaces StrifeGrenadeLauncher{}
 
 ACTOR SFlakJacket : RandomSpawner replaces LeatherArmor
 {

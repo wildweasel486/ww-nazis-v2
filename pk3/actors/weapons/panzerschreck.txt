@@ -25,7 +25,7 @@ ACTOR PanzerAmmo : Ammo
 ACTOR Panzerschreck : NaziWeapon
 {
 	Weapon.SelectionOrder 10000
-	Inventory.PickupMessage "You got the Panzerschreck! (8)"
+	Inventory.PickupMessage "You got the Panzerschreck! (slot 8)"
 	Tag "Panzerschreck"
 	Obituary "%o notices %k's rocket speeding towards %h."
 	Weapon.AmmoType "PanzerLoaded"

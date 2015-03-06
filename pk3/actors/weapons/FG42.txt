@@ -7,7 +7,7 @@ ACTOR FG42Ammo : Ammo
 
 Actor FG42 : NaziWeapon
 {
-	inventory.pickupmessage "You got the Fallschirmjagergewehr 42!"
+	inventory.pickupmessage "You got the Fallschirmjagergewehr 42! (slot 6)"
 	weapon.kickback 100
 	Weapon.AmmoType "FG42Ammo"
 	Weapon.AmmoUse1 1

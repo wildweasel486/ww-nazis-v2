@@ -43,7 +43,7 @@ ACTOR Browning5 : NaziWeapon
 	Weapon.AmmoType2 "NewShell"
 	Weapon.AmmoUse2 1
 	Scale 0.5
-	Inventory.PickupMessage "You got the Browning Auto-5!"
+	Inventory.PickupMessage "You got the Browning Auto-5! (slot 3)"
 	Obituary "%o was peppered by %k's auto shotgun."
 	Tag "Browning Auto-5"
 	+NOAUTOFIRE

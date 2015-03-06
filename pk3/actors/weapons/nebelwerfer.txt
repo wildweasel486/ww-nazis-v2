@@ -46,7 +46,7 @@ actor Nebelwerfer : NaziWeapon
 	Weapon.AmmoUse 1
 	Weapon.AmmoType "NebAmmo"
 	Tag "Klein Nebelwerfer"
-	Inventory.PickupMessage "You got the Klein Nebelwerfer!"
+	Inventory.PickupMessage "You got the Klein Nebelwerfer! (slot 8)"
 	-WEAPON.NOALERT
 	-WEAPON.AMMO_CHECKBOTH
 	ConversationID 195

@@ -8,7 +8,7 @@ ACTOR Firebrand : Weapon
 	Weapon.SelectionOrder 0
 	Weapon.Kickback 10
 	Weapon.SisterWeapon FlameSword
-	Inventory.PickupMessage "Mad Jack Churchill now considers you properly dressed!"
+	Inventory.PickupMessage "Mad Jack Churchill now considers you properly dressed! (slot 1)"
 	Inventory.PickupSound "weapons/sworddraw"
 	Weapon.UpSound "weapons/sworddraw"
 	+NOAUTOFIRE
