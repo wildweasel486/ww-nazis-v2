@@ -13,7 +13,6 @@ Actor FG42 : NaziWeapon
 	Weapon.AmmoUse1 1
 	weapon.ammotype2 "MauserAmmo"
 	weapon.ammouse2 1
-	weapon.ammogive2 10
 	Scale 0.38
 	Tag "FG 42"
 	States
@@ -109,6 +108,17 @@ Actor FG42 : NaziWeapon
 		Goto LightDone
 	Spawn:
 		FG42 P -1
+		Stop
+	}
+}
+
+ACTOR FG42Spawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx("FG42",0,0,0,velx,vely,velz)
+		TNT1 AA 0 A_SpawnItemEx("MauserAmmoSmall",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }

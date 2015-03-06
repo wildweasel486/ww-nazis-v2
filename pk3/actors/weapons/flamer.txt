@@ -133,7 +133,6 @@ ACTOR Pyrolight : NaziWeapon replaces RocketLauncher
 	Weapon.Kickback 20
 	Weapon.AmmoType1 "FlameLoad"
 	Weapon.AmmoType2 "FlameAmmo"
-	Weapon.AmmoGive2 25
 	Weapon.AmmoUse1 1
 	Weapon.AmmoUse2 1
 	ConversationID 190

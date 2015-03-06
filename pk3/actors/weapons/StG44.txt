@@ -32,7 +32,6 @@ Actor STG44 : NaziWeapon
 	Weapon.AmmoUse1 1
 	weapon.ammotype2 "STGClip"
 	weapon.ammouse2 1
-	weapon.ammogive2 20
 	Scale 0.5
 	Tag "Sturmgewehr 44"
 	ConversationID 189

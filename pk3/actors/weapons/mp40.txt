@@ -9,7 +9,6 @@ ACTOR MP40 : NaziWeapon
 	Weapon.AmmoUse1 1
 	weapon.ammotype2 "MPClip"
 	weapon.ammouse2 1
-	weapon.ammogive2 20
 	Tag "MP-40"
 	Inventory.PickupMessage "You got the MP-40!"
 	ConversationID 188
@@ -116,6 +115,18 @@ ACTOR MPClip : Ammo replaces ClipBox
 	{
 	Spawn:
 		MCLP A -1
+		Stop
+	}
+}
+
+ACTOR MPMagazine : MPClip
+{
+	Inventory.Amount 8
+	Inventory.PickupMessage "Picked up a 9mm magazine."
+	States
+	{
+	Spawn:
+		CLIP A -1 //Placeholder sprite
 		Stop
 	}
 }

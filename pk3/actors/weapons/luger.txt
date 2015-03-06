@@ -6,7 +6,6 @@ ACTOR Luger9mm : NaziWeapon
 	Weapon.AmmoUse1 1
 	weapon.ammotype2 "MPClip"
 	weapon.ammouse2 1
-	weapon.ammogive2 10
 	Tag "Luger P-08"
 	Inventory.PickupMessage "You got the Luger!"
 	+Weapon.NoAutoFire

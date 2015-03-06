@@ -68,6 +68,7 @@ ACTOR Guard : Nazi
 {
 	obituary "%o was shot by a pistol soldier."
 	DropItem "Walther9mm"
+	DropItem "MPMagazine"
 	states
 	{
 	Spawn:
@@ -171,6 +172,8 @@ ACTOR MP40Guard : Nazi
 	painsound "Nazi2/Pain"
 	deathsound "Nazi2/Death"
 	dropitem "MP40"
+	DropItem "MPMagazine"
+	DropItem "MPMagazine"
 	dropitem "GrenadePickup" 16
 	states
 	{
@@ -284,6 +287,7 @@ ACTOR RifleGuard : Nazi
 	painsound "Nazi2/Pain"
 	deathsound "Nazi2/Death"
 	dropitem "G41"
+	DropItem MauserAmmo
 	states
 	{
 	Spawn:
@@ -347,6 +351,7 @@ ACTOR WaffenSS : RifleGuard
 	obituary "%o was shot to pieces by a Waffen-SS."
 	health 80
 	dropitem "STG44"
+	DropItem STGClip
 	dropitem "GrenadePickup" 32
 	states
 	{
@@ -382,7 +387,7 @@ ACTOR Paratrooper : RifleGuard
 {
 	obituary "%o was slaughtered by a Fallschirmjaeger."
 	health 90
-	dropitem "FG42" 128
+	dropitem "FG42Spawner" 128
 	dropitem "MauserAmmoSmall" 128
 	states
 	{
@@ -468,6 +473,7 @@ ACTOR Officer : Nazi
 	painsound "Nazi4/Pain"
 	deathsound "Nazi4/Death"
 	dropitem "Luger9mm"
+	DropItem "MPMagazine"
 	states
 	{
 	Spawn:
@@ -741,7 +747,7 @@ ACTOR SuperSoldier : BigNazi
 	painchance 150
 	seesound "Boss1/Sighted"
 	deathsound "Boss1/Death"
-	DropItem "UMG43" 8
+	DropItem "UMG43Spawner" 8
 	+NOBLOOD
 	states
 	{
@@ -920,8 +926,8 @@ ACTOR General : BigNazi replaces Archvile
 	mass 1000
 	seesound "Boss3/Sighted"
 	deathsound "Boss3/Death"
-	DropItem "Nebelwerfer" 64
-	DropItem "UMG43" 8
+	DropItem "NebelwerferSpawner" 64
+	DropItem "UMG43Spawner" 8
 	+MISSILEEVENMORE
 	states
 	{
@@ -970,6 +976,7 @@ ACTOR FlamerMan : BigNazi replaces Arachnotron
 	seesound "Boss1/Sighted"
 	deathsound "Boss1/Death"
 	dropitem "Pyrolight"
+	DropItem FlameAmmo
 	states
 	{
 	Spawn:
@@ -1282,7 +1289,7 @@ ACTOR DeathKnight : BigNazi replaces Cyberdemon
 	painchance 20
 	seesound "deathknight/sight"
 	deathsound "deathknight/death"
-	dropitem "Nebelwerfer"
+	dropitem "NebelwerferSpawner"
 	+MISSILEEVENMORE
 	+BOSS
 	+NORADIUSDMG
@@ -1355,7 +1362,7 @@ ACTOR Hitler : BigNazi replaces SpiderMastermind
 	painsound "hitler/pain"
 	deathsound "hitler/death"
 	activesound "hitler/active"
-	DropItem "UMG43" 64
+	DropItem "UMG43Spawner" 64
 	+MISSILEEVENMORE
 	+BOSS
 	+NORADIUSDMG
@@ -1404,7 +1411,7 @@ ACTOR FatMan : BigNazi replaces Fatso
 	mass 1000
 	seesound "fatman/sight"
 	deathsound "fatman/death"
-	DropItem "Nebelwerfer" 64
+	DropItem "NebelwerferSpawner" 64
 	DropItem "GrenadePickup" 128
 	+MISSILEEVENMORE
 	states
