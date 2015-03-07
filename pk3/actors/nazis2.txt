@@ -1,35 +1,35 @@
 // Heretic classes so that the mod works with Heretic.
 // Hopefully this doesn't break...much.
 
-/*ACTOR HGuard : Guard replaces HereticImp {}
-ACTOR HSSGuard : SSGuard replaces HereticImpLeader {}
-ACTOR HMP40Guard : MP40Guard replaces Mummy {}
-ACTOR HSSMP40Guard : SSMP40Guard replaces MummyGhost {}
-ACTOR HRifleGuard : RifleGuard replaces Knight {}
-ACTOR HWaffenSS : WaffenSS replaces KnightGhost {}
-ACTOR HParatrooper : Paratrooper replaces Beast {}
-ACTOR HOfficer : Officer replaces MummyLeader {}
-ACTOR HSSOfficer : SSOfficer replaces MummyLeaderGhost {}
-ACTOR HDogSpawner : DogSpawner replaces Clink {}
-ACTOR HRocketMan : RocketMan replaces Snake {}
-ACTOR HHitlerGhost : HitlerGhost replaces Wizard {}
-ACTOR HDeathKnight : DeathKnight replaces Minotaur {}
-ACTOR HHitler : Hitler replaces Sorcerer1 {}*/
+/*ACTOR HGuard : Guard replaces HereticImp{}
+ACTOR HSSGuard : SSGuard replaces HereticImpLeader{}
+ACTOR HMP40Guard : MP40Guard replaces Mummy{}
+ACTOR HSSMP40Guard : SSMP40Guard replaces MummyGhost{}
+ACTOR HRifleGuard : RifleGuard replaces Knight{}
+ACTOR HWaffenSS : WaffenSS replaces KnightGhost{}
+ACTOR HParatrooper : Paratrooper replaces Beast{}
+ACTOR HOfficer : Officer replaces MummyLeader{}
+ACTOR HSSOfficer : SSOfficer replaces MummyLeaderGhost{}
+ACTOR HDogSpawner : DogSpawner replaces Clink{}
+ACTOR HRocketMan : RocketMan replaces Snake{}
+ACTOR HHitlerGhost : HitlerGhost replaces Wizard{}
+ACTOR HDeathKnight : DeathKnight replaces Minotaur{}
+ACTOR HHitler : Hitler replaces Sorcerer1{}*/
 
 ACTOR HRevolverClip : RandomSpawner replaces GoldWandAmmo
 {
-	DropItem "RevolverClip"
-	DropItem "Walther9mm"
-	DropItem "Luger9mm"
+	DropItem "WeaselsRevolverSpawner"
+	DropItem "Luger9mmSpawner"
+	DropItem "Walther9mmSpawner"
 }
-ACTOR HMPClip : MPClip replaces GoldWandHefty {}
-ACTOR HNewShell : NewShell replaces CrossbowAmmo {}
-ACTOR HNewShellBox : NewShellBox replaces CrossbowHefty {}
+ACTOR HMPClip : MPClip replaces GoldWandHefty{}
+ACTOR HNewShell : NewShell replaces CrossbowAmmo{}
+ACTOR HNewShellBox : NewShellBox replaces CrossbowHefty{}
 ACTOR HMauserAmmoSmall : RandomSpawner replaces BlasterAmmo
 {
-	DropItem "45ACPAmmo"
-	DropItem "PPSHAmmo"
 	DropItem "MPClip"
+	DropItem "PPSHAmmo"
+	DropItem "45ACPAmmo"
 }
 ACTOR HSTGClip : RandomSpawner replaces BlasterHefty
 {
@@ -37,12 +37,12 @@ ACTOR HSTGClip : RandomSpawner replaces BlasterHefty
 	DropItem "MauserAmmo"
 	DropItem "MPClip"
 }
-ACTOR HFlameAmmo : FlameAmmo replaces PhoenixRodAmmo {}
-ACTOR HLargeFlameAmmo : FlameAmmo replaces PhoenixRodHefty {}
-ACTOR HSTGClip2 : STGClip replaces SkullRodAmmo {}
-ACTOR HNebAmmo : NebAmmo replaces SkullRodHefty {}
-ACTOR HNebAmmo2 : NebAmmo replaces MaceHefty {}
-ACTOR HFlameAmmo2 : FlameAmmo replaces MaceAmmo {}
+ACTOR HFlameAmmo : FlameAmmo replaces PhoenixRodAmmo{}
+ACTOR HLargeFlameAmmo : FlameAmmo replaces PhoenixRodHefty{}
+ACTOR HSTGClip2 : STGClip replaces SkullRodAmmo{}
+ACTOR HNebAmmo : NebAmmo replaces SkullRodHefty{}
+ACTOR HNebAmmo2 : NebAmmo replaces MaceHefty{}
+ACTOR HFlameAmmo2 : FlameAmmo replaces MaceAmmo{}
 ACTOR HGrenade : RandomSpawner replaces ArtiTimebomb
 {
 	DropItem "GrenadePickup"
@@ -73,35 +73,29 @@ ACTOR HNaziBerserk : CustomInventory replaces ArtiTomeOfPower
 
 ACTOR HG43 : RandomSpawner replaces Gauntlets
 {
-	DropItem "G41"
-	DropItem "Enfield"
+	DropItem "G43Spawner"
+	DropItem "EnfieldSpawner"
 	DropItem "Firebrand"
 }
 ACTOR HShotgunSpawner : RandomSpawner replaces Crossbow
 {
-	DropItem "TrenchShotgun"
-	DropItem "Browning5"
+	DropItem "TrenchShotgunSpawner"
+	DropItem "Browning5Spawner"
 }
 ACTOR HSTG44 : RandomSpawner replaces Blaster
 {
-	DropItem "MP40"
+	DropItem "MP40Spawner"
 	DropItem "PPSHSpawner"
 	DropItem "ThompsonSpawner"
 }
 ACTOR HPyrolight : RandomSpawner replaces PhoenixRod
 {
-	DropItem "Pyrolight"
-	DropItem "FG42"
-	DropItem "STG44"
+	DropItem "PyrolightSpawner"
+	DropItem "FG42Spawner"
+	DropItem "STG44Spawner"
 }
-ACTOR HUMG43 : RandomSpawner replaces Mace
-{
-	DropItem "UMG43"
-}
-ACTOR HNebelwerfer : RandomSpawner replaces SkullRod
-{
-	DropItem "Nebelwerfer"
-}
+ACTOR HUMG43 : UMG43Spawner replaces Mace{}
+ACTOR HNebelwerfer : NebelwerferSpawner replaces SkullRod{}
 
 ACTOR HFlakJacket : RandomSpawner replaces SilverShield
 {

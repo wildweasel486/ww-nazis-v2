@@ -126,14 +126,13 @@ ACTOR EnemyFlamebolt2 : EnemyFlamebolt
 	}
 }
 
-ACTOR Pyrolight : NaziWeapon replaces RocketLauncher
+ACTOR Pyrolight : NaziWeapon
 {
 	Weapon.SelectionOrder 195
-	Inventory.PickupMessage "You got the Pyrolight!"
+	Inventory.PickupMessage "You got the Pyrolight! (slot 7)"
 	Weapon.Kickback 20
 	Weapon.AmmoType1 "FlameLoad"
 	Weapon.AmmoType2 "FlameAmmo"
-	Weapon.AmmoGive2 25
 	Weapon.AmmoUse1 1
 	Weapon.AmmoUse2 1
 	ConversationID 190
@@ -288,5 +287,16 @@ ACTOR Pyrolight : NaziWeapon replaces RocketLauncher
 		FFTR A 1 Offset(2,34)
 		FFTR A 1 Offset(1,33)
 		Goto Ready
+	}
+}
+
+ACTOR PyrolightSpawner replaces RocketLauncher
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx("Pyrolight",0,0,0,velx,vely,velz)
+		TNT1 A 0 A_SpawnItemEx("FlameAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		Stop
 	}
 }

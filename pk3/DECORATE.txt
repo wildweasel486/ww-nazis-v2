@@ -13,7 +13,7 @@ ACTOR NaziWeapon : Weapon
 #include "actors/weapons/P38.txt"
 #include "actors/weapons/Luger.txt"
 #include "actors/weapons/shotgun.txt"
-#include "actors/weapons/g41.txt"
+#include "actors/weapons/g43.txt"
 #include "actors/weapons/browning.txt"
 #include "actors/weapons/stg44.txt"
 #include "actors/weapons/mp40.txt"
@@ -41,7 +41,7 @@ Actor WWNazisPlayer : DoomPlayer
 	Player.WeaponSlot 2,Luger9mm,Walther9mm,WeaselsRevolver
 	Player.WeaponSlot 3,TrenchShotgun,Browning5
 	Player.WeaponSlot 4,MP40,PPSH41,Thompson
-	Player.WeaponSlot 5,G41,Enfield
+	Player.WeaponSlot 5,G43,Enfield
 	Player.WeaponSlot 6,STG44,FG42
 	Player.WeaponSlot 7,Pyrolight
 	Player.WeaponSlot 8,Nebelwerfer,Panzerschreck
@@ -54,7 +54,7 @@ Actor WWNazisPlayer : DoomPlayer
 	player.startitem "BrowningLoaded" 4
 	player.startitem "STGAmmo" 30
 	player.startitem "MPAmmo" 32
-	player.startitem "G41Clip" 10
+	player.startitem "G43Clip" 10
 	player.startitem "WaltherAmmo" 8
 	player.startitem "LugerAmmo" 8
 	player.startitem "FG42Ammo" 20

@@ -5,51 +5,42 @@
 */
 
 // Super Bootspork
-
 ACTOR CombatRifleSpawnerChex : RandomSpawner replaces SuperBootspork
 {
-	DropItem "Enfield"
-	DropItem "G41"
+	DropItem "G43Spawner"
+	DropItem "EnfieldSpawner"
 }
 
 // Large Zorcher
-
 ACTOR ShotgunSpawnerChex : RandomSpawner replaces LargeZorcher
 {
-	DropItem "TrenchShotgun"
-	DropItem "Browning5"
+	DropItem "TrenchShotgunSpawner"
+	DropItem "Browning5Spawner"
 }
 
 // Rapid Zorcher
-
 ACTOR SMGSpawnerChex : RandomSpawner replaces RapidZorcher
 {
-	DropItem "MP40"
+	DropItem "MP40Spawner"
 	DropItem "ThompsonSpawner"
 }
 
 // Zorch Propulsor
-
-ACTOR PyrolightSpawnerChex : RandomSpawner replaces ZorchPropulsor
-{
-	DropItem "Pyrolight"
-}
+ACTOR PyrolightSpawnerChex : PyrolightSpawner replaces ZorchPropulsor{}
 
 // Phasing Zorcher
-
 ACTOR RapidSpawnerChex : RandomSpawner replaces PhasingZorcher
 {
 	DropItem "PPSHSpawner"
-	DropItem "StG44"
-	DropItem "FG42"
+	DropItem "StG44Spawner"
+	DropItem "FG42Spawner"
 }
 
 // LAZ Device
-
 ACTOR SuperWeaponSpawnerChex : RandomSpawner replaces LAZDevice
 {
-	DropItem "UMG43"
-	DropItem "NebelWerfer"
+	DropItem "UMG43Spawner"
+	DropItem "NebelWerferSpawner"
 }
 
 /*
@@ -61,54 +52,28 @@ ACTOR SuperWeaponSpawnerChex : RandomSpawner replaces LAZDevice
 // Replace the preexisting ammo types with ones more compatible with Nazis
 
 // Mini Zorch
-
 ACTOR PistolSpawnerChex : RandomSpawner replaces MiniZorchRecharge
 {
-	DropItem "RevolverClip"
-	DropItem "Walther9MM"
-	DropItem "Luger9MM"
+	DropItem "WeaselsRevolverSpawner"
+	DropItem "Luger9mmSpawner"
+	DropItem "Walther9mmSpawner"
 }
-
-ACTOR MPClipSpawnerChex : RandomSpawner replaces MiniZorchPack
-{
-	DropItem "MPClip"
-}
+ACTOR MPClipChex : MPClip replaces MiniZorchPack{}
 
 // Large Zorch
-
-ACTOR ShellSpawnerChex : RandomSpawner replaces LargeZorchRecharge
-{
-	DropItem "ShellSpawner"
-}
-
-ACTOR ShellSpawner2Chex : RandomSpawner replaces LargeZorchPack
-{
-	DropItem "ShellSpawner2"
-}
+ACTOR ShellSpawnerChex : ShellSpawner replaces LargeZorchRecharge{}
+ACTOR ShellSpawner2Chex : ShellSpawner2 replaces LargeZorchPack{}
 
 // Propulsor Zorch
-
 ACTOR GrenadePickupSpawnerChex : RandomSpawner replaces PropulsorZorch
 {
 	DropItem "GrenadePickup"
 }
-
-ACTOR FlameAmmoSpawnerChex : RandomSpawner replaces PropulsorZorchPack
-{
-	DropItem "FlameAmmo"
-}
+ACTOR FlameAmmoChex : FlameAmmo replaces PropulsorZorchPack{}
 
 // Phasing Zorch
-
-ACTOR STGClipSpawnerChex : RandomSpawner replaces PhasingZorch
-{
-	DropItem "STGClip"
-}
-
-ACTOR NebAmmoSpawnerChex : RandomSpawner replaces PhasingZorchPack
-{
-	DropItem "NebAmmo"
-}
+ACTOR STGClipChex : STGClip replaces PhasingZorch{}
+ACTOR NebAmmoChex : NebAmmo replaces PhasingZorchPack{}
 
 ACTOR FlakJacketChex : RandomSpawner replaces ChexArmor
 {
