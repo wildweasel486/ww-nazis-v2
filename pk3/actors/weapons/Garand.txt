@@ -1,0 +1,129 @@
+ACTOR GarandLoaded : Ammo
+{
+	Tag ".30-06 Springfield"
+	+IGNORESKILL
+	Inventory.MaxAmount 8
+	Inventory.Icon M1APA0
+}
+
+ACTOR GarandAmmo : Ammo
+{
+	Tag ".30-06 Springfield"
+	Inventory.Amount 20
+	Inventory.MaxAmount 40
+	Ammo.BackpackAmount 5
+	Ammo.BackpackMaxAmount 100
+	Inventory.PickupMessage "Picked up a box of .30-06 Springfield ammo."
+	States
+	{
+	Spawn:
+		M1GA C -1
+		Stop
+	}
+}
+
+ACTOR GarandAmmoSmall : GarandAmmo
+{
+	Inventory.Amount 8
+	Inventory.PickupMessage "Picked up a .30-06 en bloc clip."
+	Scale 0.3
+	States
+	{
+	Spawn:
+		M1GA B -1	//placeholder
+		Stop
+	}
+}
+
+ACTOR Garand : NaziWeapon
+{
+	Weapon.Kickback 100
+	Weapon.AmmoType1 "GarandLoaded"
+	Weapon.AmmoUse1 1
+	Weapon.AmmoType2 "GarandAmmo"
+	Weapon.AmmoUse2 1
+	Inventory.PickupMessage "You got the M1 Garand! (slot 5)"
+	//Obituary "%o was killed by %k."
+	Weapon.SelectionOrder 740
+	+WEAPON.NOAUTOFIRE
+	Tag "M1 Garand"
+	States
+	{
+	Spawn:
+		M1AP A -1
+		Stop
+	Ready:
+		M1A1 A 0 A_JumpIfInventory("GarandLoaded",0,2)
+		M1A1 A 0 A_JumpIfInventory("GarandAmmo",1,2)
+		M1A1 A 1 A_WeaponReady
+		Loop
+		M1A1 A 1 A_WeaponReady(WRF_ALLOWRELOAD)
+		Loop
+	Select:
+		M1A1 A 0 A_Raise
+		M1A1 A 1 A_Raise
+		Loop
+	Deselect:
+		M1A1 A 0 A_Lower
+		M1A1 A 1 A_Lower
+		Loop
+	Fire:
+		M1AF A 0 A_JumpIfInventory("GarandLoaded",1,1)
+		Goto Reload
+		M1AF A 0 A_GunFlash
+		TNT1 A 0 A_PlaySound("MGarand/Fire",CHAN_WEAPON)
+		M1AF A 0 A_SpawnItemEx("GarandRifleCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
+		M1AF A 0 A_AlertMonsters
+		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		M1AF A 1 BRIGHT A_FireCustomMissile("GarandTracer")
+		M1AF A 0 A_SetPitch (pitch - 3.6)
+		M1A1 CFEDCBAGA 1 Offset(0,38)
+		Goto Ready
+	Reload:
+		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)
+		M1AR A 1 Offset(0,35)
+	    M1AR B 1 Offset(0,36) A_PlaySound("MGarand/Ping",5)
+		M1AR C 1 Offset(0,37)
+		M1AR D 1 Offset(0,38)
+		M1AR EFG 3
+		TNT1 A 0 A_PlaySound("MGarand/Load",5)
+		M1AR HIJK 3
+		M1AR LMN 3
+	ReloadLoop:
+		TNT1 A 0 A_TakeInventory("GarandAmmo",1,TIF_NOTAKEINFINITE)
+		TNT1 A 0 A_GiveInventory("GarandLoaded")
+		TNT1 A 0 A_JumpIfInventory("GarandLoaded",0,"ReloadFinish")
+		TNT1 A 0 A_JumpIfInventory("GarandAmmo",1,"ReloadLoop")
+	ReloadFinish:
+		M1AR OP 1
+		Goto Ready
+	Flash:
+		TNT1 A 2 A_Light2
+		TNT1 A 2 A_Light1
+		Goto LightDone
+	}
+}
+
+ACTOR GarandSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx("GarandPickup",0,0,0,velx,vely,velz)
+		TNT1 A 0 A_SpawnItemEx("GarandAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR GarandPickup : CustomInventory
+{
+	States
+	{
+	Spawn:
+		M1AP A -1
+		Stop
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",15)
+		Stop
+	}
+}

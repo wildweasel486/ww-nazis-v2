@@ -2,23 +2,54 @@
 // Sprite from Day of Defeat model, sounds from MOHAA Breakthrough and NOLF.
 // Pickup sprite by WildWeasel.
 
+ACTOR EnfieldAmmo : Ammo
+{
+	Tag ".303 British"
+	Inventory.Amount 20
+	Inventory.MaxAmount 40
+	Ammo.BackpackAmount 5
+	Ammo.BackpackMaxAmount 100
+	Inventory.PickupMessage "Picked up a box of .303 British ammo."
+	States
+	{
+	Spawn:
+		M1GA A -1	//Placeholder sprite
+		Stop
+	}
+}
+
+ACTOR EnfieldAmmoSmall : EnfieldAmmo
+{
+	Inventory.Amount 5
+	Inventory.PickupMessage "Picked up a .303 charger clip."
+	Scale 0.3
+	States
+	{
+	Spawn:
+		M1GA B -1	//Placeholder sprite
+		Stop
+	}
+}
+
 ACTOR EnfieldLoaded : Ammo
 {
 	//Tag ".303 British"
 	Tag "7.92x57mm"
 	+IGNORESKILL
 	Inventory.MaxAmount 10
-	Inventory.Icon "ENFPA0"
+	Inventory.Icon ENFPA0
 }
 
 ACTOR Enfield : NaziWeapon
 {
+	//Weapon.SelectionOrder 0
 	Weapon.AmmoType1 "EnfieldLoaded"
 	Weapon.AmmoUse1 1
 	Weapon.AmmoType2 "MauserAmmo"
 	Weapon.AmmoUse2 1
 	Tag "Lee-Enfield SMLE"
 	Inventory.PickupMessage "You got the Lee-Enfield SMLE! (slot 5)"
+	//Obituary "%o was killed by %k."
 	+NOAUTOFIRE
 	States
 	{
@@ -58,7 +89,7 @@ ACTOR Enfield : NaziWeapon
 		ENFG A 1 Offset(-6,35)
 		ENFG A 2 Offset(-8,36)
 		ENFG A 2 Offset(-4,42)
-		ENFG A 1 Offset(0,51)
+		ENFG A 1 Offset(0,51) A_SpawnItemEx("MauserRifleCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		ENFG A 1 Offset(4,60)
 		ENFG A 2 Offset(5,74)
 		ENFG A 3 Offset(6,76)
@@ -105,10 +136,10 @@ ACTOR Enfield : NaziWeapon
 		ENFG A 5 Offset(6,75)
 	ReloadWork2:
 		TNT1 A 0 A_TakeInventory("MauserAmmo",1)
-		TNT1 A 0 A_GiveInventory("EnfieldLoaded",1)
-		TNT1 A 0 A_JumpIfInventory("EnfieldLoaded",10,"ReloadFinish2")
+		TNT1 A 0 A_GiveInventory("EnfieldLoaded")
+		TNT1 A 0 A_JumpIfInventory("EnfieldLoaded",10,"ReloadFinish")
 		TNT1 A 0 A_JumpIfInventory("MauserAmmo",1,"ReloadWork2")
-	ReloadFinish2:
+	ReloadFinish:
 		ENFG A 1 Offset(6,80) A_PlaySound("Enfield/load",5)
 		ENFG A 1 Offset(6,84)
 		ENFG A 1 Offset(6,87)
@@ -139,8 +170,21 @@ ACTOR EnfieldSpawner replaces Chainsaw
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_SpawnItemEx("Enfield",0,0,0,velx,vely,velz)
+		TNT1 A 0 NODELAY A_SpawnItemEx("EnfieldPickup",0,0,0,velx,vely,velz)
 		TNT1 A 0 A_SpawnItemEx("MauserAmmoSmall",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR EnfieldPickup : CustomInventory
+{
+	States
+	{
+	Spawn:
+		ENFP A -1
+		Stop
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",14)
 		Stop
 	}
 }

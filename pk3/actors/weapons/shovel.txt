@@ -6,7 +6,6 @@ ACTOR Melee : NaziWeapon
 	Tag "The Shovel!"
 	Inventory.PickupMessage "You got the shovel! (slot 1)"
 	Obituary "%o was shcklonked with %k's shovel."
-	+NOEXTREMEDEATH
 	+NOAUTOFIRE
 	-WEAPON.AMMO_CHECKBOTH
 	States
@@ -80,6 +79,7 @@ actor ShovelPuff
 	+NOBLOCKMAP
 	+NOGRAVITY
 	+PUFFONACTORS
+	+NOEXTREMEDEATH
 	RenderStyle Add
 	activesound ""
 	attacksound "shovel/wall"
@@ -87,13 +87,22 @@ actor ShovelPuff
 	states
 	{
 	Spawn:
-		POOF ABCDE 3
-		Stop
 	Melee:
-		POOF ABCDE 3
-		Stop
 	Crash:
 		POOF ABCDE 3
+		Stop
+	}
+}
+
+ACTOR ShovelPickup : CustomInventory
+{
+	States
+	{
+	Spawn:
+		SHUV Z -1
+		Stop
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",1)
 		Stop
 	}
 }

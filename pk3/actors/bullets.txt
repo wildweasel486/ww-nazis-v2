@@ -100,6 +100,8 @@ ACTOR RevolverTracer : Tracer
 	Speed 90
 }
 
+ACTOR 1911Tracer : RevolverTracer{}
+
 ACTOR SMGTracer : Tracer
 {
 	Damage (random(9,14))
@@ -124,11 +126,18 @@ ACTOR RifleTracer : Tracer
 	Speed 150
 }
 
+ACTOR Kar98kTracer : RifleTracer
+{
+	Speed 180
+}
+
 ACTOR EnfieldTracer : Tracer
 {
 	Damage (random(40,65))
 	Speed 180
 }
+
+ACTOR GarandTracer : EnfieldTracer{}
 
 ACTOR FGTracer : Tracer
 {
@@ -160,6 +169,85 @@ ACTOR ChaingunTracer : Tracer
 	Damage (random(11,15))
 	Speed 90
 }
+
+//Shells/Casings
+ACTOR GenericCasing
+{
+	PROJECTILE
+	-NOGRAVITY
+	-NOBLOCKMAP
+	+BOUNCEONACTORS
+	BounceType Doom
+	BounceSound "bulletcasing/bounce"
+	BounceFactor 0.5
+	WallBounceFactor 0.2
+	Mass 5
+	Radius 3
+	Height 3
+	States
+	{
+	Spawn:
+		CAS1 ABCDEFGH 2
+		Loop
+	Death:
+		"####" A 0 A_Jump(256,1,2,3)
+		"####" ACG 0 A_Jump(256,"Death1")
+		Stop
+	Death1:
+		"####" "#" 1000
+		"####" "#" 1 A_FadeOut(0.1)
+		Wait
+	}
+}
+
+ACTOR 9MMCasing : GenericCasing
+{
+	Scale 0.075
+}
+
+ACTOR RevolverCasing : 9MMCasing{}
+
+ACTOR ShotgunCasing : GenericCasing
+{
+	WallBounceSound "shellcasing/bounce"
+	BounceSound "shellcasing/bounce"
+	DeathSound "shellcasing/stop"
+	Scale 0.175
+	States
+	{
+	Spawn:
+		CAS2 ABCDEFGH 2
+		Loop
+	}
+}
+
+ACTOR TokarevCasing : 9MMCasing{}
+
+ACTOR 45ACPCasing : 9MMCasing
+{
+	Scale 0.1
+	States
+	{
+	Spawn:
+		CAS3 ABCDEFGH 2
+		Loop
+	}
+}
+
+ACTOR MauserRifleCasing : GenericCasing
+{
+	Scale 0.15
+	States
+	{
+	Spawn:
+		CAS4 ABCDEFGH 2
+		Loop
+	}
+}
+
+ACTOR GarandRifleCasing : MauserRifleCasing{}
+
+ACTOR STGCasing : MauserRifleCasing{}
 
 // Enemy tracer variants for Baby mode
 ACTOR BabyEnemyTracer : Tracer
