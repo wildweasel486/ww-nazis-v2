@@ -75,7 +75,7 @@ ACTOR HG43 : RandomSpawner replaces Gauntlets
 {
 	DropItem "G43Spawner"
 	DropItem "EnfieldSpawner"
-	DropItem "Firebrand"
+	DropItem "FirebrandPickup"
 }
 ACTOR HShotgunSpawner : RandomSpawner replaces Crossbow
 {

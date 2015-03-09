@@ -1,19 +1,22 @@
 ACTOR ShotgunReloading : Inventory{}
 
-ACTOR ShotgunClip : Ammo
+ACTOR TrenchShotgunLoaded : Ammo
 {
 	Tag "12 Gauge"
 	+IGNORESKILL
 	Inventory.MaxAmount 8
+	Inventory.Icon SHOTA0
 }
 
 ACTOR TrenchShotgun : NaziWeapon
 {
-	Weapon.AmmoType1 "ShotgunClip"
+	//Weapon.SelectionOrder 0
+	Weapon.AmmoType1 "TrenchShotgunLoaded"
 	Weapon.AmmoUse1 1
 	Weapon.AmmoType2 "NewShell"
 	Weapon.AmmoUse2 1
 	Inventory.PickupMessage "You got the Winchester Trenchgun! (slot 3)"
+	//Obituary "%o was killed by %k."
 	+WEAPON.NOAUTOFIRE
 	Scale 0.5
 	Tag "M1897 Trenchgun"
@@ -33,7 +36,7 @@ ACTOR TrenchShotgun : NaziWeapon
 		SHTG A 1 A_Lower
 		Loop
 	Ready:
-		SHTG A 0 A_JumpIfInventory("ShotgunClip",0,2)
+		SHTG A 0 A_JumpIfInventory("TrenchShotgunLoaded",0,2)
 		SHTG A 0 A_JumpIfInventory("NewShell",1,2)
 		SHTG A 1 A_WeaponReady
 		Loop
@@ -41,9 +44,9 @@ ACTOR TrenchShotgun : NaziWeapon
 		Loop
 	Fire:
 		SHTF A 0 A_JumpIfInventory("ShotgunReloading",1,"ReloadFinish")
-		SHTF A 0 A_JumpIfInventory("ShotgunClip",1,1)
+		SHTF A 0 A_JumpIfInventory("TrenchShotgunLoaded",1,1)
 		Goto Reload
-		SHTF A 0 A_TakeInventory("ShotgunClip",1)
+		SHTF A 0 A_TakeInventory("TrenchShotgunLoaded",1)
 		SHTF A 0 A_PlaySound("Shotgun/Fire",CHAN_WEAPON)
 		SHTF AAAAAAAAAA 0 A_FireCustomMissile("ShotgunTracer",frandom(-2.0,2.0),0,0,0,0,frandom(-1.5,1.5))
 		SHTF A 1 BRIGHT A_GunFlash
@@ -62,7 +65,7 @@ ACTOR TrenchShotgun : NaziWeapon
 		SHTG C 1 Offset(3,35)
 		SHTG C 1 Offset(-1,38)
 		SHTG D 1 Offset(-4,41)
-		SHTG D 1 Offset(-4,43)
+		SHTG D 1 Offset(-4,43) A_SpawnItemEx("ShotgunCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		SHTG E 1 Offset(-4,45)
 		SHTG E 1 Offset(-3,44)
 		SHTG D 1 Offset(-2,40)
@@ -77,7 +80,7 @@ ACTOR TrenchShotgun : NaziWeapon
 		Goto Ready
 	Reload:
 		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)
-		SHTG A 1 Offset(-1,33) A_GiveInventory("ShotgunReloading",1)
+		SHTG A 1 Offset(-1,33) A_GiveInventory("ShotgunReloading")
 		SHTG B 1 Offset(5,34)
 		SHTG B 1 Offset(2,36)
 		SHTG B 1 Offset(-1,38)
@@ -88,7 +91,7 @@ ACTOR TrenchShotgun : NaziWeapon
 		SHTG C 1 Offset(-7,55)
 	ReloadWork:
 		SHTG A 0 A_TakeInventory("NewShell",1,TIF_NOTAKEINFINITE)
-		SHTG A 0 A_GiveInventory("ShotgunClip",1)
+		SHTG A 0 A_GiveInventory("TrenchShotgunLoaded")
 		SHTG C 1 Offset(-8,58) A_PlaySound("Shotgun/Load",CHAN_WEAPON)
 		SHTG C 1 Offset(-9,64)
 		SHTG C 1 Offset(-10,70)
@@ -100,9 +103,8 @@ ACTOR TrenchShotgun : NaziWeapon
 		SHTG C 1 Offset(-8,60) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
 		SHTG CC 1 Offset(-8,59) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
 		SHTG CCC 1 Offset(-8,58) A_WeaponReady(WRF_NOBOB|WRF_NOSECONDARY)
-		SHTG A 0 A_JumpIfInventory("ShotgunClip",8,"ReloadFinish")
+		SHTG A 0 A_JumpIfInventory("TrenchShotgunLoaded",8,"ReloadFinish")
 		TNT1 A 0 A_JumpIfInventory("NewShell",1,"ReloadWork")
-		Goto ReloadFinish
 	ReloadFinish:
 		SHTG C 1 Offset(3,35) A_PlaySound("Shotgun/Pump")
 		SHTG C 1 Offset(-1,38)
@@ -130,8 +132,22 @@ ACTOR TrenchShotgunSpawner replaces Shotgun
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_SpawnItemEx("TrenchShotgun",0,0,0,velx,vely,velz)
+		TNT1 A 0 NODELAY A_SpawnItemEx("TrenchShotgunPickup",0,0,0,velx,vely,velz)
 		TNT1 AA 0 A_SpawnItemEx("NewShell",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR TrenchShotgunPickup : CustomInventory
+{
+	Scale .5
+	States
+	{
+	Spawn:
+		SHOT A -1
+		Stop
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",7)
 		Stop
 	}
 }

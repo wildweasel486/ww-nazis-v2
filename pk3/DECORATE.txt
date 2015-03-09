@@ -6,6 +6,7 @@ ACTOR NaziWeapon : Weapon
 	Weapon.BobRangeX 0.7
 	+WEAPON.AMMO_CHECKBOTH
 	+WEAPON.NOALERT
+	+INVENTORY.UNTOSSABLE
 }
 
 #include "actors/weapons/shovel.txt"
@@ -33,39 +34,30 @@ ACTOR NaziWeapon : Weapon
 #include "actors/nazis3.txt"
 #include "actors/nazis4.txt"
 #include "actors/weapons/seekrit!.txt"
+#include "actors/weapons/Kar98k.txt"
+#include "actors/weapons/1911.txt"
+#include "actors/weapons/garand.txt"
 
-Actor WWNazisPlayer : DoomPlayer
+ACTOR WWNazisPlayer : DoomPlayer
 {
 	player.invulnerabilitymode "reflective"
 	Player.WeaponSlot 1,Melee,Firebrand
-	Player.WeaponSlot 2,Luger9mm,Walther9mm,WeaselsRevolver
+	Player.WeaponSlot 2,Luger9mm,Walther9mm,WeaselsRevolver,M1911
 	Player.WeaponSlot 3,TrenchShotgun,Browning5
 	Player.WeaponSlot 4,MP40,PPSH41,Thompson
-	Player.WeaponSlot 5,G43,Enfield
+	Player.WeaponSlot 5,Kar98k,G43,Enfield,Garand
 	Player.WeaponSlot 6,STG44,FG42
 	Player.WeaponSlot 7,Pyrolight
 	Player.WeaponSlot 8,Nebelwerfer,Panzerschreck
 	Player.WeaponSlot 9,UMG43
-	player.startitem "WeaselsRevolver"
-	player.startitem "Melee"
-	player.startitem "RevolverClip" 30
-	player.startitem "RevolverAmmo" 6
-	player.startitem "ShotgunClip" 8
-	player.startitem "BrowningLoaded" 4
-	player.startitem "STGAmmo" 30
-	player.startitem "MPAmmo" 32
-	player.startitem "G43Clip" 10
-	player.startitem "WaltherAmmo" 8
-	player.startitem "LugerAmmo" 8
-	player.startitem "FG42Ammo" 20
-	player.startitem "PPSHAmmo" 71
-	player.startitem "ThompsonClip" 20
-	player.startitem "EnfieldLoaded" 10
-	player.startitem "FlameLoad" 25
-	player.startitem "GrenadePickup" 1
+	Player.StartItem WeaselsRevolver
+	Player.StartItem Melee
+	Player.StartItem WeaselsRevolverLoaded,6
+	Player.StartItem RevolverClip,30
+	Player.StartItem GrenadePickup
 	Player.ViewHeight 49
 	Player.AttackZOffset 17
-	Player.ColorRange 0 0
+	Player.ColorRange 0,0
 	Player.AttackZOffset 18
 	Player.CrouchSprite ""
 	Player.DisplayName "Some Guy with a Magnum"
@@ -74,8 +66,8 @@ Actor WWNazisPlayer : DoomPlayer
 	States
 	{
 	Spawn:
-		WEAS A 1
-   		Loop
+		WEAS A -1
+   		Stop
    	See:
       	WEAS ABCD 6
       	Loop
@@ -106,7 +98,7 @@ ACTOR NaziBerserk : Berserk replaces Berserk
 	{
 	Pickup:
 		TNT1 A 0 A_GiveInventory("PowerStrength")
-		TNT1 A 0 HealThing(100, 0)
+		TNT1 A 0 HealThing(100,0)
 		Stop
 	}
 }
@@ -169,4 +161,35 @@ ACTOR TNTBarrel3 : TNTBarrel1
 		BARL C -1
 		Stop
 	}
+}
+
+//StartChecks
+ACTOR StartCheck : Inventory
+{
+	Inventory.InterHubAmount 0
+}
+ACTOR MeleeStartCheck : StartCheck{}
+ACTOR FirebrandStartCheck : StartCheck{}
+ACTOR Luger9mmStartCheck : StartCheck{}
+ACTOR Walther9mmStartCheck : StartCheck{}
+ACTOR WeaselsRevolverStartCheck : StartCheck{}
+ACTOR M1911StartCheck : StartCheck{}
+ACTOR TrenchShotgunStartCheck : StartCheck{}
+ACTOR Browning5StartCheck : StartCheck{}
+ACTOR MP40StartCheck : StartCheck{}
+ACTOR PPSH41StartCheck : StartCheck{}
+ACTOR ThompsonStartCheck : StartCheck{}
+ACTOR Kar98kStartCheck : StartCheck{}
+ACTOR G43StartCheck : StartCheck{}
+ACTOR EnfieldStartCheck : StartCheck{}
+ACTOR GarandStartCheck : StartCheck{}
+ACTOR STG44StartCheck : StartCheck{}
+ACTOR FG42StartCheck : StartCheck{}
+ACTOR PyrolightStartCheck : StartCheck{}
+ACTOR NebelwerferStartCheck : StartCheck{}
+ACTOR PanzerschreckStartCheck : StartCheck{}
+ACTOR UMG43StartCheck : StartCheck{}
+ACTOR IJustTraded : PowerUp
+{
+	PowerUp.Duration 35
 }

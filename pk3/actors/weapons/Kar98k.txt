@@ -1,0 +1,120 @@
+ACTOR Kar98kLoaded : Ammo
+{
+	Tag "7.92x57mm"
+	+IGNORESKILL
+	Inventory.MaxAmount 5
+	Inventory.Icon K98KA0
+}
+
+ACTOR Kar98k : NaziWeapon
+{
+	Weapon.Kickback 100
+	Weapon.AmmoType1 "Kar98kLoaded"
+	Weapon.AmmoUse1 1
+	Weapon.AmmoType2 "MauserAmmo"
+	Weapon.AmmoUse2 1
+	Inventory.PickupMessage "You got the Mauser Kar98k! (slot 5)"
+	Obituary "%o was gunned down by %k's Mauser."
+	Weapon.SelectionOrder 740
+	+WEAPON.NOAUTOFIRE
+	Tag "Karabiner 98k"
+	States
+	{
+	Spawn:
+		K98K A -1
+		Stop
+	Ready:
+		KAR9 A 0 A_JumpIfInventory("Kar98kLoaded",0,2)
+		KAR9 A 0 A_JumpIfInventory("MauserAmmo",1,2)
+		KAR9 A 1 A_WeaponReady
+		Loop
+		KAR9 A 1 A_WeaponReady(WRF_ALLOWRELOAD)
+		Loop
+	Select:
+		KAR9 A 0 A_Raise
+		KAR9 A 1 A_Raise
+		Loop
+	Deselect:
+		KAR9 A 0 A_Lower
+		KAR9 A 1 A_Lower
+		Loop
+	Fire:
+		TNT1 A 0 A_JumpIfInventory("Kar98kLoaded",1,1)
+		Goto Reload
+		KAR9 A 2
+		KAR9 A 0 A_AlertMonsters
+		TNT1 A 0 A_GunFlash
+		KAR9 A 0 A_PlaySound("weapons/mauserfire",CHAN_WEAPON)
+		M1GF A 0 A_SpawnItemEx("MauserRifleCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
+		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		KAR9 A 2 BRIGHT A_FireCustomMissile("Kar98kTracer")
+		KAR9 A 2 Offset(0,40) A_SetPitch(pitch - 4.0)
+		KAR9 A 1 Offset(0,36) A_SetPitch(pitch - 2.0)
+		KAR9 C 1 Offset(0,32)A_SetPitch(pitch + 1.0)
+		TNT1 A 0 A_PlaySound ("weapons/mausercock",5)
+		KAR9 D 3 A_SetPitch(pitch + 1.0)
+		KAR9 E 1 A_SetPitch(pitch + 0.5)
+		KAR9 F 3
+		KAR9 G 5
+		KAR9 F 3
+		KAR9 E 1
+		KAR9 D 4
+		KAR9 C 1 A_WeaponReady
+		Goto Ready
+	Flash:
+		KARF A 1 BRIGHT A_Light1
+		KARF B 1 BRIGHT A_Light2
+		Stop
+	Reload:
+		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)
+		KAR9 C 2
+		KAR9 D 3
+		KAR9 E 1 A_PlaySound("weapons/mauseropen",5)
+		KAR9 F 5
+		KAR9 G 4
+		KARR A 3
+		KARR B 3
+	ReloadLoop:
+		TNT1 A 0 A_GiveInventory("Kar98kLoaded")
+		TNT1 A 0 A_TakeInventory("MauserAmmo",1,TIF_NOTAKEINFINITE)
+		TNT1 A 0 A_JumpIfInventory("Kar98kLoaded",0,"ReloadEnd")
+		TNT1 A 0 A_JumpIfInventory("MauserAmmo",1,"ReloadLoop")
+	ReloadEnd:
+		KARR C 5 A_PlaySound("weapons/mauserinsert",5)
+		KARR D 3
+		KARR E 5
+		KARR FG 4
+		KARR H 5 A_PlaySound("weapons/mausershut",5)
+		KARR I 3
+		KARR J 2
+		KAR9 F 1 A_PlaySound("Enfield/BoltFwd",5)
+		KAR9 E 1
+		KAR9 D 2
+		KAR9 C 1
+		Goto Ready
+	}
+}
+
+ACTOR Kar98kSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx("Kar98kPickup",0,0,0,velx,vely,velz)
+		TNT1 A 0 A_SpawnItemEx("MauserAmmoSmall",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR Kar98kPickup : CustomInventory
+{
+	States
+	{
+	Spawn:
+		K98K A -1
+		Stop
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",12)
+		Stop
+	}
+}

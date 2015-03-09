@@ -67,7 +67,7 @@ ACTOR GuardSpawner : RandomSpawner replaces Zombieman
 ACTOR Guard : Nazi
 {
 	obituary "%o was shot by a pistol soldier."
-	DropItem "Walther9mm"
+	DropItem "Walther9mmPickup"
 	DropItem "MPMagazine"
 	states
 	{
@@ -171,7 +171,7 @@ ACTOR MP40Guard : Nazi
 	seesound "Nazi2/Sighted"
 	painsound "Nazi2/Pain"
 	deathsound "Nazi2/Death"
-	dropitem "MP40"
+	dropitem "MP40Pickup"
 	DropItem "MPMagazine"
 	DropItem "MPMagazine"
 	dropitem "GrenadePickup" 16
@@ -470,7 +470,7 @@ ACTOR Officer : Nazi
 	seesound "Nazi4/Sighted"
 	painsound "Nazi4/Pain"
 	deathsound "Nazi4/Death"
-	dropitem "Luger9mm"
+	dropitem "Luger9mmPickup"
 	DropItem "MPMagazine"
 	states
 	{
@@ -498,7 +498,7 @@ ACTOR Officer : Nazi
 
 ACTOR WOfficer : Officer
 {
-	obituary "%o was quickly executed by an Officer."
+	obituary "%o was quickly executed by an officer."
 	health 30
 	speed 10
 	painchance 180
@@ -567,11 +567,11 @@ ACTOR SSOfficer : Officer
 
 ACTOR DogSpawner : RandomSpawner replaces Demon
 {
-	dropitem Doberman
+	dropitem Rottweiler
 	dropitem GermanShepherd
 }
 
-ACTOR Doberman
+ACTOR Rottweiler
 {
 	hitobituary "%o was bitten by a guard dog."
 	health 25
@@ -623,7 +623,7 @@ ACTOR Doberman
 	}
 }
 
-ACTOR GermanShepherd : Doberman
+ACTOR GermanShepherd : Rottweiler
 {
 	states
 	{
@@ -973,7 +973,7 @@ ACTOR FlamerMan : BigNazi replaces Arachnotron
 	health 500
 	seesound "Boss1/Sighted"
 	deathsound "Boss1/Death"
-	dropitem "Pyrolight"
+	dropitem "PyrolightPickup"
 	DropItem FlameAmmo
 	states
 	{

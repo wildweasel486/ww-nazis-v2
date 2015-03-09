@@ -75,6 +75,20 @@ poof-3 ploof3
 poof-4 ploof4
 poof-5 ploof5
 
+// Shell Casings
+$random bulletcasing/bounce {bcase1 bcase2 bcase3 bcase4}
+bcase1 bcase1
+bcase2 bcase2
+bcase3 bcase3
+bcase4 bcase4
+$random shellcasing/bounce {scasesb1 scasesb2}
+$random shellcasing/stop {scases1 scases2 scases3}
+scases1 scases1
+scases2 scases2
+scases3 scases3
+scasesb1 scasesb1
+scasesb2 scasesb2
+
 //Shovel
 $random shovel/impact {shovel/impact1 shovel/impact2}
 shovel/impact1          dsshvi1
@@ -94,6 +108,20 @@ weapons/revolver revfire
 weapons/revolverout revout
 weapons/revolverin revin
 weapons/revolverload revload
+
+weapons/1911slide SLIDE
+weapons/1911reload LOAD
+weapons/1911snap SNAP
+
+$random weapons/1911fire {1911A 1911B 1911C 1911D }
+1911A	1911A
+1911B	1911B
+1911C	1911C
+1911D	1911D
+
+MGarand/Fire M1AFIRE
+MGarand/Load M1LOAD
+MGarand/Ping M1PING
 
 weapons/Walther WALTFIR
 
@@ -132,6 +160,12 @@ reloads/stg loadstg
 reloads/g43 loadg43
 reloads/luger lugrload
 reloads/flamer THERMRLD
+
+weapons/mauserfire DSMAUS
+weapons/mausercock DSMCLACK
+weapons/mauseropen DSPOP
+weapons/mauserinsert DSINSERT
+weapons/mausershut DSCLACK
 
 Enfield/Fire EnflFire
 Enfield/BoltBack EnflBack

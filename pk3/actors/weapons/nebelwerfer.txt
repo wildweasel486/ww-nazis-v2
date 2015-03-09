@@ -89,7 +89,6 @@ ACTOR NebAmmo : Ammo replaces CellPack
 	Ammo.BackpackAmount 20
 	Ammo.BackpackMaxAmount 300
 	ConversationID 177
-	Inventory.Icon "MNRBA0"
 	States
 	{
 	Spawn:
@@ -162,8 +161,21 @@ ACTOR NebelwerferSpawner
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_SpawnItemEx("Nebelwerfer",0,0,0,velx,vely,velz)
+		TNT1 A 0 NODELAY A_SpawnItemEx("NebelwerferPickup",0,0,0,velx,vely,velz)
 		TNT1 A 0 A_SpawnItemEx("NebAmmoSmall",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR NebelwerferPickup : CustomInventory
+{
+	States
+	{
+	Spawn:
+		NEBL A -1
+		Stop
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",19)
 		Stop
 	}
 }

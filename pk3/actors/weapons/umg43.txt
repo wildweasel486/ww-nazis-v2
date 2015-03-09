@@ -1,6 +1,8 @@
 ACTOR UMG43 : NaziWeapon
 {
+	//Weapon.SelectionOrder 0
 	Inventory.PickupMessage "You got the Ubermaschinengewehr 43! (slot 9)"
+	//Obituary "%o was killed by %k."
 	Inventory.PickupSound "chaingun/get"
 	Tag "UMG-43"
 	Weapon.AmmoType1 "MPClip"
@@ -18,12 +20,12 @@ ACTOR UMG43 : NaziWeapon
 		UMGG A 1 A_Raise
 		Loop
 	Deselect:
-		UMGG D 0 A_StopSound(5)
+		UMGG A 0 A_StopSound(5)
 		UMGG A 0 A_Lower
 		UMGG A 1 A_Lower
 		Loop
 	Ready:
-		UMGG D 0 A_StopSound(5)
+		UMGG A 0 A_StopSound(5)
 		UMGG A 1 A_WeaponReady
 		Loop
 	Fire:
@@ -39,14 +41,18 @@ ACTOR UMG43 : NaziWeapon
 		UMGF A 0 A_GunFlash
 		UMGF A 0 A_SetPitch(pitch - 0.34)
 		UMGF A 0 A_PlaySound("weapons/chaingun",CHAN_WEAPON)
+		UMGF A 0 A_SpawnItemEx("9MMCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		UMGF A 1 BRIGHT Offset(0,34) A_FireCustomMissile("ChaingunTracer",frandom(-5.0,5.0),1,0,0,0,frandom(-3.0,3.0))
 		UMGF A 0 A_SetPitch(pitch - 0.34)
+		UMGF A 0 A_SpawnItemEx("9MMCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		UMGG C 1 Offset(0,36) A_FireCustomMissile("ChaingunTracer",frandom(-5,5),1,0,0,0,frandom(-3,3))
 		UMGF A 0 A_GunFlash
 		UMGF A 0 A_SetPitch(pitch - 0.34)
 		UMGF A 0 A_PlaySound("weapons/chaingun",CHAN_WEAPON)
+		UMGF A 0 A_SpawnItemEx("9MMCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		UMGF B 1 Offset(0,37) BRIGHT A_FireCustomMissile("ChaingunTracer",frandom(-5.0,5.0),1,0,0,0,frandom(-3.0,3.0))
 		UMGF A 0 A_SetPitch(pitch - 0.34)
+		UMGF A 0 A_SpawnItemEx("9MMCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		UMGG C 1 Offset(0,35) A_FireCustomMissile("ChaingunTracer",frandom(-5,5),1,0,0,0,frandom(-3,3))
 		UMGG A 1 BRIGHT A_Refire
 		UMGG D 0 A_PlaySound("weapons/chaingunstop")
@@ -66,8 +72,21 @@ ACTOR UMG43Spawner
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_SpawnItemEx("UMG43",0,0,0,velx,vely,velz)
+		TNT1 A 0 NODELAY A_SpawnItemEx("UMG43Pickup",0,0,0,velx,vely,velz)
 		TNT1 AA 0 A_SpawnItemEx("MPMagazine",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR UMG43Pickup : CustomInventory
+{
+	States
+	{
+	Spawn:
+		UMGP A -1
+		Stop
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",21)
 		Stop
 	}
 }
