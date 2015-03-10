@@ -34,6 +34,7 @@ ACTOR NaziWeapon : Weapon
 #include "actors/weapons/thompson.txt"
 #include "actors/weapons/panzerschreck.txt"
 #include "actors/weapons/granate.txt"
+#include "actors/weaponspawners.txt"
 #include "actors/bullets.txt"
 #include "actors/armor.txt"
 #include "actors/nazis.txt"
@@ -128,7 +129,7 @@ ACTOR BarrelFrags
 ACTOR TNTBarrel1 : ExplosiveBarrel
 {
 	Height 34
-	DeathSound "actors/weapons/rocklx"
+	DeathSound "weapons/rocklx"
 	States
 	{
 	Spawn:

@@ -1,4 +1,4 @@
-ACTOR RevolverClip : Ammo replaces Clip
+ACTOR RevolverClip : Ammo
 {
 	Tag ".357 Magnum"
 	Inventory.Amount 6
@@ -120,7 +120,7 @@ ACTOR WeaselsRevolver : NaziWeapon
 	}
 }
 
-ACTOR WeaselsRevolverSpawner replaces Pistol
+ACTOR WeaselsRevolverSpawner
 {
 	States
 	{

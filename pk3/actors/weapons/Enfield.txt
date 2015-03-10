@@ -159,7 +159,7 @@ ACTOR Enfield : NaziWeapon
 	}
 }
 
-ACTOR EnfieldSpawner replaces Chainsaw
+ACTOR EnfieldSpawner
 {
 	States
 	{
