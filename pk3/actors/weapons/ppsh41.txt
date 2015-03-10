@@ -1,6 +1,6 @@
 ACTOR PPSH41 : NaziWeapon
 {
-	scale 0.8
+	scale .8
 	Weapon.SelectionOrder 600
 	weapon.kickback 60
 	Weapon.AmmoType "PPSH41Loaded"
@@ -159,7 +159,7 @@ ACTOR PPSH41Pickup : CustomInventory
 	States
 	{
 	Spawn:
-		PANP A -1
+		PPSH A -1
 		Stop
 	Pickup:
 		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",10)
