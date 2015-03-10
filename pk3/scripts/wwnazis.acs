@@ -75,8 +75,8 @@ script "WWNaziWeaponCollect"(int weapon)
 	}
 	for(i=min;i<=max;i++)
 	{
-		if(CheckInventory(weapons[i-1]))
-			currentweapon=i;
+		if(CheckInventory(weapons[i]))
+			currentweapon=i+1;
 	}
 	if(currentweapon)	//You have a weapon for this slot
 	{
@@ -100,6 +100,10 @@ script "WWNaziWeaponCollect"(int weapon)
 					if(weapon!=0&&weapon!=1&&weapon!=19&&weapon!=21)
 						GiveInventory(StrParam(s:weapons[weapon-1],s:"Loaded"),999);
 				}
+				if(weapon==21)
+					PlaySound(0,"chaingun/get",CHAN_WEAPON);
+				else
+					PlaySound(0,"*weaponlaugh",CHAN_WEAPON);
 				hudmessage(s:"Traded the ",s:weaponsfancy[currentweapon-1],s:" for the ",s:weaponsfancy[weapon-1],s:"!";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.375,3.0);
 				SetResultValue(1);
 			}
@@ -118,6 +122,10 @@ script "WWNaziWeaponCollect"(int weapon)
 			if(weapon!=0&&weapon!=1&&weapon!=19&&weapon!=21)
 				GiveInventory(StrParam(s:weapons[weapon-1],s:"Loaded"),999);
 		}
+		if(weapon==21)
+			PlaySound(0,"chaingun/get",CHAN_WEAPON);
+		else
+			PlaySound(0,"*weaponlaugh",CHAN_WEAPON);
 		hudmessage(s:"Picked up the ",s:weaponsfancy[weapon-1],s:"!";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.375,3.0);
 		SetResultValue(1);
 	}
