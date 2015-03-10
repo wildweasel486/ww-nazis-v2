@@ -1,5 +1,6 @@
-ACTOR Melee : NaziWeapon
+ACTOR Shovel : NaziWeapon
 {
+	Scale .5
 	Weapon.SelectionOrder 9999
 	Weapon.Kickback 100
 	AttackSound "shovel/impact"
@@ -22,10 +23,8 @@ ACTOR Melee : NaziWeapon
 		SHUV A 1 A_Raise
 		Loop
 	Fire:
-		SHUV B 1 A_JumpIfInventory("PowerStrength",1,"PowerShovel")
-		SHUV B 1
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
-		SHUV B 1 Offset(15,32)
+		SHUV B 2 A_JumpIfInventory("PowerStrength",1,"PowerShovel")
+		SHUV B 1 Offset(15,32) ACS_NamedExecute("WWNaziTaunt", 0, 1)
 		SHUV B 1 Offset(30,33) A_PlaySound("shovel/miss",CHAN_WEAPON)
 		SHUV B 1 Offset(52,35)
 		SHUV B 1 Offset(78,38)
@@ -37,6 +36,7 @@ ACTOR Melee : NaziWeapon
 		SHUV D 1 Offset(-50,28)
 		SHUV E 1 Offset(-74,32)
 		SHUV E 1 Offset(-100,36)
+	FireFinish:
 		TNT1 A 10
 		SHUV A 1 Offset(60,60)
 		SHUV A 1 Offset(50,55)
@@ -46,8 +46,7 @@ ACTOR Melee : NaziWeapon
 		SHUV A 1 Offset(10,35) A_WeaponReady(WRF_NOBOB)
 		Goto Ready
 	PowerShovel:
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
-		SHUV B 1 Offset(5,32)
+		SHUV B 1 Offset(5,32) ACS_NamedExecute("WWNaziTaunt", 0, 1)
 		SHUV B 1 Offset(10,33) A_PlaySound("shovel/miss",CHAN_WEAPON)
 		SHUV B 1 Offset(16,35)
 		SHUV B 1 Offset(24,38)
@@ -60,14 +59,7 @@ ACTOR Melee : NaziWeapon
 		SHUV D 1 Offset(-40,36)
 		SHUV E 1 Offset(-64,40)
 		SHUV E 1 Offset(-90,42)
-		TNT1 A 10
-		SHUV A 1 Offset(60,60)
-		SHUV A 1 Offset(50,55)
-		SHUV A 1 Offset(40,50) A_WeaponReady(WRF_NOBOB)
-		SHUV A 1 Offset(30,45) A_WeaponReady(WRF_NOBOB)
-		SHUV A 1 Offset(20,40) A_WeaponReady(WRF_NOBOB)
-		SHUV A 1 Offset(10,35) A_WeaponReady(WRF_NOBOB)
-		Goto Ready
+		Goto FireFinish
 	Spawn:
 		SHUV Z -1
 		Stop
@@ -96,6 +88,7 @@ actor ShovelPuff
 
 ACTOR ShovelPickup : CustomInventory
 {
+	Scale .5
 	States
 	{
 	Spawn:

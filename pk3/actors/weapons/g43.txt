@@ -33,7 +33,7 @@ ACTOR MauserAmmoSmall : MauserAmmo
 {
 	Inventory.Amount 5
 	Inventory.PickupMessage "Picked up a 7.92mm stripper clip."
-	Scale 0.3
+	Scale .3
 	States
 	{
 	Spawn:
@@ -129,10 +129,6 @@ ACTOR G43 : NaziWeapon
 		M1GG A 1 Offset(0,40)
 		M1GG A 1 Offset(0,32)
 		Goto Ready
-	Flash:
-		TNT1 A 2 A_Light2
-		TNT1 A 2 A_Light1
-		Goto LightDone
 	}
 }
 

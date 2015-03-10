@@ -83,10 +83,6 @@ ACTOR WeaselsRevolver : NaziWeapon
 		REVG A 1 Offset(0,32)
 		TNT1 A 0 A_CheckReload
 		Goto Ready
-	Flash:
-		TNT1 A 2 A_Light2
-		TNT1 A 2 A_Light1
-		Goto LightDone
 	Reload:
 		TNT1 A 0 A_TakeInventory("RevolverShotCounter",1)
 		TNT1 A 0 A_SpawnItemEx("RevolverCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
@@ -122,11 +118,6 @@ ACTOR WeaselsRevolver : NaziWeapon
 		REVG A 1 Offset(0,32)
 		Goto Ready
 	}
-}
-
-ACTOR RevolverPuff : BulletPuff
-{
-	+NOEXTREMEDEATH
 }
 
 ACTOR WeaselsRevolverSpawner replaces Pistol

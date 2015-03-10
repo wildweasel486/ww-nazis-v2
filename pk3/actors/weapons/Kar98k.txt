@@ -59,21 +59,19 @@ ACTOR Kar98k : NaziWeapon
 		KAR9 F 3
 		KAR9 E 1
 		KAR9 D 4
-		KAR9 C 1 A_WeaponReady
+		KAR9 C 1 A_CheckReload
 		Goto Ready
 	Flash:
 		KARF A 1 BRIGHT A_Light1
 		KARF B 1 BRIGHT A_Light2
 		Stop
 	Reload:
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)
-		KAR9 C 2
+		KAR9 C 2 ACS_NamedExecute("WWNaziTaunt", 0, 2)
 		KAR9 D 3
 		KAR9 E 1 A_PlaySound("weapons/mauseropen",5)
 		KAR9 F 5
 		KAR9 G 4
-		KARR A 3
-		KARR B 3
+		KARR AB 3
 	ReloadLoop:
 		TNT1 A 0 A_GiveInventory("Kar98kLoaded")
 		TNT1 A 0 A_TakeInventory("MauserAmmo",1,TIF_NOTAKEINFINITE)
