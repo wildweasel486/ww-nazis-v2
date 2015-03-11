@@ -1,6 +1,6 @@
 // Tentative support for Strife. May not be finished.
 
-ACTOR SRevolverClip : RevolverClip replaces ElectricBolts{}
+ACTOR SRevolverClip : ClipSpawner replaces ElectricBolts{}
 ACTOR SWalther : RandomSpawner replaces ClipOfBullets
 {
 	DropItem "WeaselsRevolverSpawner"

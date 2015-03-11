@@ -33,7 +33,7 @@ Actor STG44 : NaziWeapon
 	Weapon.AmmoUse1 1
 	weapon.ammotype2 "STGClip"
 	weapon.ammouse2 1
-	Scale 0.5
+	Scale .5
 	Tag "Sturmgewehr 44"
 	ConversationID 189
 	States
@@ -69,8 +69,7 @@ Actor STG44 : NaziWeapon
 		Goto Ready
 	Reload:
 		STGG A 1 Offset(0,35) A_PlaySound("reloads/stg",5)
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)
-		STGG A 1 Offset(0,38)
+		STGG A 1 Offset(0,38) ACS_NamedExecute("WWNaziTaunt", 0, 2)
 		STGG A 1 Offset(0,44)
 		STGG A 1 Offset(-2,46)
 		STGG A 1 Offset(-4,52)
@@ -100,10 +99,6 @@ Actor STG44 : NaziWeapon
 		STGG A 1 Offset(-1,34)
 		STGG A 1 Offset(0,32)
 		Goto Ready
-	Flash:
-		TNT1 A 2 A_Light2
-		TNT1 A 2 A_Light1
-		Goto LightDone
 	Spawn:
 		STGI A -1
 		Stop
@@ -123,6 +118,7 @@ ACTOR STG44Spawner
 
 ACTOR STG44Pickup : CustomInventory
 {
+	Scale .5
 	States
 	{
 	Spawn:

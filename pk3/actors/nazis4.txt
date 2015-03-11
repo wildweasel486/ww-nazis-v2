@@ -62,7 +62,7 @@ ACTOR MPClipChex : MPClip replaces MiniZorchPack{}
 
 // Large Zorch
 ACTOR ShellSpawnerChex : ShellSpawner replaces LargeZorchRecharge{}
-ACTOR ShellSpawner2Chex : ShellSpawner2 replaces LargeZorchPack{}
+ACTOR ShellBoxSpawnerChex : ShellBoxSpawner replaces LargeZorchPack{}
 
 // Propulsor Zorch
 ACTOR GrenadePickupSpawnerChex : RandomSpawner replaces PropulsorZorch

@@ -32,8 +32,7 @@ ACTOR Firebrand : NaziWeapon
 		loop
 	Fire:
 		SRDG B 0 A_JumpIfInventory("SwordSeq",2,"Fire3")
-		SRDG B 0 A_JumpIfInventory("SwordSeq",1,"Fire2")
-		SRDG B 1
+		SRDG B 1 A_JumpIfInventory("SwordSeq",1,"Fire2")
 		SRDG C 1 A_GiveInventory("SwordSeq")
 		TNT1 A 4
 		SRDG DE 1
@@ -41,19 +40,18 @@ ACTOR Firebrand : NaziWeapon
 		SRDG GHI 1
 		SRDG J 1 A_CustomPunch(35,1,0,"SwordPuff",96)
 		SRDG KLM 1
-		TNT1 AAAAAAAA 1 A_WeaponReady
+		TNT1 A 8 A_WeaponReady
 		SRDG C 1
 		SRDG B 1 A_TakeInventory("SwordSeq")
 		Goto ready
 	Fire2:
 		TNT1 A 5
-		SRDG N 0
 		SRDG N 1 A_GiveInventory("SwordSeq")
 		SRDG O 1 A_PlaySound("weapons/swordswing")
 		SRDG PQR 1
 		SRDG S 1 A_CustomPunch(45,1,0,"SwordPuff",96)
 		SRDG TUV 1
-		TNT1 AAAAAAAA 1 A_WeaponReady
+		TNT1 A 8 A_WeaponReady
 		TNT1 A 0 A_TakeInventory("SwordSeq")
 		Goto Ready
 	Fire3:
@@ -64,16 +62,16 @@ ACTOR Firebrand : NaziWeapon
 		SRDG J 1 A_CustomPunch(35,1,0,"SwordPuff",96)
 		SRDG KL 1
 		SRDG M 1 A_TakeInventory("SwordSeq",1)
-		TNT1 AAAAAAAA 1 A_WeaponReady
+		TNT1 A 8 A_WeaponReady
 		SRDG C 1
 		SRDG B 1 A_TakeInventory("SwordSeq")
 		Goto Ready
 	AltFire:
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
-		SRDG ABC 1
+		SRDG A 1 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		SRDG BC 1
 		TNT1 A 7 Thing_Damage(0,25)
-		TNT1 A 0 A_GiveInventory("PowerWeaponLevel2")
-		SRDG CBA 1
+		SRDG C 1 A_GiveInventory("PowerWeaponLevel2")
+		SRDG BA 1
 		Goto Ready
 	}
 }
@@ -88,21 +86,13 @@ ACTOR FlameSword : Firebrand
 	+NOALERT
 	States
 	{
-	Select:
-		SRDG A 1 A_Raise
-		Loop
-	Deselect:
-		SRDG A 1 A_Lower
-		Loop
 	Ready:
-		SRDF AAA 1 A_weaponready
-		SRDI BBBCCC 1 A_WeaponReady
+		SRDF A 3 A_weaponready
+		SRDI BC 3 A_WeaponReady
 		loop
 	Fire:
-		SRDF B 0
 		SRDF B 0 A_JumpIfInventory("SwordSeq",2,"Fire3")
-		SRDF B 0 A_JumpIfInventory("SwordSeq",1,"Fire2")
-		SRDF B 1
+		SRDF B 1 A_JumpIfInventory("SwordSeq",1,"Fire2")
 		SRDF C 1 A_GiveInventory("SwordSeq")
 		TNT1 A 4
 		SRDG DE 1
@@ -110,19 +100,18 @@ ACTOR FlameSword : Firebrand
 		SRDF GHI 1
 		SRDF J 1 A_CustomPunch(80,1,0,"FireSwordPuff",96)
 		SRDF KLM 1
-		TNT1 AAAAAAAA 1 A_WeaponReady
+		TNT1 A 8 A_WeaponReady
 		SRDF C 1
 		SRDF B 1 A_TakeInventory("SwordSeq")
 		Goto ready
 	Fire2:
 		TNT1 A 5
-		SRDF N 0
 		SRDF N 1 A_GiveInventory("SwordSeq")
 		SRDF O 1 A_PlaySound("weapons/flameswordswing")
 		SRDF PQR 1
 		SRDF S 1 A_CustomPunch(100,1,0,"FireSwordPuff",96)
 		SRDF TUV 1
-		TNT1 AAAAAAAA 1 A_WeaponReady
+		TNT1 A 8 A_WeaponReady
 		TNT1 A 0 A_TakeInventory("SwordSeq")
 		Goto Ready
 	Fire3:
@@ -133,7 +122,7 @@ ACTOR FlameSword : Firebrand
 		SRDF J 1 A_CustomPunch(80,1,0,"FireSwordPuff",96)
 		SRDF KL 1
 		SRDF M 1 A_TakeInventory("SwordSeq",1)
-		TNT1 AAAAAAAA 1 A_WeaponReady
+		TNT1 A 8 A_WeaponReady
 		SRDF C 1
 		SRDF B 1 A_TakeInventory("SwordSeq")
 		Goto Ready
@@ -179,7 +168,6 @@ ACTOR FirebrandFireball
 ACTOR FirebrandFireballTrail
 {
 	RenderStyle Add
-	Alpha 1.0
 	States
 	{
 	Spawn:
@@ -219,7 +207,7 @@ ACTOR SwordPuffSpark
 	radius 3
 	height 6
 	speed .1
-	RenderStyle ADD
+	RenderStyle Add
 	Scale .4
 	Mass 0
 	BounceType Doom

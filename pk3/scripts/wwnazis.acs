@@ -3,27 +3,21 @@
 
 SCRIPT "WWNaziTaunt" (int tauntType)
 {
-	int tauntChance,tauntDelay;
-
+	int tauntChance=random(1,5),tauntDelay=5*35;
 	delay(20); // Appropriate wait time until player is done with the taunt-worthy action.
-	tauntChance = random(1,5);
-	tauntDelay = 5 * 35;
 	//Print(i:tauntChance);
-
-	if(tauntType == 1 && tauntChance == 5) {
+	if(tauntType == 1 && tauntChance == 5)	// argument 1: taunt from firing
 		PlaySound(0, "player/taunt", CHAN_VOICE, 1.0);
-		Delay(tauntDelay); } // argument 1: taunt from firing
-	if(tauntType == 2 && tauntChance >= 2) {
+	if(tauntType == 2 && tauntChance >= 2)	// 2: taunt from reloading
 		PlaySound(0, "player/reload", CHAN_VOICE, 1.0);
-		Delay(tauntDelay); } // 2: taunt from reloading
-	if(tauntType == 3 && tauntChance >= 3) {
+	if(tauntType == 3 && tauntChance >= 3)	// 3: throwing a grenade
 		PlaySound(0, "player/grenadecall", CHAN_VOICE, 1.0);
-		Delay(tauntDelay); } // 3: throwing a grenade
+	Delay(tauntDelay);
 	//Log(s:"Taunt ready!");
 }
 str weapons[21]=
 {
-	"Melee","Firebrand","Luger9mm","Walther9mm","WeaselsRevolver",
+	"Shovel","Firebrand","Luger9mm","Walther9mm","WeaselsRevolver",
 	"M1911","TrenchShotgun","Browning5","MP40","PPSH41",
 	"Thompson","Kar98k","G43","Enfield","Garand",
 	"STG44","FG42","Pyrolight","Nebelwerfer","Panzerschreck",
@@ -47,6 +41,11 @@ script "WWNaziStartingInventoryCheck" ENTER
 }
 script "WWNaziWeaponCollect"(int weapon)
 {
+	if(!CheckActorClass(0,"WWNazisPlayer"))
+	{
+		SetResultValue(0);
+		terminate;
+	}
 	int load,i,currentweapon,min,max;
 	if(weapon<=2)//Melee
 	{
@@ -75,32 +74,26 @@ script "WWNaziWeaponCollect"(int weapon)
 	}
 	for(i=min;i<=max;i++)
 	{
-		if(CheckInventory(weapons[i-1]))
-			currentweapon=i;
+		if(CheckInventory(weapons[i]))
+			currentweapon=i+1;
 	}
 	if(currentweapon)	//You have a weapon for this slot
 	{
-		if(CheckInventory("IJustTraded"))
+		if(CheckInventory("IJustTraded")||currentweapon==weapon)
 			SetResultValue(0);
 		else
 		{
-			hudmessage(s:"Tap ",k:"+use",s:" to trade the ",s:weaponsfancy[currentweapon-1],s:" for the ",s:weaponsfancy[weapon-1],s:".";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.375,3.0);
+			hudmessage(s:"Tap <",k:"+zoom",s:"> to trade the ",s:weaponsfancy[currentweapon-1],s:" for the ",s:weaponsfancy[weapon-1],s:".";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
+			//hudmessage(s:"Tap <",k:"+use",s:"> to trade the ",s:weaponsfancy[currentweapon-1],s:" for the ",s:weaponsfancy[weapon-1],s:".";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
 			int buttons = GetPlayerInput(-1, INPUT_BUTTONS);
-			if(buttons & BT_USE)
+			if(buttons & BT_ZOOM)
+			//if(buttons & BT_USE)
 			{
 				GiveInventory("IJustTraded",1);
 				TakeInventory(weapons[currentweapon-1],1);
 				DropItem(0,StrParam(s:weapons[currentweapon-1],s:"Pickup"));
-				GiveInventory(weapons[weapon-1],1);
-				if(!GetCVAR("neverswitchonpickup"))
-					SetWeapon(weapons[weapon-1]);
-				if(!CheckInventory(StrParam(s:weapons[weapon-1],s:"StartCheck")))
-				{
-					GiveInventory(StrParam(s:weapons[weapon-1],s:"StartCheck"),1);
-					if(weapon!=0&&weapon!=1&&weapon!=19&&weapon!=21)
-						GiveInventory(StrParam(s:weapons[weapon-1],s:"Loaded"),999);
-				}
-				hudmessage(s:"Traded the ",s:weaponsfancy[currentweapon-1],s:" for the ",s:weaponsfancy[weapon-1],s:"!";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.375,3.0);
+				giveweapon(weapon);
+				hudmessage(s:"Traded the ",s:weaponsfancy[currentweapon-1],s:" for the ",s:weaponsfancy[weapon-1],s:"!";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
 				SetResultValue(1);
 			}
 			else
@@ -109,16 +102,27 @@ script "WWNaziWeaponCollect"(int weapon)
 	}
 	else
 	{
-		GiveInventory(weapons[weapon-1],1);
-		if(!GetCVAR("neverswitchonpickup"))
-			SetWeapon(weapons[weapon-1]);
-		if(!CheckInventory(StrParam(s:weapons[weapon-1],s:"StartCheck")))
-		{
-			GiveInventory(StrParam(s:weapons[weapon-1],s:"StartCheck"),1);
-			if(weapon!=0&&weapon!=1&&weapon!=19&&weapon!=21)
-				GiveInventory(StrParam(s:weapons[weapon-1],s:"Loaded"),999);
-		}
-		hudmessage(s:"Picked up the ",s:weaponsfancy[weapon-1],s:"!";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.375,3.0);
+		giveweapon(weapon);
+		hudmessage(s:"Picked up the ",s:weaponsfancy[weapon-1],s:"!";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
 		SetResultValue(1);
 	}
+}
+
+function void giveweapon(int weapon)
+{
+	GiveInventory(weapons[weapon-1],1);
+	if(!GetCVAR("neverswitchonpickup"))
+		SetWeapon(weapons[weapon-1]);
+	if(!CheckInventory(StrParam(s:weapons[weapon-1],s:"StartCheck")))
+	{
+		GiveInventory(StrParam(s:weapons[weapon-1],s:"StartCheck"),1);
+		if(weapon!=1&&weapon!=2&&weapon!=19&&weapon!=21)
+			GiveInventory(StrParam(s:weapons[weapon-1],s:"Loaded"),999);
+	}
+	if(weapon==2)
+		PlaySound(0,"weapons/sworddraw",CHAN_WEAPON);
+	else if(weapon==21)
+		PlaySound(0,"chaingun/get",CHAN_WEAPON);
+	else
+		PlaySound(0,"*weaponlaugh",CHAN_WEAPON);
 }

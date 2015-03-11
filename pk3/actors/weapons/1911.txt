@@ -61,7 +61,6 @@ ACTOR M1911 : NaziWeapon
 		1911 C 2 //A_JumpIfInventory("1911Loaded",1,"Reload2")
 		HGRL ABCDE 2
 		HGRL F 4
-		TNT1 A 0
 		Goto ReloadLoop
 	Reload2:
 		HGLL ABCDE 2

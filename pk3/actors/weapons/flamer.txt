@@ -16,7 +16,7 @@ ACTOR FlameAmmo : Ammo replaces RocketBox
 	Inventory.MaxAmount 175
 	Ammo.BackpackAmount 10
 	Ammo.BackpackMaxAmount 350
-	Scale 0.8
+	Scale .8
 	ConversationID 178
 	States
 	{
@@ -33,7 +33,7 @@ ACTOR Flamebolt
 	RenderStyle Add
 	Speed 25
 	Radius 16
-	Scale 0.1
+	Scale .1
 	PROJECTILE
 	+Ripper
 	+STRIFEDAMAGE
@@ -74,13 +74,13 @@ ACTOR Flameball
 	SeeSound "weapons/napalm"
 	DamageType Fire
 	Decal Scorch
+	DeathSound "weapons/nebxpl"
 	States
 	{
 	Spawn:
 		FBAL ABC 3 BRIGHT
 		Loop
 	Death:
-		FBLX A 0 A_PlaySound("weapons/nebxpl")
 		FBLX A 2 BRIGHT A_Explode(96,128)
 		FBLX BCDEFGHIJK 2 BRIGHT
 		Stop
@@ -91,11 +91,10 @@ ACTOR EnemyFlamebolt : Flameball
 {
 	DamageType "Enemy"
 	Damage 8
-	Scale 0.5
+	Scale .5
 	States
 	{
 	Death:
-		FBLX A 0 A_PlaySound("weapons/nebxpl")
 		FBLX A 2 BRIGHT A_Explode(8,64)
 		FBLX BCDEFGHIJK 2 BRIGHT
 		Stop
@@ -105,13 +104,12 @@ ACTOR EnemyFlamebolt : Flameball
 ACTOR EnemyFlamebolt2 : EnemyFlamebolt
 {
 	Damage 5
-	Scale 0.35
+	Scale .35
 	+STRIFEDAMAGE
 	States
 	{
 	Death:
-		FBLX A 2 BRIGHT A_PlaySound("weapons/nebxpl")
-		FBLX BCDEFGHIJK 2 BRIGHT
+		FBLX ABCDEFGHIJK 2 BRIGHT
 		Stop
 	}
 }
@@ -128,7 +126,7 @@ ACTOR Pyrolight : NaziWeapon
 	Weapon.AmmoUse2 1
 	ConversationID 190
 	Tag "PyroLight"
-	Scale 0.5
+	Scale .5
 	-WEAPON.NOALERT
 	States
 	{
@@ -150,22 +148,23 @@ ACTOR Pyrolight : NaziWeapon
 		RIFF A 0 A_JumpIfInventory("PyrolightLoaded",1,1)
 		Goto Reload
 		FFTF A 0 A_Light2
-		FFTF A 1 Offset(0,35) BRIGHT A_FireCustomMissile("Flamebolt", 0, 1, 0, 0)
+		FFTF A 1 Offset(0,35) BRIGHT A_FireCustomMissile("Flamebolt")
 		FFTF A 1 Offset(0,36) BRIGHT
+		FFTF A 0 A_Light0
 		FFTR A 0 A_Refire
 		FFTR A 20 A_GunFlash
 		Goto Ready
 	Flash:
-		FFTF B 2 A_PlaySound("weapons/steam")
-		FFTF B 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
-		FFTF CDEF 2 A_Light0
+		FFTF B 2 A_PlaySound("weapons/steam",5)
+		FFTF C 2 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		FFTF DEF 2
 		Stop
 	AltFire:
 		FFTR A 0 A_JumpIfInventory("PyrolightLoaded",10,1)
 		Goto Reload
 		FFTF A 0 A_TakeInventory("PyrolightLoaded",10,TIF_NOTAKEINFINITE)
-		FFTF A 0 A_PlaySound("weapons/napalm")
-		FFTF A 1 BRIGHT A_FireCustomMissile("Flameball", 0, 0, 0, 0)
+		FFTF A 0 A_PlaySound("weapons/napalm",CHAN_WEAPON)
+		FFTF A 1 BRIGHT A_FireCustomMissile("Flameball",0,0)
 		FFTF A 1 Offset(0,34)
 		FFTF A 1 Offset(0,36)
 		FFTR A 1 Offset(0,40)

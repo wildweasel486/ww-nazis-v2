@@ -37,8 +37,7 @@ ACTOR Walther9mm : NaziWeapon
 		WALF A 1 BRIGHT A_FireCustomMissile("PistolTracer",frandom(-1,1))
 		WALG B 2 A_AlertMonsters
 		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
-		WALG A 0 A_SetPitch(pitch - 0.2)
-		WALG A 1
+		WALG A 1 A_SetPitch(pitch - 0.2)
 		WALG A 1 Offset(0,36)
 		WALG A 1 Offset(0,41)
 		WALG A 1 Offset(0,35)

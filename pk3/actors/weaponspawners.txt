@@ -1,0 +1,42 @@
+ACTOR ClipSpawner : RandomSpawner replaces Clip
+{
+	DropItem RevolverClip
+	DropItem RevolverClip
+	DropItem RevolverClip
+	DropItem RevolverClip
+	DropItem WeaselsRevolverSpawner
+	DropItem WeaselsRevolverSpawner
+	DropItem M1911Spawner
+}
+
+ACTOR ShellSpawner : RandomSpawner replaces Shell
+{
+	DropItem NewShell
+	DropItem MauserAmmoSmall
+	DropItem MauserAmmoSmall
+}
+
+ACTOR ShellBoxSpawner : RandomSpawner replaces ShellBox
+{
+	DropItem NewShellBox
+	DropItem MauserAmmo
+	DropItem MauserAmmo
+}
+
+ACTOR ChainsawSpawner : RandomSpawner replaces Chainsaw
+{
+	DropItem EnfieldSpawner
+	DropItem GarandSpawner
+}
+
+ACTOR PistolSpawner : RandomSpawner replaces Pistol
+{
+	DropItem WeaselsRevolverSpawner
+	DropItem M1911Spawner
+}
+
+ACTOR RifleSpawner : RandomSpawner
+{
+	DropItem G43Spawner
+	DropItem Kar98kSpawner
+}
