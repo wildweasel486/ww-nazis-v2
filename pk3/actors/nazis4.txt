@@ -7,8 +7,8 @@
 // Super Bootspork
 ACTOR CombatRifleSpawnerChex : RandomSpawner replaces SuperBootspork
 {
-	DropItem "G43Spawner"
-	DropItem "EnfieldSpawner"
+	DropItem "RifleSpawner"
+	DropItem "ChainsawSpawner"
 }
 
 // Large Zorcher

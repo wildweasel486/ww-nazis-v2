@@ -3,9 +3,9 @@ ACTOR NewShell : Ammo
 	Tag "12 Gauge"
 	Inventory.PickupMessage "Picked up some shotgun shells."
 	Inventory.Amount 4
-	Inventory.MaxAmount 30
+	Inventory.MaxAmount 32
 	Ammo.BackpackAmount 4
-	Ammo.BackpackMaxAmount 60
+	Ammo.BackpackMaxAmount 64
 	ConversationID 185
 	States
 	{
@@ -148,7 +148,7 @@ ACTOR Browning5Pickup : CustomInventory
 		BA5P A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",8)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",7)
 		Stop
 	}
 }

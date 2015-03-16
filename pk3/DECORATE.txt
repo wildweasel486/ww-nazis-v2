@@ -129,7 +129,7 @@ ACTOR BarrelFrags
 ACTOR TNTBarrel1 : ExplosiveBarrel
 {
 	Height 34
-	DeathSound "weapons/rocklx"
+	DeathSound "world/barrelboom"
 	States
 	{
 	Spawn:
@@ -197,3 +197,5 @@ ACTOR IJustTraded : PowerUp
 {
 	PowerUp.Duration 35
 }
+
+ACTOR ICheated : Ammo{}

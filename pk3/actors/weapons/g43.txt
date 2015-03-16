@@ -38,7 +38,7 @@ ACTOR G43Loaded : Ammo
 
 ACTOR G43 : NaziWeapon
 {
-	//Weapon.SelectionOrder 0
+	Weapon.SelectionOrder 750
 	Weapon.Kickback 100
 	Weapon.AmmoType1 "G43Loaded"
 	Weapon.AmmoUse1 1
@@ -137,7 +137,7 @@ ACTOR G43Pickup : CustomInventory
 		M1GP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",13)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",12)
 		Stop
 	}
 }

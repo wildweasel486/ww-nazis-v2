@@ -8,7 +8,7 @@ ACTOR FG42Loaded : Ammo
 
 Actor FG42 : NaziWeapon
 {
-	//Weapon.SelectionOrder 0
+	Weapon.SelectionOrder 700
 	inventory.pickupmessage "You got the Fallschirmjagergewehr 42! (slot 6)"
 	//Obituary "%o was killed by %k."
 	weapon.kickback 100
@@ -131,7 +131,7 @@ ACTOR FG42Pickup : CustomInventory
 		FG42 P -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",17)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",16)
 		Stop
 	}
 }

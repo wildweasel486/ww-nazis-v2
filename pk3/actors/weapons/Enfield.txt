@@ -41,7 +41,7 @@ ACTOR EnfieldLoaded : Ammo
 
 ACTOR Enfield : NaziWeapon
 {
-	//Weapon.SelectionOrder 0
+	Weapon.SelectionOrder 750
 	Weapon.AmmoType1 "EnfieldLoaded"
 	Weapon.AmmoUse1 1
 	Weapon.AmmoType2 "EnfieldAmmo"
@@ -88,7 +88,7 @@ ACTOR Enfield : NaziWeapon
 		ENFG A 1 Offset(-6,35)
 		ENFG A 2 Offset(-8,36)
 		ENFG A 2 Offset(-4,42)
-		ENFG A 1 Offset(0,51) A_SpawnItemEx("MauserRifleCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
+		ENFG A 1 Offset(0,51) A_SpawnItemEx("EnfieldRifleCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		ENFG A 1 Offset(4,60)
 		ENFG A 2 Offset(5,74)
 		ENFG A 3 Offset(6,76)
@@ -165,7 +165,7 @@ ACTOR EnfieldSpawner
 	{
 	Spawn:
 		TNT1 A 0 NODELAY A_SpawnItemEx("EnfieldPickup",0,0,0,velx,vely,velz)
-		TNT1 A 0 A_SpawnItemEx("EnfieldAmmoSmall",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("EnfieldAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }
@@ -178,7 +178,7 @@ ACTOR EnfieldPickup : CustomInventory
 		ENFP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",14)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",13)
 		Stop
 	}
 }

@@ -10,7 +10,7 @@ ACTOR TrenchShotgunLoaded : Ammo
 
 ACTOR TrenchShotgun : NaziWeapon
 {
-	//Weapon.SelectionOrder 0
+	Weapon.SelectionOrder 400
 	Weapon.AmmoType1 "TrenchShotgunLoaded"
 	Weapon.AmmoUse1 1
 	Weapon.AmmoType2 "NewShell"
@@ -142,7 +142,7 @@ ACTOR TrenchShotgunPickup : CustomInventory
 		SHOT A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",7)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",6)
 		Stop
 	}
 }

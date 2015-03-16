@@ -5,7 +5,7 @@ ACTOR SwordSeq : Inventory
 
 ACTOR Firebrand : NaziWeapon
 {
-	//Weapon.SelectionOrder 0
+	Weapon.SelectionOrder 9999
 	Weapon.Kickback 10
 	Weapon.SisterWeapon FlameSword
 	Inventory.PickupMessage "Mad Jack Churchill now considers you properly dressed! (slot 1)"
@@ -150,7 +150,7 @@ ACTOR FirebrandFireball
 	Speed 40
 	Damage (40)
 	RenderStyle Add
-	DeathSound "weapons/rocklx"
+	DeathSound "world/barrelboom"
 	DamageType Fire
 	States
 	{
@@ -240,7 +240,7 @@ ACTOR FirebrandPickup : CustomInventory
 		SRDP A -1 BRIGHT
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",2)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",1)
 		Stop
 	}
 }

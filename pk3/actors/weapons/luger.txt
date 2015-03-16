@@ -6,8 +6,8 @@ ACTOR Luger9mm : NaziWeapon
 	Weapon.AmmoUse1 1
 	weapon.ammotype2 "MPClip"
 	weapon.ammouse2 1
-	Tag "Luger P-08"
-	Inventory.PickupMessage "You got the Luger! (slot 2)"
+	Tag "Luger P08"
+	Inventory.PickupMessage "You got the Luger P08! (slot 2)"
 	//Obituary "%o was killed by %k."
 	+Weapon.NoAutoFire
 	States
@@ -106,7 +106,7 @@ ACTOR Luger9mmPickup : CustomInventory
 		LUGP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",3)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",2)
 		Stop
 	}
 }

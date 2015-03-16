@@ -7,7 +7,6 @@ ACTOR PanzerschreckLoaded : Ammo
 
 ACTOR PanzerAmmo : Ammo
 {
-	//$Category ammunition
 	Inventory.MaxAmount 10
 	Inventory.PickupMessage "Picked up a Panzerschreck rocket."
 	Tag "Rockets"
@@ -177,7 +176,7 @@ ACTOR PanzerschreckPickup : CustomInventory
 		PANP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",20)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",19)
 		Stop
 	}
 }

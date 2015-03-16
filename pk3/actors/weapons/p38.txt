@@ -6,8 +6,8 @@ ACTOR Walther9mm : NaziWeapon
 	Weapon.AmmoUse1 1
 	weapon.ammotype2 "MPClip"
 	weapon.ammouse2 1
-	Tag "Walther P-38"
-	Inventory.PickupMessage "You got the P-38! (slot 2)"
+	Tag "Walther P38"
+	Inventory.PickupMessage "You got the Walther P38! (slot 2)"
 	//Obituary "%o was killed by %k."
 	ConversationID 179
 	States
@@ -106,7 +106,7 @@ ACTOR Walther9mmPickup : CustomInventory
 		WALP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",4)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",3)
 		Stop
 	}
 }
