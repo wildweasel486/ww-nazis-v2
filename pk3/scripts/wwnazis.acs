@@ -126,11 +126,9 @@ script "WWNaziWeaponCollect"(int weapon)
 }
 script "WWNaziWeaponDrop"(int currentweapon,int weapon)
 {
-	while(!StrCmp(GetWeapon(),weapons[currentweapon]))
-	{
-		SetWeapon(weapons[weapon]);
+	int changing=SetWeapon(weapons[weapon]);
+	while(changing&&!StrCmp(GetWeapon(),weapons[currentweapon]))
 		delay(1);
-	}
 	TakeInventory(weapons[currentweapon],1);
 	DropItem(0,StrParam(s:weapons[currentweapon],s:"Pickup"));
 }
