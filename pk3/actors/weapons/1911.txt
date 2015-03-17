@@ -2,7 +2,7 @@ ACTOR M1911Loaded : Ammo
 {
 	Tag ".45 ACP"
 	+IGNORESKILL
-	Inventory.MaxAmount 7//8
+	Inventory.MaxAmount 7
 	Inventory.Icon COLPA0
 }
 
@@ -108,7 +108,7 @@ ACTOR M1911Spawner
 	}
 }
 
-ACTOR M1911Pickup : CustomInventory
+ACTOR M1911Pickup : NaziWeaponPickup
 {
 	States
 	{
@@ -116,7 +116,7 @@ ACTOR M1911Pickup : CustomInventory
 		COLP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",6)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",5)
 		Stop
 	}
 }

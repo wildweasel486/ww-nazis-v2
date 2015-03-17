@@ -15,7 +15,7 @@ ACTOR Kar98k : NaziWeapon
 	Weapon.AmmoUse2 1
 	Inventory.PickupMessage "You got the Mauser Kar98k! (slot 5)"
 	Obituary "%o was gunned down by %k's Mauser."
-	Weapon.SelectionOrder 740
+	Weapon.SelectionOrder 750
 	+WEAPON.NOAUTOFIRE
 	Tag "Karabiner 98k"
 	States
@@ -104,7 +104,7 @@ ACTOR Kar98kSpawner
 	}
 }
 
-ACTOR Kar98kPickup : CustomInventory
+ACTOR Kar98kPickup : NaziWeaponPickup
 {
 	States
 	{
@@ -112,7 +112,7 @@ ACTOR Kar98kPickup : CustomInventory
 		K98K A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",12)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",11)
 		Stop
 	}
 }

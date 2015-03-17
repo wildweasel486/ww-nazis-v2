@@ -9,7 +9,6 @@ actor NebRocket
 	+RANDOMIZE
 	+FORCERADIUSDMG
 	DeathSound "weapons/nebxpl"
-	Obituary "$OB_MPROCKET" // "%o rode %k's rocket."
 	MissileHeight 0
 	Decal Scorch
 	States
@@ -33,7 +32,7 @@ actor NebRocketEnemy : NebRocket
 	States
 	{
 	Death:
-		FRME A 1 bright A_Explode(40,40)
+		FRME A 1 bright A_Explode(40)
 		FRME BCDEFGHIHJKLMNOPQRS 1 bright
 		stop
 	}
@@ -47,6 +46,7 @@ actor Nebelwerfer : NaziWeapon
 	Weapon.AmmoType "NebAmmo"
 	Tag "Klein Nebelwerfer"
 	Inventory.PickupMessage "You got the Klein Nebelwerfer! (slot 8)"
+	Obituary "%o rode %k's rocket."
 	-WEAPON.NOALERT
 	-WEAPON.AMMO_CHECKBOTH
 	ConversationID 195
@@ -167,7 +167,7 @@ ACTOR NebelwerferSpawner
 	}
 }
 
-ACTOR NebelwerferPickup : CustomInventory
+ACTOR NebelwerferPickup : NaziWeaponPickup
 {
 	States
 	{
@@ -175,7 +175,7 @@ ACTOR NebelwerferPickup : CustomInventory
 		NEBL A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",19)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",18)
 		Stop
 	}
 }

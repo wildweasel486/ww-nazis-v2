@@ -44,7 +44,7 @@ ACTOR Garand : NaziWeapon
 	Weapon.AmmoUse2 1
 	Inventory.PickupMessage "You got the M1 Garand! (slot 5)"
 	//Obituary "%o was killed by %k."
-	Weapon.SelectionOrder 740
+	Weapon.SelectionOrder 750
 	+WEAPON.NOAUTOFIRE
 	Tag "M1 Garand"
 	States
@@ -110,7 +110,7 @@ ACTOR GarandSpawner
 	}
 }
 
-ACTOR GarandPickup : CustomInventory
+ACTOR GarandPickup : NaziWeaponPickup
 {
 	States
 	{
@@ -118,7 +118,7 @@ ACTOR GarandPickup : CustomInventory
 		M1AP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",15)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",14)
 		Stop
 	}
 }

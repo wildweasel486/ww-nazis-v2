@@ -7,11 +7,10 @@ $playeralias	weasel	male	*pain75		weaselmedpain
 $playeralias	weasel	male	*pain50		weaselhipain
 $playeralias	weasel	male	*pain25		weaselcritpain
 $playeralias	weasel	male	*grunt		weaseloof
-$playersound	weasel	male	*land		dsoof
-$playersound	weasel	male	*usefail	dsnoway
-$playeralias	weasel	male	*grenadecall	player/grenadecall
+$playersound	weasel	male	*land		wwoof
+$playersound	weasel	male	*usefail	wwnoway
 $playersound	weasel	male	*weaponlaugh	dswpnup
-$playersound	weasel	male	*evillaugh	dsempty
+$playeralias	weasel	male	*evillaugh	player/taunt
 
 $random player/taunt { taunt1 taunt2 taunt3 taunt4 taunt5 taunt6 taunt7 taunt8 taunt9 taunt10 taunt11 taunt12 taunt13 taunt14 taunt15 }
 $random player/reload { reload1 reload2 reload3 reload4 reload5 reload6 reload7 reload8 reload9 }
@@ -89,29 +88,40 @@ scases3 scases3
 scasesb1 scasesb1
 scasesb2 scasesb2
 
-//Shovel
-$random shovel/impact {shovel/impact1 shovel/impact2}
-shovel/impact1          dsshvi1
-shovel/impact2          dsshvi2
-shovel/wall          dsshvi3
-
-$random shovel/miss {shovel/miss1 shovel/miss2 shovel/miss3}
-shovel/miss1            dsshvw1
-shovel/miss2            dsshvw2
-shovel/miss3            dsshvw3
-
+//Fists
 melee/miss dspmiss
 melee/hit dspunch
 melee/wall dspwall
 
-weapons/revolver revfire
-weapons/revolverout revout
-weapons/revolverin revin
-weapons/revolverload revload
+//Shovel
+$random shovel/impact {shovel/impact1 shovel/impact2}
+shovel/impact1	dsshvi1
+shovel/impact2	dsshvi2
+shovel/wall		dsshvi3
 
-weapons/1911slide SLIDE
-weapons/1911reload LOAD
-weapons/1911snap SNAP
+$random shovel/miss {shovel/miss1 shovel/miss2 shovel/miss3}
+shovel/miss1	dsshvw1
+shovel/miss2	dsshvw2
+shovel/miss3	dsshvw3
+
+//Luger P-08
+weapons/Luger	LUGRFIRE
+reloads/luger	lugrload
+
+//Walther P-38
+weapons/Walther	WALTFIR
+reloads/p38		loadp38
+
+//.357 Revolver
+weapons/revolver		revfire
+weapons/revolverout		revout
+weapons/revolverin		revin
+weapons/revolverload	revload
+
+//Colt M1911
+weapons/1911slide	SLIDE
+weapons/1911reload	LOAD
+weapons/1911snap	SNAP
 
 $random weapons/1911fire {1911A 1911B 1911C 1911D }
 1911A	1911A
@@ -119,67 +129,80 @@ $random weapons/1911fire {1911A 1911B 1911C 1911D }
 1911C	1911C
 1911D	1911D
 
-MGarand/Fire M1AFIRE
-MGarand/Load M1LOAD
-MGarand/Ping M1PING
+//M1897 Trenchgun
+Shotgun/Fire	SHOTFIRE
+Shotgun/Load	SHOTLOAD
+Shotgun/Pump	SHOTPUMP
 
-weapons/Walther WALTFIR
+//Browning Auto-5
+weapons/ba5fire	ba5fire
+weapons/ba5load	ba5load
+weapons/ba5cock	ba5cock
 
-weapons/Luger LUGRFIRE
-
-Shotgun/Fire SHOTFIRE
-Shotgun/Load SHOTLOAD
-Shotgun/Pump SHOTPUMP
-
-Garand/Fire M1FIRE
-Garand/Load M1LOAD
-Garand/Ping M1PING
-
-weapons/wweshotgunfire dswgfire
-weapons/wweshotguncock dswgcock
-weapons/wweshotgundouble dswgdblf
-
-Weapons/STGFIRE STGFIRE
-
-weapons/flamer dsfthrow
-weapons/steam dssteam
-weapons/napalm THERMFIR
-
+//MP-40
 weapons/mp40 dsrifle
-
-weapons/ba5fire ba5fire
-weapons/ba5load ba5load
-weapons/ba5cock ba5cock
-
-weapons/nebelwerfer dsnebsht
-weapons/nebxpl		dsnebxpl
-
-reloads/p38 loadp38
 reloads/mp40 loadmp40
-reloads/stg loadstg
-reloads/g43 loadg43
-reloads/luger lugrload
-reloads/flamer THERMRLD
 
+//PPSh-41
+ppsh/fire ppshfire
+ppsh/reload ppshload
+
+//Thompson M1A1
+Thompson/Fire THOMFIRE
+Thompson/Reload THOMLOAD
+
+//Karabiner 98k
 weapons/mauserfire DSMAUS
 weapons/mausercock DSMCLACK
 weapons/mauseropen DSPOP
 weapons/mauserinsert DSINSERT
 weapons/mausershut DSCLACK
 
+//Gewehr 43
+Garand/Fire M1FIRE
+reloads/g43 loadg43
+
+//Lee-Enfield SMLE
 Enfield/Fire EnflFire
 Enfield/BoltBack EnflBack
 Enfield/BoltFwd EnflFwd
 Enfield/Load EnflLoad
 
-Thompson/Fire THOMFIRE
-Thompson/Reload THOMLOAD
+//Garand
+MGarand/Fire M1AFIRE
+MGarand/Load M1LOAD
+MGarand/Ping M1PING
 
+//STG44
+Weapons/STGFIRE STGFIRE
+reloads/stg loadstg
+
+//FG42
 fg42/fire FG42FIRE
 reloads/fg42 FG42LOAD
 
-ppsh/fire ppshfire
-ppsh/reload ppshload
+//Pyrolight
+weapons/flamer dsfthrow
+weapons/steam dssteam
+weapons/napalm THERMFIR
+reloads/flamer THERMRLD
+
+//Nebelwerfer
+weapons/nebelwerfer dsnebsht
+weapons/nebxpl		dsnebxpl
+
+//Panzerschreck
+panzer/fire panzfire
+panzer/load panzload
+panzer/fly panzfly
+panzer/explode panzexpl
+
+//UMG43
+weapons/chaingun		dscgun
+weapons/chaingunstart	chaingo
+weapons/chaingunloop	chainlp
+weapons/chaingunstop	chainstp
+chaingun/get			P_CGUN
 
 $random grenade/throw { grenthr1 grenthr2 grenthr3 }
 $random grenade/bounce { grenbnc1 grenbnc2 grenbnc3 grenbnc4 }
@@ -197,15 +220,8 @@ grenexp3 grenexp3
 grenexp4 grenexp4
 grenade/pickup grenpick
 
-panzer/fire panzfire
-panzer/load panzload
-panzer/fly panzfly
-panzer/explode panzexpl
 
 // Basic guards
-
-nazi/pistol DSNLUGER
-
 $random guard/sight { guard/sight1 guard/sight2 guard/sight3 guard/sight4 guard/sight5 guard/sight6 guard/sight7 guard/sight8 guard/sight9 }
 $random guard/death { guard/death1 guard/death1 guard/death3 guard/death4 guard/death5 guard/death6 guard/death7 guard/death8 guard/death9 }
 
@@ -230,7 +246,6 @@ guard/death8		dsgddth8
 guard/death9		dsgddth9
 
 // Officers
-
 $random officer/sight { officer/sight1 officer/sight2 officer/sight3 officer/sight4 }
 $random officer/death { officer/death1 officer/death2 officer/death3 officer/death4 }
 
@@ -245,7 +260,6 @@ officer/death3		dsofdth3
 officer/death4		dsofdth4
 
 // SS
-
 $random ss/sight { ss/sight1 ss/sight2 ss/sight3 ss/sight4 }
 $random ss/death { ss/death1 ss/death2 ss/death3 ss/death4 }
 
@@ -274,22 +288,6 @@ dog/death3  			DSDGDIE3
 dog/pain			dsdgpai
 dog/attack			dsdogatk
 
-// Hans
-hans/sight		dshansit
-hans/death		dshandth
-
-// Franz
-franz/sight		dsfrasit
-franz/death		dsfradth
-
-// Otto
-otto/sight		dsottsit
-otto/death		dsottdth
-
-// General
-general/sight	dsgensit
-general/death	dsgendth
-
 // Chair Guy
 krist/sight		dskrisit
 krist/death		dskridth
@@ -302,8 +300,9 @@ deathknight/death	dsdtkdth
 hitler/sight	dshitsit
 hitler/pain		dshitpai
 hitler/death	dshitdth
-hitler/act		dshitact
+hitler/act		hghdie
 hitler/gib		hitlrgib
+hitler/walk		dshitwlk
 
 // Fat Man
 fatman/sight	dsfatsit
@@ -312,17 +311,10 @@ fatman/death	dsfatdth
 // Machines
 metal/pain		dsping
 
-nazi/pain		dsnazpai
-boss/active		dsbosact
 boss/pain		dsbospai
 
 // Weapons
-
-$random weapons/rocklx {grnx1 grnx2 grnx3 grnx4}
-grnx1 dsbarex1
-grnx2 dsbarex2
-grnx3 dsbarex3
-grnx4 dsbarex4
+nazi/pistol DSNLUGER
 
 $random weapons/assaultgun {mp401 mp402}
 mp401 dsmp401
@@ -331,20 +323,12 @@ mp402 dsmp402
 weapons/stg44 dsstg44
 weapons/p38fire dsp38
 weapons/mauser dsmauser
-
-weapons/chaingun dscgun
-weapons/chaingunstart chaingo
-weapons/chaingunloop chainlp
-weapons/chaingunstop chainstp
-
-weapons/nebelwerfer dsnebsht
-weapons/nebxpl		dsnebxpl
+weapons/missilef dsmissil
 
 // Miscellaneous
-
-misc/k_pkup		dsgetkey
+misc/k_pkup			dsgetkey
 misc/armor_pkup		dsgetarm
-misc/health_pkup		dsgethlt
+misc/health_pkup	dsgethlt
 misc/ammo_pkup		dsammoup
 
 // Bullet Whizzes and Suchwise
@@ -374,6 +358,11 @@ hitflesh7 trcehit7
 hitflesh8 trcehit8
 hitflesh9 trcehit9
 
+$random world/barrelboom {grnx1 grnx2 grnx3 grnx4}
+grnx1 dsbarex1
+grnx2 dsbarex2
+grnx3 dsbarex3
+grnx4 dsbarex4
 
 //=======================
 //GARGANTUAN NAZI SECTION
@@ -661,10 +650,9 @@ Naz4St48 Naz4St48
 hitlerghost/see hghsee
 hitlerghost/die hghdie
 
-geist/pain geisthit
-geist/die geistdie
-
-chaingun/get P_CGUN
+geist/pain		geisthit
+geist/die		geistdie
+geist/active	geistact
 
 mutant/death dsmutdt
 
@@ -681,12 +669,6 @@ burndth9 burndth9
 burndtha burndtha
 burndthb burndthb
 burndthc burndthc
-
-// And stuff carried over from Doom for the heretic support
-
-grunt/attack			dspistol
-brain/cube			dsboscub
-world/barrelx			dsbarexp
 
 // Seekrit!
 

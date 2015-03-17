@@ -25,7 +25,7 @@ ACTOR STG44Loaded : Ammo
 
 Actor STG44 : NaziWeapon
 {
-	//Weapon.SelectionOrder 0
+	Weapon.SelectionOrder 700
 	inventory.pickupmessage "You got the Sturmgewehr 44! (slot 6)"
 	//Obituary "%o was killed by %k."
 	weapon.kickback 100
@@ -116,7 +116,7 @@ ACTOR STG44Spawner
 	}
 }
 
-ACTOR STG44Pickup : CustomInventory
+ACTOR STG44Pickup : NaziWeaponPickup
 {
 	Scale .5
 	States
@@ -125,7 +125,7 @@ ACTOR STG44Pickup : CustomInventory
 		STGI A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",16)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",15)
 		Stop
 	}
 }

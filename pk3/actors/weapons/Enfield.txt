@@ -41,7 +41,7 @@ ACTOR EnfieldLoaded : Ammo
 
 ACTOR Enfield : NaziWeapon
 {
-	//Weapon.SelectionOrder 0
+	Weapon.SelectionOrder 750
 	Weapon.AmmoType1 "EnfieldLoaded"
 	Weapon.AmmoUse1 1
 	Weapon.AmmoType2 "EnfieldAmmo"
@@ -77,7 +77,7 @@ ACTOR Enfield : NaziWeapon
 		ENFF A 1 Bright Offset(0,40) A_FireCustomMissile("EnfieldTracer")
 		ENFF B 1 Bright Offset(0,50) A_GunFlash
 		ENFG A 0 A_AlertMonsters
-		ENFG A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		ENFG A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		ENFG A 1 Offset(0,45) A_SetPitch(pitch - 4.0)
 		ENFG A 1 Offset(0,40) A_SetPitch(pitch - 2.0)
 		ENFG A 1 Offset(0,36) A_SetPitch(pitch + 1.0)
@@ -88,7 +88,7 @@ ACTOR Enfield : NaziWeapon
 		ENFG A 1 Offset(-6,35)
 		ENFG A 2 Offset(-8,36)
 		ENFG A 2 Offset(-4,42)
-		ENFG A 1 Offset(0,51) A_SpawnItemEx("MauserRifleCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
+		ENFG A 1 Offset(0,51) A_SpawnItemEx("EnfieldRifleCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		ENFG A 1 Offset(4,60)
 		ENFG A 2 Offset(5,74)
 		ENFG A 3 Offset(6,76)
@@ -103,7 +103,7 @@ ACTOR Enfield : NaziWeapon
 		TNT1 A 0 A_CheckReload
 		Goto Ready
 	Reload:
-		ENFG A 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)
+		ENFG A 0 ACS_NamedExecute("WWNaziTaunt",0,2)
 		ENFG A 1 Offset(-2,33) A_PlaySound("Enfield/boltback",5)
 		ENFG A 1 Offset(-4,34)
 		ENFG A 1 Offset(-6,35)
@@ -165,12 +165,12 @@ ACTOR EnfieldSpawner
 	{
 	Spawn:
 		TNT1 A 0 NODELAY A_SpawnItemEx("EnfieldPickup",0,0,0,velx,vely,velz)
-		TNT1 A 0 A_SpawnItemEx("EnfieldAmmoSmall",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("EnfieldAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }
 
-ACTOR EnfieldPickup : CustomInventory
+ACTOR EnfieldPickup : NaziWeaponPickup
 {
 	States
 	{
@@ -178,7 +178,7 @@ ACTOR EnfieldPickup : CustomInventory
 		ENFP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",14)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",13)
 		Stop
 	}
 }

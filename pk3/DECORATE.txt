@@ -16,6 +16,11 @@ ACTOR NaziWeapon : Weapon
 	}
 }
 
+ACTOR NaziWeaponPickup : CustomInventory
+{
+	Inventory.PickupSound "*weaponlaugh"
+}
+
 #include "actors/weapons/shovel.txt"
 #include "actors/weapons/revolver.txt"
 #include "actors/weapons/P38.txt"
@@ -129,7 +134,7 @@ ACTOR BarrelFrags
 ACTOR TNTBarrel1 : ExplosiveBarrel
 {
 	Height 34
-	DeathSound "weapons/rocklx"
+	DeathSound "world/barrelboom"
 	States
 	{
 	Spawn:
@@ -197,3 +202,5 @@ ACTOR IJustTraded : PowerUp
 {
 	PowerUp.Duration 35
 }
+
+ACTOR ICheated : Ammo{}
