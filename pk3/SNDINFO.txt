@@ -170,6 +170,7 @@ Enfield/Load EnflLoad
 
 //Garand
 MGarand/Fire M1AFIRE
+MGarand/Unload M1UNLOAD
 MGarand/Load M1LOAD
 MGarand/Ping M1PING
 
