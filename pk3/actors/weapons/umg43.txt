@@ -71,8 +71,9 @@ ACTOR UMG43Spawner
 	}
 }
 
-ACTOR UMG43Pickup : CustomInventory
+ACTOR UMG43Pickup : NaziWeaponPickup
 {
+	Inventory.PickupSound "chaingun/get"
 	States
 	{
 	Spawn:

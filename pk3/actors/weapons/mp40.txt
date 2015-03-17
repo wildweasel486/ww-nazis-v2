@@ -150,7 +150,7 @@ ACTOR MP40Spawner
 	}
 }
 
-ACTOR MP40Pickup : CustomInventory
+ACTOR MP40Pickup : NaziWeaponPickup
 {
 	Scale .5
 	States

@@ -131,7 +131,7 @@ ACTOR WeaselsRevolverSpawner
 	}
 }
 
-ACTOR WeaselsRevolverPickup : CustomInventory
+ACTOR WeaselsRevolverPickup : NaziWeaponPickup
 {
 	Scale .5
 	States

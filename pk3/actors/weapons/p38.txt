@@ -98,7 +98,7 @@ ACTOR Walther9mmSpawner
 	}
 }
 
-ACTOR Walther9mmPickup : CustomInventory
+ACTOR Walther9mmPickup : NaziWeaponPickup
 {
 	States
 	{

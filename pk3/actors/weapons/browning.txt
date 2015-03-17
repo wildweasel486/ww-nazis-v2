@@ -84,11 +84,11 @@ ACTOR Browning5 : NaziWeapon
 		BA5G A 2 Offset(0,33) A_SetPitch(pitch + 0.5)
 		BA5G A 1 A_AlertMonsters
 		BA5G A 1 Offset(-1,33)
-		BA5G A 1 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		BA5G A 1 ACS_NamedExecute("WWNaziTaunt",0,1)
 		TNT1 A 0 A_CheckReload
 		Goto Ready
 	Reload:
-		BA5G E 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)
+		BA5G E 0 ACS_NamedExecute("WWNaziTaunt",0,2)
 		BA5G E 1 Offset(-1,33) A_GiveInventory("ShotgunReloading")
 		BA5G E 1 Offset(-4,41)
 		BA5G E 1 Offset(-6,46)
@@ -139,7 +139,7 @@ ACTOR Browning5Spawner replaces SuperShotgun
 	}
 }
 
-ACTOR Browning5Pickup : CustomInventory
+ACTOR Browning5Pickup : NaziWeaponPickup
 {
 	Scale .5
 	States

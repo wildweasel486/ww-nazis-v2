@@ -3,16 +3,15 @@
 
 SCRIPT "WWNaziTaunt" (int tauntType)
 {
-	int tauntChance=random(1,5),tauntDelay=5*35;
 	delay(20); // Appropriate wait time until player is done with the taunt-worthy action.
 	//Print(i:tauntChance);
-	if(tauntType == 1 && tauntChance == 5)	// argument 1: taunt from firing
-		PlaySound(0, "player/taunt", CHAN_VOICE, 1.0);
-	if(tauntType == 2 && tauntChance >= 2)	// 2: taunt from reloading
-		PlaySound(0, "player/reload", CHAN_VOICE, 1.0);
-	if(tauntType == 3 && tauntChance >= 3)	// 3: throwing a grenade
-		PlaySound(0, "player/grenadecall", CHAN_VOICE, 1.0);
-	Delay(tauntDelay);
+	if(tauntType==1&&random(1,5)==5)		// argument 1: taunt from firing
+		PlaySound(0,"player/taunt",CHAN_VOICE,1.0);
+	else if(tauntType==2&&random(1,5)>=2)	// 2: taunt from reloading
+		PlaySound(0,"player/reload",CHAN_VOICE,1.0);
+	else if(tauntType==3&&random(1,5)>=2)	// 3: throwing a grenade
+		PlaySound(0,"player/grenadecall",CHAN_VOICE,1.0);
+	Delay(5*35);
 	//Log(s:"Taunt ready!");
 }
 str weapons[21]=
@@ -103,7 +102,7 @@ script "WWNaziWeaponCollect"(int weapon)
 		{
 			hudmessage(s:"Tap <",k:"+zoom",s:"> to trade the ",s:weaponsfancy[currentweapon],s:" for the ",s:weaponsfancy[weapon],s:".";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
 			//hudmessage(s:"Tap <",k:"+use",s:"> to trade the ",s:weaponsfancy[currentweapon],s:" for the ",s:weaponsfancy[weapon],s:".";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
-			int buttons = GetPlayerInput(-1, INPUT_BUTTONS);
+			int buttons = GetPlayerInput(-1,INPUT_BUTTONS);
 			if(buttons & BT_ZOOM)
 			//if(buttons & BT_USE)
 			{
@@ -144,10 +143,4 @@ function void giveweapon(int weapon)
 		if(weapon!=0&&weapon!=1&&weapon!=18&&weapon!=20)
 			GiveInventory(StrParam(s:weapons[weapon],s:"Loaded"),999);
 	}
-	if(weapon==1)
-		PlaySound(0,"weapons/sworddraw",CHAN_WEAPON);
-	else if(weapon==20)
-		PlaySound(0,"chaingun/get",CHAN_WEAPON);
-	else
-		PlaySound(0,"*weaponlaugh",CHAN_WEAPON);
 }

@@ -167,7 +167,7 @@ ACTOR NebelwerferSpawner
 	}
 }
 
-ACTOR NebelwerferPickup : CustomInventory
+ACTOR NebelwerferPickup : NaziWeaponPickup
 {
 	States
 	{

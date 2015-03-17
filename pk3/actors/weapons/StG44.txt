@@ -116,7 +116,7 @@ ACTOR STG44Spawner
 	}
 }
 
-ACTOR STG44Pickup : CustomInventory
+ACTOR STG44Pickup : NaziWeaponPickup
 {
 	Scale .5
 	States

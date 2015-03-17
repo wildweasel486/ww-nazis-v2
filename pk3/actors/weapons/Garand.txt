@@ -110,7 +110,7 @@ ACTOR GarandSpawner
 	}
 }
 
-ACTOR GarandPickup : CustomInventory
+ACTOR GarandPickup : NaziWeaponPickup
 {
 	States
 	{

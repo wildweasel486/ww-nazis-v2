@@ -9,14 +9,12 @@ ACTOR PyrolightLoaded : Ammo
 ACTOR FlameAmmo : Ammo replaces RocketBox
 {
 	Tag "Petrol"
-	Radius 40
-	Height 16
 	Inventory.PickupMessage "A petrol canister."
 	Inventory.Amount 40
 	Inventory.MaxAmount 175
 	Ammo.BackpackAmount 10
 	Ammo.BackpackMaxAmount 350
-	Scale .8
+	Scale .5
 	ConversationID 178
 	States
 	{
@@ -29,7 +27,7 @@ ACTOR FlameAmmo : Ammo replaces RocketBox
 ACTOR Flamebolt
 {
 	Damage (random(1,4))
-	Alpha 0.90
+	Alpha .90
 	RenderStyle Add
 	Speed 25
 	Radius 16
@@ -160,7 +158,7 @@ ACTOR Pyrolight : NaziWeapon
 		Goto Ready
 	Flash:
 		FFTF B 2 A_PlaySound("weapons/steam",5)
-		FFTF C 2 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		FFTF C 2 ACS_NamedExecute("WWNaziTaunt",0,1)
 		FFTF DEF 2
 		Stop
 	AltFire:
@@ -180,7 +178,7 @@ ACTOR Pyrolight : NaziWeapon
 		FFTR A 11 Offset(0,32) A_GunFlash
 		Goto Ready
 	Reload:
-		FFTR B 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)
+		FFTR B 0 ACS_NamedExecute("WWNaziTaunt",0,2)
 		FFTR B 1 Offset(0,35) A_PlaySound("reloads/flamer",5)
 		FFTR B 1 Offset(0,38)
 		FFTR B 1 Offset(0,40)
@@ -291,7 +289,7 @@ ACTOR PyrolightSpawner replaces RocketLauncher
 	}
 }
 
-ACTOR PyrolightPickup : CustomInventory
+ACTOR PyrolightPickup : NaziWeaponPickup
 {
 	Scale .5
 	States

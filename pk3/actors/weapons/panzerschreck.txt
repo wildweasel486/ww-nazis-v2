@@ -165,7 +165,7 @@ ACTOR PanzerSpawner replaces BFG9000
 	}
 }
 
-ACTOR PanzerschreckPickup : CustomInventory
+ACTOR PanzerschreckPickup : NaziWeaponPickup
 {
 	Radius 18
 	Height 12

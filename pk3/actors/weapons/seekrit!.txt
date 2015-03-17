@@ -231,8 +231,9 @@ ACTOR WWKeen : CommanderKeen replaces CommanderKeen
 	DropItem "FirebrandPickup"
 }
 
-ACTOR FirebrandPickup : CustomInventory
+ACTOR FirebrandPickup : NaziWeaponPickup
 {
+	Inventory.PickupSound "weapons/sworddraw"
 	Scale .8
 	States
 	{

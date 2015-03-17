@@ -113,7 +113,7 @@ ACTOR ThompsonSpawner replaces Chaingun
 	}
 }
 
-ACTOR ThompsonPickup : CustomInventory
+ACTOR ThompsonPickup : NaziWeaponPickup
 {
 	Scale .5
 	States

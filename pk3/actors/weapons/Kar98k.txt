@@ -104,7 +104,7 @@ ACTOR Kar98kSpawner
 	}
 }
 
-ACTOR Kar98kPickup : CustomInventory
+ACTOR Kar98kPickup : NaziWeaponPickup
 {
 	States
 	{

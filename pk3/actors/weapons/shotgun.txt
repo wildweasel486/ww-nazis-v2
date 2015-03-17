@@ -133,7 +133,7 @@ ACTOR TrenchShotgunSpawner replaces Shotgun
 	}
 }
 
-ACTOR TrenchShotgunPickup : CustomInventory
+ACTOR TrenchShotgunPickup : NaziWeaponPickup
 {
 	Scale .5
 	States

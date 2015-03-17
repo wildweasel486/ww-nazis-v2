@@ -16,6 +16,11 @@ ACTOR NaziWeapon : Weapon
 	}
 }
 
+ACTOR NaziWeaponPickup : CustomInventory
+{
+	Inventory.PickupSound "*weaponlaugh"
+}
+
 #include "actors/weapons/shovel.txt"
 #include "actors/weapons/revolver.txt"
 #include "actors/weapons/P38.txt"

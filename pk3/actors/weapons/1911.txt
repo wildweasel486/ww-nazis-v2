@@ -108,7 +108,7 @@ ACTOR M1911Spawner
 	}
 }
 
-ACTOR M1911Pickup : CustomInventory
+ACTOR M1911Pickup : NaziWeaponPickup
 {
 	States
 	{

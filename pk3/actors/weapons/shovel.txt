@@ -86,7 +86,7 @@ actor ShovelPuff
 	}
 }
 
-ACTOR ShovelPickup : CustomInventory
+ACTOR ShovelPickup : NaziWeaponPickup
 {
 	Scale .5
 	States
