@@ -14,6 +14,10 @@ SCRIPT "WWNaziTaunt" (int tauntType)
 	Delay(5*35);
 	//Log(s:"Taunt ready!");
 }
+script "WWNaziSkillCheck" (void)
+{
+	SetResultValue(GameSkill());
+}
 str weapons[21]=
 {
 	"Shovel","Firebrand","Luger9mm","Walther9mm","WeaselsRevolver",
