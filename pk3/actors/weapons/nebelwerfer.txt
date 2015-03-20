@@ -23,21 +23,6 @@ actor NebRocket
 	}
 }
 
-actor NebRocketEnemy : NebRocket
-{
-	Speed 15
-	Damagetype "Enemy"
-	-FORCERADIUSDMG
-	SeeSound "weapons/nebelwerfer"
-	States
-	{
-	Death:
-		FRME A 1 bright A_Explode(40)
-		FRME BCDEFGHIHJKLMNOPQRS 1 bright
-		stop
-	}
-}
-
 actor Nebelwerfer : NaziWeapon
 {
 	Weapon.Kickback 100
@@ -112,36 +97,33 @@ ACTOR NebAmmoSmall : NebAmmo
 ACTOR RocketFlameSpawner
 {
 	Projectile
-	Scale 0.15
-	Alpha 0.5
 	+NOCLIP
-	+NOTELEPORT
-	+NOBLOCKMAP
-	-FLOORCLIP
 	States
 	{
 	Spawn:
 		TNT1 A 1
-		TNT1 A 1 A_CustomMissile("RocketFlame",random(-1,1),random(-1,1),0)
+		TNT1 A 1 A_CustomMissile("RocketFlame",random(-1,1),random(-1,1))
 		Stop
 	}
 }
 
 ACTOR RocketFlame : RocketFlameSpawner
 {
+	Scale 0.15
+	Alpha 0.5
 	Renderstyle Add
 	States
 	{
 	Spawn:
 		XPLO AB 2 BRIGHT
-		XPLO C 2 BRIGHT A_CustomMissile("RPG8RocketTrail",1,random(-1,1),0)
+		XPLO C 2 BRIGHT A_CustomMissile("RPG8RocketTrail",1,random(-1,1))
 		Stop
 	}
 }
 
 ACTOR RPG8RocketTrail
 {
-	PROJECTILE
+	Projectile
 	Height 1
 	Radius 1
 	Scale 0.18

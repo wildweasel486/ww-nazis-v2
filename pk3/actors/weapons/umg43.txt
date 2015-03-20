@@ -25,9 +25,10 @@ ACTOR UMG43 : NaziWeapon
 		UMGG A 1 A_Lower
 		Loop
 	Ready:
+		UMGG A 0 A_ClearRefire
 		UMGG A 0 A_StopSound(5)
 		UMGG A 1 A_WeaponReady
-		Loop
+		Wait
 	Fire:
 		UMGG A 0 A_PlaySound("weapons/chaingunstart")
 		UMGG A 1 A_PlaySound("weapons/chaingunloop",5,1,1)

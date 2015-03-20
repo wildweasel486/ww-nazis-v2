@@ -53,12 +53,6 @@ ACTOR Flamebolt
 	}
 }
 
-ACTOR EnemyFlamerShot : Flamebolt
-{
-	-Ripper
-	DamageType "Enemy"
-}
-
 ACTOR Flameball : Flamebolt
 {
 	Damage 30
@@ -79,38 +73,11 @@ ACTOR Flameball : Flamebolt
 	}
 }
 
-ACTOR EnemyFlamebolt : Flameball
-{
-	DamageType "Enemy"
-	Damage 8
-	Scale .5
-	States
-	{
-	Death:
-		FBLX A 2 BRIGHT A_Explode(8,64)
-		FBLX BCDEFGHIJK 2 BRIGHT
-		Stop
-	}
-}
-
-ACTOR EnemyFlamebolt2 : EnemyFlamebolt
-{
-	Damage 5
-	Scale .35
-	+STRIFEDAMAGE
-	States
-	{
-	Death:
-		FBLX ABCDEFGHIJK 2 BRIGHT
-		Stop
-	}
-}
-
 ACTOR Pyrolight : NaziWeapon
 {
 	Weapon.SelectionOrder 800
 	Inventory.PickupMessage "You got the Pyrolight! (slot 7)"
-	//Obituary "%o was killed by %k."
+	Obituary "%o was burninated by %k."
 	Weapon.Kickback 20
 	Weapon.AmmoType1 "PyrolightLoaded"
 	Weapon.AmmoType2 "FlameAmmo"
