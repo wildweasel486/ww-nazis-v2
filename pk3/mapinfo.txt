@@ -298,8 +298,8 @@ Intermission Doom2Cast
 	}
 	Cast
 	{
-		CastClass = "FatMan"
-		CastName = "Colonel Zweimeltod"
+		CastClass = "ChairGuy"
+		CastName = "Heinrich Krist - Rollstuhl-Rocket"
 		AttackSound = "Missile", 1, "weapons/missilef"
 		AttackSound = "Missile", 3, "weapons/missilef"
 		AttackSound = "Missile", 5, "weapons/missilef"
@@ -317,8 +317,8 @@ Intermission Doom2Cast
 	}
 	Cast
 	{
-		CastClass = "ChairGuy"
-		CastName = "Heinrich Krist - Rollstuhl-Rocket"
+		CastClass = "Miniship"
+		CastName = "Miniship"
 		AttackSound = "Missile", 1, "weapons/missilef"
 		AttackSound = "Missile", 3, "weapons/missilef"
 	}

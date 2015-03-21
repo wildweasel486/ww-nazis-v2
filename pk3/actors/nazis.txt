@@ -1,17 +1,17 @@
 ACTOR BigNazi
 {
-	scale 1.1
-	health 300
-	painchance 110
-	height 56
-	mass 200
-	speed 8
+	Scale 1.1
+	Health 300
+	PainChance 110
+	Height 56
+	Mass 200
+	Speed 8
 	DamageFactor "Enemy",0.0
 	MONSTER
 	+FLOORCLIP
 	+LOOKALLAROUND
 	+DOHARMSPECIES
-	painsound "boss/pain"
+	PainSound "boss/pain"
 	States
 	{
 	Spawn:
@@ -27,18 +27,18 @@ ACTOR BigNazi
 		"####" A 0 A_Look
 		"####" DD 4 A_Wander
 		"####" A 0 A_Look
-		loop
+		Loop
 	}
 }
 ACTOR Nazi : BigNazi
 {
 	-LOOKALLAROUND
-	health 20
-	mass 100
-	painchance 200
-	seesound "Nazi1/Sighted"
-	painsound "Nazi1/Pain"
-	deathsound "Nazi1/Death"
+	Health 20
+	Mass 100
+	PainChance 200
+	SeeSound "Nazi1/Sighted"
+	PainSound "Nazi1/Pain"
+	DeathSound "Nazi1/Death"
 	States
 	{
 	Death:
@@ -47,10 +47,10 @@ ACTOR Nazi : BigNazi
 		"####" K 5 A_NoBlocking
 		"####" L 5
 		"####" M -1
-		stop
+		Stop
 	Death.Fire:
-		TNT1 A 0 A_SetScale(1.0)
-		BURN ABC 5 BRIGHT
+		BURN A 5 BRIGHT A_SetScale(1.0)
+		BURN BC 5 BRIGHT
 		BURN D 5 BRIGHT A_PlaySound("death/burning")
 		BURN EFGHIJKLMN 5 BRIGHT
 		BURN O 5 BRIGHT A_NoBlocking
@@ -62,24 +62,24 @@ ACTOR Nazi : BigNazi
 
 ACTOR GuardSpawner : RandomSpawner replaces Zombieman
 {
-	dropitem Guard
-	dropitem SSGuard
-	dropitem WGuard
+	DropItem Guard
+	DropItem SSGuard
+	DropItem WGuard
 }
 
 ACTOR Guard : Nazi
 {
-	obituary "%o was shot by a pistol soldier."
-	DropItem "Walther9mmPickup"
-	DropItem "MPMagazine"
-	states
+	Obituary "%o was shot by a pistol soldier."
+	DropItem Walther9mmPickup
+	DropItem MPMagazine
+	States
 	{
 	Spawn2:
 		GARD N 10 A_Look
-		loop
+		Loop
 	See:
 		GARD AABBCCDD 4 A_Chase
-		loop
+		Loop
 	Missile:
 		GARD EF 5 A_FaceTarget
 		GARD G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
@@ -98,16 +98,16 @@ ACTOR Guard : Nazi
 
 ACTOR SSGuard : Guard
 {
-	obituary "%o was killed by an SS guard."
-	health 40
-	states
+	Obituary "%o was killed by an SS guard."
+	Health 40
+	States
 	{
 	Spawn2:
 		SSPG N 10 A_Look
-		loop
+		Loop
 	See:
 		SSPG AABBCCDD 3 A_Chase
-		loop
+		Loop
 	Missile:
 		SSPG EF 5 A_FaceTarget
 		SSPG G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
@@ -126,20 +126,20 @@ ACTOR SSGuard : Guard
 
 ACTOR WGuard : Guard
 {
-	obituary "%o was shot by a Wehrmacht soldier."
-	health 30
-	speed 10
-	painchance 185
+	Obituary "%o was shot by a Wehrmacht soldier."
+	Health 30
+	Speed 10
+	PainChance 185
 	+MISSILEMORE
 	+MISSILEEVENMORE
-	states
+	States
 	{
 	Spawn2:
 		GRD2 N 10 A_Look
-		loop
+		Loop
 	See:
 		GRD2 AABBCCDD 4 A_Chase
-		loop
+		Loop
 	Missile:
 		GRD2 EF 2 A_FaceTarget
 		GRD2 G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
@@ -161,31 +161,31 @@ ACTOR WGuard : Guard
 
 ACTOR MP40GuardSpawner : RandomSpawner replaces ShotgunGuy
 {
-	dropitem MP40Guard
-	dropitem SSMP40Guard
-	dropitem WMP40Guard
+	DropItem MP40Guard
+	DropItem SSMP40Guard
+	DropItem WMP40Guard
 }
 
 ACTOR MP40GuardSpawner2 : MP40GuardSpawner replaces WolfensteinSS{}
 
 ACTOR MP40Guard : Nazi
 {
-	obituary "%o was plugged by a soldier with an MP40."
-	seesound "Nazi2/Sighted"
-	painsound "Nazi2/Pain"
-	deathsound "Nazi2/Death"
-	dropitem "MP40Pickup"
-	DropItem "MPMagazine"
-	DropItem "MPMagazine"
-	dropitem "GrenadePickup" 16
-	states
+	Obituary "%o was plugged by a soldier with an MP40."
+	SeeSound "Nazi2/Sighted"
+	PainSound "Nazi2/Pain"
+	DeathSound "Nazi2/Death"
+	DropItem MP40Pickup
+	DropItem MPMagazine
+	DropItem MPMagazine
+	DropItem GrenadePickup,16
+	States
 	{
 	Spawn2:
 		MGRD N 10 A_Look
-		loop
+		Loop
 	See:
 		MGRD AABBCCDD 4 A_Chase
-		loop
+		Loop
 	Missile:
 		MGRD EF 5 A_FaceTarget
 		MGRD G 0 A_PlaySound("weapons/assaultgun",CHAN_WEAPON)
@@ -216,19 +216,19 @@ ACTOR MP40Guard : Nazi
 
 ACTOR WMP40Guard : MP40Guard
 {
-	obituary "%o was plugged by a trigger-happy Wehrmacht."
-	health 30
-	speed 10
+	Obituary "%o was plugged by a trigger-happy Wehrmacht."
+	Health 30
+	Speed 10
 	+MISSILEMORE
 	+MISSILEEVENMORE
-	states
+	States
 	{
 	Spawn2:
 		MGR2 N 10 A_Look
-		loop
+		Loop
 	See:
 		MGR2 AABBCCDD 4 A_Chase
-		loop
+		Loop
 	Missile:
 		MGR2 EF 2 A_FaceTarget
 		MGR2 G 0 A_PlaySound("weapons/assaultgun",CHAN_WEAPON)
@@ -251,16 +251,16 @@ ACTOR WMP40Guard : MP40Guard
 
 ACTOR SSMP40Guard : MP40Guard
 {
-	obituary "%o was plugged by an SS with an MP40."
-	health 40
-	states
+	Obituary "%o was plugged by an SS with an MP40."
+	Health 40
+	States
 	{
 	Spawn2:
 		SSMG N 10 A_Look
-		loop
+		Loop
 	See:
 		SSMG AABBCCDD 3 A_Chase
-		loop
+		Loop
 	Missile:
 		SSMG EF 5 A_FaceTarget
 		SSMG G 0 A_PlaySound("weapons/assaultgun",CHAN_WEAPON)
@@ -280,26 +280,26 @@ ACTOR SSMP40Guard : MP40Guard
 
 ACTOR RiflemanSpawner : RandomSpawner replaces ChaingunGuy
 {
-	dropitem RifleGuard
-	dropitem WRifleGuard
-	dropitem WaffenSS
+	DropItem RifleGuard
+	DropItem WRifleGuard
+	DropItem WaffenSS
 }
 
 ACTOR RifleGuard : Nazi
 {
-	obituary "%o was plinked by a rifle soldier."
-	seesound "Nazi3/Sighted"
-	painsound "Nazi2/Pain"
-	deathsound "Nazi2/Death"
+	Obituary "%o was plinked by a rifle soldier."
+	SeeSound "Nazi3/Sighted"
+	PainSound "Nazi2/Pain"
+	DeathSound "Nazi2/Death"
 	DropItem RifleSpawner
-	states
+	States
 	{
 	Spawn2:
 		RGRD N 10 A_Look
-		loop
+		Loop
 	See:
 		RGRD AABBCCDD 4 A_Chase
-		loop
+		Loop
 	Missile:
 		RGRD EF 10 A_FaceTarget
 		RGRD G 0 A_PlaySound("garand/fire",CHAN_WEAPON)
@@ -318,19 +318,19 @@ ACTOR RifleGuard : Nazi
 
 ACTOR WRifleGuard : RifleGuard
 {
-	obituary "%o was snap-shot by a rifle soldier."
-	health 30
-	speed 10
+	Obituary "%o was snap-shot by a rifle soldier."
+	Health 30
+	Speed 10
 	+MISSILEMORE
 	+MISSILEEVENMORE
-	states
+	States
 	{
 	Spawn2:
 		RGR2 N 10 A_Look
-		loop
+		Loop
 	See:
 		RGR2 AABBCCDD 4 A_Chase
-		loop
+		Loop
 	Missile:
 		RGR2 EF 10 A_FaceTarget
 		RGR2 G 0 A_PlaySound("garand/fire",CHAN_WEAPON)
@@ -352,18 +352,18 @@ ACTOR WRifleGuard : RifleGuard
 
 ACTOR WaffenSS : RifleGuard
 {
-	obituary "%o was shot to pieces by a Waffen-SS."
+	Obituary "%o was shot to pieces by a Waffen-SS."
 	Health 80
 	DropItem STG44Spawner
-	dropitem "GrenadePickup" 32
-	states
+	DropItem GrenadePickup,32
+	States
 	{
 	Spawn2:
 		WAFF N 10 A_Look
-		loop
+		Loop
 	See:
 		WAFF AABBCCDD 3 A_Chase
-		loop
+		Loop
 	Missile:
 		WAFF EF 5 A_FaceTarget
 		WAFF G 0 A_PlaySound("weapons/stg44",CHAN_WEAPON)
@@ -383,24 +383,24 @@ ACTOR WaffenSS : RifleGuard
 
 ACTOR SpectreSpawner : RandomSpawner replaces Spectre
 {
-	DropItem "Paratrooper"
-	DropItem "Mutant"
+	DropItem Paratrooper
+	DropItem Mutant
 }
 
 ACTOR Paratrooper : RifleGuard
 {
-	obituary "%o was slaughtered by a Fallschirmjaeger."
-	health 90
-	dropitem "FG42Spawner" 128
-	dropitem "MauserAmmoSmall" 128
-	states
+	Obituary "%o was slaughtered by a Fallschirmjaeger."
+	Health 90
+	DropItem FG42Spawner,128
+	DropItem MauserAmmoSmall,128
+	States
 	{
 	Spawn2:
 		PARA N 10 A_Look
-		loop
+		Loop
 	See:
 		PARA AABBCCDD 3 A_Chase
-		loop
+		Loop
 	Missile:
 		PARA EF 5 A_FaceTarget
 		PARA G 0 A_PlaySound("weapons/stg44",CHAN_WEAPON)
@@ -420,22 +420,22 @@ ACTOR Paratrooper : RifleGuard
 
 ACTOR Mutant : Nazi
 {
-	obituary "%o did the dance of doom with a Mutant."
-	health 90
-	speed 6
-	seesound ""
-	deathsound "mutant/Death"
+	Obituary "%o did the dance of doom with a Mutant."
+	Health 90
+	Speed 6
+	SeeSound ""
+	DeathSound "mutant/Death"
 	BloodColor "Green"
 	+MISSILEMORE
 	+MISSILEEVENMORE
-	states
+	States
 	{
 	Spawn2:
 		MTNT A 10 A_Look
-		loop
+		Loop
 	See:
 		MTNT BBCCDDEE 2 A_Chase
-		loop
+		Loop
 	Missile:
 		MTNT F 6 A_FaceTarget
 		MTNT G 0 A_PlaySound("weapons/Walther",CHAN_WEAPON)
@@ -456,7 +456,7 @@ ACTOR Mutant : Nazi
 		MTNT K 3 A_NoBlocking
 		MTNT LM 3
 		MTNT N -1
-		stop
+		Stop
 	Raise:
 		MTNT MLKJI 5
 		Goto See
@@ -465,27 +465,27 @@ ACTOR Mutant : Nazi
 
 ACTOR OfficerSpawner : RandomSpawner replaces DoomImp
 {
-	dropitem Officer
-	dropitem WOfficer
-	dropitem SSOfficer
+	DropItem Officer
+	DropItem WOfficer
+	DropItem SSOfficer
 }
 
 ACTOR Officer : Nazi
 {
-	obituary "%o was executed by an officer."
-	seesound "Nazi4/Sighted"
-	painsound "Nazi4/Pain"
-	deathsound "Nazi4/Death"
-	dropitem "Luger9mmPickup"
-	DropItem "MPMagazine"
-	states
+	Obituary "%o was executed by an officer."
+	SeeSound "Nazi4/Sighted"
+	PainSound "Nazi4/Pain"
+	DeathSound "Nazi4/Death"
+	DropItem Luger9mmPickup
+	DropItem MPMagazine
+	States
 	{
 	Spawn2:
 		OFFI N 10 A_Look
-		loop
+		Loop
 	See:
 		OFFI AABBCCDD 2 A_Chase
-		loop
+		Loop
 	Missile:
 		OFFI EF 2 A_FaceTarget
 		OFFI G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
@@ -504,20 +504,20 @@ ACTOR Officer : Nazi
 
 ACTOR WOfficer : Officer
 {
-	obituary "%o was quickly executed by an officer."
-	health 30
-	speed 10
-	painchance 180
+	Obituary "%o was quickly executed by an officer."
+	Health 30
+	Speed 10
+	PainChance 180
 	+MISSILEMORE
 	+MISSILEEVENMORE
-	states
+	States
 	{
 	Spawn2:
 		OFR2 N 10 A_Look
-		loop
+		Loop
 	See:
 		OFR2 AABBCCDD 2 A_Chase
-		loop
+		Loop
 	Missile:
 		OFR2 EF 2 A_FaceTarget
 		OFR2 G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
@@ -545,16 +545,16 @@ ACTOR WOfficer : Officer
 
 ACTOR SSOfficer : Officer
 {
-	obituary "%o was viciously executed by an SS officer."
-	health 40
-	states
+	Obituary "%o was viciously executed by an SS officer."
+	Health 40
+	States
 	{
 	Spawn2:
 		SSOF N 10 A_Look
-		loop
+		Loop
 	See:
 		SSOF AABBCCDD 2 A_Chase
-		loop
+		Loop
 	Missile:
 		SSOF EF 2 A_FaceTarget
 		SSOF G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
@@ -573,26 +573,25 @@ ACTOR SSOfficer : Officer
 
 ACTOR DogSpawner : RandomSpawner replaces Demon
 {
-	dropitem Rottweiler
-	dropitem GermanShepherd
+	DropItem Rottweiler
+	DropItem GermanShepherd
 }
 
 ACTOR Rottweiler : Nazi
 {
 	Scale 1
-	hitobituary "%o was bitten by a guard dog."
-	health 25
-	painchance 180
-	speed 16
-	height 48
-	mass 70
-	seesound "dog/sight"
-	attacksound "dog/attack"
-	painsound "dog/pain"
-	deathsound "dog/death"
-	activesound "dog/active"
+	HitObituary "%o was bitten by a guard dog."
+	Health 25
+	PainChance 180
+	Speed 16
+	Height 48
+	Mass 70
+	SeeSound "dog/sight"
+	PainSound "dog/pain"
+	DeathSound "dog/death"
+	ActiveSound "dog/active"
 	-CANUSEWALLS
-	states
+	States
 	{
 	Spawn2:
 		DOGY AA 2 A_Wander
@@ -609,7 +608,7 @@ ACTOR Rottweiler : Nazi
 		Loop
 	Melee:
 		"####" EF 2 Fast A_FaceTarget
-		"####" G 8 Fast A_CustomMeleeAttack(random(1,8)*5)
+		"####" G 8 Fast A_CustomMeleeAttack(random(1,8)*5,"dog/attack")
 		"####" FE 4 Fast
 		Goto See
 	Pain:
@@ -622,18 +621,16 @@ ACTOR Rottweiler : Nazi
 		"####" I 8 A_Scream
 		"####" J 6
 		"####" K -1 A_NoBlocking
-		stop
+		Stop
 	Raise:
 		"####" KJIH 6
 		Goto See
-	Idle:
-		Stop
 	}
 }
 
 ACTOR GermanShepherd : Rottweiler
 {
-	states
+	States
 	{
 	Spawn2:
 		DOG2 AA 2 A_Wander
@@ -654,24 +651,24 @@ ACTOR GermanShepherd : Rottweiler
 
 ACTOR RevenantSpawner : RandomSpawner replaces Revenant
 {
-	DropItem "RocketMan"
-	DropItem "RocketMan"
-	DropItem "MadDoctor"
+	DropItem RocketMan
+	DropItem RocketMan
+	DropItem MadDoctor
 }
 
 ACTOR RocketMan : BigNazi
 {
-	obituary "%o was splattered by Otto Giftmacher."
-	seesound "Boss2/Sighted"
-	deathsound "Boss2/Death"
-	states
+	Obituary "%o was splattered by Otto Giftmacher."
+	SeeSound "Boss2/Sighted"
+	DeathSound "Boss2/Death"
+	States
 	{
 	Spawn2:
 		OTTO A 10 A_Look
-		loop
+		Loop
 	See:
 		"####" AABBCCDD 4 A_Chase
-		loop
+		Loop
 	Missile:
 		OTTO E 10 A_FaceTarget
 		OTTO F 8 BRIGHT A_CustomMissile("MiniRocket",32,12)
@@ -686,7 +683,7 @@ ACTOR RocketMan : BigNazi
 		"####" H 5 A_Scream
 		"####" I 5
 		"####" J -1 A_NoBlocking
-		stop
+		Stop
 	Raise:
 		"####" JIHG 5
 		Goto See
@@ -708,22 +705,22 @@ ACTOR MiniRocket
 	{
 	Spawn:
 		MISL A 1 BRIGHT A_CustomMissile("RocketFlameSpawner",0,0,0,5)
-		loop
+		Loop
 	Death:
 		FRME A 1 BRIGHT A_Explode(20,40)
 		FRME BCDEFGHIHJKLMNOPQRS 1 BRIGHT
-		stop
+		Stop
 	}
 }
 
 ACTOR MadDoctor : RocketMan
 {
-	obituary "%o was used as an unwitting test subject by Dr. Schabbs."
-	states
+	Obituary "%o was used as an unwitting test subject by Dr. Schabbs."
+	States
 	{
 	Spawn2:
 		SCHB A 10 A_Look
-		loop
+		Loop
 	Missile:
 		SCHB E 10 A_FaceTarget
 		SCHB F 8 A_CustomMissile("FlyingNeedle",32,12)
@@ -747,45 +744,45 @@ ACTOR FlyingNeedle : MiniRocket
 	{
 	Spawn:
 		NEDL ABCD 3
-		loop
+		Loop
 	Death:
 		TNT1 A 1
-		stop
+		Stop
 	}
 }
 
 ACTOR SuperSoldierSpawner : RandomSpawner replaces HellKnight
 {
-	DropItem "SuperSoldier"
-	DropItem "SuperSoldier"
-	DropItem "SuperSoldier"
-	DropItem "SuperSoldier"
-	DropItem "SuperSoldier"
-	DropItem "SuperSoldier"
-	DropItem "SuperSoldier"
-	DropItem "SuperSoldierGirl"
+	DropItem SuperSoldier
+	DropItem SuperSoldier
+	DropItem SuperSoldier
+	DropItem SuperSoldier
+	DropItem SuperSoldier
+	DropItem SuperSoldier
+	DropItem SuperSoldier
+	DropItem SuperSoldierGirl
 }
 
 ACTOR SuperSoldier : BigNazi
 {
-	obituary "%o was terminated by an ubersoldat."
-	health 500
-	radius 24
-	height 64
-	mass 500
-	painchance 150
-	seesound "Boss1/Sighted"
-	deathsound "Boss1/Death"
-	DropItem "UMG43Spawner" 8
+	Obituary "%o was terminated by an ubersoldat."
+	Health 500
+	Radius 24
+	Height 64
+	Mass 500
+	PainChance 150
+	SeeSound "Boss1/Sighted"
+	DeathSound "Boss1/Death"
+	DropItem UMG43Spawner,8
 	+NOBLOOD
-	states
+	States
 	{
 	Spawn2:
 		HANS A 10 A_Look
-		loop
+		Loop
 	See:
 		"####" AABBCCDD 4 A_Chase
-		loop
+		Loop
 	Missile:
 		HANS E 20 A_FaceTarget
 		HANS F 0 A_PlaySound("weapons/chaingun",CHAN_WEAPON)
@@ -811,7 +808,7 @@ ACTOR SuperSoldier : BigNazi
 		"####" J 5 A_Scream
 		"####" K 5
 		"####" L -1 A_NoBlocking
-		stop
+		Stop
 	Raise:
 		"####" LKJI 5
 		Goto See
@@ -820,18 +817,18 @@ ACTOR SuperSoldier : BigNazi
 
 ACTOR SuperSoldierGirl : SuperSoldier
 {
-	obituary "%o was terminated by a female ubersoldat."
-	seesound "BossGirl/Sighted"
-	painsound "bossGirl/pain"
-	deathsound "BossGirl/Death"
+	Obituary "%o was terminated by a female ubersoldat."
+	SeeSound "BossGirl/Sighted"
+	PainSound "bossGirl/pain"
+	DeathSound "BossGirl/Death"
 	DropItem ""
 	+MISSILEMORE
 	+MISSILEEVENMORE
-	states
+	States
 	{
 	Spawn2:
 		WBO4 A 10 A_Look
-		loop
+		Loop
 	Missile:
 		WBO4 E 20 A_FaceTarget
 		WBO4 F 0 A_PlaySound("weapons/ba5fire",CHAN_WEAPON)
@@ -852,14 +849,14 @@ ACTOR SuperSoldierGirl : SuperSoldier
 
 ACTOR SuperSoldierElite : SuperSoldier replaces BaronOfHell
 {
-	obituary "%o was pulverized by an elite ubersoldat."
-	health 850
+	Obituary "%o was pulverized by an elite ubersoldat."
+	Health 850
 	+BOSSDEATH
-	states
+	States
 	{
 	Spawn2:
 		TRAN A 10 A_Look
-		loop
+		Loop
 	Missile:
 		TRAN E 20 A_FaceTarget
 		TRAN F 0 A_PlaySound("weapons/chaingun",CHAN_WEAPON)
@@ -885,28 +882,28 @@ ACTOR SuperSoldierElite : SuperSoldier replaces BaronOfHell
 		TRAN J 5 A_Scream
 		TRAN K 5 A_BossDeath
 		TRAN L -1 A_NoBlocking
-		stop
+		Stop
 	}
 }
 
 ACTOR General : BigNazi replaces Archvile
 {
-	obituary "%o was eliminated by a Nazi general."
-	health 800
-	mass 1000
-	seesound "Boss3/Sighted"
-	deathsound "Boss3/Death"
-	DropItem "NebelwerferSpawner" 64
-	DropItem "UMG43Spawner" 8
+	Obituary "%o was eliminated by a Nazi general."
+	Health 800
+	Mass 1000
+	SeeSound "Boss3/Sighted"
+	DeathSound "Boss3/Death"
+	DropItem NebelwerferSpawner,64
+	DropItem UMG43Spawner,8
 	+MISSILEEVENMORE
-	states
+	States
 	{
 	Spawn2:
 		FETT A 10 A_Look
-		loop
+		Loop
 	See:
 		FETT AABBCCDD 4 A_Chase
-		loop
+		Loop
 	Missile:
 		FETT E 10 A_FaceTarget
 		FETT E 0 A_Jump(128,"Chaingun")
@@ -932,7 +929,7 @@ ACTOR General : BigNazi replaces Archvile
 		FETT K 5 A_Scream
 		FETT L 5
 		FETT M -1 A_NoBlocking
-		stop
+		Stop
 	Raise:
 		FETT MLKJ 5
 		Goto See
@@ -941,20 +938,20 @@ ACTOR General : BigNazi replaces Archvile
 
 ACTOR FlamerMan : BigNazi replaces Arachnotron
 {
-	obituary "%o was roasted by a Nazi with a flamethrower."
-	health 500
-	seesound "Boss1/Sighted"
-	deathsound "Boss1/Death"
-	dropitem "PyrolightPickup"
+	Obituary "%o was roasted by a Nazi with a flamethrower."
+	Health 500
+	SeeSound "Boss1/Sighted"
+	DeathSound "Boss1/Death"
+	DropItem PyrolightPickup
 	DropItem FlameAmmo
-	states
+	States
 	{
 	Spawn2:
 		FLAM A 10 A_Look
-		loop
+		Loop
 	See:
 		FLAM AABBCCDD 3 A_Chase
-		loop
+		Loop
 	Missile:
 		FLAM E 10 A_FaceTarget
 		FLAM E 0 A_JumpIfCloser(384,"ProperMissile")
@@ -974,7 +971,7 @@ ACTOR FlamerMan : BigNazi replaces Arachnotron
 		FLAM H 5 A_Scream
 		FLAM I 5 A_BossDeath
 		FLAM J -1 A_NoBlocking
-		stop
+		Stop
 	Raise:
 		FLAM JIHG 5
 		Goto See
@@ -983,7 +980,7 @@ ACTOR FlamerMan : BigNazi replaces Arachnotron
 
 ACTOR EnemyFlamerShot : Flamebolt
 {
-	-Ripper
+	-RIPPER
 	DamageType "Enemy"
 }
 
@@ -1001,61 +998,16 @@ ACTOR EnemyFlamebolt : Flameball
 	}
 }
 
-ACTOR ChairGuy : BigNazi replaces PainElemental
-{
-	obituary "%o was given the chair."
-	health 600
-	mass 2000
-	seesound "krist/sight"
-	deathsound "krist/death"
-	-FLOORCLIP
-	+FLOAT
-	+NOGRAVITY
-	states
-	{
-	Spawn2:
-		KRIS A 10 A_Look
-		loop
-	See:
-		KRIS AABBCCDD 4 A_Chase
-		loop
-	Missile:
-		KRIS E 10 A_FaceTarget
-		KRIS F 8 BRIGHT A_CustomMissile("MiniRocket",48,15)
-		KRIS E 8 A_FaceTarget
-		KRIS G 8 BRIGHT A_CustomMissile("MiniRocket",48,-15)
-		KRIS E 8
-		Goto See
-	Pain:
-		KRIS A 3
-		KRIS A 3 A_Pain
-		Goto See
-	Death:
-		KRIS H 5
-		KRIS I 5 A_Scream
-		KRIS J 5
-		KRIS K -1
-		Wait
-	Crash:
-		KRIS H 0 A_SetFloorClip
-		KRIS H 0 A_PlaySound("world/barrelboom")
-		MISL B 8 BRIGHT A_Explode(40)
-		MISL C 6 BRIGHT
-		MISL D 4 BRIGHT
-		Stop
-	}
-}
-
 ACTOR HitlerGhost : BigNazi replaces Cacodemon
 {
 	Scale 1.2
-	obituary "%o thought %g saw Hitler."
-	health 250
-	mass 1000
-	speed 13
-	painchance 24
-	deathsound "hitlerghost/die"
-	seesound "hitlerghost/see"
+	Obituary "%o thought %g saw Hitler."
+	Health 250
+	Mass 1000
+	Speed 13
+	PainChance 24
+	DeathSound "hitlerghost/die"
+	SeeSound "hitlerghost/see"
 	+FLOAT
 	+NOGRAVITY
 	+NOBLOOD
@@ -1099,46 +1051,45 @@ ACTOR EnemyFlamebolt2 : EnemyFlamebolt
 	}
 }
 
-ACTOR MiniShip : BigNazi
+ACTOR MiniShip : BigNazi replaces PainElemental
 {
-	obituary "%o received death from above."
-	health 375
-	mass 2000
-	speed 13
-	painchance 200
-	attacksound "weapons/stg44"
-	painsound "metal/pain"
-	deathsound "world/barrelboom"
+	Obituary "%o received death from above."
+	Health 600
+	Mass 2000
+	PainChance 200
+	PainSound "metal/pain"
+	-FLOORCLIP
 	+FLOAT
 	+NOGRAVITY
 	+NOBLOOD
-	-FLOORCLIP
-	states
+	States
 	{
 	Spawn2:
 		SHIP A 10 A_Look
-		loop
+		Loop
 	See:
-		SHIP AABBCCDD 4 A_Chase
-		loop
+		SHIP A 4 A_Chase
+		Loop
 	Missile:
-		SHIP D 10 A_FaceTarget
-		SHIP E 0 A_PlaySound("weapons/chaingun",CHAN_WEAPON)
-		SHIP E 4 BRIGHT A_CustomMissile("EnemyChaingunTracer",20,4,random(-11,11))
-		SHIP D 4 A_FaceTarget
-		SHIP E 0 A_PlaySound("weapons/chaingun",CHAN_WEAPON)
-		SHIP F 4 BRIGHT A_CustomMissile("EnemyChaingunTracer",20,-4,random(-11,11))
-		SHIP D 4
+		SHIP A 10 A_FaceTarget
+		SHIP B 8 BRIGHT A_CustomMissile("MiniRocket",20,4,random(-11,11))
+		SHIP A 8 A_FaceTarget
+		SHIP C 8 BRIGHT A_CustomMissile("MiniRocket",20,-4,random(-11,11))
+		SHIP A 8
 		Goto See
 	Pain:
 		SHIP A 3
 		SHIP A 3 A_Pain
 		Goto See
 	Death:
-		SHIP B 0 A_Scream
-		MISL B 8 BRIGHT A_Explode(40)
-		MISL C 6 BRIGHT
-		MISL D 4 BRIGHT
+		SHIP A 5
+		SHIP A -1 A_Scream
+		Wait
+	Crash:
+		SHIP H 0 A_SetFloorClip
+		BARX A 0 A_PlaySound("world/barrelboom")
+		BARX A 2 BRIGHT A_Explode(40)
+		BARX BCDEFGHIJKLM 2 BRIGHT
 		Stop
 	}
 }
@@ -1146,17 +1097,17 @@ ACTOR MiniShip : BigNazi
 ACTOR Geist : BigNazi replaces LostSoul
 {
 	Scale 0.8
-	obituary "%o had %p soul removed by a Geist."
-	health 100
-	radius 16
-	mass 1000
-	speed 15
-	painchance 255
-	renderstyle translucent
-	alpha 0.5
-	deathsound "geist/die"
-	painsound "geist/pain"
-	seesound ""
+	Obituary "%o had %p soul removed by a Geist."
+	Health 100
+	Radius 16
+	Mass 1000
+	Speed 15
+	PainChance 255
+	RenderStyle Translucent
+	Alpha 0.5
+	DeathSound "geist/die"
+	PainSound "geist/pain"
+	SeeSound ""
 	-FLOORCLIP
 	+FLOAT
 	+NOGRAVITY
@@ -1168,7 +1119,7 @@ ACTOR Geist : BigNazi replaces LostSoul
 		GEST A 10 A_Look
 		Loop
 	See:
-		GEST A 0 A_PlaySound("brain/cube",CHAN_VOICE,1,1)
+		GEST A 0 A_PlaySound("geist/active",CHAN_VOICE,1,1)
 		GEST A 0 A_SetTranslucent(0.1)
 		GEST ABCD 3 A_Chase
 		GEST A 0 A_SetTranslucent(0.2)
@@ -1213,27 +1164,27 @@ ACTOR MGTurret : BigNazi // replaces LostSoul
 {
 	Scale 1
 	Speed 0
-	obituary "%o was shot up by a gun turret."
-	health 100
-	radius 24
-	height 24
-	mass 10000000000000000
-	painchance 100
-	painsound "metal/pain"
-	deathsound "world/barrelboom"
+	Obituary "%o was shot up by a gun turret."
+	Health 100
+	Radius 24
+	Height 24
+	Mass 10000000000000000
+	PainChance 100
+	PainSound "metal/pain"
+	DeathSound "world/barrelboom"
 	MONSTER
 	-FLOORCLIP
 	+MISSILEEVENMORE
 	+NOGRAVITY
 	+NOBLOOD
-	states
+	States
 	{
 	Spawn2:
 		GTUR A 1 A_Look
-		loop
+		Loop
 	See:
 		GTUR A 4 A_Chase
-		loop
+		Loop
 	Pain:
 		GTUR A 3
 		GTUR A 3 A_Pain
@@ -1258,25 +1209,25 @@ ACTOR MGTurret : BigNazi // replaces LostSoul
 
 ACTOR DeathKnight : BigNazi replaces Cyberdemon
 {
-	scale 1.5
-	obituary "%o knelt before the Death Knight."
-	health 3000
-	radius 64
-	height 96
-	mass 1000
-	speed 14
-	painchance 20
-	seesound "deathknight/sight"
-	deathsound "deathknight/death"
-	dropitem "NebelwerferSpawner"
+	Scale 1.5
+	Obituary "%o knelt before the Death Knight."
+	Health 3000
+	Radius 64
+	Height 96
+	Mass 1000
+	Speed 14
+	PainChance 20
+	SeeSound "deathknight/sight"
+	DeathSound "deathknight/death"
+	DropItem NebelwerferSpawner
 	+MISSILEEVENMORE
 	+BOSS
 	+NORADIUSDMG
-	states
+	States
 	{
 	Spawn2:
 		DKGT A 10 A_Look
-		loop
+		Loop
 	See:
 		DKGT AABB 4 A_Chase
 		DKGT A 0 A_Chase
@@ -1324,7 +1275,7 @@ ACTOR DeathKnight : BigNazi replaces Cyberdemon
 		DKGT Q 5 A_NoBlocking
 		DKGT R 5
 		DKGT S -1 A_BossDeath
-		stop
+		Stop
 	Idle:
 		Stop
 	}
@@ -1341,32 +1292,32 @@ ACTOR NebRocketEnemy : NebRocket
 	Death:
 		FRME A 1 BRIGHT A_Explode(40)
 		FRME BCDEFGHIHJKLMNOPQRS 1 BRIGHT
-		stop
+		Stop
 	}
 }
 
 ACTOR Hitler : BigNazi replaces SpiderMastermind
 {
-	obituary "%o heiled Hitler."
-	health 2500
-	radius 32
-	height 64
-	mass 1000
-	speed 10
-	painchance 20
-	seesound "hitler/sight"
-	painsound "hitler/pain"
-	deathsound "hitler/death"
-	activesound "hitler/active"
-	DropItem "UMG43Spawner" 64
+	Obituary "%o heiled Hitler."
+	Health 2500
+	Radius 32
+	Height 64
+	Mass 1000
+	Speed 10
+	PainChance 20
+	SeeSound "hitler/sight"
+	PainSound "hitler/pain"
+	DeathSound "hitler/death"
+	ActiveSound "hitler/active"
+	DropItem UMG43Spawner,64
 	+MISSILEEVENMORE
 	+BOSS
 	+NORADIUSDMG
-	states
+	States
 	{
 	Spawn2:
 		HITL A 10 A_Look
-		loop
+		Loop
 	See:
 		HITL AABB 4 A_Chase
 		HITL A 0 A_Chase
@@ -1416,54 +1367,55 @@ ACTOR HitlerSuitScrap
 	}
 }
 
-ACTOR FatMan : BigNazi replaces Fatso
+ACTOR ChairGuy : BigNazi replaces Fatso
 {
-	obituary "%o was vaporized by a Nazi's double rocket penetration."
-	health 600
-	mass 1000
-	seesound "fatman/sight"
-	deathsound "fatman/death"
-	DropItem "NebelwerferSpawner" 64
-	DropItem "GrenadePickup" 128
+	Obituary "%o was given the chair."
+	//Obituary "%o was vaporized by a Nazi's double rocket penetration."
+	Health 600
+	Mass 1000
+	SeeSound "krist/sight"
+	DeathSound "krist/death"
+	DropItem NebelwerferSpawner,64
+	DropItem GrenadePickup,128
 	+MISSILEEVENMORE
-	states
+	States
 	{
 	Spawn2:
-		GOER A 10 A_Look
-		loop
+		KRIS A 10 A_Look
+		Loop
 	See:
-		GOER AABBCCDD 4 A_Chase
-		loop
+		KRIS AABB 4 A_Chase
+		Loop
 	Missile:
-		GOER E 10 A_FaceTarget
-		GOER F 6 BRIGHT A_CustomMissile("MiniMiniRocket",32,15)
-		GOER E 6 A_FaceTarget
-		GOER G 6 BRIGHT A_CustomMissile("MiniMiniRocket",32,-15)
-		GOER E 6 A_FaceTarget
-		GOER F 6 BRIGHT A_CustomMissile("MiniMiniRocket",32,15)
-		GOER E 6 A_FaceTarget
-		GOER G 6 BRIGHT A_CustomMissile("MiniMiniRocket",32,-15)
+		KRIS E 10 A_FaceTarget
+		KRIS F 6 BRIGHT A_CustomMissile("MiniMiniRocket",48,15)
+		KRIS E 6 A_FaceTarget
+		KRIS G 6 BRIGHT A_CustomMissile("MiniMiniRocket",48,-15)
+		KRIS E 6 A_FaceTarget
+		KRIS F 6 BRIGHT A_CustomMissile("MiniMiniRocket",48,15)
+		KRIS E 6 A_FaceTarget
+		KRIS G 6 BRIGHT A_CustomMissile("MiniMiniRocket",48,-15)
 		Goto See
 	Pain:
-		GOER D 3
-		GOER D 3 A_Pain
+		KRIS H 3
+		KRIS H 3 A_Pain
 		Goto See
 	Death:
-		GOER H 5
-		GOER I 5 A_Scream
-		GOER J 5
-		GOER K 0 A_NoBlocking
-		GOER K -1 A_BossDeath
-		stop
-	Raise:
-		GOER KJIH 5
-		Goto See
+		KRIS H 8 A_Scream
+		KRIS HHH 8 A_SetAngle(angle+45)
+		KRIS HHHHHH 4 A_SetAngle(angle+45)
+		KRIS HHHHHHHHHHHH 2 A_SetAngle(angle+45)
+		KRIS HHHHHHHHHHHH 1 A_SetAngle(angle+45)
+		BARX A 0 A_PlaySound("world/barrelboom")
+		BARX A 2 BRIGHT A_Explode(40)
+		BARX BCDEFGHIJKLM 2 BRIGHT
+		Stop
 	}
 }
 
 ACTOR MiniMiniRocket : MiniRocket
 {
-	Scale 0.8
+	Scale .8
 	Damage (random(1,4)*4)
 	DeathSound "weapons/nebxpl"
 }
@@ -1522,12 +1474,12 @@ ACTOR DeadOfficer : DeadGuard replaces DeadDoomImp
 
 ACTOR DeadDog replaces DeadDemon
 {
-	states
+	States
 	{
 	Spawn:
 		DOGY K -1 NODELAY A_Jump(128,1)
 		DOG2 K -1
-		stop
+		Stop
 	}
 }
 
