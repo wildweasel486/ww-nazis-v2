@@ -18,6 +18,10 @@ ACTOR BigNazi
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("WWNaziSkillCheck")<=2,2)
 		TNT1 A 0 A_ChangeFlag("GHOST",1)
 		TNT1 A 0 A_Jump(256,"Spawn2")
+		Stop
+	See:
+		"####" AABBCCDD 4 A_Chase
+		Loop
 	Idle:
 		"####" AA 4 A_Wander
 		"####" A 0 A_Look
@@ -28,6 +32,11 @@ ACTOR BigNazi
 		"####" DD 4 A_Wander
 		"####" A 0 A_Look
 		Loop
+	Pain:
+		"####" H 3
+		"####" H 3 A_Pain
+		"####" H 0 A_Jump(256,"See")
+		Stop
 	}
 }
 ACTOR Nazi : BigNazi
@@ -57,6 +66,10 @@ ACTOR Nazi : BigNazi
 		BURN PQRSTU 5 BRIGHT
 		BURN V -1
 		Stop
+	Raise:
+		"####" MLKJI 5
+		"####" I 0 A_Jump(256,"See")
+		Stop
 	}
 }
 
@@ -77,22 +90,13 @@ ACTOR Guard : Nazi
 	Spawn2:
 		GARD N 10 A_Look
 		Loop
-	See:
-		GARD AABBCCDD 4 A_Chase
-		Loop
 	Missile:
-		GARD EF 5 A_FaceTarget
-		GARD G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
-		GARD G 8 BRIGHT A_CustomMissile("EnemyPistolTracer",32,0,random(-8,8))
-		GARD F 8
-		Goto See
-	Pain:
-		GARD H 3
-		GARD H 3 A_Pain
-		Goto See
-	Raise:
-		GARD MLKJI 5
-		Goto See
+		"####" EF 5 A_FaceTarget
+		"####" G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
+		"####" G 8 BRIGHT A_CustomMissile("EnemyPistolTracer",32,0,random(-8,8))
+		"####" F 8
+		"####" F 0 A_Jump(256,"See")
+		Stop
 	}
 }
 
@@ -108,19 +112,6 @@ ACTOR SSGuard : Guard
 	See:
 		SSPG AABBCCDD 3 A_Chase
 		Loop
-	Missile:
-		SSPG EF 5 A_FaceTarget
-		SSPG G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
-		SSPG G 8 BRIGHT A_CustomMissile("EnemyPistolTracer",32,0,random(-8,8))
-		SSPG F 8
-		Goto See
-	Pain:
-		SSPG H 3
-		SSPG H 3 A_Pain
-		Goto See
-	Raise:
-		SSPG MLKJI 5
-		Goto See
 	}
 }
 
@@ -137,9 +128,6 @@ ACTOR WGuard : Guard
 	Spawn2:
 		GRD2 N 10 A_Look
 		Loop
-	See:
-		GRD2 AABBCCDD 4 A_Chase
-		Loop
 	Missile:
 		GRD2 EF 2 A_FaceTarget
 		GRD2 G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
@@ -148,13 +136,6 @@ ACTOR WGuard : Guard
 		GRD2 G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
 		GRD2 G 8 BRIGHT A_CustomMissile("EnemyPistolTracer",32,0,random(-10,10))
 		GRD2 F 8
-		Goto See
-	Pain:
-		GRD2 H 3
-		GRD2 H 3 A_Pain
-		Goto See
-	Raise:
-		GRD2 MLKJI 5
 		Goto See
 	}
 }
@@ -183,9 +164,6 @@ ACTOR MP40Guard : Nazi
 	Spawn2:
 		MGRD N 10 A_Look
 		Loop
-	See:
-		MGRD AABBCCDD 4 A_Chase
-		Loop
 	Missile:
 		MGRD EF 5 A_FaceTarget
 		MGRD G 0 A_PlaySound("weapons/assaultgun",CHAN_WEAPON)
@@ -203,48 +181,6 @@ ACTOR MP40Guard : Nazi
 		MGRD G 0 A_PlaySound("weapons/assaultgun",CHAN_WEAPON)
 		MGRD G 2 BRIGHT A_CustomMissile("EnemySMGTracer",32,0,random(-8,8))
 		MGRD F 2
-		Goto See
-	Pain:
-		MGRD H 3
-		MGRD H 3 A_Pain
-		Goto See
-	Raise:
-		MGRD MLKJI 5
-		Goto See
-	}
-}
-
-ACTOR WMP40Guard : MP40Guard
-{
-	Obituary "%o was plugged by a trigger-happy Wehrmacht."
-	Health 30
-	Speed 10
-	+MISSILEMORE
-	+MISSILEEVENMORE
-	States
-	{
-	Spawn2:
-		MGR2 N 10 A_Look
-		Loop
-	See:
-		MGR2 AABBCCDD 4 A_Chase
-		Loop
-	Missile:
-		MGR2 EF 2 A_FaceTarget
-		MGR2 G 0 A_PlaySound("weapons/assaultgun",CHAN_WEAPON)
-		MGR2 G 2 BRIGHT A_CustomMissile("EnemySMGTracer",32,0,random(-8,8))
-		MGR2 F 1 A_FaceTarget
-		MGR2 G 0 A_PlaySound("weapons/assaultgun",CHAN_WEAPON)
-		MGR2 G 2 BRIGHT A_CustomMissile("EnemySMGTracer",32,0,random(-12,12))
-		MGR2 F 2 A_MonsterRefire(30,"See")
-		MGR2 F 0 A_FaceTarget
-		Goto Missile+2
-	Pain:
-		MGR2 H 3
-		MGR2 H 3 A_Pain
-		Goto See
-	Raise:
-		MGR2 MLKJI 5
 		Goto See
 	}
 }
@@ -268,13 +204,31 @@ ACTOR SSMP40Guard : MP40Guard
 		SSMG F 2 A_MonsterRefire(30,"See")
 		SSMG F 0 A_FaceTarget
 		Goto Missile+2
-	Pain:
-		SSMG H 3
-		SSMG H 3 A_Pain
-		Goto See
-	Raise:
-		SSMG MLKJI 5
-		Goto See
+	}
+}
+
+ACTOR WMP40Guard : MP40Guard
+{
+	Obituary "%o was plugged by a trigger-happy Wehrmacht."
+	Health 30
+	Speed 10
+	+MISSILEMORE
+	+MISSILEEVENMORE
+	States
+	{
+	Spawn2:
+		MGR2 N 10 A_Look
+		Loop
+	Missile:
+		MGR2 EF 2 A_FaceTarget
+		MGR2 G 0 A_PlaySound("weapons/assaultgun",CHAN_WEAPON)
+		MGR2 G 2 BRIGHT A_CustomMissile("EnemySMGTracer",32,0,random(-8,8))
+		MGR2 F 1 A_FaceTarget
+		MGR2 G 0 A_PlaySound("weapons/assaultgun",CHAN_WEAPON)
+		MGR2 G 2 BRIGHT A_CustomMissile("EnemySMGTracer",32,0,random(-12,12))
+		MGR2 F 2 A_MonsterRefire(30,"See")
+		MGR2 F 0 A_FaceTarget
+		Goto Missile+2
 	}
 }
 
@@ -297,21 +251,11 @@ ACTOR RifleGuard : Nazi
 	Spawn2:
 		RGRD N 10 A_Look
 		Loop
-	See:
-		RGRD AABBCCDD 4 A_Chase
-		Loop
 	Missile:
 		RGRD EF 10 A_FaceTarget
 		RGRD G 0 A_PlaySound("garand/fire",CHAN_WEAPON)
 		RGRD G 8 BRIGHT A_CustomMissile("EnemyRifleTracer",32,0,random(-1,1))
 		RGRD F 8
-		Goto See
-	Pain:
-		RGRD H 3
-		RGRD H 3 A_Pain
-		Goto See
-	Raise:
-		RGRD MLKJI 5
 		Goto See
 	}
 }
@@ -328,9 +272,6 @@ ACTOR WRifleGuard : RifleGuard
 	Spawn2:
 		RGR2 N 10 A_Look
 		Loop
-	See:
-		RGR2 AABBCCDD 4 A_Chase
-		Loop
 	Missile:
 		RGR2 EF 10 A_FaceTarget
 		RGR2 G 0 A_PlaySound("garand/fire",CHAN_WEAPON)
@@ -339,13 +280,6 @@ ACTOR WRifleGuard : RifleGuard
 		RGR2 G 0 A_PlaySound("garand/fire",CHAN_WEAPON)
 		RGR2 G 8 BRIGHT A_CustomMissile("EnemyRifleTracer",32,0,random(-5,5))
 		RGR2 F 8
-		Goto See
-	Pain:
-		RGR2 H 3
-		RGR2 H 3 A_Pain
-		Goto See
-	Raise:
-		RGR2 MLKJI 5
 		Goto See
 	}
 }
@@ -362,22 +296,15 @@ ACTOR WaffenSS : RifleGuard
 		WAFF N 10 A_Look
 		Loop
 	See:
-		WAFF AABBCCDD 3 A_Chase
+		"####" AABBCCDD 3 A_Chase
 		Loop
 	Missile:
-		WAFF EF 5 A_FaceTarget
-		WAFF G 0 A_PlaySound("weapons/stg44",CHAN_WEAPON)
-		WAFF G 2 BRIGHT A_CustomMissile("EnemyStGTracer",32,0,random(-4,4))
-		WAFF F 4 A_MonsterRefire(30,"See")
-		WAFF F 0 A_FaceTarget
+		"####" EF 5 A_FaceTarget
+		"####" G 0 A_PlaySound("weapons/stg44",CHAN_WEAPON)
+		"####" G 2 BRIGHT A_CustomMissile("EnemyStGTracer",32,0,random(-4,4))
+		"####" F 4 A_MonsterRefire(30,"See")
+		"####" F 0 A_FaceTarget
 		Goto Missile+2
-	Pain:
-		WAFF H 3
-		WAFF H 3 A_Pain
-		Goto See
-	Raise:
-		WAFF MLKJI 5
-		Goto See
 	}
 }
 
@@ -387,7 +314,7 @@ ACTOR SpectreSpawner : RandomSpawner replaces Spectre
 	DropItem Mutant
 }
 
-ACTOR Paratrooper : RifleGuard
+ACTOR Paratrooper : WaffenSS
 {
 	Obituary "%o was slaughtered by a Fallschirmjaeger."
 	Health 90
@@ -398,23 +325,6 @@ ACTOR Paratrooper : RifleGuard
 	Spawn2:
 		PARA N 10 A_Look
 		Loop
-	See:
-		PARA AABBCCDD 3 A_Chase
-		Loop
-	Missile:
-		PARA EF 5 A_FaceTarget
-		PARA G 0 A_PlaySound("weapons/stg44",CHAN_WEAPON)
-		PARA G 2 BRIGHT A_CustomMissile("EnemyStGTracer",32,0,random(-4,4))
-		PARA F 4 A_MonsterRefire(30,"See")
-		PARA F 0 A_FaceTarget
-		Goto Missile+2
-	Pain:
-		PARA H 3
-		PARA H 3 A_Pain
-		Goto See
-	Raise:
-		PARA MLKJI 5
-		Goto See
 	}
 }
 
@@ -457,9 +367,6 @@ ACTOR Mutant : Nazi
 		MTNT LM 3
 		MTNT N -1
 		Stop
-	Raise:
-		MTNT MLKJI 5
-		Goto See
 	}
 }
 
@@ -484,21 +391,27 @@ ACTOR Officer : Nazi
 		OFFI N 10 A_Look
 		Loop
 	See:
-		OFFI AABBCCDD 2 A_Chase
+		"####" AABBCCDD 2 A_Chase
 		Loop
 	Missile:
-		OFFI EF 2 A_FaceTarget
-		OFFI G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
-		OFFI G 5 BRIGHT A_CustomMissile("EnemyPistolTracer",32,0,random(-4,4))
-		OFFI F 4
-		Goto See
-	Pain:
-		OFFI H 3
-		OFFI H 3 A_Pain
-		Goto See
-	Raise:
-		OFFI MLKJI 5
-		Goto See
+		"####" EF 2 A_FaceTarget
+		"####" G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
+		"####" G 5 BRIGHT A_CustomMissile("EnemyPistolTracer",32,0,random(-4,4))
+		"####" F 4
+		"####" F 0 A_Jump(256,"See")
+		Stop
+	}
+}
+
+ACTOR SSOfficer : Officer
+{
+	Obituary "%o was viciously executed by an SS officer."
+	Health 40
+	States
+	{
+	Spawn2:
+		SSOF N 10 A_Look
+		Loop
 	}
 }
 
@@ -515,9 +428,6 @@ ACTOR WOfficer : Officer
 	Spawn2:
 		OFR2 N 10 A_Look
 		Loop
-	See:
-		OFR2 AABBCCDD 2 A_Chase
-		Loop
 	Missile:
 		OFR2 EF 2 A_FaceTarget
 		OFR2 G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
@@ -532,41 +442,6 @@ ACTOR WOfficer : Officer
 		OFR2 G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
 		OFR2 G 5 BRIGHT A_CustomMissile("EnemyPistolTracer",32,0,random(-8,8))
 		OFR2 F 4
-		Goto See
-	Pain:
-		OFR2 H 3
-		OFR2 H 3 A_Pain
-		Goto See
-	Raise:
-		OFR2 MLKJI 5
-		Goto See
-	}
-}
-
-ACTOR SSOfficer : Officer
-{
-	Obituary "%o was viciously executed by an SS officer."
-	Health 40
-	States
-	{
-	Spawn2:
-		SSOF N 10 A_Look
-		Loop
-	See:
-		SSOF AABBCCDD 2 A_Chase
-		Loop
-	Missile:
-		SSOF EF 2 A_FaceTarget
-		SSOF G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
-		SSOF G 5 BRIGHT A_CustomMissile("EnemyPistolTracer",32,0,random(-4,4))
-		SSOF F 4
-		Goto See
-	Pain:
-		SSOF H 3
-		SSOF H 3 A_Pain
-		Goto See
-	Raise:
-		SSOF MLKJI 5
 		Goto See
 	}
 }
@@ -594,6 +469,7 @@ ACTOR Rottweiler : Nazi
 	States
 	{
 	Spawn2:
+	Idle:
 		DOGY AA 2 A_Wander
 		DOGY A 0 A_Look
 		DOGY BB 2 A_Wander
@@ -608,12 +484,12 @@ ACTOR Rottweiler : Nazi
 		Loop
 	Melee:
 		"####" EF 2 Fast A_FaceTarget
-		"####" G 8 Fast A_CustomMeleeAttack(random(1,8)*5,"dog/attack")
+		"####" G 8 Fast A_CustomMeleeAttack(random(1,8)*5,"dog/attack","dog/attack")
 		"####" FE 4 Fast
 		Goto See
 	Pain:
-		"####" H 2
-		"####" H 2 A_Pain
+		"####" M 2
+		"####" M 2 A_Pain
 		Goto See
 	Death:
 	Death.Fire:
@@ -633,6 +509,7 @@ ACTOR GermanShepherd : Rottweiler
 	States
 	{
 	Spawn2:
+	Idle:
 		DOG2 AA 2 A_Wander
 		DOG2 A 0 A_Look
 		DOG2 BB 2 A_Wander
@@ -642,10 +519,6 @@ ACTOR GermanShepherd : Rottweiler
 		DOG2 DD 2 A_Wander
 		DOG2 D 0 A_Look
 		Loop
-	Pain:
-		"####" M 2
-		"####" M 2 A_Pain
-		Goto See
 	}
 }
 
@@ -666,17 +539,14 @@ ACTOR RocketMan : BigNazi
 	Spawn2:
 		OTTO A 10 A_Look
 		Loop
-	See:
-		"####" AABBCCDD 4 A_Chase
-		Loop
 	Missile:
 		OTTO E 10 A_FaceTarget
 		OTTO F 8 BRIGHT A_CustomMissile("MiniRocket",32,12)
 		OTTO E 8
 		Goto See
 	Pain:
-		OTTO A 3
-		OTTO A 3 A_Pain
+		OTTO K 3
+		OTTO K 3 A_Pain
 		Goto See
 	Death:
 		"####" G 5
@@ -704,7 +574,7 @@ ACTOR MiniRocket
 	States
 	{
 	Spawn:
-		MISL A 1 BRIGHT A_CustomMissile("RocketFlameSpawner",0,0,0,5)
+		NMIS A 1 BRIGHT A_CustomMissile("RocketFlameSpawner",0,0,0,5)
 		Loop
 	Death:
 		FRME A 1 BRIGHT A_Explode(20,40)
@@ -780,29 +650,22 @@ ACTOR SuperSoldier : BigNazi
 	Spawn2:
 		HANS A 10 A_Look
 		Loop
-	See:
-		"####" AABBCCDD 4 A_Chase
-		Loop
 	Missile:
 		HANS E 20 A_FaceTarget
 		HANS F 0 A_PlaySound("weapons/chaingun",CHAN_WEAPON)
 		HANS F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,16,random(-11,11))
 		HANS F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,-16,random(-11,11))
-		HANS G 2 A_FaceTarget
+		HANS G 2 BRIGHT A_FaceTarget
 		HANS F 0 A_PlaySound("weapons/chaingun",CHAN_WEAPON)
 		HANS F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,16,random(-11,11))
 		HANS F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,-16,random(-11,11))
-		HANS G 2 A_FaceTarget
+		HANS G 2 BRIGHT A_FaceTarget
 		HANS F 0 A_PlaySound("weapons/chaingun",CHAN_WEAPON)
 		HANS F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,16,random(-11,11))
 		HANS F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,-16,random(-11,11))
 		HANS G 2 BRIGHT A_MonsterRefire(30,"See")
 		HANS G 0 A_FaceTarget
  		Goto Missile+1
-	Pain:
-		"####" H 3
-		"####" H 3 A_Pain
-		Goto See
 	Death:
 		"####" I 5
 		"####" J 5 A_Scream
@@ -834,15 +697,15 @@ ACTOR SuperSoldierGirl : SuperSoldier
 		WBO4 F 0 A_PlaySound("weapons/ba5fire",CHAN_WEAPON)
 		WBO4 FFFF 0 A_CustomMissile("EnemyPistolTracer",32,16,frandom(-6,6))
 		WBO4 FFFF 0 A_CustomMissile("EnemyPistolTracer",32,-16,frandom(-6,6))
-		WBO4 FE 2 BRIGHT A_FaceTarget
+		WBO4 FG 2 BRIGHT A_FaceTarget
 		WBO4 F 0 A_PlaySound("weapons/ba5fire",CHAN_WEAPON)
 		WBO4 FFFF 0 A_CustomMissile("EnemyPistolTracer",32,16,frandom(-6,6))
 		WBO4 FFFF 0 A_CustomMissile("EnemyPistolTracer",32,-16,frandom(-6,6))
-		WBO4 FE 2 BRIGHT A_FaceTarget
+		WBO4 FG 2 BRIGHT A_FaceTarget
 		WBO4 F 0 A_PlaySound("weapons/ba5fire",CHAN_WEAPON)
 		WBO4 FFFF 0 A_CustomMissile("EnemyPistolTracer",32,16,frandom(-6,6))
 		WBO4 FFFF 0 A_CustomMissile("EnemyPistolTracer",32,-16,frandom(-6,6))
-		WBO4 FE 2 BRIGHT
+		WBO4 FG 2 BRIGHT
 		Goto See
 	}
 }
@@ -900,9 +763,6 @@ ACTOR General : BigNazi replaces Archvile
 	{
 	Spawn2:
 		FETT A 10 A_Look
-		Loop
-	See:
-		FETT AABBCCDD 4 A_Chase
 		Loop
 	Missile:
 		FETT E 10 A_FaceTarget
@@ -1082,8 +942,7 @@ ACTOR MiniShip : BigNazi replaces PainElemental
 		SHIP A 3 A_Pain
 		Goto See
 	Death:
-		SHIP A 5
-		SHIP A -1 A_Scream
+		SHIP A -1
 		Wait
 	Crash:
 		SHIP H 0 A_SetFloorClip
@@ -1096,7 +955,7 @@ ACTOR MiniShip : BigNazi replaces PainElemental
 
 ACTOR Geist : BigNazi replaces LostSoul
 {
-	Scale 0.8
+	Scale .8
 	Obituary "%o had %p soul removed by a Geist."
 	Health 100
 	Radius 16
@@ -1104,7 +963,7 @@ ACTOR Geist : BigNazi replaces LostSoul
 	Speed 15
 	PainChance 255
 	RenderStyle Translucent
-	Alpha 0.5
+	Alpha .5
 	DeathSound "geist/die"
 	PainSound "geist/pain"
 	SeeSound ""
@@ -1370,7 +1229,6 @@ ACTOR HitlerSuitScrap
 ACTOR ChairGuy : BigNazi replaces Fatso
 {
 	Obituary "%o was given the chair."
-	//Obituary "%o was vaporized by a Nazi's double rocket penetration."
 	Health 600
 	Mass 1000
 	SeeSound "krist/sight"
@@ -1395,10 +1253,6 @@ ACTOR ChairGuy : BigNazi replaces Fatso
 		KRIS F 6 BRIGHT A_CustomMissile("MiniMiniRocket",48,15)
 		KRIS E 6 A_FaceTarget
 		KRIS G 6 BRIGHT A_CustomMissile("MiniMiniRocket",48,-15)
-		Goto See
-	Pain:
-		KRIS H 3
-		KRIS H 3 A_Pain
 		Goto See
 	Death:
 		KRIS H 8 A_Scream

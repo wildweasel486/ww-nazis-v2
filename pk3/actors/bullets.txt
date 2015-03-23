@@ -254,8 +254,8 @@ ACTOR EnemyTracer : Tracer
 		PUFF A 1 BRIGHT A_JumpIfTracerCloser(192,"Whiz")
 		Loop
 	Whiz:
-		PUFF A 2 BRIGHT A_SpawnItemEx("Whizzer")
-		Wait
+		PUFF A -1 BRIGHT A_SpawnItemEx("Whizzer")
+		Stop
 	}
 }
 ACTOR Whizzer
