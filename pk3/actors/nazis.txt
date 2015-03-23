@@ -6,16 +6,18 @@ ACTOR BigNazi
 	Height 56
 	Mass 200
 	Speed 8
-	DamageFactor "Enemy",0.0
 	MONSTER
 	+FLOORCLIP
-	+LOOKALLAROUND
-	+DOHARMSPECIES
+	+DONTHARMSPECIES
+	+BOSSDEATH
 	PainSound "boss/pain"
 	States
 	{
 	Spawn:
-		TNT1 A 0 NODELAY A_JumpIf(CallACS("WWNaziSkillCheck")<=2,2)
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("WWNaziSkillCheck")>=2,3)
+		TNT1 A 0 A_ChangeFlag("DOHARMSPECIES",1)
+		TNT1 A 0 A_ChangeFlag("DONTHARMSPECIES",0)
+		TNT1 A 0 A_JumpIf(CallACS("WWNaziSkillCheck")<=2,2)
 		TNT1 A 0 A_ChangeFlag("GHOST",1)
 		TNT1 A 0 A_Jump(256,"Spawn2")
 		Stop
@@ -41,7 +43,6 @@ ACTOR BigNazi
 }
 ACTOR Nazi : BigNazi
 {
-	-LOOKALLAROUND
 	Health 20
 	Mass 100
 	PainChance 200
@@ -357,7 +358,7 @@ ACTOR Mutant : Nazi
 		MTNT F 0 A_FaceTarget
 		Goto Missile+1
 	Pain:
-		MTNT I 6
+		MTNT O 6
 		Goto See
 	Death:
 	Death.Fire:
@@ -568,14 +569,15 @@ ACTOR MiniRocket
 	Damage 5
 	Projectile
 	+RANDOMIZE
-	DamageType "Enemy"
 	SeeSound "weapons/missilef"
 	DeathSound "world/barrelboom"
 	States
 	{
 	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("WWNaziSkillCheck")<=2,2)
+		TNT1 A 0 A_ChangeFlag("THRUGHOST",1)
 		NMIS A 1 BRIGHT A_CustomMissile("RocketFlameSpawner",0,0,0,5)
-		Loop
+		Wait
 	Death:
 		FRME A 1 BRIGHT A_Explode(20,40)
 		FRME BCDEFGHIHJKLMNOPQRS 1 BRIGHT
@@ -585,6 +587,7 @@ ACTOR MiniRocket
 
 ACTOR MadDoctor : RocketMan
 {
+	+LOOKALLAROUND
 	Obituary "%o was used as an unwitting test subject by Dr. Schabbs."
 	States
 	{
@@ -613,8 +616,11 @@ ACTOR FlyingNeedle : MiniRocket
 	States
 	{
 	Spawn:
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("WWNaziSkillCheck")<=2,2)
+		TNT1 A 0 A_ChangeFlag("THRUGHOST",1)
 		NEDL ABCD 3
-		Loop
+		Goto Spawn+2
 	Death:
 		TNT1 A 1
 		Stop
@@ -714,7 +720,6 @@ ACTOR SuperSoldierElite : SuperSoldier replaces BaronOfHell
 {
 	Obituary "%o was pulverized by an elite ubersoldat."
 	Health 850
-	+BOSSDEATH
 	States
 	{
 	Spawn2:
@@ -798,6 +803,7 @@ ACTOR General : BigNazi replaces Archvile
 
 ACTOR FlamerMan : BigNazi replaces Arachnotron
 {
+	+LOOKALLAROUND
 	Obituary "%o was roasted by a Nazi with a flamethrower."
 	Health 500
 	SeeSound "Boss1/Sighted"
@@ -841,16 +847,27 @@ ACTOR FlamerMan : BigNazi replaces Arachnotron
 ACTOR EnemyFlamerShot : Flamebolt
 {
 	-RIPPER
-	DamageType "Enemy"
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("WWNaziSkillCheck")<=2,2)
+		TNT1 A 0 A_ChangeFlag("THRUGHOST",1)
+		TNT1 A 0
+		Goto Super::Spawn
+	}
 }
 
 ACTOR EnemyFlamebolt : Flameball
 {
-	DamageType "Enemy"
 	Damage 8
 	Scale .5
 	States
 	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("WWNaziSkillCheck")<=2,2)
+		TNT1 A 0 A_ChangeFlag("THRUGHOST",1)
+		TNT1 A 0
+		Goto Super::Spawn
 	Death:
 		FBLX A 2 BRIGHT A_Explode(8,64)
 		FBLX BCDEFGHIJK 2 BRIGHT
@@ -913,6 +930,7 @@ ACTOR EnemyFlamebolt2 : EnemyFlamebolt
 
 ACTOR MiniShip : BigNazi replaces PainElemental
 {
+	+LOOKALLAROUND
 	Obituary "%o received death from above."
 	Health 600
 	Mass 2000
@@ -955,6 +973,7 @@ ACTOR MiniShip : BigNazi replaces PainElemental
 
 ACTOR Geist : BigNazi replaces LostSoul
 {
+	+LOOKALLAROUND
 	Scale .8
 	Obituary "%o had %p soul removed by a Geist."
 	Health 100
@@ -1021,6 +1040,7 @@ ACTOR Geist : BigNazi replaces LostSoul
 
 ACTOR MGTurret : BigNazi // replaces LostSoul
 {
+	+LOOKALLAROUND
 	Scale 1
 	Speed 0
 	Obituary "%o was shot up by a gun turret."
@@ -1068,6 +1088,7 @@ ACTOR MGTurret : BigNazi // replaces LostSoul
 
 ACTOR DeathKnight : BigNazi replaces Cyberdemon
 {
+	+LOOKALLAROUND
 	Scale 1.5
 	Obituary "%o knelt before the Death Knight."
 	Health 3000
@@ -1143,11 +1164,15 @@ ACTOR DeathKnight : BigNazi replaces Cyberdemon
 ACTOR NebRocketEnemy : NebRocket
 {
 	Speed 15
-	Damagetype "Enemy"
 	-FORCERADIUSDMG
 	SeeSound "weapons/nebelwerfer"
 	States
 	{
+	Spawn:
+		TNT1 A 0 NODELAY A_JumpIf(CallACS("WWNaziSkillCheck")<=2,2)
+		TNT1 A 0 A_ChangeFlag("THRUGHOST",1)
+		TNT1 A 0
+		Goto Super::Spawn
 	Death:
 		FRME A 1 BRIGHT A_Explode(40)
 		FRME BCDEFGHIHJKLMNOPQRS 1 BRIGHT
@@ -1346,62 +1371,4 @@ ACTOR DeadHitlerGhost replaces DeadCacodemon
 		HGST J -1
 		Stop
 	}
-}
-
-ACTOR EasyMiniRocket : MiniRocket
-{
-	DamageType "EasyEnemy"
-}
-ACTOR EasyFlyingNeedle : FlyingNeedle
-{
-	DamageType "EasyEnemy"
-}
-ACTOR EasyEnemyFlamerShot : EnemyFlamerShot
-{
-	DamageType "EasyEnemy"
-}
-ACTOR EasyEnemyFlamebolt : EnemyFlamebolt
-{
-	DamageType "EasyEnemy"
-}
-ACTOR EasyEnemyFlamebolt2 : EnemyFlamebolt2
-{
-	DamageType "EasyEnemy"
-}
-ACTOR EasyNebRocketEnemy : NebRocketEnemy
-{
-	DamageType "EasyEnemy"
-}
-ACTOR EasyMiniMiniRocket : MiniMiniRocket
-{
-	DamageType "EasyEnemy"
-}
-
-ACTOR HardMiniRocket : MiniRocket
-{
-	+THRUGHOST
-}
-ACTOR HardFlyingNeedle : FlyingNeedle
-{
-	+THRUGHOST
-}
-ACTOR HardEnemyFlamerShot : EnemyFlamerShot
-{
-	+THRUGHOST
-}
-ACTOR HardEnemyFlamebolt : EnemyFlamebolt
-{
-	+THRUGHOST
-}
-ACTOR HardEnemyFlamebolt2 : EnemyFlamebolt2
-{
-	+THRUGHOST
-}
-ACTOR HardNebRocketEnemy : NebRocketEnemy
-{
-	+THRUGHOST
-}
-ACTOR HardMiniMiniRocket : MiniMiniRocket
-{
-	+THRUGHOST
 }
