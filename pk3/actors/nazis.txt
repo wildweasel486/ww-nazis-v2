@@ -358,15 +358,15 @@ ACTOR Mutant : Nazi
 		MTNT F 0 A_FaceTarget
 		Goto Missile+1
 	Pain:
-		MTNT O 6
+		MTNT I 6
 		Goto See
 	Death:
 	Death.Fire:
-		MTNT I 3
-		MTNT J 3 A_Scream
-		MTNT K 3 A_NoBlocking
-		MTNT LM 3
-		MTNT N -1
+		MTNT J 3
+		MTNT K 3 A_Scream
+		MTNT L 3 A_NoBlocking
+		MTNT MN 3
+		MTNT O -1
 		Stop
 	}
 }
