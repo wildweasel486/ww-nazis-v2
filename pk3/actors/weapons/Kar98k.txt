@@ -62,9 +62,10 @@ ACTOR Kar98k : NaziWeapon
 		KAR9 C 1 A_CheckReload
 		Goto Ready
 	Flash:
-		KARF A 1 BRIGHT A_Light1
-		KARF B 1 BRIGHT A_Light2
-		Stop
+		KARF A 1 BRIGHT A_Light2
+		KARF B 1 BRIGHT
+		TNT1 A 2 A_Light1
+		Goto LightDone
 	Reload:
 		KAR9 C 2 ACS_NamedExecute("WWNaziTaunt", 0, 2)
 		KAR9 D 3

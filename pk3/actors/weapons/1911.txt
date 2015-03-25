@@ -52,8 +52,9 @@ ACTOR M1911 : NaziWeapon
 		1911 B 1 offset(0,33)
 		Goto Ready
 	Flash:
-		GNFL A 1 Bright A_Light2
-		GNFL B 1 Bright A_Light1
+		GNFL A 1 BRIGHT A_Light2
+		GNFL B 1 BRIGHT
+		TNT1 A 2 A_Light1
 		Goto LightDone
 	Reload:
 		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)

@@ -683,9 +683,9 @@ swordwall2 dsswdwl2
 swordwall3 dsswdwl3
 swordwall4 dsswdwl4
 $random weapons/swordswing { swordswing1 swordswing2 swordswing3 }
-swordswing1 dsswdswg
-swordswing2 dsswdsw2
-swordswing3 dsswdsw3
+swordswing1 dsshvw1
+swordswing2 dsshvw2
+swordswing3 dsshvw3
 weapons/sworddraw dsswdup
 $random weapons/flameswordhit { fsword1 fsword2 fsword3 }
 fsword1 dsfwdht1

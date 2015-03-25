@@ -66,9 +66,9 @@ ACTOR WeaselsRevolver : NaziWeapon
 		Goto Reload
 		REVG A 0 A_GunFlash
 		REVG A 0 A_PlaySound("Weapons/Revolver",CHAN_WEAPON)
-		REVG A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		REVG A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		REVG B 0 A_GiveInventory("RevolverShotCounter")
-		REVG B 2 BRIGHT A_FireCustomMissile("RevolverTracer",frandom(-1.5,1.5),1,0,0,0,frandom(-0.8,0.8))
+		REVG B 2 A_FireCustomMissile("RevolverTracer",frandom(-1.5,1.5),1,0,0,0,frandom(-0.8,0.8))
 		REVG C 1 Offset(0,38) A_SetPitch (pitch - 0.6)
 		REVG D 1 Offset(0,44) A_SetPitch (pitch - 0.6)
 		REVG D 1 Offset(0,56) A_SetPitch (pitch - 0.6)
@@ -87,7 +87,7 @@ ACTOR WeaselsRevolver : NaziWeapon
 		TNT1 A 0 A_TakeInventory("RevolverShotCounter",1)
 		TNT1 A 0 A_SpawnItemEx("RevolverCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		TNT1 A 0 A_JumpIfInventory("RevolverShotCounter",1,"Reload")
-		REVG A 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)
+		REVG A 0 ACS_NamedExecute("WWNaziTaunt",0,2)
 		REVG A 1 Offset(0,35) A_PlaySound("weapons/revolverout",5)
 		REVG C 1 Offset(0,38)
 		REVG C 1 Offset(0,44)
@@ -105,8 +105,8 @@ ACTOR WeaselsRevolver : NaziWeapon
 		TNT1 A 3
 		RHND A 3 Offset(0,32)
 		RHND B 3 A_PlaySound("weapons/revolverload",5)
-		RHND C 2
-		RHND BAD 3
+		RHND B 2 Offset(0,40)
+		RHND BAC 3 Offset(0,32)
 		TNT1 A 4
 		REVG D 1 Offset(0,82) A_PlaySound("weapons/revolverin",5)
 		REVG D 1 Offset(0,72)
@@ -117,6 +117,10 @@ ACTOR WeaselsRevolver : NaziWeapon
 		REVG A 1 Offset(0,35)
 		REVG A 1 Offset(0,32)
 		Goto Ready
+	Flash:
+		REVF A 2 BRIGHT A_Light2
+		TNT1 A 2 A_Light1
+		Goto LightDone
 	}
 }
 
