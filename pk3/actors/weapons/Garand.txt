@@ -76,7 +76,7 @@ ACTOR Garand : NaziWeapon
 		TNT1 A 0 A_PlaySound("MGarand/Fire",CHAN_WEAPON)
 		M1A1 A 0 A_SpawnItemEx("GarandRifleCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		M1A1 A 0 A_AlertMonsters
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		M1A1 A 1 A_FireCustomMissile("GarandTracer")
 		M1A1 C 1 A_SetPitch (pitch - 3.6)
 		M1A1 A 1 A_JumpIfInventory("GarandLoaded",1,3)

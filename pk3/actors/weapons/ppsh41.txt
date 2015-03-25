@@ -31,13 +31,13 @@ ACTOR PPSH41 : NaziWeapon
 		PPSG A 0 A_JumpIfInventory("PPSH41Loaded",1,1)
 		Goto Reload
 		PPSG A 0 A_GunFlash
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		PPSG A 0 A_PlaySound("PPSH/fire",CHAN_WEAPON)
 		PPSG A 0 A_SpawnItemEx("TokarevCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
-		PPSG A 1 Offset(0,33) A_FireCustomMissile("PPSHTracer",frandom(-2.5,2.5),1,0,0,0,frandom(-1.0,1.0))
+		PPSG A 1 A_FireCustomMissile("PPSHTracer",frandom(-2.5,2.5),1,0,0,0,frandom(-1.0,1.0))
 		PPSG A 1 Offset(0,40) A_SetPitch(pitch - 0.6)
 		PPSG A 0 A_AlertMonsters
-		PPSF A 1 Offset(0,43) A_Refire
+		PPSG A 1 Offset(0,43) A_Refire
 		PPSG A 1 Offset(0,42) A_WeaponReady(WRF_NOBOB)
 		PPSG A 1 Offset(0,44) A_WeaponReady(WRF_NOBOB)
 		PPSG A 1 Offset(0,43) A_WeaponReady(WRF_NOBOB)
@@ -49,13 +49,13 @@ ACTOR PPSH41 : NaziWeapon
 		PPSG A 0 A_JumpIfInventory("PPSH41Loaded",1,1)
 		Goto Reload
 		PPSG A 0 A_GunFlash
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		PPSG A 0 A_PlaySound("PPSH/fire",CHAN_WEAPON)
 		PPSG A 0 A_SpawnItemEx("TokarevCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
-		PPSG A 1 Offset(0,33) A_FireCustomMissile("PPSHTracer",frandom(-2.5,2.5),1,0,0,0,frandom(-1.0,1.0))
+		PPSG A 1 A_FireCustomMissile("PPSHTracer",frandom(-2.5,2.5),1,0,0,0,frandom(-1.0,1.0))
 		PPSG A 1 Offset(0,52) A_SetPitch(pitch - 0.8)
 		PPSG A 0 A_AlertMonsters
-		PPSF A 1 Offset(0,53) A_Refire
+		PPSG A 1 Offset(0,53) A_Refire
 		PPSG A 1 Offset(0,52) A_WeaponReady(WRF_NOBOB)
 		PPSG A 1 Offset(0,54) A_WeaponReady(WRF_NOBOB)
 		PPSG A 1 Offset(0,53) A_WeaponReady(WRF_NOBOB)
@@ -66,7 +66,7 @@ ACTOR PPSH41 : NaziWeapon
 		PPSG A 1 Offset(0,32) A_WeaponReady(WRF_NOBOB)
 		Goto Ready
 	Reload:
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 2)
+		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,2)
 		PPSG A 1 Offset(0,35) A_PlaySound("ppsh/reload",5)
 		PPSG A 1 Offset(0,38)
 		PPSG A 1 Offset(0,44)

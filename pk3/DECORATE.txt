@@ -52,6 +52,8 @@ ACTOR WWNazisPlayer : DoomPlayer
 	Player.WeaponSlot 3,TrenchShotgun,Browning5,MP40,PPSH41,Thompson
 	Player.WeaponSlot 4,Kar98k,G43,Enfield,Garand,STG44,FG42
 	Player.WeaponSlot 5,Pyrolight,Nebelwerfer,Panzerschreck,UMG43
+	Player.WeaponSlot 6,""
+	Player.WeaponSlot 7,""
 	Player.StartItem WeaselsRevolver
 	Player.StartItem Shovel
 	Player.StartItem WeaselsRevolverLoaded,6

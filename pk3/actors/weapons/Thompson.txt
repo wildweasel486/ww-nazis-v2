@@ -56,17 +56,30 @@ Actor Thompson : NaziWeapon
 		THOM A 0 A_JumpIfInventory("ThompsonLoaded",1,1)
 		Goto Reload
 		THOM A 0 A_GunFlash
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
+		THOM A 0 A_PlaySound("Thompson/fire",CHAN_WEAPON)
+		THOM A 0 A_SpawnItemEx("45ACPCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
+
+		THOM A 1 A_FireCustomMissile("ThompsonTracer",frandom(-1.5,1.5),1,0,0,0,frandom(-1.0,1.0))
+		THOM A 1 Offset(0,40) A_SetPitch(pitch - 0.5)
+		THOM A 1 Offset(0,34) A_AlertMonsters
+		TNT1 A 0 A_Refire
+		Goto Ready
+	Hold:
+		THOM A 0 A_JumpIfInventory("ThompsonLoaded",1,1)
+		Goto Reload
+		THOM A 0 A_GunFlash
+		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		THOM A 0 A_PlaySound("Thompson/fire",CHAN_WEAPON)
 		THOM A 0 A_SpawnItemEx("45ACPCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		THOM A 1 Offset(0,36) A_FireCustomMissile("ThompsonTracer",frandom(-1.5,1.5),1,0,0,0,frandom(-1.0,1.0))
 		THOM A 1 Offset(0,40) A_SetPitch(pitch - 0.5)
 		THOM A 1 Offset(0,34) A_AlertMonsters
-		TNT1 A 0 A_CheckReload
+		TNT1 A 0 A_Refire
 		Goto Ready
 	Reload:
 		THOM A 1 Offset(0,35) A_PlaySound("Thompson/reload",5)
-		THOM A 1 Offset(0,38) ACS_NamedExecute("WWNaziTaunt", 0, 2)
+		THOM A 1 Offset(0,38) ACS_NamedExecute("WWNaziTaunt",0,2)
 		THOM A 1 Offset(0,44)
 		THOM A 1 Offset(-2,46)
 		THOM A 1 Offset(-4,52)

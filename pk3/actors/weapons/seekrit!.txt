@@ -67,7 +67,7 @@ ACTOR Firebrand : NaziWeapon
 		SRDG B 1 A_TakeInventory("SwordSeq")
 		Goto Ready
 	AltFire:
-		SRDG A 1 ACS_NamedExecute("WWNaziTaunt", 0, 1)
+		SRDG A 1 ACS_NamedExecute("WWNaziTaunt",0,1)
 		SRDG BC 1
 		TNT1 A 7 Thing_Damage(0,25)
 		SRDG C 1 A_GiveInventory("PowerWeaponLevel2")
