@@ -5,7 +5,7 @@ ACTOR STGClip : Ammo replaces Cell
 	Inventory.MaxAmount 150
 	Ammo.BackpackAmount 30
 	Ammo.BackpackMaxAmount 270
-	Inventory.PickupMessage "Picked up some Rifle ammo."
+	Inventory.PickupMessage "Picked up a 7.92x33mm rifle magazine."
 	ConversationID 183
 	States
 	{

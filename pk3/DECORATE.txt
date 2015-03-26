@@ -11,6 +11,7 @@ ACTOR NaziWeapon : Weapon
 
 ACTOR NaziWeaponPickup : CustomInventory
 {
+	+DONTGIB
 	Inventory.PickupSound "*weaponlaugh"
 }
 
@@ -34,7 +35,7 @@ ACTOR NaziWeaponPickup : CustomInventory
 #include "actors/weapons/granate.txt"
 #include "actors/weaponspawners.txt"
 #include "actors/bullets.txt"
-#include "actors/armor.txt"
+#include "actors/items.txt"
 #include "actors/nazis.txt"
 #include "actors/nazis2.txt"
 #include "actors/nazis3.txt"
@@ -91,18 +92,6 @@ ACTOR WWNazisPlayer : DoomPlayer
 		WEAS J 5 A_NoBlocking
 		WEAS K 5
 		WEAS L -1
-		Stop
-	}
-}
-
-ACTOR NaziBerserk : Berserk replaces Berserk
-{
-	Inventory.PickupMessage "Machtige!" // "Powerful!"
-	States
-	{
-	Pickup:
-		TNT1 A 0 A_GiveInventory("PowerStrength")
-		TNT1 A 0 HealThing(100,0)
 		Stop
 	}
 }
@@ -198,4 +187,4 @@ ACTOR IJustTraded : PowerUp
 	PowerUp.Duration 35
 }
 
-ACTOR ICheated : Ammo{}
+ACTOR ICheated : Weapon{}

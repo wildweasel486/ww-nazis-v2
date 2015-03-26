@@ -1,15 +1,15 @@
 ACTOR Luger9mm : NaziWeapon
 {
 	Weapon.SelectionOrder 9998
-	weapon.kickback 60
+	Weapon.Kickback 60
 	Weapon.AmmoType "Luger9mmLoaded"
-	Weapon.AmmoUse1 1
-	weapon.ammotype2 "MPClip"
-	weapon.ammouse2 1
+	Weapon.AmmoUse 1
+	Weapon.AmmoType2 "MPClip"
+	Weapon.AmmoUse2 1
 	Tag "Luger P08"
 	Inventory.PickupMessage "You got the Luger P08! (slot 2)"
 	//Obituary "%o was killed by %k."
-	+Weapon.NoAutoFire
+	+WEAPON.NOAUTOFIRE
 	States
 	{
 	Ready:

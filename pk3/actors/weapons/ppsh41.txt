@@ -144,7 +144,7 @@ ACTOR PPSH41Loaded : Ammo
 	Inventory.Icon PPSHA0
 }
 
-ACTOR PPSHSpawner replaces PlasmaRifle
+ACTOR PPSH41Spawner replaces PlasmaRifle
 {
 	States
 	{

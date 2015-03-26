@@ -1,0 +1,98 @@
+ACTOR FirstAidKit : Medikit replaces Medikit
+{
+	Inventory.PickupMessage "Picked up a first aid kit."
+	Health.LowMessage 25, "Picked up a first aid kit that you REALLY needed!"
+	States
+	{
+	Spawn:
+		MEDK B -1
+		Stop
+	}
+}
+
+ACTOR FlakJacket : GreenArmor replaces GreenArmor
+{
+	Inventory.Pickupmessage "Picked up a flak jacket."
+	Inventory.Icon "ARM3A0"
+	ConversationID 130
+	States
+	{
+	Spawn:
+		ARM3 A 6
+		ARM3 A 7 bright
+		loop
+	}
+}
+
+ACTOR HeavyArmor : BlueArmor replaces BlueArmor
+{
+	Inventory.Pickupmessage "Picked up a heavy armor vest!"
+	Inventory.Icon "ARM4A0"
+	ConversationID 129
+	States
+	{
+	Spawn:
+		ARM4 A 6
+		ARM4 A 7 bright
+		loop
+	}
+}
+
+ACTOR NazisBackpack : BackpackItem
+{
+	Height 26
+	Inventory.PickupMessage "Picked up an ammo pack."
+	ConversationID 187
+	States
+	{
+	Spawn:
+		BPK2 A -1
+		Stop
+	}
+}
+
+ACTOR BackpackSpawner replaces Backpack
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx("NazisBackpack")
+		TNT1 AA 0 A_SpawnItemEx("GrenadePickup",frandom(-16,16),frandom(-16,16),0,0,0,0,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR NaziBerserk : Berserk replaces Berserk
+{
+	Inventory.PickupMessage "Machtige!" // "Powerful!"
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_GiveInventory("PowerStrength")
+		TNT1 A 0 HealThing(100,0)
+		Stop
+	}
+}
+
+ACTOR NaziSupercharge : Soulsphere replaces Soulsphere
+{
+	Inventory.PickupMessage "Supercharge!"
+	Inventory.PickupSound "misc/p_pkup"
+	States
+	{
+	Spawn:
+		MEDK C -1 Bright
+		Loop
+	}
+}
+
+/*Allmap                  // Computer Area Map
+ArmorBonus              // Armor Helmet
+BlurSphere              // Partial Invisibility
+HealthBonus             // Health Potion
+Infrared                // Light-Amp Goggles
+InvulnerabilitySphere   // Invulnerability
+Medikit                 // Medikit(+25 Health)
+Megasphere              // Megasphere (+200 Health/Armor)
+RadSuit                 // Radiation Suit
+Stimpack                // Stimpack(+10 Health)*/
