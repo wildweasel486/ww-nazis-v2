@@ -30,13 +30,6 @@ skill Nazis1
 	replaceactor = "EnemyRifleTracer", "BabyEnemyRifleTracer"
 	replaceactor = "EnemySTGTracer", "BabyEnemySTGTracer"
 	replaceactor = "EnemyChaingunTracer", "BabyEnemyChaingunTracer"
-	replaceactor = "MiniRocket", "EasyMiniRocket"
-	replaceactor = "FlyingNeedle", "EasyFlyingNeedle"
-	replaceactor = "EnemyFlamerShot", "EasyEnemyFlamerShot"
-	replaceactor = "EnemyFlamebolt", "EasyEnemyFlamebolt"
-	replaceactor = "EnemyFlamebolt2", "EasyEnemyFlamebolt2"
-	replaceactor = "NebRocketEnemy", "EasyNebRocketEnemy"
-	replaceactor = "MiniMiniRocket", "EasyMiniMiniRocket"
 }
 
 skill Nazis2
@@ -51,13 +44,6 @@ skill Nazis2
 	replaceactor = "EnemyRifleTracer", "EasyEnemyRifleTracer"
 	replaceactor = "EnemySTGTracer", "EasyEnemySTGTracer"
 	replaceactor = "EnemyChaingunTracer", "EasyEnemyChaingunTracer"
-	replaceactor = "MiniRocket", "EasyMiniRocket"
-	replaceactor = "FlyingNeedle", "EasyFlyingNeedle"
-	replaceactor = "EnemyFlamerShot", "EasyEnemyFlamerShot"
-	replaceactor = "EnemyFlamebolt", "EasyEnemyFlamebolt"
-	replaceactor = "EnemyFlamebolt2", "EasyEnemyFlamebolt2"
-	replaceactor = "NebRocketEnemy", "EasyNebRocketEnemy"
-	replaceactor = "MiniMiniRocket", "EasyMiniMiniRocket"
 }
 
 skill Nazis3
@@ -80,13 +66,6 @@ skill Nazis4
 	replaceactor = "EnemyRifleTracer", "HardEnemyRifleTracer"
 	replaceactor = "EnemySTGTracer", "HardEnemySTGTracer"
 	replaceactor = "EnemyChaingunTracer", "HardEnemyChaingunTracer"
-	replaceactor = "MiniRocket", "HardMiniRocket"
-	replaceactor = "FlyingNeedle", "HardFlyingNeedle"
-	replaceactor = "EnemyFlamerShot", "HardEnemyFlamerShot"
-	replaceactor = "EnemyFlamebolt", "HardEnemyFlamebolt"
-	replaceactor = "EnemyFlamebolt2", "HardEnemyFlamebolt2"
-	replaceactor = "NebRocketEnemy", "HardNebRocketEnemy"
-	replaceactor = "MiniMiniRocket", "HardMiniMiniRocket"
 }
 
 skill Nazis5
@@ -105,13 +84,6 @@ skill Nazis5
 	replaceactor = "EnemyRifleTracer", "HardEnemyRifleTracer"
 	replaceactor = "EnemySTGTracer", "HardEnemySTGTracer"
 	replaceactor = "EnemyChaingunTracer", "HardEnemyChaingunTracer"
-	replaceactor = "MiniRocket", "HardMiniRocket"
-	replaceactor = "FlyingNeedle", "HardFlyingNeedle"
-	replaceactor = "EnemyFlamerShot", "HardEnemyFlamerShot"
-	replaceactor = "EnemyFlamebolt", "HardEnemyFlamebolt"
-	replaceactor = "EnemyFlamebolt2", "HardEnemyFlamebolt2"
-	replaceactor = "NebRocketEnemy", "HardNebRocketEnemy"
-	replaceactor = "MiniMiniRocket", "HardMiniMiniRocket"
 }
 
 Intermission Inter_Cast
@@ -298,8 +270,8 @@ Intermission Doom2Cast
 	}
 	Cast
 	{
-		CastClass = "FatMan"
-		CastName = "Colonel Zweimeltod"
+		CastClass = "ChairGuy"
+		CastName = "Heinrich Krist - Rollstuhl-Rocket"
 		AttackSound = "Missile", 1, "weapons/missilef"
 		AttackSound = "Missile", 3, "weapons/missilef"
 		AttackSound = "Missile", 5, "weapons/missilef"
@@ -317,8 +289,8 @@ Intermission Doom2Cast
 	}
 	Cast
 	{
-		CastClass = "ChairGuy"
-		CastName = "Heinrich Krist - Rollstuhl-Rocket"
+		CastClass = "Miniship"
+		CastName = "Miniship"
 		AttackSound = "Missile", 1, "weapons/missilef"
 		AttackSound = "Missile", 3, "weapons/missilef"
 	}

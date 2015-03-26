@@ -7,17 +7,11 @@ ACTOR NaziWeapon : Weapon
 	+WEAPON.AMMO_CHECKBOTH
 	+WEAPON.NOALERT
 	+INVENTORY.UNTOSSABLE
-	States
-	{
-	Flash:
-		TNT1 A 2 A_Light2
-		TNT1 A 2 A_Light1
-		Goto LightDone
-	}
 }
 
 ACTOR NaziWeaponPickup : CustomInventory
 {
+	+DONTGIB
 	Inventory.PickupSound "*weaponlaugh"
 }
 
@@ -41,7 +35,7 @@ ACTOR NaziWeaponPickup : CustomInventory
 #include "actors/weapons/granate.txt"
 #include "actors/weaponspawners.txt"
 #include "actors/bullets.txt"
-#include "actors/armor.txt"
+#include "actors/items.txt"
 #include "actors/nazis.txt"
 #include "actors/nazis2.txt"
 #include "actors/nazis3.txt"
@@ -59,6 +53,8 @@ ACTOR WWNazisPlayer : DoomPlayer
 	Player.WeaponSlot 3,TrenchShotgun,Browning5,MP40,PPSH41,Thompson
 	Player.WeaponSlot 4,Kar98k,G43,Enfield,Garand,STG44,FG42
 	Player.WeaponSlot 5,Pyrolight,Nebelwerfer,Panzerschreck,UMG43
+	Player.WeaponSlot 6,""
+	Player.WeaponSlot 7,""
 	Player.StartItem WeaselsRevolver
 	Player.StartItem Shovel
 	Player.StartItem WeaselsRevolverLoaded,6
@@ -96,18 +92,6 @@ ACTOR WWNazisPlayer : DoomPlayer
 		WEAS J 5 A_NoBlocking
 		WEAS K 5
 		WEAS L -1
-		Stop
-	}
-}
-
-ACTOR NaziBerserk : Berserk replaces Berserk
-{
-	Inventory.PickupMessage "Machtige!" // "Powerful!"
-	States
-	{
-	Pickup:
-		TNT1 A 0 A_GiveInventory("PowerStrength")
-		TNT1 A 0 HealThing(100,0)
 		Stop
 	}
 }
@@ -203,4 +187,4 @@ ACTOR IJustTraded : PowerUp
 	PowerUp.Duration 35
 }
 
-ACTOR ICheated : Ammo{}
+ACTOR ICheated : Weapon{}

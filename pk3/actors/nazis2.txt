@@ -1,20 +1,45 @@
 // Heretic classes so that the mod works with Heretic.
 // Hopefully this doesn't break...much.
 
-/*ACTOR HGuard : Guard replaces HereticImp{}
-ACTOR HSSGuard : SSGuard replaces HereticImpLeader{}
-ACTOR HMP40Guard : MP40Guard replaces Mummy{}
-ACTOR HSSMP40Guard : SSMP40Guard replaces MummyGhost{}
-ACTOR HRifleGuard : RifleGuard replaces Knight{}
-ACTOR HWaffenSS : WaffenSS replaces KnightGhost{}
-ACTOR HParatrooper : Paratrooper replaces Beast{}
-ACTOR HOfficer : Officer replaces MummyLeader{}
-ACTOR HSSOfficer : SSOfficer replaces MummyLeaderGhost{}
+ACTOR HGeist : RandomSpawner replaces HereticImp
+{
+	DropItem Geist
+}
+ACTOR HGuardSpawner : GuardSpawner replaces HereticImpLeader{}
+ACTOR HOfficerSpawner : OfficerSpawner replaces Mummy{}
+ACTOR HMP40GuardSpawner : MP40GuardSpawner replaces MummyGhost{}
+ACTOR HRiflemanSpawner : RiflemanSpawner replaces MummyLeader{}
+ACTOR HSpectreSpawner : SpectreSpawner replaces MummyLeaderGhost{}
+ACTOR HSuperSoldierSpawner : SuperSoldierSpawner replaces Knight{}
+ACTOR HSuperSoldierElite : RandomSpawner replaces KnightGhost
+{
+	DropItem SuperSoldierElite
+}
 ACTOR HDogSpawner : DogSpawner replaces Clink{}
-ACTOR HRocketMan : RocketMan replaces Snake{}
-ACTOR HHitlerGhost : HitlerGhost replaces Wizard{}
-ACTOR HDeathKnight : DeathKnight replaces Minotaur{}
-ACTOR HHitler : Hitler replaces Sorcerer1{}*/
+ACTOR HRevenantSpawner : RevenantSpawner replaces Beast
+{
+	DropItem RevenantSpawner
+	DropItem RevenantSpawner
+	DropItem ChairGuy
+}
+ACTOR HFlamerMan : RandomSpawner replaces Snake
+{
+	DropItem FlamerMan
+	DropItem FlamerMan
+	DropItem General
+}
+ACTOR HHitlerGhost : RandomSpawner replaces Wizard
+{
+	DropItem HitlerGhost
+}
+ACTOR HDeathKnight : RandomSpawner replaces Minotaur
+{
+	DropItem DeathKnight
+}
+ACTOR HHitler : RandomSpawner replaces Sorcerer1
+{
+	DropItem Hitler
+}
 
 ACTOR HRevolverClip : RandomSpawner replaces GoldWandAmmo
 {
@@ -51,7 +76,7 @@ ACTOR HGrenade : RandomSpawner replaces ArtiTimebomb
 ACTOR HNaziBerserk : CustomInventory replaces ArtiTomeOfPower
 {
 	Game Heretic
-	Inventory.PickupMessage "Foliant der Macht" // "Powerful!"
+	Inventory.PickupMessage "Foliant der Macht" // "Tome of Power"
 	Inventory.PickupSound "misc/p_pkup"
 	Tag "Foliant der Macht"
 	+COUNTITEM
@@ -66,7 +91,8 @@ ACTOR HNaziBerserk : CustomInventory replaces ArtiTomeOfPower
 		PWBK A 350
 		Loop
 	Use:
-		TNT1 A 0 A_GiveInventory("NaziBerserk")
+		TNT1 A 0 A_GiveInventory("PowerStrength")
+		TNT1 A 0 HealThing(100,0)
 		Stop
 	}
 }

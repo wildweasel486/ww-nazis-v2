@@ -247,15 +247,14 @@ ACTOR STGCasing : MauserRifleCasing{}
 ACTOR EnemyTracer : Tracer
 {
 	+SEEKERMISSILE
-	DamageType "Enemy"
 	States
 	{
 	Spawn:
 		PUFF A 1 BRIGHT A_JumpIfTracerCloser(192,"Whiz")
 		Loop
 	Whiz:
-		PUFF A 2 BRIGHT A_SpawnItemEx("Whizzer")
-		Wait
+		PUFF A -1 BRIGHT A_SpawnItemEx("Whizzer")
+		Stop
 	}
 }
 ACTOR Whizzer
@@ -294,96 +293,84 @@ ACTOR EnemyChaingunTracer : EnemyTracer
 }
 
 // Enemy tracer variants for Baby mode
-ACTOR BabyEnemyTracer : EnemyTracer
+ACTOR BabyEnemyPistolTracer : EnemyPistolTracer
 {
-	DamageType "EasyEnemy"
 	Speed 30
 }
 
-ACTOR BabyEnemyPistolTracer : BabyEnemyTracer
+ACTOR BabyEnemySMGTracer : EnemySMGTracer
 {
-	Damage (random(4,8))
+	Speed 30
 }
 
-ACTOR BabyEnemySMGTracer : BabyEnemyTracer
+ACTOR BabyEnemyRifleTracer : EnemyRifleTracer
 {
-	Damage (random(6,7))
+	Speed 30
 }
 
-ACTOR BabyEnemyRifleTracer : BabyEnemyTracer
+ACTOR BabyEnemyStGTracer : EnemyStGTracer
 {
-	Damage (random(15,30))
+	Speed 30
 }
 
-ACTOR BabyEnemyStGTracer : BabyEnemyTracer
+ACTOR BabyEnemyChaingunTracer : EnemyChaingunTracer
 {
-	Damage (random(7,8))
-}
-
-ACTOR BabyEnemyChaingunTracer : BabyEnemyTracer
-{
-	Damage (random(6,8))
+	Speed 30
 }
 
 // Enemy tracer variants for Easy mode
-ACTOR EasyEnemyTracer : BabyEnemyTracer
+ACTOR EasyEnemyPistolTracer : EnemyPistolTracer
 {
 	Speed 50
 }
 
-ACTOR EasyEnemyPistolTracer : EasyEnemyTracer
+ACTOR EasyEnemySMGTracer : EnemySMGTracer
 {
-	Damage (random(4,8))
+	Speed 50
 }
 
-ACTOR EasyEnemySMGTracer : EasyEnemyTracer
+ACTOR EasyEnemyRifleTracer : EnemyRifleTracer
 {
-	Damage (random(6,7))
+	Speed 50
 }
 
-ACTOR EasyEnemyRifleTracer : EasyEnemyTracer
+ACTOR EasyEnemyStGTracer : EnemyStGTracer
 {
-	Damage (random(15,30))
+	Speed 50
 }
 
-ACTOR EasyEnemyStGTracer : EasyEnemyTracer
+ACTOR EasyEnemyChaingunTracer : EnemyChaingunTracer
 {
-	Damage (random(7,8))
-}
-
-ACTOR EasyEnemyChaingunTracer : EasyEnemyTracer
-{
-	Damage (random(6,8))
+	Speed 50
 }
 
 // Enemy tracer variants for Hard and Nightmare mode
-ACTOR HardEnemyTracer : EnemyTracer
+ACTOR HardEnemyPistolTracer : EnemyPistolTracer
 {
 	Speed 90
 	+THRUGHOST
 }
 
-ACTOR HardEnemyPistolTracer : HardEnemyTracer
+ACTOR HardEnemySMGTracer : EnemySMGTracer
 {
-	Damage (random(4,8))
+	Speed 90
+	+THRUGHOST
 }
 
-ACTOR HardEnemySMGTracer : HardEnemyTracer
+ACTOR HardEnemyRifleTracer : EnemyRifleTracer
 {
-	Damage (random(6,7))
+	Speed 90
+	+THRUGHOST
 }
 
-ACTOR HardEnemyRifleTracer : HardEnemyTracer
+ACTOR HardEnemyStGTracer : EnemyStGTracer
 {
-	Damage (random(15,30))
+	Speed 90
+	+THRUGHOST
 }
 
-ACTOR HardEnemyStGTracer : HardEnemyTracer
+ACTOR HardEnemyChaingunTracer : EnemyChaingunTracer
 {
-	Damage (random(7,8))
-}
-
-ACTOR HardEnemyChaingunTracer : HardEnemyTracer
-{
-	Damage (random(6,8))
+	Speed 90
+	+THRUGHOST
 }

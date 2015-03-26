@@ -73,9 +73,10 @@ ACTOR Enfield : NaziWeapon
 	Fire:
 		ENFG A 0 A_JumpIfInventory("EnfieldLoaded",1,1)
 		Goto Reload
-		ENFF A 0 A_PlaySound("Enfield/Fire",CHAN_WEAPON)
-		ENFF A 1 Bright Offset(0,40) A_FireCustomMissile("EnfieldTracer")
-		ENFF B 1 Bright Offset(0,50) A_GunFlash
+		ENFG A 0 A_GunFlash
+		ENFG A 0 A_PlaySound("Enfield/Fire",CHAN_WEAPON)
+		ENFG A 1 A_FireCustomMissile("EnfieldTracer")
+		ENFG A 1 Offset(0,52)
 		ENFG A 0 A_AlertMonsters
 		ENFG A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		ENFG A 1 Offset(0,45) A_SetPitch(pitch - 4.0)
@@ -156,6 +157,11 @@ ACTOR Enfield : NaziWeapon
 		ENFG A 1 Offset(-4,34)
 		ENFG A 1 Offset(-2,33)
 		Goto Ready
+	Flash:
+		ENFF A 1 BRIGHT A_Light2
+		ENFF B 1 BRIGHT
+		TNT1 A 2 A_Light1
+		Goto LightDone
 	}
 }
 
