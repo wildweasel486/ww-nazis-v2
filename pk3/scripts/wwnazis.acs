@@ -1,18 +1,82 @@
 #library "WWNAZIS"
 #include "zcommon.acs"
 
+Script "AutoReload"(void)
+{
+	SetResultValue(GetCVar("autoreload"));
+}
+Script "ShellLifetime"(void)
+{
+	SetResultValue(GetCVar("casinglifetime"));
+}
+Script "RecoilAmount"(void)
+{
+	SetResultValue(GetCVar("recoilamount"));
+}
+str taunts[18]=
+{
+	"allcaps/taunt","allcaps/reload","allcaps/grenadecall",
+	"caleb/taunt","caleb/reload","caleb/grenadecall",
+	"kingpin/taunt","kingpin/reload","kingpin/grenadecall",
+	"soulman/taunt","soulman/reload","soulman/grenadecall",
+	"spy/taunt","spy/reload","spy/grenadecall",
+	"custom/taunt","custom/reload","custom/grenadecall"
+};
+str pain[24]=
+{
+	"allcapslowpain","allcapsmedpain","allcapshipain","allcapscritpain",
+	"caleblowpain","calebmedpain","calebhipain","calebcritpain",
+	"kingpinlowpain","kingpinmedpain","kingpinhipain","kingpincritpain",
+	"soulmanlowpain","soulmanmedpain","soulmanhipain","soulmancritpain",
+	"spylowpain","spymedpain","spyhipain","spycritpain",
+	"weasellowpain","weaselmedpain","weaselhipain","weaselcritpain"
+};
+str scream[12]=
+{
+	"allcapsdeath","allcapscrazydeath",
+	"calebdeath","calebcrazydeath",
+	"kingpindeath","kingpincrazydeath",
+	"soulmandeath","soulmancrazydeath",
+	"spydeath","spycrazydeath",
+	"weasledeath","weaselcrazydeath"
+};
 SCRIPT "WWNaziTaunt" (int tauntType)
 {
+	int pack=GetCVar("tauntpack");
+	if(!pack)
+		terminate;
 	delay(20); // Appropriate wait time until player is done with the taunt-worthy action.
 	//Print(i:tauntChance);
 	if(tauntType==1&&random(1,5)==5)		// argument 1: taunt from firing
-		PlaySound(0,"player/taunt",CHAN_VOICE,1.0);
+		PlaySound(0,taunts[0+((pack*3)-3)],CHAN_VOICE,1.0);
 	else if(tauntType==2&&random(1,5)>=2)	// 2: taunt from reloading
-		PlaySound(0,"player/reload",CHAN_VOICE,1.0);
+		PlaySound(0,taunts[1+((pack*3)-3)],CHAN_VOICE,1.0);
 	else if(tauntType==3&&random(1,5)>=2)	// 3: throwing a grenade
-		PlaySound(0,"player/grenadecall",CHAN_VOICE,1.0);
+		PlaySound(0,taunts[2+((pack*3)-3)],CHAN_VOICE,1.0);
 	Delay(5*35);
 	//Log(s:"Taunt ready!");
+}
+script "PlayerPain" (void)
+{
+	int pack=GetCVar("tauntpack"),health=GetActorProperty(0,APROP_Health),level;
+	if(!pack)
+		pack=6;
+	if(health<=25)
+		level=3;
+	else if(health<=50)
+		level=2;
+	else if(health<=75)
+		level=1;
+	PlaySound(0,pain[level+((pack*4)-4)],CHAN_VOICE,1.0);
+}
+script "PlayerScream" (void)
+{
+	int pack=GetCVar("tauntpack"),health=GetActorProperty(0,APROP_Health),level;
+	if(!pack)
+		pack=6;
+	if(health<=(-50))
+		level=1;
+	PlaySound(0,scream[level+((pack*2)-2)],CHAN_VOICE,1.0);
 }
 script "WWNaziSkillCheck" (void)
 {

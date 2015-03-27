@@ -72,18 +72,18 @@ ACTOR Enfield : NaziWeapon
 		Loop
 	Fire:
 		ENFG A 0 A_JumpIfInventory("EnfieldLoaded",1,1)
-		Goto Reload
+		Goto Dryfire
 		ENFG A 0 A_GunFlash
 		ENFG A 0 A_PlaySound("Enfield/Fire",CHAN_WEAPON)
 		ENFG A 1 A_FireCustomMissile("EnfieldTracer")
 		ENFG A 1 Offset(0,52)
 		ENFG A 0 A_AlertMonsters
 		ENFG A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
-		ENFG A 1 Offset(0,45) A_SetPitch(pitch - 4.0)
-		ENFG A 1 Offset(0,40) A_SetPitch(pitch - 2.0)
-		ENFG A 1 Offset(0,36) A_SetPitch(pitch + 1.0)
-		ENFG A 1 Offset(0,34) A_SetPitch(pitch + 1.0)
-		ENFG A 1 Offset(0,33) A_SetPitch(pitch + 0.5)
+		ENFG A 1 Offset(0,45) A_SetPitch(pitch-(4.0*CallACS("RecoilAmount")))
+		ENFG A 1 Offset(0,40) A_SetPitch(pitch-(2.0*CallACS("RecoilAmount")))
+		ENFG A 1 Offset(0,36) A_SetPitch(pitch+(1.0*CallACS("RecoilAmount")))
+		ENFG A 1 Offset(0,34) A_SetPitch(pitch+(1.0*CallACS("RecoilAmount")))
+		ENFG A 1 Offset(0,33) A_SetPitch(pitch+(0.5*CallACS("RecoilAmount")))
 		ENFG A 1 Offset(-2,33) A_PlaySound("Enfield/boltback",5)
 		ENFG A 1 Offset(-4,34)
 		ENFG A 1 Offset(-6,35)

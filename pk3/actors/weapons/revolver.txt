@@ -63,15 +63,15 @@ ACTOR WeaselsRevolver : NaziWeapon
 		Loop
 	Fire:
 		REVG A 0 A_JumpIfInventory("WeaselsRevolverLoaded",1,1)
-		Goto Reload
+		Goto Dryfire
 		REVG A 0 A_GunFlash
 		REVG A 0 A_PlaySound("Weapons/Revolver",CHAN_WEAPON)
 		REVG A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		REVG B 0 A_GiveInventory("RevolverShotCounter")
 		REVG B 2 A_FireCustomMissile("RevolverTracer",frandom(-1.5,1.5),1,0,0,0,frandom(-0.8,0.8))
-		REVG C 1 Offset(0,38) A_SetPitch (pitch - 0.6)
-		REVG D 1 Offset(0,44) A_SetPitch (pitch - 0.6)
-		REVG D 1 Offset(0,56) A_SetPitch (pitch - 0.6)
+		REVG C 1 Offset(0,38) A_SetPitch(pitch-(0.6*CallACS("RecoilAmount")))
+		REVG D 1 Offset(0,44) A_SetPitch(pitch-(0.6*CallACS("RecoilAmount")))
+		REVG D 1 Offset(0,56) A_SetPitch(pitch-(0.6*CallACS("RecoilAmount")))
 		REVG D 1 Offset(0,52) A_AlertMonsters
 		REVG C 1 Offset(0,50)
 		REVG C 1 Offset(0,47)

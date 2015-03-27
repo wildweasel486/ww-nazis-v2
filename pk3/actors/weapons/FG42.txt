@@ -37,13 +37,13 @@ Actor FG42 : NaziWeapon
 		Loop
 	Fire:
 		FG42 A 0 A_JumpIfInventory("FG42Loaded",1,1)
-		Goto Reload
+		Goto Dryfire
 		FG42 A 0 A_GunFlash
 		FG42 A 0 A_PlaySound("fg42/fire",CHAN_WEAPON)
 		FG42 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		FG42 A 0 A_SpawnItemEx("MauserRifleCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		FG42 A 1 A_FireCustomMissile("FGTracer",frandom(-2.5,2.5),1,0,0,0,frandom(-1.0,1.0))
-		FG42 A 1 Offset(0,42) A_SetPitch(pitch - 1.8)
+		FG42 A 1 Offset(0,42) A_SetPitch(pitch-(1.8*CallACS("RecoilAmount")))
 		FG42 A 0 A_AlertMonsters
 		FG42 A 1 A_Refire
 		FG42 A 1 Offset(0,42) A_WeaponReady(WRF_NOBOB)
@@ -55,13 +55,13 @@ Actor FG42 : NaziWeapon
 		Goto Ready
 	Hold:
 		FG42 A 0 A_JumpIfInventory("FG42Loaded",1,1)
-		Goto Reload
+		Goto Dryfire
 		FG42 A 0 A_GunFlash
 		FG42 A 0 A_PlaySound("fg42/fire",CHAN_WEAPON)
 		FG42 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		FG42 A 0 A_SpawnItemEx("MauserRifleCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		FG42 A 1 Offset(0,58) A_FireCustomMissile("FGTracer",frandom(-2.5,2.5),1,0,0,0,frandom(-1.0,1.0))
-		FG42 A 1 Offset(0,54) A_SetPitch(pitch - 1.8)
+		FG42 A 1 Offset(0,54) A_SetPitch(pitch-(1.8*CallACS("RecoilAmount")))
 		FG42 A 0 A_AlertMonsters
 		FG42 A 1 A_Refire
 		FG42 A 1 Offset(0,52) A_WeaponReady(WRF_NOBOB)

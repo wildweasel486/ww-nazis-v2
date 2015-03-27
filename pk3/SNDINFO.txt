@@ -1,23 +1,259 @@
-$playersound	weasel	male	*death		wwdthlo
-$playersound	weasel	male	*wimpydeath	wwdthlo
-$playersound	weasel	male	*crazydeath	wwdthhi
-$playersound	weasel	male	*xdeath		wwdthhi
-$playeralias	weasel	male	*pain100	weasellowpain
-$playeralias	weasel	male	*pain75		weaselmedpain
-$playeralias	weasel	male	*pain50		weaselhipain
-$playeralias	weasel	male	*pain25		weaselcritpain
 $playeralias	weasel	male	*grunt		weaseloof
 $playersound	weasel	male	*land		wwoof
 $playersound	weasel	male	*usefail	wwnoway
 $playersound	weasel	male	*weaponlaugh	dswpnup
-$playeralias	weasel	male	*evillaugh	player/taunt
+$playeralias	weasel	male	*evillaugh	dsempty
 
-$random player/taunt { taunt1 taunt2 taunt3 taunt4 taunt5 taunt6 taunt7 taunt8 taunt9 taunt10 taunt11 taunt12 taunt13 taunt14 taunt15 }
-$random player/reload { reload1 reload2 reload3 reload4 reload5 reload6 reload7 reload8 reload9 }
-$random player/grenadecall { grenade1 grenade2 grenade3 }
-grenade1 grenade1
-grenade2 grenade2
-grenade3 grenade3
+$random allcaps/taunt { 1taunt1 1taunt2 1taunt3 1taunt4 1taunt5 1taunt6 1taunt7 1taunt8 1taunt9 1taunt10 1taunt11 1taunt12 1taunt13 1taunt14 1taunt15 }
+$random allcaps/reload { 1reload1 1reload2 1reload3 1reload4 1reload5 1reload6 1reload7 1reload8 1reload9 }
+$random allcaps/grenadecall { 1grenade1 1grenade2 1grenade3 }
+$random allcapscritpain { 1p1-1 1p1-2 1p1-3 1p1-4 1p1-5 1p1-6 }
+$random allcapshipain { 1p2-1 1p2-2 1p2-3 1p2-4 1p2-5 1p2-6 }
+$random allcapsmedpain { 1p3-1 1p3-2 1p3-3 1p3-4 1p3-5 }
+$random allcapslowpain { 1p4-1 1p4-2 1p4-3 1p4-4 }
+1taunt1 1taunt1
+1taunt2 1taunt2
+1taunt3 1taunt3
+1taunt4 1taunt4
+1taunt5 1taunt5
+1taunt6 1taunt6
+1taunt7 1taunt7
+1taunt8 1taunt8
+1taunt9 1taunt9
+1taunt10 1taunt10
+1taunt11 1taunt11
+1taunt12 1taunt12
+1taunt13 1taunt13
+1taunt14 1taunt14
+1taunt15 1taunt15
+1reload1 1reload1
+1reload2 1reload2
+1reload3 1reload3
+1reload4 1reload4
+1reload5 1reload5
+1reload6 1reload6
+1reload7 1reload7
+1reload8 1reload8
+1reload9 1reload9
+1grenad1 1grenad1
+1grenad2 1grenad2
+1grenad3 1grenad3
+1p4-1 1plpai41
+1p4-2 1plpai42
+1p4-3 1plpai43
+1p4-4 1plpai44
+1p3-1 1plpai31
+1p3-2 1plpai32
+1p3-3 1plpai33
+1p3-4 1plpai34
+1p3-5 1plpai35
+1p2-1 1plpai21
+1p2-2 1plpai22
+1p2-3 1plpai23
+1p2-4 1plpai24
+1p2-5 1plpai25
+1p2-6 1plpai26
+1p1-1 1plpai11
+1p1-2 1plpai12
+1p1-3 1plpai13
+1p1-4 1plpai14
+1p1-5 1plpai15
+1p1-6 1plpai16
+allcapsdeath		1wwdthlo
+allcapscrazydeath	1wwdthhi
+$random caleb/taunt { 2taunt1 2taunt2 2taunt3 2taunt4 2taunt5 2taunt6 2taunt7 2taunt8 2taunt9 2taunt10 2taunt11 2taunt12 2taunt13 2taunt14 2taunt15 }
+$random caleb/reload { 2reload1 2reload2 2reload3 2reload4 2reload5 2reload6 2reload7 2reload8 2reload9 }
+$random caleb/grenadecall { 2grenad1 2grenad2 2grenad3 }
+$random calebcritpain { p1-1 p1-2 p1-3 p1-4 p1-5 p1-6 }
+$random calebhipain { p2-1 p2-2 p2-3 p2-4 p2-5 p2-6 }
+$random calebmedpain { p3-1 p3-2 p3-3 p3-4 p3-5 }
+$random caleblowpain { p4-1 p4-2 p4-3 p4-4 }
+2taunt1 2taunt1
+2taunt2 2taunt2
+2taunt3 2taunt3
+2taunt4 2taunt4
+2taunt5 2taunt5
+2taunt6 2taunt6
+2taunt7 2taunt7
+2taunt8 2taunt8
+2taunt9 2taunt9
+2taunt10 2taunt10
+2taunt11 2taunt11
+2taunt12 2taunt12
+2taunt13 2taunt13
+2taunt14 2taunt14
+2taunt15 2taunt15
+2reload1 2reload1
+2reload2 2reload2
+2reload3 2reload3
+2reload4 2reload4
+2reload5 2reload5
+2reload6 2reload6
+2reload7 2reload7
+2reload8 2reload8
+2reload9 2reload9
+2grenad1 2grenad1
+2grenad2 2grenad2
+2grenad3 2grenad3
+calebdeath		wwdthlo
+calebcrazydeath	wwdthhi
+$random kingpin/taunt { 3taunt1 3taunt2 3taunt3 3taunt4 3taunt5 3taunt6 3taunt7 3taunt8 3taunt9 3taunt10 3taunt11 3taunt12 3taunt13 3taunt14 3taunt15 }
+$random kingpin/reload { 3reload1 3reload2 3reload3 3reload4 3reload5 3reload6 3reload7 3reload8 3reload9 }
+$random kingpin/grenadecall { 3grenad1 3grenad2 3grenad3 }
+$random kingpincritpain { 3p1-1 3p1-2 3p1-3 3p1-4 3p1-5 3p1-6 }
+$random kingpinhipain { 3p2-1 3p2-2 3p2-3 3p2-4 3p2-5 3p2-6 }
+$random kingpinmedpain { 3p3-1 3p3-2 3p3-3 3p3-4 3p3-5 }
+$random kingpinlowpain { 3p4-1 3p4-2 3p4-3 3p4-4 }
+3taunt1 3taunt1
+3taunt2 3taunt2
+3taunt3 3taunt3
+3taunt4 3taunt4
+3taunt5 3taunt5
+3taunt6 3taunt6
+3taunt7 3taunt7
+3taunt8 3taunt8
+3taunt9 3taunt9
+3taunt10 3taunt10
+3taunt11 3taunt11
+3taunt12 3taunt12
+3taunt13 3taunt13
+3taunt14 3taunt14
+3taunt15 3taunt15
+3reload1 3reload1
+3reload2 3reload2
+3reload3 3reload3
+3reload4 3reload4
+3reload5 3reload5
+3reload6 3reload6
+3reload7 3reload2
+3reload8 3reload4
+3reload9 3reload6
+3grenad1 3grenad1
+3grenad2 3grenad2
+3grenad3 3grenad3
+3p4-1 3plpai41
+3p4-2 3plpai42
+3p4-3 3plpai41
+3p4-4 3plpai42
+3p3-1 3plpai31
+3p3-2 3plpai32
+3p3-3 3plpai31
+3p3-4 3plpai32
+3p3-5 3plpai31
+3p2-1 3plpai21
+3p2-2 3plpai22
+3p2-3 3plpai21
+3p2-4 3plpai22
+3p2-5 3plpai21
+3p2-6 3plpai22
+3p1-1 3plpai11
+3p1-2 3plpai12
+3p1-3 3plpai11
+3p1-4 3plpai12
+3p1-5 3plpai11
+3p1-6 3plpai12
+kingpindeath		3wwdthlo
+kingpincrazydeath	3wwdthhi
+$random soulman/taunt { 4taunt1 4taunt2 4taunt3 4taunt4 4taunt5 4taunt6 4taunt7 4taunt8 4taunt9 4taunt10 4taunt11 4taunt12 4taunt13 4taunt14 4taunt15 }
+$random soulman/reload { 4reload1 4reload2 4reload3 4reload4 4reload5 4reload6 4reload7 4reload8 4reload9 }
+$random soulman/grenadecall { 4grenad1 4grenad2 4grenad3 }
+$random soulmancritpain { p1-1 p1-2 p1-3 p1-4 p1-5 p1-6 }
+$random soulmanhipain { p2-1 p2-2 p2-3 p2-4 p2-5 p2-6 }
+$random soulmanmedpain { p3-1 p3-2 p3-3 p3-4 p3-5 }
+$random soulmanlowpain { p4-1 p4-2 p4-3 p4-4 }
+4taunt1 4taunt1
+4taunt2 4taunt2
+4taunt3 4taunt3
+4taunt4 4taunt4
+4taunt5 4taunt5
+4taunt6 4taunt6
+4taunt7 4taunt7
+4taunt8 4taunt8
+4taunt9 4taunt9
+4taunt10 4taunt10
+4taunt11 4taunt11
+4taunt12 4taunt12
+4taunt13 4taunt13
+4taunt14 4taunt14
+4taunt15 4taunt15
+4reload1 4reload1
+4reload2 4reload2
+4reload3 4reload3
+4reload4 4reload4
+4reload5 4reload5
+4reload6 4reload6
+4reload7 4reload7
+4reload8 4reload8
+4reload9 4reload9
+4grenad1 4grenad1
+4grenad2 4grenad2
+4grenad3 4grenad3
+soulmandeath		wwdthlo
+soulmancrazydeath	wwdthhi
+$random spy/taunt { 5taunt1 5taunt2 5taunt3 5taunt4 5taunt5 5taunt6 5taunt7 5taunt8 5taunt9 5taunt10 5taunt11 5taunt12 5taunt13 5taunt14 5taunt15 }
+$random spy/reload { 5reload1 5reload2 5reload3 5reload4 5reload5 5reload6 5reload7 5reload8 5reload9 }
+$random spy/grenadecall { 5grenad1 5grenad2 5grenad3 }
+$random spycritpain { 5p1-1 5p1-2 5p1-3 5p1-4 5p1-5 5p1-6 }
+$random spyhipain { 5p2-1 5p2-2 5p2-3 5p2-4 5p2-5 5p2-6 }
+$random spymedpain { 5p3-1 5p3-2 5p3-3 5p3-4 5p3-5 }
+$random spylowpain { 5p4-1 5p4-2 5p4-3 5p4-4 }
+5taunt1 5taunt1
+5taunt2 5taunt2
+5taunt3 5taunt3
+5taunt4 5taunt4
+5taunt5 5taunt5
+5taunt6 5taunt6
+5taunt7 5taunt7
+5taunt8 5taunt8
+5taunt9 5taunt9
+5taunt10 5taunt10
+5taunt11 5taunt11
+5taunt12 5taunt12
+5taunt13 5taunt13
+5taunt14 5taunt14
+5taunt15 5taunt15
+5reload1 5reload1
+5reload2 5reload2
+5reload3 5reload3
+5reload4 5reload4
+5reload5 5reload5
+5reload6 5reload6
+5reload7 5reload7
+5reload8 5reload8
+5reload9 5reload9
+5grenad1 5grenad1
+5grenad2 5grenad2
+5grenad3 5grenad3
+5p4-1 5plpai31
+5p4-2 5plpai32
+5p4-3 5plpai33
+5p4-4 5plpai34
+5p3-1 5plpai31
+5p3-2 5plpai32
+5p3-3 5plpai33
+5p3-4 5plpai34
+5p3-5 5plpai31
+5p2-1 5plpai11
+5p2-2 5plpai12
+5p2-3 5plpai13
+5p2-4 5plpai14
+5p2-5 5plpai15
+5p2-6 5plpai13
+5p1-1 5plpai11
+5p1-2 5plpai12
+5p1-3 5plpai13
+5p1-4 5plpai14
+5p1-5 5plpai15
+5p1-6 5plpai11
+spydeath		5wwdthlo
+spycrazydeath	5wwdthhi
+$random custom/taunt { taunt1 taunt2 taunt3 taunt4 taunt5 taunt6 taunt7 taunt8 taunt9 taunt10 taunt11 taunt12 taunt13 taunt14 taunt15 }
+$random custom/reload { reload1 reload2 reload3 reload4 reload5 reload6 reload7 reload8 reload9 }
+$random custom/grenadecall { grenade1 grenade2 grenade3 }
+$random weaselcritpain { p1-1 p1-2 p1-3 p1-4 p1-5 p1-6 }
+$random weaselhipain { p2-1 p2-2 p2-3 p2-4 p2-5 p2-6 }
+$random weaselmedpain { p3-1 p3-2 p3-3 p3-4 p3-5 }
+$random weasellowpain { p4-1 p4-2 p4-3 p4-4 }
 taunt1 taunt1
 taunt2 taunt2
 taunt3 taunt3
@@ -42,11 +278,9 @@ reload6 reload6
 reload7 reload7
 reload8 reload8
 reload9 reload9
-$random weaselcritpain { p1-1 p1-2 p1-3 p1-4 p1-5 p1-6 }
-$random weaselhipain { p2-1 p2-2 p2-3 p2-4 p2-5 p2-6 }
-$random weaselmedpain { p3-1 p3-2 p3-3 p3-4 p3-5 }
-$random weasellowpain { p4-1 p4-2 p4-3 p4-4 }
-$random weaseloof { poof-1 poof-2 poof-3 poof-4 poof-5 }
+grenade1 grenade1
+grenade2 grenade2
+grenade3 grenade3
 p4-1 plpain41
 p4-2 plpain42
 p4-3 plpain43
@@ -68,6 +302,10 @@ p1-3 plpain13
 p1-4 plpain14
 p1-5 plpain15
 p1-6 plpain16
+weasledeath			wwdthlo
+weaselcrazydeath	wwdthhi
+
+$random weaseloof { poof-1 poof-2 poof-3 poof-4 poof-5 }
 poof-1 ploof1
 poof-2 ploof2
 poof-3 ploof3
