@@ -45,7 +45,6 @@ ACTOR G43 : NaziWeapon
 	Weapon.AmmoType2 "MauserAmmo"
 	Weapon.AmmoUse2 1
 	Inventory.PickupMessage "You got the Gewehr 43! (slot 5)"
-	//Obituary "%o was killed by %k."
 	Tag "Gewehr 43"
 	+NOAUTOFIRE
 	States
@@ -102,7 +101,7 @@ ACTOR G43 : NaziWeapon
 	ReloadLoop:
 		TNT1 A 0 A_TakeInventory("MauserAmmo",1,TIF_NOTAKEINFINITE)
 		TNT1 A 0 A_GiveInventory("G43Loaded")
-		TNT1 A 0 A_JumpIfInventory("G43Loaded",10,"ReloadFinish")
+		TNT1 A 0 A_JumpIfInventory("G43Loaded",0,"ReloadFinish")
 		TNT1 A 0 A_JumpIfInventory("MauserAmmo",1,"ReloadLoop")
 	ReloadFinish:
 		M1GG D 2 Offset(-10,96)
@@ -142,7 +141,7 @@ ACTOR G43Pickup : NaziWeaponPickup
 		M1GP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",12)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",13)
 		Stop
 	}
 }

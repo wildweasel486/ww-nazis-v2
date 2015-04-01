@@ -199,7 +199,7 @@ $random spymedpain { 5p3-1 5p3-2 5p3-3 5p3-4 5p3-5 }
 $random spylowpain { 5p4-1 5p4-2 5p4-3 5p4-4 }
 5taunt1 5taunt1
 5taunt2 5taunt2
-5taunt3 5taunt3
+5taunt3 5taunt2
 5taunt4 5taunt4
 5taunt5 5taunt5
 5taunt6 5taunt6
@@ -556,13 +556,13 @@ boss/pain		dsbospai
 nazi/pistol DSNLUGER
 
 $random weapons/assaultgun {mp401 mp402}
-mp401 dsmp401
-mp402 dsmp402
+mp401	dsmp401
+mp402	dsmp402
 
-weapons/stg44 dsstg44
-weapons/p38fire dsp38
-weapons/mauser dsmauser
-weapons/missilef dsmissil
+weapons/stg44		dsstg44
+weapons/p38fire		dsp38
+weapons/mauser		m1afire
+weapons/missilef	dsmissil
 
 // Miscellaneous
 misc/k_pkup			dsgetkey

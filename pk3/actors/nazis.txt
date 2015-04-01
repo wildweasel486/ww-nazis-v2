@@ -9,6 +9,7 @@ ACTOR BigNazi
 	+FLOORCLIP
 	+DONTHARMSPECIES
 	+BOSSDEATH
+	+DONTGIB
 	PainSound "boss/pain"
 	States
 	{
@@ -76,7 +77,7 @@ ACTOR Nazi : BigNazi
 	}
 }
 
-ACTOR GuardSpawner : RandomSpawner replaces Zombieman
+ACTOR GuardSpawner : RandomSpawner
 {
 	DropItem Guard
 	DropItem SSGuard
@@ -143,14 +144,12 @@ ACTOR WGuard : Guard
 	}
 }
 
-ACTOR MP40GuardSpawner : RandomSpawner replaces ShotgunGuy
+ACTOR MP40GuardSpawner : RandomSpawner
 {
 	DropItem MP40Guard
 	DropItem SSMP40Guard
 	DropItem WMP40Guard
 }
-
-ACTOR MP40GuardSpawner2 : MP40GuardSpawner replaces WolfensteinSS{}
 
 ACTOR MP40Guard : Nazi
 {
@@ -235,7 +234,7 @@ ACTOR WMP40Guard : MP40Guard
 	}
 }
 
-ACTOR RiflemanSpawner : RandomSpawner replaces ChaingunGuy
+ACTOR RiflemanSpawner : RandomSpawner
 {
 	DropItem RifleGuard
 	DropItem WRifleGuard
@@ -311,7 +310,7 @@ ACTOR WaffenSS : RifleGuard
 	}
 }
 
-ACTOR SpectreSpawner : RandomSpawner replaces Spectre
+ACTOR ParatrooperSpawner : RandomSpawner
 {
 	DropItem Paratrooper
 	DropItem Mutant
@@ -322,7 +321,6 @@ ACTOR Paratrooper : WaffenSS
 	Obituary "%o was slaughtered by a Fallschirmjaeger."
 	Health 90
 	DropItem FG42Spawner,128
-	DropItem MauserAmmoSmall,128
 	States
 	{
 	Spawn:
@@ -373,7 +371,7 @@ ACTOR Mutant : Nazi
 	}
 }
 
-ACTOR OfficerSpawner : RandomSpawner replaces DoomImp
+ACTOR OfficerSpawner : RandomSpawner
 {
 	DropItem Officer
 	DropItem WOfficer
@@ -449,7 +447,7 @@ ACTOR WOfficer : Officer
 	}
 }
 
-ACTOR DogSpawner : RandomSpawner replaces Demon
+ACTOR DogSpawner : RandomSpawner
 {
 	DropItem Rottweiler
 	DropItem GermanShepherd
@@ -522,7 +520,7 @@ ACTOR Doberman : Rottweiler
 	}
 }
 
-ACTOR RevenantSpawner : RandomSpawner replaces Revenant
+ACTOR DoctorSpawner : RandomSpawner
 {
 	DropItem RocketMan
 	DropItem RocketMan
@@ -576,7 +574,7 @@ ACTOR MiniRocket
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("WWNaziSkillCheck")<=2,2)
 		TNT1 A 0 A_ChangeFlag("THRUGHOST",1)
-		NMIS A 1 BRIGHT A_CustomMissile("RocketFlameSpawner",0,0,0,5)
+		NMIS A 1 BRIGHT A_SpawnItemEx("RocketFlame",random(-1,1),0,random(-1,1))
 		Wait
 	Death:
 		FRME A 1 BRIGHT A_Explode(20,40)
@@ -626,7 +624,7 @@ ACTOR FlyingNeedle : MiniRocket
 	}
 }
 
-ACTOR SuperSoldierSpawner : RandomSpawner replaces HellKnight
+ACTOR SuperSoldierSpawner : RandomSpawner
 {
 	DropItem SuperSoldier
 	DropItem SuperSoldier
@@ -715,7 +713,7 @@ ACTOR SuperSoldierGirl : SuperSoldier
 	}
 }
 
-ACTOR SuperSoldierElite : SuperSoldier replaces BaronOfHell
+ACTOR SuperSoldierElite : SuperSoldier
 {
 	Obituary "%o was pulverized by an elite ubersoldat."
 	Health 850
@@ -753,7 +751,7 @@ ACTOR SuperSoldierElite : SuperSoldier replaces BaronOfHell
 	}
 }
 
-ACTOR General : BigNazi replaces Archvile
+ACTOR General : BigNazi
 {
 	Obituary "%o was eliminated by a Nazi general."
 	Health 800
@@ -800,15 +798,14 @@ ACTOR General : BigNazi replaces Archvile
 	}
 }
 
-ACTOR FlamerMan : BigNazi replaces Arachnotron
+ACTOR FlamerMan : BigNazi
 {
 	+LOOKALLAROUND
 	Obituary "%o was roasted by a Nazi with a flamethrower."
 	Health 500
 	SeeSound "Boss1/Sighted"
 	DeathSound "Boss1/Death"
-	DropItem PyrolightPickup
-	DropItem FlameAmmo
+	DropItem PyrolightSpawner
 	States
 	{
 	Spawn:
@@ -874,7 +871,7 @@ ACTOR EnemyFlamebolt : Flameball
 	}
 }
 
-ACTOR HitlerGhost : BigNazi replaces Cacodemon
+ACTOR HitlerGhost : BigNazi
 {
 	Scale 1.2
 	Obituary "%o thought %g saw Hitler."
@@ -927,7 +924,7 @@ ACTOR EnemyFlamebolt2 : EnemyFlamebolt
 	}
 }
 
-ACTOR MiniShip : BigNazi //replaces PainElemental
+ACTOR MiniShip : BigNazi
 {
 	+LOOKALLAROUND
 	Obituary "%o received death from above."
@@ -970,7 +967,7 @@ ACTOR MiniShip : BigNazi //replaces PainElemental
 	}
 }
 
-ACTOR Geist : BigNazi replaces LostSoul
+ACTOR Geist : BigNazi
 {
 	+LOOKALLAROUND
 	Scale .8
@@ -1041,7 +1038,7 @@ ACTOR Geist : BigNazi replaces LostSoul
 	}
 }
 
-ACTOR NaziGeist : Geist replaces PainElemental
+ACTOR NaziGeist : Geist
 {
 	Scale 1.2
 	Health 400
@@ -1091,7 +1088,7 @@ ACTOR NaziGeist : Geist replaces PainElemental
 	}
 }
 
-ACTOR MGTurret : BigNazi // replaces LostSoul
+ACTOR MGTurret : BigNazi
 {
 	+LOOKALLAROUND
 	Scale 1
@@ -1141,7 +1138,7 @@ ACTOR MGTurret : BigNazi // replaces LostSoul
 	}
 }
 
-ACTOR DeathKnight : BigNazi replaces Cyberdemon
+ACTOR DeathKnight : BigNazi
 {
 	+LOOKALLAROUND
 	Scale 1.5
@@ -1237,7 +1234,7 @@ ACTOR NebRocketEnemy : NebRocket
 	}
 }
 
-ACTOR Hitler : BigNazi replaces SpiderMastermind
+ACTOR Hitler : BigNazi
 {
 	Obituary "%o heiled Hitler."
 	Health 2500
@@ -1308,7 +1305,7 @@ ACTOR HitlerSuitScrap
 	}
 }
 
-ACTOR ChairGuy : BigNazi replaces Fatso
+ACTOR ChairGuy : BigNazi
 {
 	Obituary "%o was given the chair."
 	Health 600
@@ -1356,19 +1353,7 @@ ACTOR MiniMiniRocket : MiniRocket
 	DeathSound "weapons/nebxpl"
 }
 
-ACTOR DeadPlayer replaces DeadMarine
-{
-	States
-	{
-	Spawn:
-		WEAS L -1
-		Stop
-	}
-}
-ACTOR DeadPlayer2 : DeadPlayer replaces GibbedMarine{}
-ACTOR DeadPlayer3 : DeadPlayer replaces GibbedMarineExtra{}
-
-ACTOR DeadGuard replaces DeadZombieMan
+ACTOR DeadGuard
 {
 	Scale 1.1
 	States
@@ -1382,7 +1367,7 @@ ACTOR DeadGuard replaces DeadZombieMan
 	}
 }
 
-ACTOR DeadMP40Guard : DeadGuard replaces DeadShotgunGuy
+ACTOR DeadMP40Guard : DeadGuard
 {
 	States
 	{
@@ -1395,7 +1380,7 @@ ACTOR DeadMP40Guard : DeadGuard replaces DeadShotgunGuy
 	}
 }
 
-ACTOR DeadOfficer : DeadGuard replaces DeadDoomImp
+ACTOR DeadOfficer : DeadGuard
 {
 	States
 	{
@@ -1408,7 +1393,7 @@ ACTOR DeadOfficer : DeadGuard replaces DeadDoomImp
 	}
 }
 
-ACTOR DeadDog replaces DeadDemon
+ACTOR DeadDog
 {
 	States
 	{
@@ -1421,7 +1406,7 @@ ACTOR DeadDog replaces DeadDemon
 	}
 }
 
-ACTOR DeadHitlerGhost replaces DeadCacodemon
+ACTOR DeadHitlerGhost
 {
 	Scale 1.2
 	States
@@ -1431,31 +1416,3 @@ ACTOR DeadHitlerGhost replaces DeadCacodemon
 		Stop
 	}
 }
-
-ACTOR StealthArachnotronSpawner : RandomSpawner replaces StealthArachnotron
-{
-	DropItem FlamerMan
-}
-ACTOR StealthArchvileSpawner : RandomSpawner replaces StealthArchvile
-{
-	DropItem General
-}
-ACTOR StealthBaronSpawner : RandomSpawner replaces StealthBaron
-{
-	DropItem SuperSoldierElite
-}
-ACTOR StealthHellKnightSpawner : SuperSoldierSpawner replaces StealthHellKnight{}
-ACTOR StealthCacodemonSpawner : RandomSpawner replaces StealthCacodemon
-{
-	DropItem HitlerGhost
-}
-ACTOR StealthDemonSpawner : DogSpawner replaces StealthDemon{}
-ACTOR StealthChaingunGuySpawner : RiflemanSpawner replaces StealthChaingunGuy{}
-ACTOR StealthDoomImpSpawner : OfficerSpawner replaces StealthDoomImp{}
-ACTOR StealthFatsoSpawner : RandomSpawner replaces StealthFatso
-{
-	DropItem ChairGuy
-}
-ACTOR StealthRevenantSpawner : RevenantSpawner replaces StealthRevenant{}
-ACTOR StealthShotgunGuySpawner : MP40GuardSpawner replaces StealthShotgunGuy{}
-ACTOR StealthZombieManSpawner : GuardSpawner replaces StealthZombieMan{}

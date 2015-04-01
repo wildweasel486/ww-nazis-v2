@@ -1,6 +1,6 @@
-actor NebRocket
+ACTOR NebRocket
 {
-	scale 0.5
+	Scale 0.5
 	Radius 11
 	Height 8
 	Speed 35
@@ -9,17 +9,45 @@ actor NebRocket
 	+RANDOMIZE
 	+FORCERADIUSDMG
 	DeathSound "weapons/nebxpl"
-	MissileHeight 0
 	Decal Scorch
 	States
 	{
 	Spawn:
-		MNSS A 1 bright A_CustomMissile("RocketFlameSpawner",0,0,0,5)
+		MNSS A 1 BRIGHT A_SpawnItemEx("RocketFlame",random(-1,1),0,random(-1,1))
 		loop
 	Death:
-		FRME A 1 bright A_Explode(64,56)
-		FRME BCDEFGHIHJKLMNOPQRS 1 bright
+		FRME A 1 BRIGHT A_Explode(64,56)
+		FRME BCDEFGHIHJKLMNOPQRS 1 BRIGHT
 		stop
+	}
+}
+
+ACTOR RocketFlame
+{
+	Projectile
+	+NOCLIP
+	Scale 0.15
+	Alpha 0.5
+	Renderstyle Add
+	States
+	{
+	Spawn:
+		TNT1 A 1
+		XPLO AB 2 BRIGHT
+		XPLO C 2 BRIGHT A_SpawnItemEx("RPG8RocketTrail",random(-1,1),0,1)
+		Stop
+	}
+}
+
+ACTOR RPG8RocketTrail : RocketFlame
+{
+	Scale 0.18
+	Alpha 0.6
+	States
+	{
+	Spawn:
+		SMOK ABCDEFGHIJKLMNOPQ 1
+		Stop
 	}
 }
 
@@ -66,7 +94,7 @@ actor Nebelwerfer : NaziWeapon
 	}
 }
 
-ACTOR NebAmmo : Ammo replaces CellPack
+ACTOR NebAmmo : Ammo
 {
 	Tag "Mini-rocket"
 	Inventory.PickupMessage "Picked up a crate of mini-rockets."
@@ -95,50 +123,6 @@ ACTOR NebAmmoSmall : NebAmmo
 	}
 }
 
-ACTOR RocketFlameSpawner
-{
-	Projectile
-	+NOCLIP
-	States
-	{
-	Spawn:
-		TNT1 A 1
-		TNT1 A 1 A_CustomMissile("RocketFlame",random(-1,1),random(-1,1))
-		Stop
-	}
-}
-
-ACTOR RocketFlame : RocketFlameSpawner
-{
-	Scale 0.15
-	Alpha 0.5
-	Renderstyle Add
-	States
-	{
-	Spawn:
-		XPLO AB 2 BRIGHT
-		XPLO C 2 BRIGHT A_CustomMissile("RPG8RocketTrail",1,random(-1,1))
-		Stop
-	}
-}
-
-ACTOR RPG8RocketTrail
-{
-	Projectile
-	Height 1
-	Radius 1
-	Scale 0.18
-	Alpha 0.6
-	Renderstyle Add
-	States
-	{
-	Spawn:
-		SMOK ABCDEFGHIJKLMNOP 1
-		SMOK Q 1 A_FadeOut
-		Stop
-	}
-}
-
 ACTOR NebelwerferSpawner
 {
 	States
@@ -158,7 +142,7 @@ ACTOR NebelwerferPickup : NaziWeaponPickup
 		NEBL A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",18)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",19)
 		Stop
 	}
 }

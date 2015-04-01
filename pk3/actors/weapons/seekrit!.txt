@@ -9,7 +9,6 @@ ACTOR Firebrand : NaziWeapon
 	Weapon.Kickback 10
 	Weapon.SisterWeapon FlameSword
 	Inventory.PickupMessage "Mad Jack Churchill now considers you properly dressed! (slot 1)"
-	//Obituary "%o was killed by %k."
 	Inventory.PickupSound "weapons/sworddraw"
 	Weapon.UpSound "weapons/sworddraw"
 	+NOAUTOFIRE
@@ -152,6 +151,7 @@ ACTOR FirebrandFireball
 	RenderStyle Add
 	DeathSound "world/barrelboom"
 	DamageType Fire
+	//Obituary "%o was killed by %k."
 	States
 	{
 	Spawn:
@@ -183,6 +183,7 @@ ACTOR SwordPuff
 	+PUFFONACTORS
 	AttackSound "weapons/swordwall"
 	SeeSound "weapons/swordhit"
+	//Obituary "%o was killed by %k."
 	States
 	{
 	Spawn:
@@ -241,7 +242,7 @@ ACTOR FirebrandPickup : NaziWeaponPickup
 		SRDP A -1 BRIGHT
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",1)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",2)
 		Stop
 	}
 }

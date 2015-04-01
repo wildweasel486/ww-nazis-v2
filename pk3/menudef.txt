@@ -145,6 +145,7 @@ OptionMenu "NazisOptions"
 	Slider "Weapon Recoil Multiplier","recoilamount",0,20,1
 	StaticText ""
 	Option "Taunt Pack","tauntpack","tauntpack"
+	Option "Enemies","monstertype","monstertype"
 }
 
 OptionValue "tauntpack"
@@ -156,4 +157,9 @@ OptionValue "tauntpack"
 	4,"SoulMan"
 	5,"Team Fortress 2 Spy"
 	6,"Custom"
+}
+OptionValue "monstertype"
+{
+	0,"IWAD Default"
+	1,"Nazis"
 }

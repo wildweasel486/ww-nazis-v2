@@ -1,3 +1,10 @@
+ACTOR RifleSpawner : RandomSpawner
+{
+	DropItem G43Spawner
+	DropItem Kar98kSpawner
+}
+
+//Doom
 ACTOR ClipSpawner : RandomSpawner replaces Clip
 {
 	DropItem RevolverClip
@@ -8,19 +15,37 @@ ACTOR ClipSpawner : RandomSpawner replaces Clip
 	DropItem WeaselsRevolverSpawner
 	DropItem M1911Spawner
 }
-
+ACTOR ClipBoxSpawner : RandomSpawner replaces ClipBox
+{
+	DropItem MPClip
+}
 ACTOR ShellSpawner : RandomSpawner replaces Shell
 {
 	DropItem NewShell
 	DropItem MauserAmmoSmall
 	DropItem MauserAmmoSmall
 }
-
 ACTOR ShellBoxSpawner : RandomSpawner replaces ShellBox
 {
 	DropItem NewShellBox
 	DropItem MauserAmmo
 	DropItem MauserAmmo
+}
+ACTOR RocketAmmoSpawner : RandomSpawner replaces RocketAmmo
+{
+	DropItem GrenadePickup
+}
+ACTOR RocketBoxSpawner : RandomSpawner replaces RocketBox
+{
+	DropItem FlameAmmo
+}
+ACTOR CellSpawner : RandomSpawner replaces Cell
+{
+	DropItem STGClip
+}
+ACTOR CellPackSpawner : RandomSpawner replaces CellPack
+{
+	DropItem NebAmmo
 }
 
 ACTOR ChainsawSpawner : RandomSpawner replaces Chainsaw
@@ -28,15 +53,157 @@ ACTOR ChainsawSpawner : RandomSpawner replaces Chainsaw
 	DropItem EnfieldSpawner
 	DropItem GarandSpawner
 }
-
 ACTOR PistolSpawner : RandomSpawner replaces Pistol
 {
 	DropItem WeaselsRevolverSpawner
 	DropItem M1911Spawner
 }
+ACTOR ShotgunSpawner : RandomSpawner replaces Shotgun
+{
+	DropItem TrenchShotgunSpawner
+	DropItem M1911Spawner
+}
+ACTOR SuperShotgunSpawner : RandomSpawner replaces SuperShotgun
+{
+	DropItem Browning5Spawner
+}
+ACTOR ChaingunSpawner : RandomSpawner replaces Chaingun
+{
+	DropItem ThompsonSpawner
+}
+ACTOR RocketLauncherSpawner : RandomSpawner replaces RocketLauncher
+{
+	DropItem PyrolightSpawner
+}
+ACTOR PlasmaRifleSpawner : RandomSpawner replaces PlasmaRifle
+{
+	DropItem PPSH41Spawner
+}
+ACTOR BFG9000Spawner : RandomSpawner replaces BFG9000
+{
+	DropItem PanzerSpawner
+}
 
-ACTOR RifleSpawner : RandomSpawner
+//Heretic
+ACTOR GoldWandAmmoSpawner : RandomSpawner replaces GoldWandAmmo
+{
+	DropItem WeaselsRevolverSpawner
+	DropItem Luger9mmSpawner
+	DropItem Walther9mmSpawner
+}
+ACTOR GoldWandHeftySpawner : ClipBoxSpawner replaces GoldWandHefty{}
+ACTOR CrossbowAmmoSpawner : ShellSpawner replaces CrossbowAmmo{}
+ACTOR CrossbowHeftySpawner : ShellBoxSpawner replaces CrossbowHefty{}
+ACTOR BlasterAmmoSpawner : RandomSpawner replaces BlasterAmmo
+{
+	DropItem MPClip
+	DropItem PPSHClip
+	DropItem 45ACPAmmo
+}
+ACTOR BlasterHeftySpawner : RandomSpawner replaces BlasterHefty
+{
+	DropItem STGClip
+	DropItem MauserAmmo
+	DropItem MPClip
+}
+ACTOR PhoenixRodAmmoSpawner : RocketBoxSpawner replaces PhoenixRodAmmo{}
+ACTOR PhoenixRodHeftySpawner : RocketBoxSpawner replaces PhoenixRodHefty{}
+ACTOR SkullRodAmmoSpawner : CellSpawner replaces SkullRodAmmo{}
+ACTOR SkullRodHeftySpawner : CellPackSpawner replaces SkullRodHefty{}
+ACTOR MaceAmmoSpawner : RocketBoxSpawner replaces MaceAmmo{}
+ACTOR MaceHeftySpawner : CellPackSpawner replaces MaceHefty{}
+
+ACTOR GauntletsSpawner : RandomSpawner replaces Gauntlets
 {
 	DropItem G43Spawner
 	DropItem Kar98kSpawner
+	DropItem EnfieldSpawner
+	DropItem GarandSpawner
+	DropItem FirebrandPickup
 }
+ACTOR CrossbowSpawner : RandomSpawner replaces Crossbow
+{
+	DropItem TrenchShotgunSpawner
+	DropItem Browning5Spawner
+}
+ACTOR BlasterSpawner : RandomSpawner replaces Blaster
+{
+	DropItem MP40Spawner
+	DropItem PPSHSpawner
+	DropItem ThompsonSpawner
+}
+ACTOR PhoenixRodSpawner : RandomSpawner replaces PhoenixRod
+{
+	DropItem PyrolightSpawner
+	DropItem FG42Spawner
+	DropItem STG44Spawner
+}
+ACTOR SkullRodSpawner : RandomSpawner replaces SkullRod
+{
+	DropItem NebelwerferSpawner
+}
+ACTOR FiremaceSpawner : RandomSpawner replaces Mace
+{
+	DropItem UMG43Spawner
+}
+
+ACTOR ArtiTimebombSpawner : RocketAmmoSpawner replaces ArtiTimebomb{}
+
+//Chex Quest
+ACTOR MiniZorchRechargeSpawner : GoldWandAmmoSpawner replaces MiniZorchRecharge{}
+ACTOR MiniZorchPackSpawner : ClipBoxSpawner replaces MiniZorchPack{}
+ACTOR LargeZorchRechargeSpawner : ShellSpawner replaces LargeZorchRecharge{}
+ACTOR LargeZorchPackSpawner : ShellBoxSpawner replaces LargeZorchPack{}
+ACTOR PropulsorZorchSpawner : RocketAmmoSpawner replaces PropulsorZorch{}
+ACTOR PropulsorZorchPackSpawner : RocketBoxSpawner replaces PropulsorZorchPack{}
+ACTOR PhasingZorchSpawner : CellSpawner replaces PhasingZorch{}
+ACTOR PhasingZorchPackSpawner : CellPackSpawner replaces PhasingZorchPack{}
+
+ACTOR SuperBootsporkSpawner : GauntletsSpawner replaces SuperBootspork{}
+ACTOR LargeZorcherSpawner : CrossbowSpawner replaces LargeZorcher{}
+ACTOR RapidZorcherSpawner : RandomSpawner replaces RapidZorcher
+{
+	DropItem MP40Spawner
+	DropItem ThompsonSpawner
+}
+ACTOR ZorchPropulsorSpawner : PyrolightSpawner replaces ZorchPropulsor{}
+ACTOR PhasingZorcherSpawner : RandomSpawner replaces PhasingZorcher
+{
+	DropItem PPSHSpawner
+	DropItem StG44Spawner
+	DropItem FG42Spawner
+}
+ACTOR LAZDeviceSpawner : RandomSpawner replaces LAZDevice
+{
+	DropItem UMG43Spawner
+	DropItem NebelWerferSpawner
+}
+
+//Strife
+ACTOR ClipOfBulletsSpawner : GoldWandAmmoSpawner replaces ClipOfBullets{}
+ACTOR SRifleAmmo : RandomSpawner replaces BoxOfBullets
+{
+	DropItem MauserAmmo
+}
+ACTOR PoisonBoltsSpawner : ShellSpawner replaces PoisonBolts{}
+ACTOR ElectricBoltsSpawner : ClipSpawner replaces ElectricBolts{}
+ACTOR MiniMissilesSpawner : RocketAmmoSpawner replaces MiniMissiles{}
+//ACTOR CrateOfMissilesSpawner : RandomSpawner replaces CrateOfMissiles{}
+//	ConversationID 182
+ACTOR HEGrenadeRoundsSpawner : CellPackSpawner replaces HEGrenadeRounds{}
+ACTOR PhosphorusGrenadeRoundsSpawner : RocketBoxSpawner replaces PhosphorusGrenadeRounds{}
+ACTOR EnergyPodSpawner : CellSpawner replaces EnergyPod{}
+ACTOR EnergyPackSpawner : CellSpawner replaces EnergyPack{}
+
+ACTOR StrifeCrossbowSpawner : RifleSpawner replaces StrifeCrossbow{}
+ACTOR AssaultGunSpawner : RandomSpawner replaces AssaultGun
+{
+	DropItem MP40Spawner
+	DropItem STG44Spawner
+}
+ACTOR AssaultGunStandingSpawner : AssaultGunSpawner replaces AssaultGunStanding{}
+//ACTOR MiniMissileLauncherSpawner : RandomSpawner replaces MiniMissileLauncher{}
+//	ConversationID 192
+ACTOR StrifeGrenadeLauncherSpawner : SkullRodSpawner replaces StrifeGrenadeLauncher{}
+ACTOR FlameThrowerSpawner : RocketLauncherSpawner replaces FlameThrower{}
+ACTOR SUMG43Spawner : FiremaceSpawner replaces Mauler{}

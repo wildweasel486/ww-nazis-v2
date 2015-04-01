@@ -1,10 +1,9 @@
 ACTOR Tracer : FastProjectile
 {
-	Alpha 0.90
+	Alpha .90
 	RenderStyle Add
 	Radius 2
 	Height 2
-	Speed 75
 	PROJECTILE
 	+BLOODSPLATTER
 	Scale 0.4
@@ -91,9 +90,13 @@ ACTOR RevolverTracer : Tracer
 {
 	Damage (random(22,34))
 	Speed 90
+	Obituary "%o was breached by %k's revolver."
 }
 
-ACTOR 1911Tracer : RevolverTracer{}
+ACTOR 1911Tracer : RevolverTracer
+{
+	Obituary "%o was executed by %k's M1911."
+}
 
 ACTOR SMGTracer : Tracer
 {
@@ -122,6 +125,7 @@ ACTOR RifleTracer : Tracer
 ACTOR Kar98kTracer : RifleTracer
 {
 	Speed 180
+	Obituary "%o was gunned down by %k's Mauser."
 }
 
 ACTOR EnfieldTracer : Tracer
@@ -147,6 +151,7 @@ ACTOR StGTracer : Tracer
 ACTOR ShotgunTracer : Tracer
 {
 	Damage (random(5,15))
+	Speed 75
 	States
 	{
 	Death:
@@ -154,6 +159,11 @@ ACTOR ShotgunTracer : Tracer
 		PUFF BCD 3 BRIGHT
 		Stop
 	}
+}
+
+ACTOR AutoShotgunTracer : ShotgunTracer
+{
+	Obituary "%o was peppered by %k's auto shotgun."
 }
 
 ACTOR ChaingunTracer : Tracer
@@ -246,6 +256,7 @@ ACTOR STGCasing : MauserRifleCasing{}
 // Enemy tracer variants for Normal mode.
 ACTOR EnemyTracer : Tracer
 {
+	Speed 75
 	+SEEKERMISSILE
 	States
 	{

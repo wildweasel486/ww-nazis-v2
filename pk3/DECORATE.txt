@@ -7,6 +7,7 @@ ACTOR NaziWeapon : Weapon
 	+WEAPON.AMMO_CHECKBOTH
 	+WEAPON.NOALERT
 	+INVENTORY.UNTOSSABLE
+	+WEAPON.CHEATNOTWEAPON
 	States
 	{
 	Dryfire:
@@ -23,6 +24,7 @@ ACTOR NaziWeaponPickup : CustomInventory
 }
 
 #include "actors/weapons/shovel.txt"
+#include "actors/weapons/duster.txt"
 #include "actors/weapons/revolver.txt"
 #include "actors/weapons/P38.txt"
 #include "actors/weapons/Luger.txt"
@@ -44,9 +46,7 @@ ACTOR NaziWeaponPickup : CustomInventory
 #include "actors/bullets.txt"
 #include "actors/items.txt"
 #include "actors/nazis.txt"
-#include "actors/nazis2.txt"
-#include "actors/nazis3.txt"
-#include "actors/nazis4.txt"
+#include "actors/nazispawners.txt"
 #include "actors/weapons/seekrit!.txt"
 #include "actors/weapons/Kar98k.txt"
 #include "actors/weapons/1911.txt"
@@ -55,7 +55,7 @@ ACTOR NaziWeaponPickup : CustomInventory
 ACTOR WWNazisPlayer : DoomPlayer
 {
 	Player.InvulnerabilityMode "reflective"
-	Player.WeaponSlot 1,Shovel,Firebrand
+	Player.WeaponSlot 1,Shovel,KnuckleDuster,Firebrand
 	Player.WeaponSlot 2,Luger9mm,Walther9mm,WeaselsRevolver,M1911
 	Player.WeaponSlot 3,TrenchShotgun,Browning5,MP40,PPSH41,Thompson
 	Player.WeaponSlot 4,Kar98k,G43,Enfield,Garand,STG44,FG42
@@ -102,6 +102,18 @@ ACTOR WWNazisPlayer : DoomPlayer
 		Stop
 	}
 }
+
+ACTOR DeadPlayer replaces DeadMarine
+{
+	States
+	{
+	Spawn:
+		WEAS L -1
+		Stop
+	}
+}
+ACTOR DeadPlayer2 : DeadPlayer replaces GibbedMarine{}
+ACTOR DeadPlayer3 : DeadPlayer replaces GibbedMarineExtra{}
 
 ACTOR BarrelSpawner : RandomSpawner replaces ExplosiveBarrel
 {
@@ -168,8 +180,6 @@ ACTOR StartCheck : Inventory
 {
 	Inventory.InterHubAmount 0
 }
-ACTOR ShovelStartCheck : StartCheck{}
-ACTOR FirebrandStartCheck : StartCheck{}
 ACTOR Luger9mmStartCheck : StartCheck{}
 ACTOR Walther9mmStartCheck : StartCheck{}
 ACTOR WeaselsRevolverStartCheck : StartCheck{}
@@ -186,12 +196,21 @@ ACTOR GarandStartCheck : StartCheck{}
 ACTOR STG44StartCheck : StartCheck{}
 ACTOR FG42StartCheck : StartCheck{}
 ACTOR PyrolightStartCheck : StartCheck{}
-ACTOR NebelwerferStartCheck : StartCheck{}
 ACTOR PanzerschreckStartCheck : StartCheck{}
-ACTOR UMG43StartCheck : StartCheck{}
 ACTOR IJustTraded : PowerUp
 {
 	PowerUp.Duration 35
 }
 
-ACTOR ICheated : Weapon{}
+ACTOR ICheated : Weapon
+{
+	States
+	{
+	Ready:
+	Deselect:
+	Select:
+	Fire:
+		TNT1 A -1
+		Stop
+	}
+}

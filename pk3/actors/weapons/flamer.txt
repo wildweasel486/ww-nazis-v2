@@ -6,13 +6,13 @@ ACTOR PyrolightLoaded : Ammo
 	Inventory.Icon FLMTA0
 }
 
-ACTOR FlameAmmo : Ammo replaces RocketBox
+ACTOR FlameAmmo : Ammo
 {
 	Tag "Petrol"
 	Inventory.PickupMessage "A petrol canister."
-	Inventory.Amount 40
+	Inventory.Amount 25
 	Inventory.MaxAmount 175
-	Ammo.BackpackAmount 10
+	Ammo.BackpackAmount 25
 	Ammo.BackpackMaxAmount 350
 	Scale .5
 	ConversationID 178
@@ -32,11 +32,13 @@ ACTOR Flamebolt
 	Speed 25
 	Radius 16
 	Scale .1
-	PROJECTILE
-	+Ripper
+	Projectile
+	+RIPPER
+	+BLOODLESSIMPACT
 	SeeSound "weapons/flamer"
 	DamageType Fire
 	Decal Scorch
+	Obituary "%o was burninated by %k."
 	States
 	{
 	Spawn:
@@ -77,7 +79,6 @@ ACTOR Pyrolight : NaziWeapon
 {
 	Weapon.SelectionOrder 800
 	Inventory.PickupMessage "You got the Pyrolight! (slot 7)"
-	Obituary "%o was burninated by %k."
 	Weapon.Kickback 20
 	Weapon.AmmoType1 "PyrolightLoaded"
 	Weapon.AmmoType2 "FlameAmmo"
@@ -169,11 +170,11 @@ ACTOR Pyrolight : NaziWeapon
 		FFTR B 1 Offset(-3,53)
 		FFTR B 1 Offset(-3,55)
 		FFTR B 1 Offset(-3,56)
-	ReloadWork:
+	ReloadLoop:
 		FFTR B 0 A_TakeInventory("FlameAmmo",1,TIF_NOTAKEINFINITE)
 		FFTR B 0 A_GiveInventory("PyrolightLoaded")
-		FFTR B 0 A_JumpIfInventory("PyrolightLoaded",50,"ReloadFinish")
-		FFTR B 0 A_JumpIfInventory("FlameAmmo",1,"ReloadWork")
+		FFTR B 0 A_JumpIfInventory("PyrolightLoaded",0,"ReloadFinish")
+		FFTR B 0 A_JumpIfInventory("FlameAmmo",1,"ReloadLoop")
 	ReloadFinish:
 		FFTR B 1 Offset(-3,57)
 		FFTR B 1 Offset(-3,59)
@@ -245,7 +246,7 @@ ACTOR Pyrolight : NaziWeapon
 	}
 }
 
-ACTOR PyrolightSpawner replaces RocketLauncher
+ACTOR PyrolightSpawner
 {
 	States
 	{
@@ -265,7 +266,7 @@ ACTOR PyrolightPickup : NaziWeaponPickup
 		FLMT A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",17)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",18)
 		Stop
 	}
 }

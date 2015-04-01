@@ -1,4 +1,4 @@
-ACTOR STGClip : Ammo replaces Cell
+ACTOR STGClip : Ammo
 {
 	Tag "7.92x33mm"
 	Inventory.Amount 15
@@ -27,7 +27,6 @@ Actor STG44 : NaziWeapon
 {
 	Weapon.SelectionOrder 700
 	inventory.pickupmessage "You got the Sturmgewehr 44! (slot 6)"
-	//Obituary "%o was killed by %k."
 	weapon.kickback 100
 	Weapon.AmmoType "STG44Loaded"
 	Weapon.AmmoUse1 1
@@ -79,7 +78,7 @@ Actor STG44 : NaziWeapon
 	ReloadLoop:
 		TNT1 A 0 A_TakeInventory("STGClip",1,TIF_NOTAKEINFINITE)
 		TNT1 A 0 A_GiveInventory("STG44Loaded")
-		TNT1 A 0 A_JumpIfInventory("STG44Loaded",30,"ReloadFinish")
+		TNT1 A 0 A_JumpIfInventory("STG44Loaded",0,"ReloadFinish")
 		TNT1 A 0 A_JumpIfInventory("STGClip",1,"ReloadLoop")
 	ReloadFinish:
 		STGG A 1 Offset(-10,58)
@@ -130,7 +129,7 @@ ACTOR STG44Pickup : NaziWeaponPickup
 		STGI A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",15)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",16)
 		Stop
 	}
 }

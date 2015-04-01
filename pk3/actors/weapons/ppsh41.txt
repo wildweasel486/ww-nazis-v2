@@ -9,7 +9,6 @@ ACTOR PPSH41 : NaziWeapon
 	weapon.ammouse2 1
 	Tag "PPSh-41"
 	Inventory.PickupMessage "You got the PPSh-41! (slot 4)"
-	//Obituary "%o was killed by %k."
 	States
 	{
 	Ready:
@@ -84,7 +83,7 @@ ACTOR PPSH41 : NaziWeapon
 	ReloadLoop:
 		TNT1 A 0 A_TakeInventory("PPSHClip",1,TIF_NOTAKEINFINITE)
 		TNT1 A 0 A_GiveInventory("PPSH41Loaded")
-		TNT1 A 0 A_JumpIfInventory("PPSH41Loaded",71,"ReloadFinish")
+		TNT1 A 0 A_JumpIfInventory("PPSH41Loaded",0,"ReloadFinish")
 		TNT1 A 0 A_JumpIfInventory("PPSHClip",1,"ReloadLoop")
 	ReloadFinish:
 		PPSG B 1 Offset(-3,57)
@@ -144,7 +143,7 @@ ACTOR PPSH41Loaded : Ammo
 	Inventory.Icon PPSHA0
 }
 
-ACTOR PPSH41Spawner replaces PlasmaRifle
+ACTOR PPSH41Spawner
 {
 	States
 	{
@@ -164,7 +163,7 @@ ACTOR PPSH41Pickup : NaziWeaponPickup
 		PPSH A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",9)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",10)
 		Stop
 	}
 }

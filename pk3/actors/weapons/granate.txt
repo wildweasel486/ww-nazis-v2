@@ -1,4 +1,4 @@
-ACTOR GrenadePickup : CustomInventory replaces RocketAmmo
+ACTOR GrenadePickup : CustomInventory
 {
 	inventory.pickupmessage "Picked up a grenade."
 	Tag "Frag Grenade"

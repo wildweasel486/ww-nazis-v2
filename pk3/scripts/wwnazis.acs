@@ -13,6 +13,10 @@ Script "RecoilAmount"(void)
 {
 	SetResultValue(GetCVar("recoilamount"));
 }
+Script "MonsterType"(void)
+{
+	SetResultValue(GetCVar("monstertype"));
+}
 str taunts[18]=
 {
 	"allcaps/taunt","allcaps/reload","allcaps/grenadecall",
@@ -82,17 +86,17 @@ script "WWNaziSkillCheck" (void)
 {
 	SetResultValue(GameSkill());
 }
-str weapons[21]=
+str weapons[22]=
 {
-	"Shovel","Firebrand","Luger9mm","Walther9mm","WeaselsRevolver",
+	"Shovel","KnuckleDusters","Firebrand","Luger9mm","Walther9mm","WeaselsRevolver",
 	"M1911","TrenchShotgun","Browning5","MP40","PPSH41",
 	"Thompson","Kar98k","G43","Enfield","Garand",
 	"STG44","FG42","Pyrolight","Nebelwerfer","Panzerschreck",
 	"UMG43"
 };
-str weaponsfancy[21]=
+str weaponsfancy[22]=
 {
-	"Shovel","Firebrand","Luger P08","Walther P38",".357 Revolver",
+	"Shovel","Knuckle Dusters","Firebrand","Luger P08","Walther P38",".357 Revolver",
 	"Colt M1911","M1897 Trenchgun","Browning Auto-5","MP 40","PPSh-41",
 	"Thompson M1A1","Karabiner 98k","Gewehr 43","Lee-Enfield SMLE","M1 Garand",
 	"Sturmgewehr 44","FG 42","PyroLight","Klein Nebelwerfer","Panzerschreck",
@@ -100,9 +104,9 @@ str weaponsfancy[21]=
 };
 script "WWNaziStartingInventoryCheck" ENTER
 {
-	for(int i=0;i<=20;i++)
+	for(int i=3;i<=20;i++)
 	{
-		if(CheckInventory(weapons[i]))
+		if(i!=19&&CheckInventory(weapons[i]))
 			GiveInventory(StrParam(s:weapons[i],s:"StartCheck"),1);
 	}
 }
@@ -114,11 +118,8 @@ script "WWNaziCheatCheck" ENTER
 	{
 		TakeInventory("ICheated",1);
 		GiveInventory("IJustTraded",1);
-		for(int i=2;i<=20;i++)
-		{
-			TakeInventory(weapons[i],1);
+		for(int i=3;i<=21;i++)
 			DropItem(0,StrParam(s:weapons[i],s:"Pickup"));
-		}
 		hudmessage(s:"Weapons! Take your pick!!";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
 	}
 	Delay(1);
@@ -132,30 +133,30 @@ script "WWNaziWeaponCollect"(int weapon)
 		terminate;
 	}
 	int load,i,currentweapon,min,max;
-	if(weapon<=1)//Melee
+	if(weapon<=2)//Melee
 	{
 		min=0;
-		max=1;
+		max=2;
 	}
-	else if(weapon>=2&&weapon<=5)//Pistol
+	else if(weapon>=3&&weapon<=6)//Pistol
 	{
-		min=2;
-		max=5;
+		min=3;
+		max=6;
 	}
-	else if(weapon>=6&&weapon<=10)//Shotgun/SMG
+	else if(weapon>=7&&weapon<=11)//Shotgun/SMG
 	{
-		min=6;
-		max=10;
+		min=7;
+		max=11;
 	}
-	else if(weapon>=11&&weapon<=16)//Rifle/Machinegun
+	else if(weapon>=12&&weapon<=17)//Rifle/Machinegun
 	{
-		min=11;
-		max=16;
+		min=12;
+		max=17;
 	}
-	else if(weapon>=17)//Heavy
+	else if(weapon>=18)//Heavy
 	{
-		min=17;
-		max=20;
+		min=18;
+		max=21;
 	}
 	for(i=min;i<=max;i++)
 	{
@@ -169,10 +170,8 @@ script "WWNaziWeaponCollect"(int weapon)
 		else
 		{
 			hudmessage(s:"Tap <",k:"+zoom",s:"> to trade the ",s:weaponsfancy[currentweapon],s:" for the ",s:weaponsfancy[weapon],s:".";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
-			//hudmessage(s:"Tap <",k:"+use",s:"> to trade the ",s:weaponsfancy[currentweapon],s:" for the ",s:weaponsfancy[weapon],s:".";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
 			int buttons = GetPlayerInput(-1,INPUT_BUTTONS);
 			if(buttons & BT_ZOOM)
-			//if(buttons & BT_USE)
 			{
 				GiveInventory("IJustTraded",1);
 				giveweapon(weapon);
@@ -205,10 +204,12 @@ function void giveweapon(int weapon)
 	GiveInventory(weapons[weapon],1);
 	if(!GetCVAR("neverswitchonpickup"))
 		SetWeapon(weapons[weapon]);
-	if(!CheckInventory(StrParam(s:weapons[weapon],s:"StartCheck")))
+	if(weapon>=3&&weapon!=19&&weapon!=21)
 	{
-		GiveInventory(StrParam(s:weapons[weapon],s:"StartCheck"),1);
-		if(weapon!=0&&weapon!=1&&weapon!=18&&weapon!=20)
+		if(!CheckInventory(StrParam(s:weapons[weapon],s:"StartCheck")))
+		{
+			GiveInventory(StrParam(s:weapons[weapon],s:"StartCheck"),1);
 			GiveInventory(StrParam(s:weapons[weapon],s:"Loaded"),999);
+		}
 	}
 }
