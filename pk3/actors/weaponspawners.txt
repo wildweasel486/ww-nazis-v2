@@ -52,6 +52,7 @@ ACTOR ChainsawSpawner : RandomSpawner replaces Chainsaw
 {
 	DropItem EnfieldSpawner
 	DropItem GarandSpawner
+	DropItem KnuckleDustersPickup
 }
 ACTOR PistolSpawner : RandomSpawner replaces Pistol
 {
@@ -61,7 +62,6 @@ ACTOR PistolSpawner : RandomSpawner replaces Pistol
 ACTOR ShotgunSpawner : RandomSpawner replaces Shotgun
 {
 	DropItem TrenchShotgunSpawner
-	DropItem M1911Spawner
 }
 ACTOR SuperShotgunSpawner : RandomSpawner replaces SuperShotgun
 {
@@ -96,21 +96,29 @@ ACTOR CrossbowAmmoSpawner : ShellSpawner replaces CrossbowAmmo{}
 ACTOR CrossbowHeftySpawner : ShellBoxSpawner replaces CrossbowHefty{}
 ACTOR BlasterAmmoSpawner : RandomSpawner replaces BlasterAmmo
 {
-	DropItem MPClip
-	DropItem PPSHClip
+	DropItem MPMagazine
 	DropItem 45ACPAmmo
 }
 ACTOR BlasterHeftySpawner : RandomSpawner replaces BlasterHefty
 {
+	DropItem MPClip
+	DropItem 45ACPAmmo
+}
+ACTOR PhoenixRodAmmoSpawner : RocketAmmoSpawner replaces PhoenixRodAmmo{}
+ACTOR PhoenixRodHeftySpawner : RocketBoxSpawner replaces PhoenixRodHefty{}
+ACTOR SkullRodAmmoSpawner : RandomSpawner replaces SkullRodAmmo
+{
+	DropItem STGClip
+	DropItem MauserAmmoSmall
+	DropItem PPSHClip
+}
+ACTOR SkullRodHeftySpawner : RandomSpawner replaces SkullRodHefty
+{
 	DropItem STGClip
 	DropItem MauserAmmo
-	DropItem MPClip
+	DropItem PPSHClip
 }
-ACTOR PhoenixRodAmmoSpawner : RocketBoxSpawner replaces PhoenixRodAmmo{}
-ACTOR PhoenixRodHeftySpawner : RocketBoxSpawner replaces PhoenixRodHefty{}
-ACTOR SkullRodAmmoSpawner : CellSpawner replaces SkullRodAmmo{}
-ACTOR SkullRodHeftySpawner : CellPackSpawner replaces SkullRodHefty{}
-ACTOR MaceAmmoSpawner : RocketBoxSpawner replaces MaceAmmo{}
+ACTOR MaceAmmoSpawner : CellPackSpawner replaces MaceAmmo{}
 ACTOR MaceHeftySpawner : CellPackSpawner replaces MaceHefty{}
 
 ACTOR GauntletsSpawner : RandomSpawner replaces Gauntlets
@@ -120,6 +128,7 @@ ACTOR GauntletsSpawner : RandomSpawner replaces Gauntlets
 	DropItem EnfieldSpawner
 	DropItem GarandSpawner
 	DropItem FirebrandPickup
+	DropItem KnuckleDustersPickup
 }
 ACTOR CrossbowSpawner : RandomSpawner replaces Crossbow
 {
@@ -129,22 +138,19 @@ ACTOR CrossbowSpawner : RandomSpawner replaces Crossbow
 ACTOR BlasterSpawner : RandomSpawner replaces Blaster
 {
 	DropItem MP40Spawner
-	DropItem PPSHSpawner
 	DropItem ThompsonSpawner
 }
-ACTOR PhoenixRodSpawner : RandomSpawner replaces PhoenixRod
-{
-	DropItem PyrolightSpawner
-	DropItem FG42Spawner
-	DropItem STG44Spawner
-}
+ACTOR PhoenixRodSpawner : RocketLauncherSpawner replaces PhoenixRod{}
 ACTOR SkullRodSpawner : RandomSpawner replaces SkullRod
 {
-	DropItem NebelwerferSpawner
+	DropItem PPSHSpawner
+	DropItem FG42Spawner
+	DropItem STG44Spawner
 }
 ACTOR FiremaceSpawner : RandomSpawner replaces Mace
 {
 	DropItem UMG43Spawner
+	DropItem NebelwerferSpawner
 }
 
 ACTOR ArtiTimebombSpawner : RocketAmmoSpawner replaces ArtiTimebomb{}
@@ -161,23 +167,10 @@ ACTOR PhasingZorchPackSpawner : CellPackSpawner replaces PhasingZorchPack{}
 
 ACTOR SuperBootsporkSpawner : GauntletsSpawner replaces SuperBootspork{}
 ACTOR LargeZorcherSpawner : CrossbowSpawner replaces LargeZorcher{}
-ACTOR RapidZorcherSpawner : RandomSpawner replaces RapidZorcher
-{
-	DropItem MP40Spawner
-	DropItem ThompsonSpawner
-}
-ACTOR ZorchPropulsorSpawner : PyrolightSpawner replaces ZorchPropulsor{}
-ACTOR PhasingZorcherSpawner : RandomSpawner replaces PhasingZorcher
-{
-	DropItem PPSHSpawner
-	DropItem StG44Spawner
-	DropItem FG42Spawner
-}
-ACTOR LAZDeviceSpawner : RandomSpawner replaces LAZDevice
-{
-	DropItem UMG43Spawner
-	DropItem NebelWerferSpawner
-}
+ACTOR RapidZorcherSpawner : BlasterSpawner replaces RapidZorcher{}
+ACTOR ZorchPropulsorSpawner : RocketLauncherSpawner replaces ZorchPropulsor{}
+ACTOR PhasingZorcherSpawner : SkullRodSpawner replaces PhasingZorcher{}
+ACTOR LAZDeviceSpawner : FiremaceSpawner replaces LAZDevice{}
 
 //Strife
 ACTOR ClipOfBulletsSpawner : GoldWandAmmoSpawner replaces ClipOfBullets{}
