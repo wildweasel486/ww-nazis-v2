@@ -4,16 +4,12 @@ ACTOR UMG43 : NaziWeapon
 	Inventory.PickupMessage "You got the Ubermaschinengewehr 43! (slot 9)"
 	Inventory.PickupSound "chaingun/get"
 	Tag "UMG 43"
-	Weapon.AmmoType1 "MPClip"
-	Weapon.AmmoUse1 1
+	Weapon.AmmoType "9mmAmmo"
+	Weapon.AmmoUse 1
 	-WEAPON.NOALERT
 	-WEAPON.AMMO_CHECKBOTH
-	ConversationID 193
 	States
 	{
-	Spawn:
-		UMGP A -1
-		Stop
 	Select:
 		UMGG A 0 A_Raise
 		UMGG A 1 A_Raise
@@ -65,6 +61,9 @@ ACTOR UMG43 : NaziWeapon
 	Flash2:
 		UMGF B 1 BRIGHT A_Light2
 		Goto Flash+1
+	Spawn:
+		UMGP A -1
+		Stop
 	}
 }
 
@@ -74,7 +73,7 @@ ACTOR UMG43Spawner
 	{
 	Spawn:
 		TNT1 A 0 NODELAY A_SpawnItemEx("UMG43Pickup",0,0,0,velx,vely,velz)
-		TNT1 AA 0 A_SpawnItemEx("MPMagazine",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		TNT1 AA 0 A_SpawnItemEx("9mmAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }

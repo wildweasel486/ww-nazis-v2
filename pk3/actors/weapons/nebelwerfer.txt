@@ -1,6 +1,71 @@
+actor Nebelwerfer : NaziWeapon
+{
+	Weapon.SelectionOrder 2500
+	Weapon.AmmoUse 1
+	Weapon.AmmoType "NebAmmo"
+	Tag "Klein Nebelwerfer"
+	Inventory.PickupMessage "You got the Klein Nebelwerfer! (slot 8)"
+	Obituary "%o rode %k's rocket."
+	-WEAPON.NOALERT
+	-WEAPON.AMMO_CHECKBOTH
+	States
+	{
+	Ready:
+		NEBG A 1 A_WeaponReady
+		Loop
+	Deselect:
+		NEBG A 0 A_Lower
+		NEBG A 1 A_Lower
+		Loop
+	Select:
+		NEBG A 0 A_Raise
+		NEBG A 1 A_Raise
+		Loop
+	Fire:
+		NEBG A 0 A_GunFlash
+		NEBG A 0 A_PlaySound("weapons/nebelwerfer",CHAN_WEAPON)
+		NEBG A 2 A_FireCustomMissile("NebRocket")
+		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
+		NEBG BCDEB 1 A_SetPitch(pitch-(0.5*CallACS("RecoilAmount")))
+		NEBG A 2 A_ReFire
+		Goto Ready
+	Flash:
+		NEBF A 2 BRIGHT A_Light2
+		TNT1 A 2 A_Light1
+		Goto LightDone
+	Spawn:
+		NEBL A -1
+		Stop
+	}
+}
+
+ACTOR NebelwerferSpawner
+{
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_SpawnItemEx("NebelwerferPickup",0,0,0,velx,vely,velz)
+		TNT1 A 0 A_SpawnItemEx("NebAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		Stop
+	}
+}
+
+ACTOR NebelwerferPickup : NaziWeaponPickup
+{
+	States
+	{
+	Spawn:
+		NEBL A -1
+		Stop
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",19)
+		Stop
+	}
+}
+
 ACTOR NebRocket
 {
-	Scale 0.5
+	Scale .5
 	Radius 11
 	Height 8
 	Speed 35
@@ -10,6 +75,7 @@ ACTOR NebRocket
 	+FORCERADIUSDMG
 	DeathSound "weapons/nebxpl"
 	Decal Scorch
+	ProjectileKickback 100
 	States
 	{
 	Spawn:
@@ -47,102 +113,6 @@ ACTOR RPG8RocketTrail : RocketFlame
 	{
 	Spawn:
 		SMOK ABCDEFGHIJKLMNOPQ 1
-		Stop
-	}
-}
-
-actor Nebelwerfer : NaziWeapon
-{
-	Weapon.Kickback 100
-	Weapon.SelectionOrder 2500
-	Weapon.AmmoUse 1
-	Weapon.AmmoType "NebAmmo"
-	Tag "Klein Nebelwerfer"
-	Inventory.PickupMessage "You got the Klein Nebelwerfer! (slot 8)"
-	Obituary "%o rode %k's rocket."
-	-WEAPON.NOALERT
-	-WEAPON.AMMO_CHECKBOTH
-	ConversationID 195
-	States
-	{
-	Ready:
-		NEBG A 1 A_WeaponReady
-		Loop
-	Deselect:
-		NEBG A 0 A_Lower
-		NEBG A 1 A_Lower
-		Loop
-	Select:
-		NEBG A 0 A_Raise
-		NEBG A 1 A_Raise
-		Loop
-	Fire:
-		NEBG A 0 A_GunFlash
-		NEBG A 0 A_PlaySound("weapons/nebelwerfer",CHAN_WEAPON)
-		NEBG A 2 A_FireCustomMissile("NebRocket")
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
-		NEBG BCDEB 1 A_SetPitch(pitch-(0.5*CallACS("RecoilAmount")))
-		NEBG A 2 A_ReFire
-		Goto Ready
-	Flash:
-		NEBF A 2 BRIGHT A_Light2
-		TNT1 A 2 A_Light1
-		Goto LightDone
-	Spawn:
-		NEBL A -1
-		Stop
-	}
-}
-
-ACTOR NebAmmo : Ammo
-{
-	Tag "Mini-rocket"
-	Inventory.PickupMessage "Picked up a crate of mini-rockets."
-	Inventory.Amount 30
-	Inventory.MaxAmount 150
-	Ammo.BackpackAmount 20
-	Ammo.BackpackMaxAmount 300
-	ConversationID 177
-	States
-	{
-	Spawn:
-		MNRB A -1
-		Stop
-	}
-}
-
-ACTOR NebAmmoSmall : NebAmmo
-{
-	Inventory.PickupMessage "Picked up some mini-rockets."
-	Inventory.Amount 5
-	States
-	{
-	Spawn:
-		MNRB A -1	//Needs a sprite
-		Stop
-	}
-}
-
-ACTOR NebelwerferSpawner
-{
-	States
-	{
-	Spawn:
-		TNT1 A 0 NODELAY A_SpawnItemEx("NebelwerferPickup",0,0,0,velx,vely,velz)
-		TNT1 A 0 A_SpawnItemEx("NebAmmoSmall",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
-		Stop
-	}
-}
-
-ACTOR NebelwerferPickup : NaziWeaponPickup
-{
-	States
-	{
-	Spawn:
-		NEBL A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",19)
 		Stop
 	}
 }

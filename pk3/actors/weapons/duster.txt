@@ -5,7 +5,6 @@ ACTOR KnuckleDusters : NaziWeapon
 	-WEAPON.AMMO_CHECKBOTH
 	Weapon.SelectionOrder 10000
 	Inventory.PickupMessage "You got the knuckle dusters! (slot 1)"
-	Weapon.Kickback 40
 	States
 	{
 	Ready:
@@ -44,24 +43,6 @@ ACTOR KnuckleDusters : NaziWeapon
 	}
 }
 
-ACTOR HitPuff
-{
-	+NOBLOCKMAP
-	+NOGRAVITY
-	+PUFFONACTORS
-	+NOEXTREMEDEATH
-	activesound "melee/miss"
-	attacksound "melee/wall"
-	seesound "melee/hit"
-	Obituary "%o was dusted by %k."
-	states
-	{
-	Spawn:
-		TNT1 A 1
-		Stop
-	}
-}
-
 ACTOR KnuckleDustersPickup : NaziWeaponPickup
 {
 	Scale .1
@@ -72,6 +53,25 @@ ACTOR KnuckleDustersPickup : NaziWeaponPickup
 		Stop
 	Pickup:
 		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",1)
+		Stop
+	}
+}
+
+ACTOR HitPuff
+{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+PUFFONACTORS
+	+NOEXTREMEDEATH
+	activesound "melee/miss"
+	attacksound "melee/wall"
+	seesound "melee/hit"
+	Obituary "%o was dusted by %k."
+	ProjectileKickback 40
+	states
+	{
+	Spawn:
+		TNT1 A 1
 		Stop
 	}
 }

@@ -7,52 +7,62 @@ ACTOR RifleSpawner : RandomSpawner
 //Doom
 ACTOR ClipSpawner : RandomSpawner replaces Clip
 {
-	DropItem RevolverClip
-	DropItem RevolverClip
-	DropItem RevolverClip
-	DropItem RevolverClip
+	DropItem 357Ammo
+	DropItem 357Ammo
+	DropItem 357Ammo
+	DropItem 357Ammo
+	DropItem 9mmAmmo
+	DropItem 9mmAmmo
+	DropItem 9mmAmmo
 	DropItem WeaselsRevolverSpawner
 	DropItem WeaselsRevolverSpawner
 	DropItem M1911Spawner
 }
 ACTOR ClipBoxSpawner : RandomSpawner replaces ClipBox
 {
-	DropItem MPClip
+	DropItem 9mmAmmoBox
+	DropItem 45ACPAmmo
+	DropItem TokarevAmmo
 }
 ACTOR ShellSpawner : RandomSpawner replaces Shell
 {
-	DropItem NewShell
-	DropItem MauserAmmoSmall
-	DropItem MauserAmmoSmall
+	DropItem 12GaugeAmmo
 }
 ACTOR ShellBoxSpawner : RandomSpawner replaces ShellBox
 {
-	DropItem NewShellBox
-	DropItem MauserAmmo
-	DropItem MauserAmmo
+	DropItem 12GaugeAmmoBox
 }
 ACTOR RocketAmmoSpawner : RandomSpawner replaces RocketAmmo
 {
 	DropItem GrenadePickup
+	DropItem PanzerAmmo
 }
 ACTOR RocketBoxSpawner : RandomSpawner replaces RocketBox
 {
 	DropItem FlameAmmo
+	DropItem NebAmmoBox
 }
 ACTOR CellSpawner : RandomSpawner replaces Cell
 {
-	DropItem STGClip
+	DropItem 792KurzAmmo
+	DropItem MauserAmmo
+	DropItem 303Ammo
+	DropItem 3006Ammo
 }
 ACTOR CellPackSpawner : RandomSpawner replaces CellPack
 {
-	DropItem NebAmmo
+	DropItem MauserAmmoBox
+	DropItem 303AmmoBox
+	DropItem 3006AmmoBox
 }
 
 ACTOR ChainsawSpawner : RandomSpawner replaces Chainsaw
 {
 	DropItem EnfieldSpawner
 	DropItem GarandSpawner
+	DropItem ShovelPickup
 	DropItem KnuckleDustersPickup
+	DropItem FirebrandPickup
 }
 ACTOR PistolSpawner : RandomSpawner replaces Pistol
 {
@@ -85,78 +95,29 @@ ACTOR BFG9000Spawner : RandomSpawner replaces BFG9000
 }
 
 //Heretic
-ACTOR GoldWandAmmoSpawner : RandomSpawner replaces GoldWandAmmo
-{
-	DropItem WeaselsRevolverSpawner
-	DropItem Luger9mmSpawner
-	DropItem Walther9mmSpawner
-}
+ACTOR GoldWandAmmoSpawner : ClipSpawner replaces GoldWandAmmo{}
 ACTOR GoldWandHeftySpawner : ClipBoxSpawner replaces GoldWandHefty{}
 ACTOR CrossbowAmmoSpawner : ShellSpawner replaces CrossbowAmmo{}
 ACTOR CrossbowHeftySpawner : ShellBoxSpawner replaces CrossbowHefty{}
-ACTOR BlasterAmmoSpawner : RandomSpawner replaces BlasterAmmo
-{
-	DropItem MPMagazine
-	DropItem 45ACPAmmo
-}
-ACTOR BlasterHeftySpawner : RandomSpawner replaces BlasterHefty
-{
-	DropItem MPClip
-	DropItem 45ACPAmmo
-}
+ACTOR BlasterAmmoSpawner : ClipSpawner replaces BlasterAmmo{}
+ACTOR BlasterHeftySpawner : ClipBoxSpawner replaces BlasterHefty{}
 ACTOR PhoenixRodAmmoSpawner : RocketAmmoSpawner replaces PhoenixRodAmmo{}
 ACTOR PhoenixRodHeftySpawner : RocketBoxSpawner replaces PhoenixRodHefty{}
-ACTOR SkullRodAmmoSpawner : RandomSpawner replaces SkullRodAmmo
-{
-	DropItem STGClip
-	DropItem MauserAmmoSmall
-	DropItem PPSHClip
-}
-ACTOR SkullRodHeftySpawner : RandomSpawner replaces SkullRodHefty
-{
-	DropItem STGClip
-	DropItem MauserAmmo
-	DropItem PPSHClip
-}
-ACTOR MaceAmmoSpawner : CellPackSpawner replaces MaceAmmo{}
+ACTOR SkullRodAmmoSpawner : CellSpawner replaces SkullRodAmmo{}
+ACTOR SkullRodHeftySpawner : CellPackSpawner replaces SkullRodHefty{}
+ACTOR MaceAmmoSpawner : CellSpawner replaces MaceAmmo{}
 ACTOR MaceHeftySpawner : CellPackSpawner replaces MaceHefty{}
 
-ACTOR GauntletsSpawner : RandomSpawner replaces Gauntlets
-{
-	DropItem G43Spawner
-	DropItem Kar98kSpawner
-	DropItem EnfieldSpawner
-	DropItem GarandSpawner
-	DropItem FirebrandPickup
-	DropItem KnuckleDustersPickup
-}
-ACTOR CrossbowSpawner : RandomSpawner replaces Crossbow
-{
-	DropItem TrenchShotgunSpawner
-	DropItem Browning5Spawner
-}
-ACTOR BlasterSpawner : RandomSpawner replaces Blaster
-{
-	DropItem MP40Spawner
-	DropItem ThompsonSpawner
-}
+ACTOR GauntletsSpawner : ChainsawSpawner replaces Gauntlets{}
+ACTOR CrossbowSpawner : ShotgunSpawner replaces Crossbow{}
+ACTOR ArtiTimebombSpawner : SuperShotgunSpawner replaces ArtiTimebomb{}
+ACTOR BlasterSpawner : ChaingunSpawner replaces Blaster{}
 ACTOR PhoenixRodSpawner : RocketLauncherSpawner replaces PhoenixRod{}
-ACTOR SkullRodSpawner : RandomSpawner replaces SkullRod
-{
-	DropItem PPSHSpawner
-	DropItem FG42Spawner
-	DropItem STG44Spawner
-}
-ACTOR FiremaceSpawner : RandomSpawner replaces Mace
-{
-	DropItem UMG43Spawner
-	DropItem NebelwerferSpawner
-}
-
-ACTOR ArtiTimebombSpawner : RocketAmmoSpawner replaces ArtiTimebomb{}
+ACTOR SkullRodSpawner : PlasmaRifleSpawner replaces SkullRod{}
+ACTOR FiremaceSpawner : BFG9000Spawner replaces Mace{}
 
 //Chex Quest
-ACTOR MiniZorchRechargeSpawner : GoldWandAmmoSpawner replaces MiniZorchRecharge{}
+ACTOR MiniZorchRechargeSpawner : ClipSpawner replaces MiniZorchRecharge{}
 ACTOR MiniZorchPackSpawner : ClipBoxSpawner replaces MiniZorchPack{}
 ACTOR LargeZorchRechargeSpawner : ShellSpawner replaces LargeZorchRecharge{}
 ACTOR LargeZorchPackSpawner : ShellBoxSpawner replaces LargeZorchPack{}
@@ -165,38 +126,183 @@ ACTOR PropulsorZorchPackSpawner : RocketBoxSpawner replaces PropulsorZorchPack{}
 ACTOR PhasingZorchSpawner : CellSpawner replaces PhasingZorch{}
 ACTOR PhasingZorchPackSpawner : CellPackSpawner replaces PhasingZorchPack{}
 
-ACTOR SuperBootsporkSpawner : GauntletsSpawner replaces SuperBootspork{}
-ACTOR LargeZorcherSpawner : CrossbowSpawner replaces LargeZorcher{}
-ACTOR RapidZorcherSpawner : BlasterSpawner replaces RapidZorcher{}
+ACTOR SuperBootsporkSpawner : ChainsawSpawner replaces SuperBootspork{}
+ACTOR LargeZorcherSpawner : ShotgunSpawner replaces LargeZorcher{}
+ACTOR RapidZorcherSpawner : ChaingunSpawner replaces RapidZorcher{}
 ACTOR ZorchPropulsorSpawner : RocketLauncherSpawner replaces ZorchPropulsor{}
-ACTOR PhasingZorcherSpawner : SkullRodSpawner replaces PhasingZorcher{}
-ACTOR LAZDeviceSpawner : FiremaceSpawner replaces LAZDevice{}
+ACTOR PhasingZorcherSpawner : PlasmaRifleSpawner replaces PhasingZorcher{}
+ACTOR LAZDeviceSpawner : BFG9000Spawner replaces LAZDevice{}
 
 //Strife
-ACTOR ClipOfBulletsSpawner : GoldWandAmmoSpawner replaces ClipOfBullets{}
-ACTOR SRifleAmmo : RandomSpawner replaces BoxOfBullets
-{
-	DropItem MauserAmmo
-}
+ACTOR ClipOfBulletsSpawner : ClipSpawner replaces ClipOfBullets{}
+ACTOR BoxOfBulletsSpawner : ClipBoxSpawner replaces BoxOfBullets{}
 ACTOR PoisonBoltsSpawner : ShellSpawner replaces PoisonBolts{}
-ACTOR ElectricBoltsSpawner : ClipSpawner replaces ElectricBolts{}
+ACTOR ElectricBoltsSpawner : ShellBoxSpawner replaces ElectricBolts{}
 ACTOR MiniMissilesSpawner : RocketAmmoSpawner replaces MiniMissiles{}
-//ACTOR CrateOfMissilesSpawner : RandomSpawner replaces CrateOfMissiles{}
-//	ConversationID 182
-ACTOR HEGrenadeRoundsSpawner : CellPackSpawner replaces HEGrenadeRounds{}
-ACTOR PhosphorusGrenadeRoundsSpawner : RocketBoxSpawner replaces PhosphorusGrenadeRounds{}
+ACTOR CrateOfMissilesSpawner : RocketBoxSpawner replaces CrateOfMissiles{}
+ACTOR HEGrenadeRoundsSpawner : RocketAmmoSpawner replaces HEGrenadeRounds{}
+ACTOR PhosphorusGrenadeRoundsSpawner : RocketAmmoSpawner replaces PhosphorusGrenadeRounds{}
 ACTOR EnergyPodSpawner : CellSpawner replaces EnergyPod{}
-ACTOR EnergyPackSpawner : CellSpawner replaces EnergyPack{}
+ACTOR EnergyPackSpawner : CellPackSpawner replaces EnergyPack{}
 
-ACTOR StrifeCrossbowSpawner : RifleSpawner replaces StrifeCrossbow{}
-ACTOR AssaultGunSpawner : RandomSpawner replaces AssaultGun
+ACTOR StrifeCrossbowSpawner : ShotgunSpawner replaces StrifeCrossbow{}
+ACTOR MiniMissileLauncherSpawner : SuperShotgunSpawner replaces MiniMissileLauncher{}
+ACTOR AssaultGunSpawner : ChaingunSpawner replaces AssaultGun{}
+ACTOR AssaultGunStandingSpawner : ChaingunSpawner replaces AssaultGunStanding{}
+ACTOR StrifeGrenadeLauncherSpawner : RocketLauncherSpawner replaces StrifeGrenadeLauncher{}
+ACTOR FlameThrowerSpawner : PlasmaRifleSpawner replaces FlameThrower{}
+ACTOR MaulerSpawner : BFG9000Spawner replaces Mauler{}
+
+ACTOR ClipOfBulletsSpawner2 : CustomInventory
 {
-	DropItem MP40Spawner
-	DropItem STG44Spawner
+	ConversationID 179
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("ClipSpawner")
+		Stop
+	}
 }
-ACTOR AssaultGunStandingSpawner : AssaultGunSpawner replaces AssaultGunStanding{}
-//ACTOR MiniMissileLauncherSpawner : RandomSpawner replaces MiniMissileLauncher{}
-//	ConversationID 192
-ACTOR StrifeGrenadeLauncherSpawner : SkullRodSpawner replaces StrifeGrenadeLauncher{}
-ACTOR FlameThrowerSpawner : RocketLauncherSpawner replaces FlameThrower{}
-ACTOR SUMG43Spawner : FiremaceSpawner replaces Mauler{}
+ACTOR BoxOfBulletsSpawner2 : CustomInventory
+{
+	ConversationID 180
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("ClipBoxSpawner")
+		Stop
+	}
+}
+ACTOR PoisonBoltsSpawner2 : CustomInventory
+{
+	ConversationID 185
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("ShellSpawner")
+		Stop
+	}
+}
+ACTOR ElectricBoltsSpawner2 : CustomInventory
+{
+	ConversationID 186
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("ShellBoxSpawner")
+		Stop
+	}
+}
+ACTOR MiniMissilesSpawner2 : CustomInventory
+{
+	ConversationID 181
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("RocketAmmoSpawner")
+		Stop
+	}
+}
+ACTOR CrateOfMissilesSpawner2 : CustomInventory
+{
+	ConversationID 182
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("RocketBoxSpawner")
+		Stop
+	}
+}
+ACTOR HEGrenadeRoundsSpawner2 : MiniMissilesSpawner2
+{
+	ConversationID 177
+}
+ACTOR PhosphorusGrenadeRoundsSpawner2 : MiniMissilesSpawner2
+{
+	ConversationID 178
+}
+ACTOR EnergyPodSpawner2 : CustomInventory
+{
+	ConversationID 183
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("CellSpawner")
+		Stop
+	}
+}
+ACTOR EnergyPackSpawner2 : CustomInventory
+{
+	ConversationID 184
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("CellPackSpawner")
+		Stop
+	}
+}
+
+ACTOR StrifeCrossbowSpawner2 : CustomInventory
+{
+	ConversationID 194
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("ShotgunSpawner")
+		Stop
+	}
+}
+ACTOR MiniMissileLauncherSpawner2 : CustomInventory
+{
+	ConversationID 192
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("SuperShotgunSpawner")
+		Stop
+	}
+}
+ACTOR AssaultGunSpawner2 : CustomInventory
+{
+	ConversationID 188
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("ChaingunSpawner")
+		Stop
+	}
+}
+ACTOR AssaultGunStandingSpawner2 : AssaultGunSpawner2
+{
+	ConversationID 189
+}
+ACTOR StrifeGrenadeLauncherSpawner2 : CustomInventory
+{
+	ConversationID 195
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("RocketLauncherSpawner")
+		Stop
+	}
+}
+ACTOR FlameThrowerSpawner2 : CustomInventory
+{
+	ConversationID 190
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("PlasmaRifleSpawner")
+		Stop
+	}
+}
+ACTOR MaulerSpawner2 : CustomInventory
+{
+	ConversationID 193
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_SpawnItemEx("BFG9000Spawner")
+		Stop
+	}
+}

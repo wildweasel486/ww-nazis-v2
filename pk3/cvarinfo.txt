@@ -2,5 +2,4 @@ user bool autoreload = false;
 server int casinglifetime = 1000;
 server int recoilamount = 1;
 user int tauntpack = 0;
-
 server int monstertype = 1;

@@ -2,58 +2,18 @@
 // Sprite from Day of Defeat model, sounds from MOHAA Breakthrough and NOLF.
 // Pickup sprite by WildWeasel.
 
-ACTOR EnfieldAmmo : Ammo
-{
-	Tag ".303 British"
-	Inventory.Amount 20
-	Inventory.MaxAmount 40
-	Ammo.BackpackAmount 5
-	Ammo.BackpackMaxAmount 100
-	Inventory.PickupMessage "Picked up a box of .303 British ammo."
-	States
-	{
-	Spawn:
-		M1GA A -1	//Placeholder sprite
-		Stop
-	}
-}
-
-ACTOR EnfieldAmmoSmall : EnfieldAmmo
-{
-	Inventory.Amount 5
-	Inventory.PickupMessage "Picked up a .303 charger clip."
-	Scale .3
-	States
-	{
-	Spawn:
-		M1GA B -1	//Placeholder sprite
-		Stop
-	}
-}
-
-ACTOR EnfieldLoaded : Ammo
-{
-	Tag ".303 British"
-	+IGNORESKILL
-	Inventory.MaxAmount 10
-	Inventory.Icon ENFPA0
-}
-
 ACTOR Enfield : NaziWeapon
 {
 	Weapon.SelectionOrder 750
-	Weapon.AmmoType1 "EnfieldLoaded"
-	Weapon.AmmoUse1 1
-	Weapon.AmmoType2 "EnfieldAmmo"
+	Weapon.AmmoType "EnfieldLoaded"
+	Weapon.AmmoUse 1
+	Weapon.AmmoType2 "303Ammo"
 	Weapon.AmmoUse2 1
 	Tag "Lee-Enfield SMLE"
 	Inventory.PickupMessage "You got the Lee-Enfield SMLE! (slot 5)"
 	+NOAUTOFIRE
 	States
 	{
-	Spawn:
-		ENFP A -1
-		Stop
 	Select:
 		ENFG A 0 A_Raise
 		ENFG A 1 A_Raise
@@ -64,7 +24,7 @@ ACTOR Enfield : NaziWeapon
 		Loop
 	Ready:
 		ENFG A 0 A_JumpIfInventory("EnfieldLoaded",0,2)
-		ENFG A 0 A_JumpIfInventory("EnfieldAmmo",1,2)
+		ENFG A 0 A_JumpIfInventory("303Ammo",1,2)
 		ENFG A 1 A_WeaponReady
 		Loop
 		ENFG A 1 A_WeaponReady(WRF_ALLOWRELOAD)
@@ -74,10 +34,9 @@ ACTOR Enfield : NaziWeapon
 		Goto Dryfire
 		ENFG A 0 A_GunFlash
 		ENFG A 0 A_PlaySound("Enfield/Fire",CHAN_WEAPON)
-		ENFG A 1 A_FireCustomMissile("EnfieldTracer")
-		ENFG A 1 Offset(0,52)
 		ENFG A 0 A_AlertMonsters
-		ENFG A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
+		ENFG A 1 A_FireCustomMissile("EnfieldTracer")
+		ENFG A 1 Offset(0,52) ACS_NamedExecute("WWNaziTaunt",0,1)
 		ENFG A 1 Offset(0,45) A_SetPitch(pitch-(4.0*CallACS("RecoilAmount")))
 		ENFG A 1 Offset(0,40) A_SetPitch(pitch-(2.0*CallACS("RecoilAmount")))
 		ENFG A 1 Offset(0,36) A_SetPitch(pitch+(1.0*CallACS("RecoilAmount")))
@@ -116,9 +75,9 @@ ACTOR Enfield : NaziWeapon
 		ENFG A 2 Offset(5,74)
 		ENFG A 8 Offset(6,76)
 		ENFG A 0 A_JumpIfInventory("EnfieldLoaded",5,"ReloadLoop2")
-		ENFG A 0 A_JumpIfInventory("EnfieldAmmo",5,1)
+		ENFG A 0 A_JumpIfInventory("303Ammo",5,1)
 		Goto ReloadLoop2
-		TNT1 A 0 A_TakeInventory("EnfieldAmmo",5)
+		TNT1 A 0 A_TakeInventory("303Ammo",5)
 		TNT1 A 0 A_GiveInventory("EnfieldLoaded",5)
 		ENFG A 1 Offset(6,80) A_PlaySound("Enfield/load",5)
 		ENFG A 1 Offset(6,84)
@@ -129,14 +88,14 @@ ACTOR Enfield : NaziWeapon
 		ENFG A 1 Offset(8,82)
 		ENFG A 1 Offset(7,77)
 		ENFG A 0 A_JumpIfInventory("EnfieldLoaded",0,"ReloadOnlyOneClip")
-		TNT1 A 0 A_JumpIfInventory("EnfieldAmmo",1,1)
+		TNT1 A 0 A_JumpIfInventory("303Ammo",1,1)
 		Goto ReloadOnlyOneClip
 		ENFG A 5 Offset(6,75)
 	ReloadLoop2:
-		TNT1 A 0 A_TakeInventory("EnfieldAmmo",1)
+		TNT1 A 0 A_TakeInventory("303Ammo",1)
 		TNT1 A 0 A_GiveInventory("EnfieldLoaded")
 		TNT1 A 0 A_JumpIfInventory("EnfieldLoaded",0,"ReloadFinish")
-		TNT1 A 0 A_JumpIfInventory("EnfieldAmmo",1,"ReloadLoop2")
+		TNT1 A 0 A_JumpIfInventory("303Ammo",1,"ReloadLoop2")
 	ReloadFinish:
 		ENFG A 1 Offset(6,80) A_PlaySound("Enfield/load",5)
 		ENFG A 1 Offset(6,84)
@@ -161,7 +120,18 @@ ACTOR Enfield : NaziWeapon
 		ENFF B 1 BRIGHT
 		TNT1 A 2 A_Light1
 		Goto LightDone
+	Spawn:
+		ENFP A -1
+		Stop
 	}
+}
+
+ACTOR EnfieldLoaded : Ammo
+{
+	Tag ".303 British"
+	+IGNORESKILL
+	Inventory.MaxAmount 10
+	Inventory.Icon ENFPA0
 }
 
 ACTOR EnfieldSpawner
@@ -170,7 +140,7 @@ ACTOR EnfieldSpawner
 	{
 	Spawn:
 		TNT1 A 0 NODELAY A_SpawnItemEx("EnfieldPickup",0,0,0,velx,vely,velz)
-		TNT1 A 0 A_SpawnItemEx("EnfieldAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("303AmmoBox",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }

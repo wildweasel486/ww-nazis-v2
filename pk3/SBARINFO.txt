@@ -9,17 +9,13 @@ statusbar normal
 	DrawNumber 3, ROLLER, Untranslated, Ammo2, FillZeros, Interpolate(3), 316, 186;
 	DrawNumber 1, ROLLER, Untranslated, GrenadePickup, FillZeros, Interpolate(1), 187, 186;
 	DrawKeyBar 6, horizontal, 9, 101, 185;
-	
+
 	//Weapon numbers
-	drawswitchableimage weaponslot 2, "STGNUM2", "STYSNUM2", 211, 192; 
+	drawswitchableimage weaponslot 2, "STGNUM2", "STYSNUM2", 211, 192;
     drawswitchableimage weaponslot 3, "STGNUM3", "STYSNUM3", 216, 192;
     drawswitchableimage weaponslot 4, "STGNUM4", "STYSNUM4", 221, 192;
     drawswitchableimage weaponslot 5, "STGNUM5", "STYSNUM5", 226, 192;
-    drawswitchableimage weaponslot 6, "STGNUM6", "STYSNUM6", 231, 192;
-    drawswitchableimage weaponslot 7, "STGNUM7", "STYSNUM7", 236, 192;
-	drawswitchableimage weaponslot 8, "STGNUM8", "STYSNUM8", 241, 192;
-	drawswitchableimage weaponslot 9, "", "STYSNUM9", 246, 192;
-	
+
 	drawselectedinventory artiflash, INDEXFONT_RAVEN, 10, 140, 10, 140, untranslated;
 }
 
@@ -35,10 +31,9 @@ statusbar fullscreen, fullscreenoffsets
 	DrawKeyBar 6, horizontal, 9, 101, -14;
 	DrawNumber 1, ROLLER, Untranslated, GrenadePickup, FillZeros, Interpolate(1), -75, -14;
 	DrawString THREEFIV, Tan, "Grenades", -68, -22, 1, alignment(right);
-	
+
 	drawselectedinventory artiflash, INDEXFONT_RAVEN, 10, -60, 10, -60, untranslated;
 }
-
 
 statusbar inventory
 {

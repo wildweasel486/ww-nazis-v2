@@ -2,16 +2,17 @@
 //by how Heretic and Chex Quest support were set up. However, this can impact maps
 //with heavy scripting for monster spawning and activation, so to nix this, 'unlock'
 //the MonsterToggle's inheritence from RandomSpawner to use the DropItem properties.
-ACTOR MonsterToggle //: RandomSpawner
+ACTOR MonsterToggle : RandomSpawner
 {
-	States
+	/*States
 	{
 	Spawn:
 		TNT1 A 0 NODELAY A_JumpIf(CallACS("MonsterType")==1,"Nazis")
 		TNT1 A 0 A_Jump(256,"Default")
 		Stop
-	}
+	}*/
 }
+
 //Doom
 ACTOR ZombiemanSpawner : MonsterToggle replaces Zombieman
 {
@@ -670,3 +671,6 @@ ACTOR NazisArmoredFlemoidusBipedicus : ArmoredFlemoidusBipedicus{}
 ACTOR NazisFlemoidusCycloptisCommonus : FlemoidusCycloptisCommonus{}
 ACTOR NazisFlembrane : Flembrane{}
 ACTOR NazisChexSoul : ChexSoul{}
+
+//Strife
+//TBD

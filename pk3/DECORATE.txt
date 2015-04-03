@@ -25,32 +25,33 @@ ACTOR NaziWeaponPickup : CustomInventory
 
 #include "actors/weapons/shovel.txt"
 #include "actors/weapons/duster.txt"
-#include "actors/weapons/revolver.txt"
-#include "actors/weapons/P38.txt"
 #include "actors/weapons/Luger.txt"
+#include "actors/weapons/P38.txt"
+#include "actors/weapons/revolver.txt"
+#include "actors/weapons/m1911.txt"
 #include "actors/weapons/shotgun.txt"
-#include "actors/weapons/g43.txt"
 #include "actors/weapons/browning.txt"
-#include "actors/weapons/stg44.txt"
-#include "actors/weapons/mp40.txt"
 #include "actors/weapons/ppsh41.txt"
+#include "actors/weapons/mp40.txt"
+#include "actors/weapons/thompson.txt"
+#include "actors/weapons/Kar98k.txt"
+#include "actors/weapons/g43.txt"
+#include "actors/weapons/Enfield.txt"
+#include "actors/weapons/garand.txt"
+#include "actors/weapons/stg44.txt"
+#include "actors/weapons/fg42.txt"
 #include "actors/weapons/flamer.txt"
 #include "actors/weapons/nebelwerfer.txt"
-#include "actors/weapons/umg43.txt"
-#include "actors/weapons/Enfield.txt"
-#include "actors/weapons/fg42.txt"
-#include "actors/weapons/thompson.txt"
 #include "actors/weapons/panzerschreck.txt"
+#include "actors/weapons/umg43.txt"
 #include "actors/weapons/granate.txt"
 #include "actors/weaponspawners.txt"
-#include "actors/bullets.txt"
 #include "actors/items.txt"
+#include "actors/ammo.txt"
+#include "actors/bullets.txt"
 #include "actors/nazis.txt"
 #include "actors/nazispawners.txt"
 #include "actors/weapons/seekrit!.txt"
-#include "actors/weapons/Kar98k.txt"
-#include "actors/weapons/1911.txt"
-#include "actors/weapons/garand.txt"
 
 ACTOR WWNazisPlayer : DoomPlayer
 {
@@ -65,7 +66,7 @@ ACTOR WWNazisPlayer : DoomPlayer
 	Player.StartItem WeaselsRevolver
 	Player.StartItem Shovel
 	Player.StartItem WeaselsRevolverLoaded,6
-	Player.StartItem RevolverClip,30
+	Player.StartItem 357Ammo,30
 	Player.StartItem GrenadePickup
 	Player.ViewHeight 49
 	Player.AttackZOffset 17

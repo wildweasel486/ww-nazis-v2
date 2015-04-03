@@ -1,48 +1,8 @@
-ACTOR GarandLoaded : Ammo
-{
-	Tag ".30-06"
-	+IGNORESKILL
-	Inventory.MaxAmount 8
-	Inventory.Icon M1APA0
-}
-
-ACTOR GarandAmmo : Ammo
-{
-	Tag ".30-06"
-	Inventory.Amount 20
-	Inventory.MaxAmount 40
-	Ammo.BackpackAmount 5
-	Ammo.BackpackMaxAmount 100
-	Inventory.PickupMessage "Picked up a box of .30-06 Springfield ammo."
-	States
-	{
-	Spawn:
-		M1GA C -1
-		Stop
-	}
-}
-
-ACTOR GarandAmmoSmall : GarandAmmo
-{
-	Inventory.Amount 8
-	Inventory.PickupMessage "Picked up a .30-06 en bloc clip."
-	Scale 0.3
-	States
-	{
-	Spawn:
-		M1GA B -1	//placeholder
-		Stop
-	}
-}
-
-ACTOR M1Pinged : Inventory{} // Tracks state of weapon emptiness.
-
 ACTOR Garand : NaziWeapon
 {
-	Weapon.Kickback 100
-	Weapon.AmmoType1 "GarandLoaded"
-	Weapon.AmmoUse1 1
-	Weapon.AmmoType2 "GarandAmmo"
+	Weapon.AmmoType "GarandLoaded"
+	Weapon.AmmoUse 1
+	Weapon.AmmoType2 "3006Ammo"
 	Weapon.AmmoUse2 1
 	Inventory.PickupMessage "You got the M1 Garand! (slot 5)"
 	Weapon.SelectionOrder 750
@@ -50,12 +10,9 @@ ACTOR Garand : NaziWeapon
 	Tag "M1 Garand"
 	States
 	{
-	Spawn:
-		M1AP A -1
-		Stop
 	Ready:
 		M1A1 A 0 A_JumpIfInventory("GarandLoaded",0,2)
-		M1A1 A 0 A_JumpIfInventory("GarandAmmo",1,2)
+		M1A1 A 0 A_JumpIfInventory("3006Ammo",1,2)
 		M1A1 A 1 A_WeaponReady
 		Loop
 		M1A1 A 1 A_WeaponReady(WRF_ALLOWRELOAD)
@@ -133,10 +90,10 @@ ACTOR Garand : NaziWeapon
 		M1AR CDDEFGHH 1
 		M1AR IJK 2
 	ReloadLoop:
-		M1AR A 0 A_TakeInventory("GarandAmmo",1,TIF_NOTAKEINFINITE)
+		M1AR A 0 A_TakeInventory("3006Ammo",1,TIF_NOTAKEINFINITE)
 		M1AR A 0 A_GiveInventory("GarandLoaded")
 		M1AR A 0 A_JumpIfInventory("GarandLoaded",0,"ReloadFinish")
-		M1AR A 0 A_JumpIfInventory("GarandAmmo",1,"ReloadLoop")
+		M1AR A 0 A_JumpIfInventory("3006Ammo",1,"ReloadLoop")
 	ReloadFinish:
 		M1AR LMNOOPPBBBBBA 1
 		M1AR A 1 A_TakeInventory("M1Pinged")
@@ -147,7 +104,18 @@ ACTOR Garand : NaziWeapon
 		TNT1 A 1
 		TNT1 A 2 A_Light1
 		Goto LightDone
+	Spawn:
+		M1AP A -1
+		Stop
 	}
+}
+
+ACTOR GarandLoaded : Ammo
+{
+	Tag ".30-06"
+	+IGNORESKILL
+	Inventory.MaxAmount 8
+	Inventory.Icon M1APA0
 }
 
 ACTOR GarandSpawner
@@ -156,7 +124,7 @@ ACTOR GarandSpawner
 	{
 	Spawn:
 		TNT1 A 0 NODELAY A_SpawnItemEx("GarandPickup",0,0,0,velx,vely,velz)
-		TNT1 A 0 A_SpawnItemEx("GarandAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("3006AmmoBox",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }
@@ -173,3 +141,5 @@ ACTOR GarandPickup : NaziWeaponPickup
 		Stop
 	}
 }
+
+ACTOR M1Pinged : Inventory{} // Tracks state of weapon emptiness.

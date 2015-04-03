@@ -1,45 +1,19 @@
-ACTOR STGClip : Ammo
-{
-	Tag "7.92x33mm"
-	Inventory.Amount 15
-	Inventory.MaxAmount 150
-	Ammo.BackpackAmount 30
-	Ammo.BackpackMaxAmount 270
-	Inventory.PickupMessage "Picked up a 7.92x33mm rifle magazine."
-	ConversationID 183
-	States
-	{
-	Spawn:
-		762A A -1
-		Stop
-	}
-}
-
-ACTOR STG44Loaded : Ammo
-{
-	Tag "7.92x33mm"
-	+IGNORESKILL
-	Inventory.MaxAmount 30
-	Inventory.Icon STGIA0
-}
-
-Actor STG44 : NaziWeapon
+//Rate of fire: 550-600 rounds/min - Wikipedia
+ACTOR STG44 : NaziWeapon
 {
 	Weapon.SelectionOrder 700
 	inventory.pickupmessage "You got the Sturmgewehr 44! (slot 6)"
-	weapon.kickback 100
 	Weapon.AmmoType "STG44Loaded"
-	Weapon.AmmoUse1 1
-	weapon.ammotype2 "STGClip"
+	Weapon.AmmoUse 1
+	weapon.ammotype2 "792KurzAmmo"
 	weapon.ammouse2 1
 	Scale .5
 	Tag "Sturmgewehr 44"
-	ConversationID 189
 	States
 	{
 	Ready:
 		STGG A 0 A_JumpIfInventory("STG44Loaded",0,2)
-		STGG A 0 A_JumpIfInventory("STGClip",1,2)
+		STGG A 0 A_JumpIfInventory("792KurzAmmo",1,2)
 		STGG A 1 A_WeaponReady
 		Loop
 		STGG A 1 A_WeaponReady(WRF_ALLOWRELOAD)
@@ -59,9 +33,10 @@ Actor STG44 : NaziWeapon
 		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		STGG A 0 A_PlaySound("Weapons/STGFIRE",CHAN_WEAPON)
 		STGG A 0 A_SpawnItemEx("STGCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
+		STGG A 0 A_AlertMonsters
 		STGG A 1 A_FireCustomMissile("STGTracer",frandom(-2.5,2.5),1,0,0,0,frandom(-1.0,1.0))
 		STGG A 1 Offset(0,38) A_SetPitch(pitch-(1.0*CallACS("RecoilAmount")))
-		STGG A 1 Offset(0,37) A_AlertMonsters
+		STGG A 1 Offset(0,37)
 		STGG A 1 Offset(0,35)
 		STGG A 1 Offset(0,33)
 		TNT1 A 0 A_CheckReload
@@ -76,10 +51,10 @@ Actor STG44 : NaziWeapon
 		STGG A 1 Offset(-10,57)
 		STGG A 8 Offset(-11,58)
 	ReloadLoop:
-		TNT1 A 0 A_TakeInventory("STGClip",1,TIF_NOTAKEINFINITE)
+		TNT1 A 0 A_TakeInventory("792KurzAmmo",1,TIF_NOTAKEINFINITE)
 		TNT1 A 0 A_GiveInventory("STG44Loaded")
 		TNT1 A 0 A_JumpIfInventory("STG44Loaded",0,"ReloadFinish")
-		TNT1 A 0 A_JumpIfInventory("STGClip",1,"ReloadLoop")
+		TNT1 A 0 A_JumpIfInventory("792KurzAmmo",1,"ReloadLoop")
 	ReloadFinish:
 		STGG A 1 Offset(-10,58)
 		STGG A 1 Offset(-10,61)
@@ -109,13 +84,21 @@ Actor STG44 : NaziWeapon
 	}
 }
 
+ACTOR STG44Loaded : Ammo
+{
+	Tag "7.92x33mm"
+	+IGNORESKILL
+	Inventory.MaxAmount 30
+	Inventory.Icon STGIA0
+}
+
 ACTOR STG44Spawner
 {
 	States
 	{
 	Spawn:
 		TNT1 A 0 NODELAY A_SpawnItemEx("STG44Pickup",0,0,0,velx,vely,velz)
-		TNT1 A 0 A_SpawnItemEx("STGClip",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("792KurzAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }

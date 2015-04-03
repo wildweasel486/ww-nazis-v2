@@ -1,10 +1,9 @@
 ACTOR Luger9mm : NaziWeapon
 {
 	Weapon.SelectionOrder 9998
-	Weapon.Kickback 60
 	Weapon.AmmoType "Luger9mmLoaded"
 	Weapon.AmmoUse 1
-	Weapon.AmmoType2 "MPClip"
+	Weapon.AmmoType2 "9mmAmmo"
 	Weapon.AmmoUse2 1
 	Tag "Luger P08"
 	Inventory.PickupMessage "You got the Luger P08! (slot 2)"
@@ -13,7 +12,7 @@ ACTOR Luger9mm : NaziWeapon
 	{
 	Ready:
 		LUGG A 0 A_JumpIfInventory("Luger9mmLoaded",0,2)
-		LUGG A 0 A_JumpIfInventory("MPClip",1,2)
+		LUGG A 0 A_JumpIfInventory("9mmAmmo",1,2)
 		LUGG A 1 A_WeaponReady
 		Loop
 		LUGG A 1 A_WeaponReady(WRF_ALLOWRELOAD)
@@ -33,9 +32,9 @@ ACTOR Luger9mm : NaziWeapon
 		LUGG A 0 A_SetPitch(pitch-(0.2*CallACS("RecoilAmount")))
 		LUGG A 0 A_PlaySound("weapons/Luger",CHAN_WEAPON)
 		LUGG A 0 A_SpawnItemEx("9MMCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
+		LUGG A 0 A_AlertMonsters
 		LUGG A 1 A_FireCustomMissile("LugerTracer",frandom(-1,1))
-		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
-		LUGG B 1 A_AlertMonsters
+		LUGG B 1 ACS_NamedExecute("WWNaziTaunt",0,1)
 		LUGG B 1 Offset(0,36) A_SetPitch(pitch-(0.2*CallACS("RecoilAmount")))
 		LUGG B 1 Offset(0,41) A_CheckReload
 		LUGG C 1 Offset(0,35) A_WeaponReady(WRF_NOBOB)
@@ -54,10 +53,10 @@ ACTOR Luger9mm : NaziWeapon
 		LUGG C 1 Offset(0,82)
 		TNT1 A 11
 	ReloadLoop:
-		TNT1 A 0 A_TakeInventory("MPClip",1,TIF_NOTAKEINFINITE)
+		TNT1 A 0 A_TakeInventory("9mmAmmo",1,TIF_NOTAKEINFINITE)
 		TNT1 A 0 A_GiveInventory("Luger9mmLoaded")
 		TNT1 A 0 A_JumpIfInventory("Luger9mmLoaded",0,"ReloadFinish")
-		TNT1 A 0 A_JumpIfInventory("MPClip",1,"ReloadLoop")
+		TNT1 A 0 A_JumpIfInventory("9mmAmmo",1,"ReloadLoop")
 	ReloadFinish:
 		LUGG B 1 Offset(0,82)
 		LUGG B 1 Offset(0,72)
@@ -93,7 +92,7 @@ ACTOR Luger9mmSpawner
 	{
 	Spawn:
 		TNT1 A 0 NODELAY A_SpawnItemEx("Luger9mmPickup",0,0,0,velx,vely,velz)
-		TNT1 A 0 A_SpawnItemEx("MPMagazine",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("9mmAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }

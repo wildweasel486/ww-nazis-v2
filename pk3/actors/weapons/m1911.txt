@@ -1,18 +1,9 @@
-ACTOR M1911Loaded : Ammo
-{
-	Tag ".45 ACP"
-	+IGNORESKILL
-	Inventory.MaxAmount 7
-	Inventory.Icon COLPA0
-}
-
 ACTOR M1911 : NaziWeapon
 {
 	Weapon.AmmoType "M1911Loaded"
 	Weapon.AmmoUse 1
 	Weapon.AmmoType2 "45ACPAmmo"
 	Weapon.AmmoUse2 1
-	Weapon.Kickback 45
 	Weapon.SelectionOrder 9990
 	Inventory.Pickupmessage "You got the M1911! (slot 2)"
 	+WEAPON.NOAUTOFIRE
@@ -37,13 +28,13 @@ ACTOR M1911 : NaziWeapon
 	Fire:
 		TNT1 A 0 A_JumpIfInventory("M1911Loaded",1,1)
 		Goto Dryfire
-		1911 B 1 A_GunFlash
-		TNT1 A 0 A_PlaySound("weapons/1911fire",CHAN_WEAPON)
-		TNT1 A 0 A_SetPitch(pitch+(0.2*CallACS("RecoilAmount")))
+		1911 B 0 A_GunFlash
+		1911 B 0 A_PlaySound("weapons/1911fire",CHAN_WEAPON)
+		1911 B 0 A_SetPitch(pitch+(0.2*CallACS("RecoilAmount")))
 		1911 B 0 A_AlertMonsters
-		M1GF A 0 A_SpawnItemEx("45ACPCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
+		1911 B 0 A_SpawnItemEx("45ACPCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
-		1911 B 1 A_FireCustomMissile("1911Tracer",frandom(-1.5,1.5),1,0,0,0,frandom(-0.8,0.8))
+		1911 B 2 A_FireCustomMissile("1911Tracer",frandom(-1.5,1.5),1,0,0,0,frandom(-0.8,0.8))
 		1911 C 1 A_SetPitch(pitch-(0.2*CallACS("RecoilAmount")))
 		TNT1 A 0 A_CheckReload
 		1911 DEED 1 A_WeaponReady
@@ -78,6 +69,14 @@ ACTOR M1911 : NaziWeapon
 		COLP A -1	//Really not a fan of this sprite...
 		Stop
 	}
+}
+
+ACTOR M1911Loaded : Ammo
+{
+	Tag ".45 ACP"
+	+IGNORESKILL
+	Inventory.MaxAmount 7
+	Inventory.Icon COLPA0
 }
 
 ACTOR M1911Spawner

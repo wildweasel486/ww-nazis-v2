@@ -1,25 +1,15 @@
-ACTOR SwordSeq : Inventory
-{
-	Inventory.MaxAmount 2
-}
-
 ACTOR Firebrand : NaziWeapon
 {
 	Weapon.SelectionOrder 9999
-	Weapon.Kickback 10
 	Weapon.SisterWeapon FlameSword
 	Inventory.PickupMessage "Mad Jack Churchill now considers you properly dressed! (slot 1)"
 	Inventory.PickupSound "weapons/sworddraw"
 	Weapon.UpSound "weapons/sworddraw"
 	+NOAUTOFIRE
-	+CHEATNOTWEAPON
 	-WEAPON.AMMO_CHECKBOTH
 	Tag "Firebrand"
 	States
 	{
-	Spawn:
-		SRDP A -1 bright
-		Loop
 	Select:
 		SRDG A 1 A_Raise
 		Loop
@@ -72,12 +62,14 @@ ACTOR Firebrand : NaziWeapon
 		SRDG C 1 A_GiveInventory("PowerWeaponLevel2")
 		SRDG BA 1
 		Goto Ready
+	Spawn:
+		SRDP A -1 bright
+		Loop
 	}
 }
 
 ACTOR FlameSword : Firebrand
 {
-	Weapon.Kickback 30
 	Weapon.SisterWeapon Firebrand
 	AttackSound "weapons/flameswordhit"
 	+POWERED_UP
@@ -141,9 +133,24 @@ ACTOR FlameSword : Firebrand
 	}
 }
 
+ACTOR FirebrandPickup : NaziWeaponPickup
+{
+	Inventory.PickupSound "weapons/sworddraw"
+	Scale .8
+	States
+	{
+	Spawn:
+		SRDP A -1 BRIGHT
+		Stop
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",2)
+		Stop
+	}
+}
+
 ACTOR FirebrandFireball
 {
-	PROJECTILE
+	Projectile
 	Radius 12
 	Height 12
 	Speed 40
@@ -152,6 +159,7 @@ ACTOR FirebrandFireball
 	DeathSound "world/barrelboom"
 	DamageType Fire
 	//Obituary "%o was killed by %k."
+	ProjectileKickback 30
 	States
 	{
 	Spawn:
@@ -184,6 +192,7 @@ ACTOR SwordPuff
 	AttackSound "weapons/swordwall"
 	SeeSound "weapons/swordhit"
 	//Obituary "%o was killed by %k."
+	ProjectileKickback 10
 	States
 	{
 	Spawn:
@@ -191,7 +200,7 @@ ACTOR SwordPuff
 		TNT1 A 1
 		stop
 	Crash:
-		TNT1 A 1 A_SpawnDebris("SwordPuffSpark")
+		TNT1 A 0 A_SpawnDebris("SwordPuffSpark")
 		TNT1 A 1 A_AlertMonsters
 		Stop
 	}
@@ -200,6 +209,7 @@ ACTOR SwordPuff
 ACTOR FireSwordPuff : SwordPuff
 {
 	DamageType Fire
+	ProjectileKickback 30
 }
 
 ACTOR SwordPuffSpark
@@ -227,22 +237,12 @@ ACTOR SwordPuffSpark
 	}
 }
 
+ACTOR SwordSeq : Inventory
+{
+	Inventory.MaxAmount 2
+}
+
 ACTOR WWKeen : CommanderKeen replaces CommanderKeen
 {
 	DropItem "FirebrandPickup"
-}
-
-ACTOR FirebrandPickup : NaziWeaponPickup
-{
-	Inventory.PickupSound "weapons/sworddraw"
-	Scale .8
-	States
-	{
-	Spawn:
-		SRDP A -1 BRIGHT
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",2)
-		Stop
-	}
 }

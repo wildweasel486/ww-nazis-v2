@@ -87,8 +87,7 @@ ACTOR GuardSpawner : RandomSpawner
 ACTOR Guard : Nazi
 {
 	Obituary "%o was shot by a pistol soldier."
-	DropItem Walther9mmPickup
-	DropItem MPMagazine
+	DropItem Walther9mmSpawner
 	States
 	{
 	Spawn:
@@ -157,9 +156,7 @@ ACTOR MP40Guard : Nazi
 	SeeSound "Nazi2/Sighted"
 	PainSound "Nazi2/Pain"
 	DeathSound "Nazi2/Death"
-	DropItem MP40Pickup
-	DropItem MPMagazine
-	DropItem MPMagazine
+	DropItem MP40Spawner
 	DropItem GrenadePickup,16
 	States
 	{
@@ -384,8 +381,7 @@ ACTOR Officer : Nazi
 	SeeSound "Nazi4/Sighted"
 	PainSound "Nazi4/Pain"
 	DeathSound "Nazi4/Death"
-	DropItem Luger9mmPickup
-	DropItem MPMagazine
+	DropItem Luger9mmSpawner
 	States
 	{
 	Spawn:

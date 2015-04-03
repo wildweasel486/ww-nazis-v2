@@ -1,12 +1,12 @@
 ACTOR Tracer : FastProjectile
 {
-	Alpha .90
+	Alpha .9
 	RenderStyle Add
 	Radius 2
 	Height 2
-	PROJECTILE
+	Projectile
 	+BLOODSPLATTER
-	Scale 0.4
+	Scale .4
 	MissileType TracerTrail
 	MissileHeight 8
 	Decal BulletChip
@@ -29,14 +29,14 @@ ACTOR Tracer : FastProjectile
 
 ACTOR TracerTrail
 {
-	Alpha 0.75
+	Alpha .75
 	RenderStyle Add
 	+NOBLOCKMAP
 	+NOGRAVITY
 	+NOTELEPORT
 	+CANNOTPUSH
 	+NODAMAGETHRUST
-	Scale 0.4
+	Scale .4
 	States
 	{
 	Spawn:
@@ -48,11 +48,11 @@ ACTOR TracerTrail
 ACTOR TracerSpark
 {
 	Health 4
-	radius 3
-	height 6
+	Radius 3
+	Height 6
 	Speed .1
 	RenderStyle Add
-	Scale 0.5
+	Scale .5
 	Mass 0
 	+MISSILE
 	BounceType Doom
@@ -74,78 +74,33 @@ ACTOR TracerSpark
 // The Player's variants on the tracers, so they have different speeds and damages
 // based on which weapon is being used.
 
-ACTOR PistolTracer : Tracer
+//Muzzle velocity: 1,148-1,312 ft/s (350-400 m/s) - Wikipedia
+ACTOR LugerTracer : Tracer
+{
+	ProjectileKickback 60
+	Damage (random(3,17))
+	Speed 100
+}
+
+//Muzzle velocity: 1,200 ft/s (365 m/s) - Wikipedia
+ACTOR WaltherTracer : LugerTracer
 {
 	Damage (random(6,18))
 	Speed 90
 }
 
-ACTOR LugerTracer : Tracer
-{
-	Damage (random(3,17))
-	Speed 100
-}
-
 ACTOR RevolverTracer : Tracer
 {
+	ProjectileKickback 45
 	Damage (random(22,34))
 	Speed 90
 	Obituary "%o was breached by %k's revolver."
 }
 
+//Muzzle velocity: 825 ft/s (251 m/s) - Wikipedia
 ACTOR 1911Tracer : RevolverTracer
 {
 	Obituary "%o was executed by %k's M1911."
-}
-
-ACTOR SMGTracer : Tracer
-{
-	Damage (random(9,14))
-	Speed 90
-}
-
-ACTOR ThompsonTracer : Tracer
-{
-	Damage (random(14,18))
-	Speed 120
-}
-
-ACTOR PPSHTracer : Tracer
-{
-	Damage (random(11,12))
-	Speed 100
-}
-
-ACTOR RifleTracer : Tracer
-{
-	Damage (random(26,55))
-	Speed 150
-}
-
-ACTOR Kar98kTracer : RifleTracer
-{
-	Speed 180
-	Obituary "%o was gunned down by %k's Mauser."
-}
-
-ACTOR EnfieldTracer : Tracer
-{
-	Damage (random(40,65))
-	Speed 180
-}
-
-ACTOR GarandTracer : EnfieldTracer{}
-
-ACTOR FGTracer : Tracer
-{
-	Damage (random(30,44))
-	Speed 155
-}
-
-ACTOR StGTracer : Tracer
-{
-	Damage (random(18,24))
-	Speed 115
 }
 
 ACTOR ShotgunTracer : Tracer
@@ -166,6 +121,73 @@ ACTOR AutoShotgunTracer : ShotgunTracer
 	Obituary "%o was peppered by %k's auto shotgun."
 }
 
+//Muzzle velocity: 1,312 ft/s (400 m/s) - Wikipedia
+ACTOR MP40Tracer : Tracer
+{
+	Damage (random(9,14))
+	Speed 90
+}
+
+//Muzzle velocity: 1,600.6 ft/s (488 m/s) - Wikipedia
+ACTOR PPSHTracer : WaltherTracer
+{
+	Damage (random(11,12))
+	Speed 100
+}
+
+//Muzzle velocity: 935 ft/s (285 m/s) - Wikipedia
+ACTOR ThompsonTracer : Tracer
+{
+	ProjectileKickback 100
+	Damage (random(14,18))
+	Speed 120
+}
+
+//Muzzle velocity: 2,822 ft/s (860 m/s) - Wikipedia
+ACTOR Kar98kTracer : Tracer
+{
+	ProjectileKickback 100
+	Damage (random(26,55))
+	Speed 180
+	Obituary "%o was gunned down by %k's Mauser."
+}
+
+//Muzzle velocity: 2,448-2,546 ft/s (746-776 m/s) - Wikipedia
+ACTOR G43Tracer : Kar98kTracer
+{
+	Speed 150
+	Obituary ""
+}
+
+//Muzzle velocity: 2,441 ft/s (744 m/s) - Wikipedia
+ACTOR EnfieldTracer : Tracer
+{
+	Damage (random(40,65))
+	Speed 180
+}
+
+//Muzzle velocity: 2,800 ft/s (853 m/s) - Wikipedia
+ACTOR GarandTracer : EnfieldTracer
+{
+	ProjectileKickback 100
+}
+
+//Muzzle velocity: 2,247 ft/s (685 m/s) - Wikipedia
+ACTOR StGTracer : Tracer
+{
+	ProjectileKickback 100
+	Damage (random(18,24))
+	Speed 115
+}
+
+//Muzzle velocity: 2,428 ft/s (740 m/s) - Wikipedia
+ACTOR FGTracer : Tracer
+{
+	ProjectileKickback 100
+	Damage (random(30,44))
+	Speed 155
+}
+
 ACTOR ChaingunTracer : Tracer
 {
 	Damage (random(11,15))
@@ -173,9 +195,10 @@ ACTOR ChaingunTracer : Tracer
 }
 
 //Shells/Casings
-ACTOR GenericCasing
+ACTOR 9MMCasing
 {
-	PROJECTILE
+	Scale .075
+	Projectile
 	-NOGRAVITY
 	-NOBLOCKMAP
 	+BOUNCEONACTORS
@@ -202,19 +225,25 @@ ACTOR GenericCasing
 	}
 }
 
-ACTOR 9MMCasing : GenericCasing
-{
-	Scale 0.075
-}
-
 ACTOR RevolverCasing : 9MMCasing{}
 
-ACTOR ShotgunCasing : GenericCasing
+ACTOR 45ACPCasing : 9MMCasing
+{
+	Scale .1
+	States
+	{
+	Spawn:
+		CAS3 ABCDEFGH 2
+		Loop
+	}
+}
+
+ACTOR ShotgunCasing : 9MMCasing
 {
 	WallBounceSound "shellcasing/bounce"
 	BounceSound "shellcasing/bounce"
 	DeathSound "shellcasing/stop"
-	Scale 0.175
+	Scale .175
 	States
 	{
 	Spawn:
@@ -225,20 +254,9 @@ ACTOR ShotgunCasing : GenericCasing
 
 ACTOR TokarevCasing : 9MMCasing{}
 
-ACTOR 45ACPCasing : 9MMCasing
+ACTOR MauserRifleCasing : 9MMCasing
 {
-	Scale 0.1
-	States
-	{
-	Spawn:
-		CAS3 ABCDEFGH 2
-		Loop
-	}
-}
-
-ACTOR MauserRifleCasing : GenericCasing
-{
-	Scale 0.15
+	Scale .15
 	States
 	{
 	Spawn:

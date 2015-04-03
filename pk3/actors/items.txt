@@ -1,3 +1,26 @@
+//Doom
+ACTOR DogFood : HealthBonus replaces HealthBonus
+{
+	Inventory.PickupMessage "Picked up a health bonus."
+	States
+	{
+	Spawn:
+		BON1 ABCDCB 6
+		Loop
+	}
+}
+
+ACTOR HotFood : Stimpack replaces Stimpack
+{
+	Inventory.PickupMessage "Picked up a stimpack."
+	States
+	{
+	Spawn:
+		STIM A -1
+		Stop
+	}
+}
+
 ACTOR FirstAidKit : Medikit replaces Medikit
 {
 	Inventory.PickupMessage "Picked up a first aid kit."
@@ -7,6 +30,18 @@ ACTOR FirstAidKit : Medikit replaces Medikit
 	Spawn:
 		MEDK B -1
 		Stop
+	}
+}
+
+ACTOR ArmorPlate : ArmorBonus replaces ArmorBonus
+{
+	Inventory.PickupMessage "Picked up an armor bonus."
+	Inventory.Icon "ARM1A0"
+	States
+	{
+	Spawn:
+		BON2 ABCDCB 6
+		Loop
 	}
 }
 
@@ -68,7 +103,7 @@ ACTOR NaziBerserk : Berserk replaces Berserk
 	States
 	{
 	Spawn:
-		PSTR A -1	//New sprite?
+		PSTR A -1
 		Stop
 	Pickup:
 		TNT1 A 0 A_GiveInventory("PowerStrength")
@@ -81,6 +116,7 @@ ACTOR NaziSupercharge : Soulsphere replaces Soulsphere
 {
 	Inventory.PickupMessage "Supercharge!"
 	Inventory.PickupSound "misc/p_pkup"
+	ConversationID 127
 	States
 	{
 	Spawn:
@@ -89,18 +125,90 @@ ACTOR NaziSupercharge : Soulsphere replaces Soulsphere
 	}
 }
 
-/*Allmap                  // Computer Area Map
-ArmorBonus              // Armor Helmet
-BlurSphere              // Partial Invisibility
-HealthBonus             // Health Potion
-Infrared                // Light-Amp Goggles
-InvulnerabilitySphere   // Invulnerability
-Medikit                 // Medikit(+25 Health)
-Megasphere              // Megasphere (+200 Health/Armor)
-RadSuit                 // Radiation Suit
-Stimpack                // Stimpack(+10 Health)*/
+ACTOR NaziMegacharge : Megasphere replaces Megasphere
+{
+	Inventory.PickupMessage "Megacharge!"
+	Inventory.PickupSound "misc/p_pkup"
+	States
+	{
+	Spawn:
+		MEGA ABCD 6 Bright
+		Loop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("HeavyArmor")
+		TNT1 A 0 A_GiveInventory("MegasphereHealth")
+		Stop
+	}
+}
+
+ACTOR Blueprints : Allmap replaces Allmap
+{
+	Inventory.PickupSound "misc/p_pkup"
+	Inventory.PickupMessage "Computer Area Map"
+	States
+	{
+	Spawn:
+		PMAP ABCDCB 6 Bright
+		Loop
+	}
+}
+
+ACTOR CloakingDevice : BlurSphere replaces BlurSphere
+{
+	+VISIBILITYPULSE
+	Powerup.Type "Invisibility"
+	RenderStyle Translucent
+	Inventory.PickupMessage "Partial Invisibility"
+	States
+	{
+	Spawn:
+		PINS ABCD 6 Bright
+		Loop
+	}
+}
+
+ACTOR BrightVision : Infrared replaces Infrared
+{
+	Powerup.Type "LightAmp"
+	Inventory.PickupMessage "Light Amplification Visor"
+	States
+	{
+	Spawn:
+		PVIS A 6 Bright
+		PVIS B 6
+		Loop
+	}
+}
+
+ACTOR NaziInvincible : InvulnerabilitySphere replaces InvulnerabilitySphere
+{
+	Powerup.Type "Invulnerable"
+	Powerup.Color InverseMap
+	Inventory.PickupMessage "Invulnerability!"
+	States
+	{
+	Spawn:
+		PINV ABCD 6 Bright
+		Loop
+	}
+}
+
+ACTOR HazmatSuit : RadSuit replaces RadSuit
+{
+	Inventory.PickupMessage "Radiation Shielding Suit"
+	States
+	{
+	Spawn:
+		SUIT A -1 Bright
+		Stop
+	}
+}
 
 //Heretic
+ACTOR CrystalVialSpawner : RandomSpawner replaces CrystalVial
+{
+	DropItem HotFood
+}
 ACTOR ArtiHealthSpawner : RandomSpawner replaces ArtiHealth
 {
 	DropItem FirstAidKit
@@ -114,26 +222,59 @@ ACTOR EnchantedShieldSpawner : RandomSpawner replaces EnchantedShield
 	DropItem HeavyArmor
 }
 ACTOR BagOfHoldingSpawner : BackpackSpawner replaces BagOfHolding{}
-
-ACTOR HNaziBerserk : NaziBerserk replaces ArtiTomeOfPower
+ACTOR ArtiTomeOfPowerSpawner : RandomSpawner replaces ArtiTomeOfPower
 {
-	Inventory.PickupMessage "Foliant der Macht" // "Tome of Power"
-	States
-	{
-	Spawn:
-		PWBK A -1	//New sprite?
-		Stop
-	}
+	DropItem NaziBerserk
+}
+ACTOR ArtiSuperHealthSpawner : RandomSpawner replaces ArtiSuperHealth
+{
+	DropItem NaziSupercharge
+}
+ACTOR SuperMapSpawner : RandomSpawner replaces SuperMap
+{
+	DropItem Blueprints
+}
+ACTOR ArtiInvisibilitySpawner : RandomSpawner replaces ArtiInvisibility
+{
+	DropItem CloakingDevice
+}
+ACTOR ArtiTorchSpawner : RandomSpawner replaces ArtiTorch
+{
+	DropItem BrightVision
+}
+ACTOR ArtiInvulnerabilitySpawner : RandomSpawner replaces ArtiInvulnerability
+{
+	DropItem NaziInvincible
 }
 
 //Chex
-ACTOR FirstAidKitChex : ArtiHealthSpawner replaces BowlOfVegetables{}
-ACTOR FlakJacketChex : SilverShieldSpawner replaces ChexArmor{}
-ACTOR HeavyArmorChex : EnchantedShieldSpawner replaces SuperChexArmor{}
-ACTOR BackpackSpawnerChex : BackpackSpawner replaces Zorchpack{}
+ACTOR GlassOfWaterSpawner : RandomSpawner replaces GlassOfWater
+{
+	DropItem DogFood
+}
+ACTOR BowlOfFruitSpawnerSpawner : CrystalVialSpawner replaces BowlOfFruit{}
+ACTOR BowlOfVegetablesSpawner : ArtiHealthSpawner replaces BowlOfVegetables{}
+ACTOR SlimeRepellentSpawner : RandomSpawner replaces SlimeRepellent
+{
+	DropItem ArmorPlate
+}
+ACTOR ChexArmorSpawner : SilverShieldSpawner replaces ChexArmor{}
+ACTOR SuperChexArmorSpawner : EnchantedShieldSpawner replaces SuperChexArmor{}
+ACTOR ZorchpackSpawner : BackpackSpawner replaces Zorchpack{}
+ACTOR SuperchargeBreakfastSpawner : ArtiSuperHealthSpawner replaces SuperchargeBreakfast{}
+ACTOR ComputerAreaMapSpawner : SuperMapSpawner replaces ComputerAreaMap{}
+ACTOR SlimeProofSuitSpawner : RandomSpawner replaces SlimeProofSuit
+{
+	DropItem HazmatSuit
+}
 
 //Strife
+ACTOR MedPatchSpawner : CrystalVialSpawner replaces MedPatch{}
 ACTOR MedicalKitSpawner : ArtiHealthSpawner replaces MedicalKit{}
 ACTOR LeatherArmorSpawner : SilverShieldSpawner replaces LeatherArmor{}
 ACTOR MetalArmorSpawner : EnchantedShieldSpawner replaces MetalArmor{}
 ACTOR AmmoSatchelSpawner : BackpackSpawner replaces AmmoSatchel{}
+ACTOR SurgeryKitSpawner : ArtiSuperHealthSpawner replaces SurgeryKit{}
+ACTOR StrifeMapSpawner : SuperMapSpawner replaces StrifeMap{}
+ACTOR ShadowArmorSpawner : ArtiInvisibilitySpawner replaces ShadowArmor{}
+ACTOR EnvironmentalSuitSpawner : SlimeProofSuitSpawner replaces EnvironmentalSuit{}

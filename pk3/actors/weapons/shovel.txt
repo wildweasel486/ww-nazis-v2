@@ -2,7 +2,6 @@ ACTOR Shovel : NaziWeapon
 {
 	Scale .5
 	Weapon.SelectionOrder 9999
-	Weapon.Kickback 100
 	AttackSound "shovel/impact"
 	Tag "The Shovel!"
 	Inventory.PickupMessage "You got the shovel! (slot 1)"
@@ -65,6 +64,20 @@ ACTOR Shovel : NaziWeapon
 	}
 }
 
+ACTOR ShovelPickup : NaziWeaponPickup
+{
+	Scale .5
+	States
+	{
+	Spawn:
+		SHUV Z -1
+		Stop
+	Pickup:
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",0)
+		Stop
+	}
+}
+
 actor ShovelPuff
 {
 	+NOBLOCKMAP
@@ -76,26 +89,13 @@ actor ShovelPuff
 	attacksound "shovel/wall"
 	seesound "shovel/impact"
 	Obituary "%o was shcklonked with %k's shovel."
+	ProjectileKickback 100
 	states
 	{
 	Spawn:
 	Melee:
 	Crash:
 		POOF ABCDE 3
-		Stop
-	}
-}
-
-ACTOR ShovelPickup : NaziWeaponPickup
-{
-	Scale .5
-	States
-	{
-	Spawn:
-		SHUV Z -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",0)
 		Stop
 	}
 }
