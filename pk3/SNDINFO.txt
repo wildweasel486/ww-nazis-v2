@@ -327,9 +327,9 @@ scasesb1 scasesb1
 scasesb2 scasesb2
 
 //Fists
-melee/miss dspmiss
-melee/hit dspunch
-melee/wall dspwall
+melee/miss	dspmiss
+melee/hit	dspunch
+melee/wall	dspwall
 
 //Shovel
 $random shovel/impact {shovel/impact1 shovel/impact2}
@@ -343,105 +343,105 @@ shovel/miss2	dsshvw2
 shovel/miss3	dsshvw3
 
 //Luger P-08
-weapons/Luger	LUGRFIRE
-reloads/luger	lugrload
+luger/fire		lugrfire
+luger/reload	lugrload
 
 //Walther P-38
-weapons/Walther	WALTFIR
-reloads/p38		loadp38
+walther/fire	waltfir
+walther/reload	loadp38
 
 //.357 Revolver
-weapons/revolver		revfire
-weapons/revolverout		revout
-weapons/revolverin		revin
-weapons/revolverload	revload
+revolver/fire	revfire
+revolver/out	revout
+revolver/in		revin
+revolver/load	revload
 
 //Colt M1911
-weapons/1911slide	SLIDE
-weapons/1911reload	LOAD
-weapons/1911snap	SNAP
+m1911/slide		SLIDE
+m1911/reload	LOAD
+m1911/snap		SNAP
 
-$random weapons/1911fire {1911A 1911B 1911C 1911D }
+$random m1911/fire {1911A 1911B 1911C 1911D}
 1911A	1911A
 1911B	1911B
 1911C	1911C
 1911D	1911D
 
 //M1897 Trenchgun
-Shotgun/Fire	SHOTFIRE
-Shotgun/Load	SHOTLOAD
-Shotgun/Pump	SHOTPUMP
+shotgun/fire	SHOTFIRE
+shotgun/load	SHOTLOAD
+shotgun/pump	SHOTPUMP
 
 //Browning Auto-5
-weapons/ba5fire	ba5fire
-weapons/ba5load	ba5load
-weapons/ba5cock	ba5cock
+browning/fire	ba5fire
+browning/load	ba5load
+browning/cock	ba5cock
 
 //MP-40
-weapons/mp40 dsrifle
-reloads/mp40 loadmp40
+mp40/fire 	dsrifle
+mp40/reload	loadmp40
 
 //PPSh-41
-ppsh/fire ppshfire
-ppsh/reload ppshload
+ppsh/fire	ppshfire
+ppsh/reload	ppshload
 
 //Thompson M1A1
-Thompson/Fire THOMFIRE
-Thompson/Reload THOMLOAD
+thompson/fire	THOMFIRE
+thompson/reload	THOMLOAD
 
 //Karabiner 98k
-weapons/mauserfire DSMAUS
-weapons/mausercock DSMCLACK
-weapons/mauseropen DSPOP
-weapons/mauserinsert DSINSERT
-weapons/mausershut DSCLACK
+mauser/fire		DSMAUS
+mauser/cock		DSMCLACK
+mauser/open		DSPOP
+mauser/insert	DSINSERT
+mauser/shut		DSCLACK
 
 //Gewehr 43
-Garand/Fire M1FIRE
-reloads/g43 loadg43
+g43/fire	m1fire
+g43/reload	loadg43
 
 //Lee-Enfield SMLE
-Enfield/Fire EnflFire
-Enfield/BoltBack EnflBack
-Enfield/BoltFwd EnflFwd
-Enfield/Load EnflLoad
+enfield/fire		EnflFire
+enfield/boltback	EnflBack
+enfield/boltfwd		EnflFwd
+enfield/load		EnflLoad
 
 //Garand
-MGarand/Fire M1AFIRE
-MGarand/Unload M1UNLOAD
-MGarand/Load M1LOAD
-MGarand/Ping M1PING
+garand/fire		M1AFIRE
+garand/unload	M1UNLOAD
+garand/load		M1LOAD
+garand/ping		M1PING
 
 //STG44
-Weapons/STGFIRE STGFIRE
-reloads/stg loadstg
+stg44/fire		STGFIRE
+stg44/reload	loadstg
 
 //FG42
-fg42/fire FG42FIRE
-reloads/fg42 FG42LOAD
+fg42/fire	FG42FIRE
+fg42/reload	FG42LOAD
 
 //Pyrolight
-weapons/flamer dsfthrow
-weapons/steam dssteam
-weapons/napalm THERMFIR
-reloads/flamer THERMRLD
+flamer/fire		dsfthrow
+flamer/steam	dssteam
+flamer/napalm	THERMFIR
+flamer/reload	THERMRLD
 
 //Nebelwerfer
-weapons/nebelwerfer dsnebsht
-weapons/nebxpl		dsnebxpl
+nebelwerfer/fire	dsnebsht
+nebelwerfer/xplode	dsnebxpl
 
 //Panzerschreck
-panzer/fire panzfire
-panzer/load panzload
-panzer/fly panzfly
-panzer/explode panzexpl
+panzer/fire		panzfire
+panzer/load		panzload
+panzer/fly		panzfly
+panzer/explode	panzexpl
 
 //UMG43
-weapons/chaingun		dscgun
-weapons/chaingunstart	chaingo
-weapons/chaingunloop	chainlp
-weapons/chaingunstop	chainstp
-chaingun/get			P_CGUN
+chaingun/fire	dscgun
+chaingun/start	chaingo
+chaingun/loop	chainlp
+chaingun/stop	chainstp
+chaingun/get	p_cgun
 
 $random grenade/throw { grenthr1 grenthr2 grenthr3 }
 $random grenade/bounce { grenbnc1 grenbnc2 grenbnc3 grenbnc4 }
@@ -555,14 +555,12 @@ boss/pain		dsbospai
 // Weapons
 nazi/pistol DSNLUGER
 
-$random weapons/assaultgun {mp401 mp402}
+$random nazi/mp40 {mp401 mp402}
 mp401	dsmp401
 mp402	dsmp402
 
-weapons/stg44		dsstg44
-weapons/p38fire		dsp38
-weapons/mauser		m1afire
-weapons/missilef	dsmissil
+nazi/stg44		dsstg44
+nazi/missilef	dsmissil
 
 // Miscellaneous
 misc/k_pkup			dsgetkey
@@ -911,25 +909,25 @@ burndthc burndthc
 
 // Seekrit!
 
-$random weapons/swordhit { sword1 sword2 sword3 }
+$random sword/hit { sword1 sword2 sword3 }
 sword1 dsswdht1
 sword2 dsswdht2
 sword3 dsswdht3
-$random weapons/swordwall { swordwall1 swordwall2 swordwall3 swordwall4 }
+$random sword/wall { swordwall1 swordwall2 swordwall3 swordwall4 }
 swordwall1 dsswdwal
 swordwall2 dsswdwl2
 swordwall3 dsswdwl3
 swordwall4 dsswdwl4
-$random weapons/swordswing { swordswing1 swordswing2 swordswing3 }
+$random sword/swing { swordswing1 swordswing2 swordswing3 }
 swordswing1 dsshvw1
 swordswing2 dsshvw2
 swordswing3 dsshvw3
-weapons/sworddraw dsswdup
-$random weapons/flameswordhit { fsword1 fsword2 fsword3 }
+sword/draw dsswdup
+$random flamesword/hit { fsword1 fsword2 fsword3 }
 fsword1 dsfwdht1
 fsword2 dsfwdht2
 fsword3 dsfwdht3
-weapons/flameswordswing dsfwdswg
+flamesword/swing dsfwdswg
 
 menu/activate		menuopen	// Activate a new menu
 menu/backup			menucls 	// Backup to previous menu

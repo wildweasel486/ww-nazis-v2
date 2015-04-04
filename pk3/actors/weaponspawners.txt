@@ -21,7 +21,7 @@ ACTOR ClipSpawner : RandomSpawner replaces Clip
 ACTOR ClipBoxSpawner : RandomSpawner replaces ClipBox
 {
 	DropItem 9mmAmmoBox
-	DropItem 45ACPAmmo
+	DropItem 45ACPAmmoBox
 	DropItem TokarevAmmo
 }
 ACTOR ShellSpawner : RandomSpawner replaces Shell
@@ -60,7 +60,7 @@ ACTOR ChainsawSpawner : RandomSpawner replaces Chainsaw
 {
 	DropItem EnfieldSpawner
 	DropItem GarandSpawner
-	DropItem ShovelPickup
+	//DropItem ShovelPickup
 	DropItem KnuckleDustersPickup
 	DropItem FirebrandPickup
 }

@@ -30,7 +30,7 @@ ACTOR Luger9mm : NaziWeapon
 		Goto Dryfire
 		LUGG A 0 A_GunFlash
 		LUGG A 0 A_SetPitch(pitch-(0.2*CallACS("RecoilAmount")))
-		LUGG A 0 A_PlaySound("weapons/Luger",CHAN_WEAPON)
+		LUGG A 0 A_PlaySound("luger/fire",CHAN_WEAPON)
 		LUGG A 0 A_SpawnItemEx("9MMCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
 		LUGG A 0 A_AlertMonsters
 		LUGG A 1 A_FireCustomMissile("LugerTracer",frandom(-1,1))
@@ -44,7 +44,7 @@ ACTOR Luger9mm : NaziWeapon
 		Goto Ready
 	Reload:
 		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,2)
-		LUGG A 1 Offset(0,35) A_PlaySound("reloads/luger",5)
+		LUGG A 1 Offset(0,35) A_PlaySound("luger/reload",5)
 		LUGG A 1 Offset(0,38)
 		LUGG A 1 Offset(0,44)
 		LUGG A 1 Offset(0,52)

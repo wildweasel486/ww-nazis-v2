@@ -29,7 +29,7 @@ ACTOR M1911 : NaziWeapon
 		TNT1 A 0 A_JumpIfInventory("M1911Loaded",1,1)
 		Goto Dryfire
 		1911 B 0 A_GunFlash
-		1911 B 0 A_PlaySound("weapons/1911fire",CHAN_WEAPON)
+		1911 B 0 A_PlaySound("m1911/fire",CHAN_WEAPON)
 		1911 B 0 A_SetPitch(pitch+(0.2*CallACS("RecoilAmount")))
 		1911 B 0 A_AlertMonsters
 		1911 B 0 A_SpawnItemEx("45ACPCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
@@ -48,7 +48,7 @@ ACTOR M1911 : NaziWeapon
 		Goto LightDone
 	Reload:
 		TNT1 A 0 ACS_NamedExecute("WWNaziTaunt",0,2)
-		1911 B 4 A_PlaySound("weapons/1911slide",5)
+		1911 B 4 A_PlaySound("m1911/slide",5)
 		1911 C 2
 		HGRL ABCDE 2
 		HGRL F 4
@@ -58,10 +58,10 @@ ACTOR M1911 : NaziWeapon
 		TNT1 A 0 A_JumpIfInventory("M1911Loaded",0,"ReloadEnd")
 		TNT1 A 0 A_JumpIfInventory("45ACPAmmo",1,"ReloadLoop")
 	ReloadEnd:
-		HGRL G 2 A_PlaySound("weapons/1911reload",5)
+		HGRL G 2 A_PlaySound("m1911/reload",5)
 		HGRL HI 2
 		HGRL JK 3
-		HGRL L 4 A_PlaySound("weapons/1911snap",5)
+		HGRL L 4 A_PlaySound("m1911/snap",5)
 		HGRL M 3
 		HGRL NNOOP 1
 		Goto Ready
@@ -85,7 +85,7 @@ ACTOR M1911Spawner
 	{
 	Spawn:
 		TNT1 A 0 NODELAY A_SpawnItemEx("M1911Pickup",0,0,0,velx,vely,velz)
-		TNT1 A 0 A_SpawnItemEx("45ACPAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		TNT1 AA 0 A_SpawnItemEx("45ACPAmmo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }

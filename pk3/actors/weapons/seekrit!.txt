@@ -3,9 +3,9 @@ ACTOR Firebrand : NaziWeapon
 	Weapon.SelectionOrder 9999
 	Weapon.SisterWeapon FlameSword
 	Inventory.PickupMessage "Mad Jack Churchill now considers you properly dressed! (slot 1)"
-	Inventory.PickupSound "weapons/sworddraw"
-	Weapon.UpSound "weapons/sworddraw"
-	+NOAUTOFIRE
+	Inventory.PickupSound "sword/draw"
+	Weapon.UpSound "sword/draw"
+	+WEAPON.NOAUTOFIRE
 	-WEAPON.AMMO_CHECKBOTH
 	Tag "Firebrand"
 	States
@@ -25,7 +25,7 @@ ACTOR Firebrand : NaziWeapon
 		SRDG C 1 A_GiveInventory("SwordSeq")
 		TNT1 A 4
 		SRDG DE 1
-		SRDG F 1 A_PlaySound("weapons/swordswing")
+		SRDG F 1 A_PlaySound("sword/swing")
 		SRDG GHI 1
 		SRDG J 1 A_CustomPunch(35,1,0,"SwordPuff",96)
 		SRDG KLM 1
@@ -36,7 +36,7 @@ ACTOR Firebrand : NaziWeapon
 	Fire2:
 		TNT1 A 5
 		SRDG N 1 A_GiveInventory("SwordSeq")
-		SRDG O 1 A_PlaySound("weapons/swordswing")
+		SRDG O 1 A_PlaySound("sword/swing")
 		SRDG PQR 1
 		SRDG S 1 A_CustomPunch(45,1,0,"SwordPuff",96)
 		SRDG TUV 1
@@ -46,7 +46,7 @@ ACTOR Firebrand : NaziWeapon
 	Fire3:
 		TNT1 A 4
 		SRDG DE 1
-		SRDG F 1 A_PlaySound("weapons/swordswing")
+		SRDG F 1 A_PlaySound("sword/swing")
 		SRDG GHI 1
 		SRDG J 1 A_CustomPunch(35,1,0,"SwordPuff",96)
 		SRDG KL 1
@@ -71,7 +71,7 @@ ACTOR Firebrand : NaziWeapon
 ACTOR FlameSword : Firebrand
 {
 	Weapon.SisterWeapon Firebrand
-	AttackSound "weapons/flameswordhit"
+	AttackSound "flamesword/hit"
 	+POWERED_UP
 	+NOAUTOFIRE
 	+NOALERT
@@ -87,7 +87,7 @@ ACTOR FlameSword : Firebrand
 		SRDF C 1 A_GiveInventory("SwordSeq")
 		TNT1 A 4
 		SRDG DE 1
-		SRDF F 1 A_PlaySound("weapons/flameswordswing")
+		SRDF F 1 A_PlaySound("flamesword/swing")
 		SRDF GHI 1
 		SRDF J 1 A_CustomPunch(80,1,0,"FireSwordPuff",96)
 		SRDF KLM 1
@@ -98,7 +98,7 @@ ACTOR FlameSword : Firebrand
 	Fire2:
 		TNT1 A 5
 		SRDF N 1 A_GiveInventory("SwordSeq")
-		SRDF O 1 A_PlaySound("weapons/flameswordswing")
+		SRDF O 1 A_PlaySound("flamesword/swing")
 		SRDF PQR 1
 		SRDF S 1 A_CustomPunch(100,1,0,"FireSwordPuff",96)
 		SRDF TUV 1
@@ -108,7 +108,7 @@ ACTOR FlameSword : Firebrand
 	Fire3:
 		TNT1 A 4
 		SRDG DE 1
-		SRDF F 1 A_PlaySound("weapons/flameswordswing")
+		SRDF F 1 A_PlaySound("flamesword/swing")
 		SRDF GHI 1
 		SRDF J 1 A_CustomPunch(80,1,0,"FireSwordPuff",96)
 		SRDF KL 1
@@ -121,7 +121,7 @@ ACTOR FlameSword : Firebrand
 		SRDF BC 1
 		TNT1 A 4
 		SRDG DE 1
-		SRDF F 1 A_PlaySound("weapons/flameswordswing")
+		SRDF F 1 A_PlaySound("flamesword/swing")
 		SRDF GH 1
 		SRDF I 1 Thing_Damage(0,2)
 		SRDF J 1 A_FireCustomMissile("FirebrandFireball")
@@ -135,7 +135,7 @@ ACTOR FlameSword : Firebrand
 
 ACTOR FirebrandPickup : NaziWeaponPickup
 {
-	Inventory.PickupSound "weapons/sworddraw"
+	Inventory.PickupSound "sword/draw"
 	Scale .8
 	States
 	{
@@ -189,8 +189,8 @@ ACTOR SwordPuff
 	+NOBLOCKMAP
 	+NOGRAVITY
 	+PUFFONACTORS
-	AttackSound "weapons/swordwall"
-	SeeSound "weapons/swordhit"
+	AttackSound "sword/wall"
+	SeeSound "sword/hit"
 	//Obituary "%o was killed by %k."
 	ProjectileKickback 10
 	States

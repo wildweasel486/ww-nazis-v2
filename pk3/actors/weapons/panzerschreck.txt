@@ -9,7 +9,7 @@ ACTOR Panzerschreck : NaziWeapon
 	Weapon.AmmoUse2 1
 	Radius 18
 	Height 12
-	+NOAUTOFIRE
+	+WEAPON.NOAUTOFIRE
 	Scale .7
 	States
 	{

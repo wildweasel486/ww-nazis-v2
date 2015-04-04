@@ -56,7 +56,7 @@ ACTOR NaziWeaponPickup : CustomInventory
 ACTOR WWNazisPlayer : DoomPlayer
 {
 	Player.InvulnerabilityMode "reflective"
-	Player.WeaponSlot 1,Shovel,KnuckleDuster,Firebrand
+	Player.WeaponSlot 1,Shovel,KnuckleDusters,Firebrand
 	Player.WeaponSlot 2,Luger9mm,Walther9mm,WeaselsRevolver,M1911
 	Player.WeaponSlot 3,TrenchShotgun,Browning5,MP40,PPSH41,Thompson
 	Player.WeaponSlot 4,Kar98k,G43,Enfield,Garand,STG44,FG42

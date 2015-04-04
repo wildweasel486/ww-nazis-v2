@@ -1,0 +1,21 @@
+Lock 2
+{
+	ChexBlueCard
+	Message "$PD_BLUEC"
+	RemoteMessage "$PD_BLUECO"
+	Mapcolor 255 255 255
+}
+Lock 5
+{
+	BlueFlemKey
+	Message "$PD_BLUEF"
+	RemoteMessage "$PD_BLUEFO"
+	Mapcolor 255 255 255
+}
+Lock 130
+{
+	Any{ChexBlueCard BlueFlemKey}
+	Message "$PD_BLUEK"
+	RemoteMessage "$PD_BLUEO"
+	Mapcolor 255 255 255
+}

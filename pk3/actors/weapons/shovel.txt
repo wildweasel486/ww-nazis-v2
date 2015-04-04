@@ -2,10 +2,9 @@ ACTOR Shovel : NaziWeapon
 {
 	Scale .5
 	Weapon.SelectionOrder 9999
-	AttackSound "shovel/impact"
 	Tag "The Shovel!"
 	Inventory.PickupMessage "You got the shovel! (slot 1)"
-	+NOAUTOFIRE
+	+WEAPON.NOAUTOFIRE
 	-WEAPON.AMMO_CHECKBOTH
 	States
 	{

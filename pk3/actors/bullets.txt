@@ -4,8 +4,9 @@ ACTOR Tracer : FastProjectile
 	RenderStyle Add
 	Radius 2
 	Height 2
-	Projectile
+	Speed 75
 	+BLOODSPLATTER
+	+SEEKERMISSILE
 	Scale .4
 	MissileType TracerTrail
 	MissileHeight 8
@@ -13,7 +14,10 @@ ACTOR Tracer : FastProjectile
 	States
 	{
 	Spawn:
-		PUFF A -1 BRIGHT
+		PUFF A 1 BRIGHT A_JumpIfTracerCloser(192,"Whiz")
+		Loop
+	Whiz:
+		PUFF A -1 BRIGHT A_SpawnItemEx("Whizzer")
 		Stop
 	Death:
 	Crash:
@@ -23,6 +27,16 @@ ACTOR Tracer : FastProjectile
 		Stop
 	XDeath:
 		TNT1 A 1 A_PlaySound("hitflesh")
+		Stop
+	}
+}
+
+ACTOR Whizzer
+{
+	States
+	{
+	Spawn:
+		TNT1 A 1 A_PlaySound("whiz")
 		Stop
 	}
 }
@@ -63,10 +77,10 @@ ACTOR TracerSpark
 	{
 	Spawn:
 		PUFF A 1
-		PUFF A 5 Bright A_SetTranslucent(.8,1)
-		PUFF A 6 Bright A_SetTranslucent(.6,1)
-		PUFF A 8 Bright A_SetTranslucent(.4,1)
-		PUFF A 10 Bright A_SetTranslucent(.2,1)
+		PUFF A 5 BRIGHT A_SetTranslucent(.8,1)
+		PUFF A 6 BRIGHT A_SetTranslucent(.6,1)
+		PUFF A 8 BRIGHT A_SetTranslucent(.4,1)
+		PUFF A 10 BRIGHT A_SetTranslucent(.2,1)
 		Stop
 	}
 }
@@ -106,7 +120,6 @@ ACTOR 1911Tracer : RevolverTracer
 ACTOR ShotgunTracer : Tracer
 {
 	Damage (random(5,15))
-	Speed 75
 	States
 	{
 	Death:
@@ -272,51 +285,27 @@ ACTOR GarandRifleCasing : MauserRifleCasing{}
 ACTOR STGCasing : MauserRifleCasing{}
 
 // Enemy tracer variants for Normal mode.
-ACTOR EnemyTracer : Tracer
-{
-	Speed 75
-	+SEEKERMISSILE
-	States
-	{
-	Spawn:
-		PUFF A 1 BRIGHT A_JumpIfTracerCloser(192,"Whiz")
-		Loop
-	Whiz:
-		PUFF A -1 BRIGHT A_SpawnItemEx("Whizzer")
-		Stop
-	}
-}
-ACTOR Whizzer
-{
-	States
-	{
-	Spawn:
-		TNT1 A 1 A_PlaySound("whiz")
-		Stop
-	}
-}
-
-ACTOR EnemyPistolTracer : EnemyTracer
+ACTOR EnemyPistolTracer : Tracer
 {
 	Damage (random(4,8))
 }
 
-ACTOR EnemySMGTracer : EnemyTracer
+ACTOR EnemySMGTracer : Tracer
 {
 	Damage (random(6,7))
 }
 
-ACTOR EnemyRifleTracer : EnemyTracer
+ACTOR EnemyRifleTracer : Tracer
 {
 	Damage (random(15,30))
 }
 
-ACTOR EnemyStGTracer : EnemyTracer
+ACTOR EnemyStGTracer : Tracer
 {
 	Damage (random(7,8))
 }
 
-ACTOR EnemyChaingunTracer : EnemyTracer
+ACTOR EnemyChaingunTracer : Tracer
 {
 	Damage (random(6,8))
 }

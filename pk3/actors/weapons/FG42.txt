@@ -65,7 +65,7 @@ ACTOR FG42 : NaziWeapon
 		FG42 A 1 Offset(0,32) A_WeaponReady(WRF_NOBOB)
 		Goto Ready
 	Reload:
-		FG42 A 1 Offset(0,35) A_PlaySound("reloads/fg42",5)
+		FG42 A 1 Offset(0,35) A_PlaySound("fg42/reload",5)
 		FG42 A 1 Offset(0,38) ACS_NamedExecute("WWNaziTaunt",0,2)
 		FG42 A 1 Offset(0,44)
 		FG42 A 1 Offset(-2,46)

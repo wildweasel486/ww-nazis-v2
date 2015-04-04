@@ -5,12 +5,11 @@ ACTOR 9mmAmmo : Ammo
 	Inventory.MaxAmount 256
 	Ammo.BackpackAmount 64
 	Ammo.BackpackMaxAmount 480
-	Inventory.Icon MCLPA0
 	Inventory.PickupMessage "Picked up a 9mm magazine."
 	States
 	{
 	Spawn:
-		MCLP B -1
+		MCLP A -1
 		Stop
 	}
 }
@@ -22,7 +21,7 @@ ACTOR 9mmAmmoBox : 9mmAmmo
 	States
 	{
 	Spawn:
-		MCLP A -1
+		MCLP B -1
 		Stop
 	}
 }
@@ -47,16 +46,28 @@ ACTOR 357Ammo : Ammo
 ACTOR 45ACPAmmo : Ammo
 {
 	Tag ".45 ACP"
-	Inventory.Amount 20
+	Inventory.Amount 7
 	Inventory.MaxAmount 300
 	Ammo.BackpackAmount 80
 	Ammo.BackpackMaxAmount 450
-	Scale 0.6
-	Inventory.PickupMessage "Picked up some .45 ACP ammo."
+	Inventory.PickupMessage "Picked up a .45 ACP magazine."
 	States
 	{
 	Spawn:
 		45AM A -1
+		Stop
+	}
+}
+
+ACTOR 45ACPAmmoBox : 45ACPAmmo
+{
+	Inventory.Amount 20
+	Scale .6
+	Inventory.PickupMessage "Picked up a box of .45 ACP ammo."
+	States
+	{
+	Spawn:
+		45AM B -1
 		Stop
 	}
 }
@@ -112,13 +123,12 @@ ACTOR MauserAmmo : Ammo
 	Inventory.MaxAmount 40
 	Ammo.BackpackAmount 5
 	Ammo.BackpackMaxAmount 100
-	Inventory.Icon M1GAA0
 	Inventory.PickupMessage "Picked up a 7.92mm stripper clip."
 	Scale .3
 	States
 	{
 	Spawn:
-		M1GA B -1
+		792A A -1
 		Stop
 	}
 }
@@ -131,7 +141,7 @@ ACTOR MauserAmmoBox : MauserAmmo
 	States
 	{
 	Spawn:
-		M1GA A -1
+		792A B -1
 		Stop
 	}
 }
@@ -143,13 +153,12 @@ ACTOR 303Ammo : Ammo
 	Inventory.MaxAmount 40
 	Ammo.BackpackAmount 5
 	Ammo.BackpackMaxAmount 100
-	Inventory.Icon M1GAA0	//
 	Inventory.PickupMessage "Picked up a .303 charger clip."
 	Scale .3
 	States
 	{
 	Spawn:
-		M1GA B -1	//Placeholder sprite
+		792A A -1	//Placeholder sprite
 		Stop
 	}
 }
@@ -162,7 +171,7 @@ ACTOR 303AmmoBox : 303Ammo
 	States
 	{
 	Spawn:
-		M1GA A -1	//Placeholder sprite
+		792A B -1	//Placeholder sprite
 		Stop
 	}
 }
@@ -174,13 +183,12 @@ ACTOR 3006Ammo : Ammo
 	Inventory.MaxAmount 40
 	Ammo.BackpackAmount 8
 	Ammo.BackpackMaxAmount 100
-	Scale 0.3
-	Inventory.Icon M1GAC0
+	Scale .1
 	Inventory.PickupMessage "Picked up a .30-06 en bloc clip."
 	States
 	{
 	Spawn:
-		M1GA B -1	//placeholder
+		M1GA A -1
 		Stop
 	}
 }
@@ -193,7 +201,7 @@ ACTOR 3006AmmoBox : 3006Ammo
 	States
 	{
 	Spawn:
-		M1GA C -1
+		M1GA B -1
 		Stop
 	}
 }
@@ -209,7 +217,7 @@ ACTOR 792KurzAmmo : Ammo
 	States
 	{
 	Spawn:
-		762A A -1
+		792K A -1
 		Stop
 	}
 }
@@ -242,7 +250,7 @@ ACTOR NebAmmo : Ammo
 	States
 	{
 	Spawn:
-		MNRB A -1	//Needs a sprite
+		MNRB B -1	//Needs a sprite
 		Stop
 	}
 }
@@ -254,7 +262,7 @@ ACTOR NebAmmoBox : NebAmmo
 	States
 	{
 	Spawn:
-		MNRB A -1
+		MNRB B -1
 		Stop
 	}
 }
