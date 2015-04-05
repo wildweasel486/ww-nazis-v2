@@ -35,6 +35,13 @@ GOTBLUESKUL = "Picked up a silver skeleton key.";
 GOTYELWSKUL = "Picked up a gold skeleton key.";
 GOTREDSKUL = "Picked up a bronze skeleton key.";
 
+GOTCBLUEKEY = "Picked up a silver key.";
+GOTCYELLOWKEY = "Picked up a gold key.";
+GOTCREDKEY = "Picked up a bronze key.";
+GOTBLUEFLEM = "Picked up a silver skeleton key.";
+GOTYELLOWFLEM = "Picked up a gold skeleton key.";
+GOTREDFLEM = "Picked up a bronze skeleton key.";
+
 PD_REDC = "You need a bronze (red) key to open this door";
 PD_REDCO = "You need a bronze (red) key to activate this object";
 PD_YELLOWC = "You need a gold key to open this door";

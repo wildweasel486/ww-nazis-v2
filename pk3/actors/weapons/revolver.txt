@@ -1,51 +1,15 @@
-ACTOR RevolverClip : Ammo
-{
-	Tag ".357 Magnum"
-	Inventory.Amount 6
-	Inventory.MaxAmount 72
-	Ammo.BackpackAmount 12
-	Ammo.BackpackMaxAmount 108
-	Inventory.PickupMessage "Picked up a speedloader."
-	ConversationID 186
-	Scale 0.5
-	States
-	{
-	Spawn:
-		REVA A -1
-		Stop
-	}
-}
-
-ACTOR WeaselsRevolverLoaded : Ammo
-{
-	Tag ".357 Magnum"
-	+IGNORESKILL
-	Inventory.MaxAmount 6
-	Inventory.Icon REVPA0
-}
-
-ACTOR RevolverShotCounter : Inventory
-{
-	Inventory.MaxAmount 6
-}
-
 ACTOR WeaselsRevolver : NaziWeapon
 {
 	Weapon.AmmoType "WeaselsRevolverLoaded"
 	Weapon.AmmoUse 1
-	Weapon.AmmoType2 "RevolverClip"
+	Weapon.AmmoType2 "357Ammo"
 	Weapon.AmmoUse2 1
-	Weapon.Kickback 45
 	Weapon.SelectionOrder 9996
 	Tag ".357 Revolver"
-	Obituary "%o was breached by %k's revolver."
 	Inventory.PickupMessage "You got the revolver! (slot 2)"
-	Scale 0.5
+	Scale .5
 	States
 	{
-	Spawn:
-		REVP A -1
-		Stop
 	Select:
 		REVG A 0 A_Raise
 		REVG A 1 A_Raise
@@ -56,23 +20,24 @@ ACTOR WeaselsRevolver : NaziWeapon
 		Loop
 	Ready:
 		REVG A 0 A_JumpIfInventory("WeaselsRevolverLoaded",0,2)
-		REVG A 0 A_JumpIfInventory("RevolverClip",1,2)
+		REVG A 0 A_JumpIfInventory("357Ammo",1,2)
 		REVG A 1 A_WeaponReady
 		Loop
 		REVG A 1 A_WeaponReady(WRF_ALLOWRELOAD)
 		Loop
 	Fire:
-		REVG A 0 A_JumpIfInventory("WeaselsRevolverLoaded",1,1)
-		Goto Reload
-		REVG A 0 A_GunFlash
-		REVG A 0 A_PlaySound("Weapons/Revolver",CHAN_WEAPON)
-		REVG A 0 ACS_NamedExecute("WWNaziTaunt",0,1)
+		REVG B 0 A_JumpIfInventory("WeaselsRevolverLoaded",1,1)
+		Goto Dryfire
+		REVG B 0 A_GunFlash
+		REVG B 0 A_PlaySound("revolver/fire",CHAN_WEAPON)
+		REVG B 0 ACS_NamedExecute("WWNaziTaunt",0,1)
 		REVG B 0 A_GiveInventory("RevolverShotCounter")
+		REVG B 0 A_AlertMonsters
 		REVG B 2 A_FireCustomMissile("RevolverTracer",frandom(-1.5,1.5),1,0,0,0,frandom(-0.8,0.8))
-		REVG C 1 Offset(0,38) A_SetPitch (pitch - 0.6)
-		REVG D 1 Offset(0,44) A_SetPitch (pitch - 0.6)
-		REVG D 1 Offset(0,56) A_SetPitch (pitch - 0.6)
-		REVG D 1 Offset(0,52) A_AlertMonsters
+		REVG C 1 Offset(0,38) A_SetPitch(pitch-(0.6*CallACS("RecoilAmount")))
+		REVG D 1 Offset(0,44) A_SetPitch(pitch-(0.6*CallACS("RecoilAmount")))
+		REVG D 1 Offset(0,56) A_SetPitch(pitch-(0.6*CallACS("RecoilAmount")))
+		REVG D 1 Offset(0,52)
 		REVG C 1 Offset(0,50)
 		REVG C 1 Offset(0,47)
 		REVG C 1 Offset(0,44)
@@ -80,35 +45,35 @@ ACTOR WeaselsRevolver : NaziWeapon
 		REVG A 1 Offset(0,36)
 		REVG A 1 Offset(0,34)
 		REVG A 1 Offset(0,33)
-		REVG A 1 Offset(0,32)
-		TNT1 A 0 A_CheckReload
+		REVG A 1 Offset(0,32) A_CheckReload
 		Goto Ready
 	Reload:
+		TNT1 A 0 A_JumpIfInventory("RevolverShotCounter",1,2)
+		TNT1 A 0 A_Jump(256,3)
 		TNT1 A 0 A_TakeInventory("RevolverShotCounter",1)
 		TNT1 A 0 A_SpawnItemEx("RevolverCasing",12,-20,32,8,random(-2,2),random(0,4),random(-55,-80),SXF_NOCHECKPOSITION)
-		TNT1 A 0 A_JumpIfInventory("RevolverShotCounter",1,"Reload")
+		Loop
 		REVG A 0 ACS_NamedExecute("WWNaziTaunt",0,2)
-		REVG A 1 Offset(0,35) A_PlaySound("weapons/revolverout",5)
+		REVG A 1 Offset(0,35) A_PlaySound("revolver/out",5)
 		REVG C 1 Offset(0,38)
 		REVG C 1 Offset(0,44)
 		REVG C 1 Offset(0,52)
 		REVG D 1 Offset(0,62)
 		REVG D 1 Offset(0,72)
 		REVG D 1 Offset(0,82)
-		TNT1 A 8
+		TNT1 A 11
 	ReloadLoop:
-		TNT1 A 0 A_TakeInventory("RevolverClip",1,TIF_NOTAKEINFINITE)
+		TNT1 A 0 A_TakeInventory("357Ammo",1,TIF_NOTAKEINFINITE)
 		TNT1 A 0 A_GiveInventory("WeaselsRevolverLoaded")
-		TNT1 A 0 A_JumpIfInventory("WeaselsRevolverLoaded",6,"ReloadFinish")
-		TNT1 A 0 A_JumpIfInventory("RevolverClip",1,"ReloadLoop")
+		TNT1 A 0 A_JumpIfInventory("WeaselsRevolverLoaded",0,"ReloadFinish")
+		TNT1 A 0 A_JumpIfInventory("357Ammo",1,"ReloadLoop")
 	ReloadFinish:
-		TNT1 A 3
 		RHND A 3 Offset(0,32)
-		RHND B 3 A_PlaySound("weapons/revolverload",5)
+		RHND B 3 A_PlaySound("revolver/load",5)
 		RHND B 2 Offset(0,40)
 		RHND BAC 3 Offset(0,32)
 		TNT1 A 4
-		REVG D 1 Offset(0,82) A_PlaySound("weapons/revolverin",5)
+		REVG D 1 Offset(0,82) A_PlaySound("revolver/in",5)
 		REVG D 1 Offset(0,72)
 		REVG D 1 Offset(0,62)
 		REVG C 1 Offset(0,52)
@@ -121,7 +86,18 @@ ACTOR WeaselsRevolver : NaziWeapon
 		REVF A 2 BRIGHT A_Light2
 		TNT1 A 2 A_Light1
 		Goto LightDone
+	Spawn:
+		REVP A -1
+		Stop
 	}
+}
+
+ACTOR WeaselsRevolverLoaded : Ammo
+{
+	Tag ".357 Magnum"
+	+IGNORESKILL
+	Inventory.MaxAmount 6
+	Inventory.Icon REVPA0
 }
 
 ACTOR WeaselsRevolverSpawner
@@ -130,7 +106,7 @@ ACTOR WeaselsRevolverSpawner
 	{
 	Spawn:
 		TNT1 A 0 NODELAY A_SpawnItemEx("WeaselsRevolverPickup",0,0,0,velx,vely,velz)
-		TNT1 A 0 A_SpawnItemEx("RevolverClip",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_SpawnItemEx("357Ammo",frandom(-16,16),frandom(-16,16),0,velx,vely,velz,0,SXF_NOCHECKPOSITION)
 		Stop
 	}
 }
@@ -144,7 +120,12 @@ ACTOR WeaselsRevolverPickup : NaziWeaponPickup
 		REVP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",4)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",5)
 		Stop
 	}
+}
+
+ACTOR RevolverShotCounter : Inventory
+{
+	Inventory.MaxAmount 6
 }

@@ -47,7 +47,7 @@ LISTMENU "MainMenu"
 		StaticPatch 278, 80, "FBULA0"
 		Position 110, 56
 	}
-	
+
 	IfGame(Doom, Strife, Chex, Heretic, Hexen)
 	{
 		TextItem "New", "n", "PlayerclassMenu"
@@ -111,4 +111,55 @@ ListMenu "SkillMenu"
 		centermenu
 		Font "wen18", "Untranslated"
 	}
+}
+
+OptionMenu "OptionsMenu"
+{
+	Title "OPTIONS"
+	Submenu "Customize Controls",		"CustomizeControls"
+	Submenu "Mouse options",			"MouseOptions"
+	Submenu "Joystick options",			"JoystickOptions"
+	StaticText " "
+	Submenu "Player Setup",				"PlayerMenu"
+	Submenu "Gameplay Options",			"GameplayOptions"
+	Submenu "Compatibility Options",	"CompatibilityOptions"
+	Submenu "Automap Options",			"AutomapOptions"
+	Submenu "HUD Options",				"HUDOptions"
+	Submenu "Miscellaneous Options",	"MiscOptions"
+	Submenu "Sound Options",			"SoundOptions"
+	Submenu "Display Options",			"VideoOptions"
+	Submenu "Set video mode",			"VideoModeMenu"
+	StaticText " "
+	SafeCommand "Reset to defaults",	"reset2defaults"
+	SafeCommand	"Reset to last saved",	"reset2saved"
+	Command "Go to console",			"menuconsole"
+	StaticText " "
+	Submenu "Nazis! Options",		"NazisOptions"
+}
+
+OptionMenu "NazisOptions"
+{
+	Title "Nazis! Options"
+	Option "Auto-Reload","autoreload","OnOff"
+	Slider "Shell Casing Lifetime","casinglifetime",100,9000,100
+	Slider "Weapon Recoil Multiplier","recoilamount",0,20,1
+	StaticText ""
+	Option "Taunt Pack","tauntpack","tauntpack"
+	//Option "Enemies","monstertype","monstertype"
+}
+
+OptionValue "tauntpack"
+{
+	0,"None"
+	1,"All-Caps Guy"
+	2,"Caleb"
+	3,"Kingpin"
+	4,"SoulMan"
+	5,"Team Fortress 2 Spy"
+	6,"Custom"
+}
+OptionValue "monstertype"
+{
+	0,"IWAD Default"
+	1,"Nazis"
 }

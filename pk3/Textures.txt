@@ -1,31 +1,87 @@
-Sprite STGIB0, 43, 117
+Sprite STGIB0,43,117
 {
-	Offset 22, 100
-	Patch STGIA0, 0, 0
+	Offset 22,100
+	Patch STGIA0,0,0
 	{
 		Rotate -90
 	}
 }
-
-Sprite M1GPB0, 15, 70
+Sprite M1GPB0,15,70
 {
-	Offset 7, 66
-	Patch M1GPA0, 0, 0
+	Offset 7,66
+	Patch M1GPA0,0,0
 	{
 		Rotate 90
 	}
 }
-
-Sprite MP40B0, 31, 78
+Sprite MP40B0,31,78
 {
-	Offset 15, 74
-	Patch MP40A0, 0, 0
+	Offset 15,74
+	Patch MP40A0,0,0
 	{
 		FlipX
 		Rotate 90
 	}
 }
-
-define WLFSTART 3072 1920
-define WLFRATED 3072 1920
-define WLFTITLE 3072 1920
+Sprite PUNGE0,113,42
+{
+	Offset -56,-126
+	Patch PUNGA0,0,0
+	{
+		FlipX
+	}
+}
+Sprite PUNGF0,85,41
+{
+	Offset -173,-127
+	Patch PUNGB0,0,0
+	{
+		FlipX
+	}
+}
+Sprite PUNGG0,112,57
+{
+	Offset -161,-116
+	Patch PUNGC0,0,0
+	{
+		FlipX
+	}
+}
+Sprite PUNGH0,149,74
+{
+	Offset -138,-94
+	Patch PUNGD0,0,0
+	{
+		FlipX
+	}
+}
+Sprite BKEYB0,24,10
+{
+	Offset 12,9
+	Patch BKEYA0,0,0
+}
+Sprite RKEYB0,24,10
+{
+	Offset 12,9
+	Patch RKEYA0,0,0
+}
+Sprite YKEYB0,24,10
+{
+	Offset 12,9
+	Patch YKEYA0,0,0
+}
+Sprite BSKUB0,45,11
+{
+	Offset 22,11
+	Patch BSKUA0,0,0
+}
+Sprite RSKUB0,43,11
+{
+	Offset 21,11
+	Patch RSKUA0,0,0
+}
+Sprite YSKUB0,64,64
+{
+	Offset 32,60
+	Patch YSKUA0,0,0
+}

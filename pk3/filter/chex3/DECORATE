@@ -1,0 +1,133 @@
+//Chex Quest 3
+ACTOR FlemoidusCommonusV3Spawner : FlemoidusCommonusSpawner replaces FlemoidusCommonus
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisFlemoidusCommonusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+ACTOR FlemoidusBipedicusV3Spawner : FlemoidusBipedicusSpawner replaces FlemoidusBipedicus
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisFlemoidusBipedicusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+ACTOR ArmoredFlemoidusBipedicusV3Spawner : ArmoredFlemoidusBipedicusSpawner replaces ArmoredFlemoidusBipedicus
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisArmoredFlemoidusBipedicusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+ACTOR FlemoidusStridicusSpawner : RevenantSpawner replaces FlemoidusCycloptisCommonus
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisFlemoidusStridicus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+ACTOR FlemoidusCycloptisCommonusV3Spawner : FlemoidusCycloptisCommonusSpawner replaces FlemoidusCycloptisCommonusV3
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisFlemoidusCycloptisCommonusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+ACTOR FlemMineSpawner : ChexSoulSpawner replaces ChexSoul
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisFlemMine",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+ACTOR SuperCycloptisSpawner : CacodemonSpawner replaces SuperCycloptis
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisSuperCycloptis",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+ACTOR FlemoidusMaximusSpawner : FlembraneSpawner replaces Flembrane
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisFlemoidusMaximus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+ACTOR FlembraneV3Spawner : FlembraneSpawner replaces FlembraneV3
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisFlembraneV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+ACTOR LarvaSpawner : FlemoidusCycloptisCommonusSpawner replaces Larva
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisLarva",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+ACTOR QuadrumpusSpawner : ArmoredFlemoidusBipedicusSpawner replaces Quadrumpus
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisQuadrumpus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+
+ACTOR SnotfolusSpawner : CyberdemonSpawner replaces Snotfolus
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisSnotfolus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+ACTOR FlembominationSpawner : SpiderMastermindSpawner replaces Flembomination
+{
+	States
+	{
+	Default:
+		TNT1 A 0 A_SpawnItemEx("NazisFlembomination",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		Stop
+	}
+}
+
+ACTOR NazisFlemoidusCommonusV3 : FlemoidusCommonusV3{}
+ACTOR NazisFlemoidusBipedicusV3 : FlemoidusBipedicusV3{}
+ACTOR NazisArmoredFlemoidusBipedicusV3 : ArmoredFlemoidusBipedicusV3{}
+ACTOR NazisFlemoidusStridicus : FlemoidusStridicus{}
+ACTOR NazisFlemoidusCycloptisCommonusV3 : FlemoidusCycloptisCommonusV3{}
+ACTOR NazisFlemMine : FlemMine{}
+ACTOR NazisSuperCycloptis : SuperCycloptis{}
+ACTOR NazisFlemoidusMaximus : FlemoidusMaximus{}
+ACTOR NazisFlembraneV3 : FlembraneV3{}
+ACTOR NazisLarva : Larva{}
+ACTOR NazisQuadrumpus : Quadrumpus{}
+ACTOR NazisSnotfolus : Snotfolus{}
+ACTOR NazisFlembomination : Flembomination{}

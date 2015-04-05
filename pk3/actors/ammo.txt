@@ -1,0 +1,284 @@
+ACTOR 9mmAmmo : Ammo
+{
+	Tag "9x19mm"
+	Inventory.Amount 8
+	Inventory.MaxAmount 256
+	Ammo.BackpackAmount 64
+	Ammo.BackpackMaxAmount 480
+	Inventory.PickupMessage "Picked up a 9mm magazine."
+	States
+	{
+	Spawn:
+		MCLP A -1
+		Stop
+	}
+}
+
+ACTOR 9mmAmmoBox : 9mmAmmo
+{
+	Inventory.Amount 64
+	Inventory.PickupMessage "Picked up a box of 9mm ammo."
+	States
+	{
+	Spawn:
+		MCLP B -1
+		Stop
+	}
+}
+
+ACTOR 357Ammo : Ammo
+{
+	Tag ".357 Magnum"
+	Inventory.Amount 6
+	Inventory.MaxAmount 72
+	Ammo.BackpackAmount 12
+	Ammo.BackpackMaxAmount 108
+	Inventory.PickupMessage "Picked up a speedloader."
+	Scale .5
+	States
+	{
+	Spawn:
+		REVA A -1
+		Stop
+	}
+}
+
+ACTOR 45ACPAmmo : Ammo
+{
+	Tag ".45 ACP"
+	Inventory.Amount 7
+	Inventory.MaxAmount 300
+	Ammo.BackpackAmount 80
+	Ammo.BackpackMaxAmount 450
+	Inventory.PickupMessage "Picked up a .45 ACP magazine."
+	States
+	{
+	Spawn:
+		45AM A -1
+		Stop
+	}
+}
+
+ACTOR 45ACPAmmoBox : 45ACPAmmo
+{
+	Inventory.Amount 20
+	Scale .6
+	Inventory.PickupMessage "Picked up a box of .45 ACP ammo."
+	States
+	{
+	Spawn:
+		45AM B -1
+		Stop
+	}
+}
+
+ACTOR 12GaugeAmmo : Ammo
+{
+	Tag "12 Gauge"
+	Inventory.PickupMessage "Picked up some shotgun shells."
+	Inventory.Amount 4
+	Inventory.MaxAmount 32
+	Ammo.BackpackAmount 4
+	Ammo.BackpackMaxAmount 64
+	States
+	{
+	Spawn:
+		SHEL A -1
+		Stop
+	}
+}
+
+ACTOR 12GaugeAmmoBox : 12GaugeAmmo
+{
+	Inventory.Amount 16
+	Inventory.PickupMessage "Picked up a box of shells."
+	States
+	{
+	Spawn:
+		SBOX A -1
+		Stop
+	}
+}
+
+ACTOR TokarevAmmo : Ammo
+{
+	Tag "7.62x25mm"
+	Inventory.Amount 71
+	Inventory.MaxAmount 284
+	Ammo.BackpackAmount 71
+	Ammo.BackpackMaxAmount 568
+	Inventory.PickupMessage "Picked up a box of 7.62mm Tokarev ammo."
+	States
+	{
+	Spawn:
+		PPSA A -1
+		Stop
+	}
+}
+
+ACTOR MauserAmmo : Ammo
+{
+	Tag "7.92x57mm"
+	Inventory.Amount 5
+	Inventory.MaxAmount 40
+	Ammo.BackpackAmount 5
+	Ammo.BackpackMaxAmount 100
+	Inventory.PickupMessage "Picked up a 7.92mm stripper clip."
+	Scale .3
+	States
+	{
+	Spawn:
+		792A A -1
+		Stop
+	}
+}
+
+ACTOR MauserAmmoBox : MauserAmmo
+{
+	Scale 1
+	Inventory.Amount 20
+	Inventory.PickupMessage "Picked up a box of 7.92mm Mauser ammo."
+	States
+	{
+	Spawn:
+		792A B -1
+		Stop
+	}
+}
+
+ACTOR 303Ammo : Ammo
+{
+	Tag ".303 British"
+	Inventory.Amount 5
+	Inventory.MaxAmount 40
+	Ammo.BackpackAmount 5
+	Ammo.BackpackMaxAmount 100
+	Inventory.PickupMessage "Picked up a .303 charger clip."
+	Scale .3
+	States
+	{
+	Spawn:
+		792A A -1	//Placeholder sprite
+		Stop
+	}
+}
+
+ACTOR 303AmmoBox : 303Ammo
+{
+	Scale 1
+	Inventory.Amount 20
+	Inventory.PickupMessage "Picked up a box of .303 British ammo."
+	States
+	{
+	Spawn:
+		792A B -1	//Placeholder sprite
+		Stop
+	}
+}
+
+ACTOR 3006Ammo : Ammo
+{
+	Tag ".30-06"
+	Inventory.Amount 8
+	Inventory.MaxAmount 40
+	Ammo.BackpackAmount 8
+	Ammo.BackpackMaxAmount 100
+	Scale .1
+	Inventory.PickupMessage "Picked up a .30-06 en bloc clip."
+	States
+	{
+	Spawn:
+		M1GA A -1
+		Stop
+	}
+}
+
+ACTOR 3006AmmoBox : 3006Ammo
+{
+	Inventory.Amount 20
+	Inventory.PickupMessage "Picked up a box of .30-06 Springfield ammo."
+	Scale 1
+	States
+	{
+	Spawn:
+		M1GA B -1
+		Stop
+	}
+}
+
+ACTOR 792KurzAmmo : Ammo
+{
+	Tag "7.92x33mm"
+	Inventory.Amount 15
+	Inventory.MaxAmount 150
+	Ammo.BackpackAmount 30
+	Ammo.BackpackMaxAmount 270
+	Inventory.PickupMessage "Picked up a 7.92x33mm rifle magazine."
+	States
+	{
+	Spawn:
+		792K A -1
+		Stop
+	}
+}
+
+ACTOR FlameAmmo : Ammo
+{
+	Tag "Petrol"
+	Inventory.PickupMessage "A petrol canister."
+	Inventory.Amount 25
+	Inventory.MaxAmount 175
+	Ammo.BackpackAmount 25
+	Ammo.BackpackMaxAmount 350
+	Scale .5
+	States
+	{
+	Spawn:
+		FAMO A -1
+		Stop
+	}
+}
+
+ACTOR NebAmmo : Ammo
+{
+	Tag "Mini-rocket"
+	Inventory.Amount 5
+	Inventory.MaxAmount 150
+	Ammo.BackpackAmount 20
+	Ammo.BackpackMaxAmount 300
+	Inventory.PickupMessage "Picked up some mini-rockets."
+	States
+	{
+	Spawn:
+		MNRB B -1	//Needs a sprite
+		Stop
+	}
+}
+
+ACTOR NebAmmoBox : NebAmmo
+{
+	Inventory.Amount 30
+	Inventory.PickupMessage "Picked up a crate of mini-rockets."
+	States
+	{
+	Spawn:
+		MNRB B -1
+		Stop
+	}
+}
+
+ACTOR PanzerAmmo : Ammo
+{
+	Tag "Rocket"
+	Inventory.MaxAmount 10
+	Inventory.PickupMessage "Picked up a Panzerschreck rocket."
+	Ammo.BackpackAmount 1
+	Ammo.BackpackMaxAmount 20
+	Scale .25
+	States
+	{
+	Spawn:
+		PANA A -1
+		Stop
+	}
+}
