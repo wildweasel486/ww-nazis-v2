@@ -517,7 +517,7 @@ $random dog/sight 		{ dog/sight1  dog/sight2  dog/sight3 }
 dog/sight1  			DSDGSIT1
 dog/sight2  			DSDGSIT2
 dog/sight3  			DSDGSIT3
-$random dog/active 		{ dog/act1  dog/act2 }
+$random dog/active 		{dog/act1 dog/act2}
 dog/act1  			DSDGACT1
 dog/act2 			DSDGACT2
 $random dog/death 		{ dog/death1  dog/death2  dog/death3 }
@@ -539,9 +539,9 @@ deathknight/death	dsdtkdth
 hitler/sight	dshitsit
 hitler/pain		dshitpai
 hitler/death	dshitdth
-hitler/act		hghdie
 hitler/gib		hitlrgib
 hitler/walk		dshitwlk
+hitler/act		hghdie
 
 // Fat Man
 fatman/sight	dsfatsit

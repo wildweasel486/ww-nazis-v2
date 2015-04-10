@@ -94,7 +94,7 @@ Intermission Inter_Cast
 		Time = -1
 		Music = "HORSTW"
 	}
-	Link = Doom2Cast
+	//Link = Doom2Cast
 }
 
 Intermission Doom2Cast
@@ -107,89 +107,56 @@ Intermission Doom2Cast
 	}
 	Cast
 	{
-		CastClass = "SSGuard"
-		CastName = "Gefreiter (SS) - P38"
-		AttackSound = "Missile", 1, "nazi/pistol"
-	}
-	Cast
-	{
 		CastClass = "WGuard"
 		CastName = "Heer Soldat - P38"
 		AttackSound = "Missile", 1, "nazi/pistol"
 	}
 	Cast
 	{
-		CastClass = "MP40Guard"
-		CastName = "Afrika Korps Leutnant - MP 40"
-		AttackSound = "Missile", 1, "weapons/assaultgun"
-		AttackSound = "Missile", 3, "weapons/assaultgun"
-		AttackSound = "Missile", 5, "weapons/assaultgun"
-		AttackSound = "Missile", 7, "weapons/assaultgun"
-		AttackSound = "Missile", 9, "weapons/assaultgun"
+		CastClass = "SSGuard"
+		CastName = "Gefreiter (SS) - P38"
+		AttackSound = "Missile", 1, "nazi/pistol"
 	}
 	Cast
 	{
-		CastClass = "SSMP40Guard"
-		CastName = "Oberleutnant (SS) - MP 40"
-		AttackSound = "Missile", 1, "weapons/assaultgun"
-		AttackSound = "Missile", 3, "weapons/assaultgun"
-		AttackSound = "Missile", 5, "weapons/assaultgun"
-		AttackSound = "Missile", 7, "weapons/assaultgun"
-		AttackSound = "Missile", 9, "weapons/assaultgun"
+		CastClass = "MP40Guard"
+		CastName = "Afrika Korps Leutnant - MP 40"
+		AttackSound = "Missile", 1, "nazi/mp40"
+		AttackSound = "Missile", 3, "nazi/mp40"
+		AttackSound = "Missile", 5, "nazi/mp40"
+		AttackSound = "Missile", 7, "nazi/mp40"
+		AttackSound = "Missile", 9, "nazi/mp40"
 	}
 	Cast
 	{
 		CastClass = "WMP40Guard"
 		CastName = "Heer Leutnant - MP 40"
-		AttackSound = "Missile", 1, "weapons/assaultgun"
-		AttackSound = "Missile", 3, "weapons/assaultgun"
-		AttackSound = "Missile", 5, "weapons/assaultgun"
-		AttackSound = "Missile", 7, "weapons/assaultgun"
-		AttackSound = "Missile", 9, "weapons/assaultgun"
+		AttackSound = "Missile", 1, "nazi/mp40"
+		AttackSound = "Missile", 3, "nazi/mp40"
+		AttackSound = "Missile", 5, "nazi/mp40"
+		AttackSound = "Missile", 7, "nazi/mp40"
+		AttackSound = "Missile", 9, "nazi/mp40"
 	}
 	Cast
 	{
-		CastClass = "RifleGuard"
-		CastName = "Afrika Korps Hauptgefreiter - G43/Kar98k"
-		AttackSound = "Missile", 1, "garand/fire"
-	}
-	Cast
-	{
-		CastClass = "WRifleGuard"
-		CastName = "Heer Hauptgefreiter - G43/Kar98k"
-		AttackSound = "Missile", 1, "garand/fire"
-	}
-	Cast
-	{
-		CastClass = "WaffenSS"
-		CastName = "Waffen SS - StG 44"
-		AttackSound = "Missile", 1, "weapons/stg44"
-		AttackSound = "Missile", 3, "weapons/stg44"
-		AttackSound = "Missile", 5, "weapons/stg44"
-		AttackSound = "Missile", 7, "weapons/stg44"
-		AttackSound = "Missile", 9, "weapons/stg44"
-	}
-	Cast
-	{
-		CastClass = "Paratrooper"
-		CastName = "Fallschirmjaeger"
-		AttackSound = "Missile", 1, "weapons/stg44"
-		AttackSound = "Missile", 3, "weapons/stg44"
-		AttackSound = "Missile", 5, "weapons/stg44"
-		AttackSound = "Missile", 7, "weapons/stg44"
-		AttackSound = "Missile", 9, "weapons/stg44"
-	}
-	Cast
-	{
-		CastClass = "Mutant"
-		CastName = "Schabbs' Test Subject"
-		AttackSound = "Missile", 1, "weapons/Walther"
-		AttackSound = "Missile", 3, "weapons/Walther"
+		CastClass = "SSMP40Guard"
+		CastName = "Oberleutnant (SS) - MP 40"
+		AttackSound = "Missile", 1, "nazi/mp40"
+		AttackSound = "Missile", 3, "nazi/mp40"
+		AttackSound = "Missile", 5, "nazi/mp40"
+		AttackSound = "Missile", 7, "nazi/mp40"
+		AttackSound = "Missile", 9, "nazi/mp40"
 	}
 	Cast
 	{
 		CastClass = "Officer"
 		CastName = "Afrika Korps Hauptmann - Luger"
+		AttackSound = "Missile", 1, "nazi/pistol"
+	}
+	Cast
+	{
+		CastClass = "WOfficer"
+		CastName = "Heer Hauptmann - Luger"
 		AttackSound = "Missile", 1, "nazi/pistol"
 	}
 	Cast
@@ -200,9 +167,42 @@ Intermission Doom2Cast
 	}
 	Cast
 	{
-		CastClass = "WOfficer"
-		CastName = "Heer Hauptmann - Luger"
-		AttackSound = "Missile", 1, "nazi/pistol"
+		CastClass = "RifleGuard"
+		CastName = "Afrika Korps Hauptgefreiter - G43/Kar98k"
+		AttackSound = "Missile", 1, "g43/fire"
+	}
+	Cast
+	{
+		CastClass = "WRifleGuard"
+		CastName = "Heer Hauptgefreiter - G43/Kar98k"
+		AttackSound = "Missile", 1, "g43/fire"
+	}
+	Cast
+	{
+		CastClass = "WaffenSS"
+		CastName = "Waffen SS - StG 44"
+		AttackSound = "Missile", 1, "nazi/stg44"
+		AttackSound = "Missile", 3, "nazi/stg44"
+		AttackSound = "Missile", 5, "nazi/stg44"
+		AttackSound = "Missile", 7, "nazi/stg44"
+		AttackSound = "Missile", 9, "nazi/stg44"
+	}
+	Cast
+	{
+		CastClass = "Paratrooper"
+		CastName = "Fallschirmjaeger"
+		AttackSound = "Missile", 1, "nazi/stg44"
+		AttackSound = "Missile", 3, "nazi/stg44"
+		AttackSound = "Missile", 5, "nazi/stg44"
+		AttackSound = "Missile", 7, "nazi/stg44"
+		AttackSound = "Missile", 9, "nazi/stg44"
+	}
+	Cast
+	{
+		CastClass = "Mutant"
+		CastName = "Schabbs' Test Subject"
+		AttackSound = "Missile", 1, "walther/fire"
+		AttackSound = "Missile", 3, "walther/fire"
 	}
 	Cast
 	{
@@ -218,9 +218,15 @@ Intermission Doom2Cast
 	}
 	Cast
 	{
+		CastClass = "Doberman"
+		CastName = "Doberman Pinscher"
+		Attacksound = "Melee", 1, "dog/attack"
+	}
+	Cast
+	{
 		CastClass = "RocketMan"
 		CastName = "Otto Giftmacher - Rocketeer"
-		AttackSound = "Missile", 1, "weapons/missilef"
+		AttackSound = "Missile", 1, "nazi/missilef"
 	}
 	Cast
 	{
@@ -231,68 +237,61 @@ Intermission Doom2Cast
 	{
 		CastClass = "SuperSoldier"
 		CastName = "Hans Grosse - Uber Soldat"
-		AttackSound = "Missile", 1, "weapons/chaingun"
-		AttackSound = "Missile", 3, "weapons/chaingun"
-		AttackSound = "Missile", 5, "weapons/chaingun"
-		AttackSound = "Missile", 7, "weapons/chaingun"
-		AttackSound = "Missile", 9, "weapons/chaingun"
+		AttackSound = "Missile", 1, "chaingun/fire"
+		AttackSound = "Missile", 3, "chaingun/fire"
+		AttackSound = "Missile", 5, "chaingun/fire"
+		AttackSound = "Missile", 7, "chaingun/fire"
+		AttackSound = "Missile", 9, "chaingun/fire"
 	}
 	Cast
 	{
 		CastClass = "SuperSoldierGirl"
 		CastName = "Gretel Grosse - Uber Soldat"
-		AttackSound = "Missile", 1, "weapons/ba5fire"
-		AttackSound = "Missile", 3, "weapons/ba5fire"
-		AttackSound = "Missile", 5, "weapons/ba5fire"
+		AttackSound = "Missile", 1, "browning/fire"
+		AttackSound = "Missile", 3, "browning/fire"
+		AttackSound = "Missile", 5, "browning/fire"
 	}
 	Cast
 	{
 		CastClass = "SuperSoldierElite"
 		CastName = "Franz Grosse - Uber Soldat Elite"
-		AttackSound = "Missile", 1, "weapons/chaingun"
-		AttackSound = "Missile", 3, "weapons/chaingun"
-		AttackSound = "Missile", 5, "weapons/chaingun"
-		AttackSound = "Missile", 7, "weapons/chaingun"
-		AttackSound = "Missile", 9, "weapons/chaingun"
+		AttackSound = "Missile", 1, "chaingun/fire"
+		AttackSound = "Missile", 3, "chaingun/fire"
+		AttackSound = "Missile", 5, "chaingun/fire"
+		AttackSound = "Missile", 7, "chaingun/fire"
+		AttackSound = "Missile", 9, "chaingun/fire"
 	}
 	Cast
 	{
 		CastClass = "General"
 		CastName = "General Fettgesicht"
-		AttackSound = "Missile", 1, "weapons/missilef"
-		AttackSound = "Missile", 3, "weapons/missilef"
-		AttackSound = "Missile", 5, "weapons/missilef"
-		AttackSound = "Chaingun", 1, "weapons/chaingun"
-		AttackSound = "Chaingun", 3, "weapons/chaingun"
-		AttackSound = "Chaingun", 5, "weapons/chaingun"
-		AttackSound = "Chaingun", 7, "weapons/chaingun"
-		AttackSound = "Chaingun", 9, "weapons/chaingun"
+		AttackSound = "Missile", 1, "nazi/missilef"
+		AttackSound = "Missile", 3, "nazi/missilef"
+		AttackSound = "Missile", 5, "nazi/missilef"
+		AttackSound = "Chaingun", 1, "chaingun/fire"
+		AttackSound = "Chaingun", 3, "chaingun/fire"
+		AttackSound = "Chaingun", 5, "chaingun/fire"
+		AttackSound = "Chaingun", 7, "chaingun/fire"
+		AttackSound = "Chaingun", 9, "chaingun/fire"
 	}
 	Cast
 	{
 		CastClass = "ChairGuy"
 		CastName = "Heinrich Krist - Rollstuhl-Rocket"
-		AttackSound = "Missile", 1, "weapons/missilef"
-		AttackSound = "Missile", 3, "weapons/missilef"
-		AttackSound = "Missile", 5, "weapons/missilef"
-		AttackSound = "Missile", 7, "weapons/missilef"
+		AttackSound = "Missile", 1, "nazi/missilef"
+		AttackSound = "Missile", 3, "nazi/missilef"
+		AttackSound = "Missile", 5, "nazi/missilef"
+		AttackSound = "Missile", 7, "nazi/missilef"
 	}
 	Cast
 	{
 		CastClass = "FlamerMan"
 		CastName = "Boss Grosse - Pyrolight"
-		AttackSound = "Missile", 1, "weapons/flamer"
-		AttackSound = "Missile", 3, "weapons/flamer"
-		AttackSound = "Missile", 5, "weapons/flamer"
-		AttackSound = "Missile", 7, "weapons/flamer"
-		AttackSound = "Missile", 9, "weapons/flamer"
-	}
-	Cast
-	{
-		CastClass = "Miniship"
-		CastName = "Miniship"
-		AttackSound = "Missile", 1, "weapons/missilef"
-		AttackSound = "Missile", 3, "weapons/missilef"
+		AttackSound = "Missile", 1, "flamer/fire"
+		AttackSound = "Missile", 3, "flamer/fire"
+		AttackSound = "Missile", 5, "flamer/fire"
+		AttackSound = "Missile", 7, "flamer/fire"
+		AttackSound = "Missile", 9, "flamer/fire"
 	}
 	Cast
 	{
@@ -307,27 +306,59 @@ Intermission Doom2Cast
 	}
 	Cast
 	{
+		CastClass = "NaziGeist"
+		CastName = "Nazi Gespenst"
+	}
+	Cast
+	{
 		CastClass = "DeathKnight"
 		CastName = "Death Knight"
 		AttackSound = "Missile", 1, "weapons/nebelwerfer"
 		AttackSound = "Missile", 3, "weapons/nebelwerfer"
 		AttackSound = "Missile", 5, "weapons/nebelwerfer"
 		AttackSound = "Missile", 7, "weapons/nebelwerfer"
-		AttackSound = "Chaingun", 1, "weapons/chaingun"
-		AttackSound = "Chaingun", 3, "weapons/chaingun"
-		AttackSound = "Chaingun", 5, "weapons/chaingun"
-		AttackSound = "Chaingun", 7, "weapons/chaingun"
-		AttackSound = "Chaingun", 9, "weapons/chaingun"
+		AttackSound = "Chaingun", 1, "chaingun/fire"
+		AttackSound = "Chaingun", 3, "chaingun/fire"
+		AttackSound = "Chaingun", 5, "chaingun/fire"
+		AttackSound = "Chaingun", 7, "chaingun/fire"
+		AttackSound = "Chaingun", 9, "chaingun/fire"
 	}
 	Cast
 	{
 		CastClass = "Hitler"
 		CastName = "Hitler"
-		AttackSound = "Missile", 1, "weapons/chaingun"
-		AttackSound = "Missile", 3, "weapons/chaingun"
-		AttackSound = "Missile", 5, "weapons/chaingun"
-		AttackSound = "Missile", 7, "weapons/chaingun"
-		AttackSound = "Missile", 9, "weapons/chaingun"
+		AttackSound = "Missile", 1, "chaingun/fire"
+		AttackSound = "Missile", 3, "chaingun/fire"
+		AttackSound = "Missile", 5, "chaingun/fire"
+		AttackSound = "Missile", 7, "chaingun/fire"
+		AttackSound = "Missile", 9, "chaingun/fire"
 	}
 	Link = Doom2Cast	// restart cast call
+}
+
+conversationids
+{
+	125 = Bandages
+	126 = FirstAidKit
+	127 = NaziSupercharge
+	129 = HeavyArmor
+	130 = FlakJacket
+	177 = HEGrenadeRoundsSpawner2
+	178 = PhosphorusGrenadeRoundsSpawner2
+	179 = ClipOfBulletsSpawner2
+	180 = BoxOfBulletsSpawner2
+	181 = MiniMissilesSpawner2
+	182 = CrateOfMissilesSpawner2
+	183 = EnergyPodSpawner2
+	184 = EnergyPackSpawner2
+	185 = PoisonBoltsSpawner2
+	186 = ElectricBoltsSpawner2
+	187 = NazisBackpack
+	188 = AssaultGunSpawner2
+	189 = AssaultGunStandingSpawner2
+	190 = FlameThrowerSpawner2
+	192 = MiniMissileLauncherSpawner2
+	193 = MaulerSpawner2
+	194 = StrifeCrossbowSpawner2
+	195 = StrifeGrenadeLauncherSpawner2
 }
