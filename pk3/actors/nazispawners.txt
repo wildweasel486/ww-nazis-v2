@@ -35,7 +35,7 @@ ACTOR MonsterToggle : SwitchableDecoration
 		TNT1 A 0 A_Jump(256,"Default")
 		Stop
 	Death:
-		TNT1 A 1 A_KillMaster
+		TNT1 A 1 A_BossDeath
 		Stop
 	}
 }
@@ -466,6 +466,9 @@ ACTOR NazisZombieman : Zombieman
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -480,6 +483,9 @@ ACTOR NazisShotgunGuy : ShotgunGuy
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -494,6 +500,9 @@ ACTOR NazisWolfensteinSS : WolfensteinSS
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -508,6 +517,9 @@ ACTOR NazisChaingunGuy : ChaingunGuy
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -536,6 +548,9 @@ ACTOR NazisDoomImp : DoomImp
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -733,28 +748,28 @@ ACTOR NazisDeadShotgunGuy : DeadShotgunGuy{}
 ACTOR NazisDeadDoomImp : DeadDoomImp{}
 ACTOR NazisDeadDemon : DeadDemon{}
 ACTOR NazisDeadCacodemon : DeadCacodemon{}
-ACTOR NazisStealthZombieMan : StealthZombieMan
+ACTOR NazisStealthZombieMan : NazisZombieMan
 {
 	+STEALTH
 	RenderStyle Translucent
 	Alpha 0
 	Obituary "$OB_STEALTHZOMBIE"
 }
-ACTOR NazisStealthShotgunGuy : StealthShotgunGuy
+ACTOR NazisStealthShotgunGuy : NazisShotgunGuy
 {
 	+STEALTH
 	RenderStyle Translucent
 	Alpha 0
 	Obituary "$OB_STEALTHSHOTGUNGUY"
 }
-ACTOR NazisStealthChaingunGuy : StealthChaingunGuy
+ACTOR NazisStealthChaingunGuy : NazisChaingunGuy
 {
 	+STEALTH
 	RenderStyle Translucent
 	Alpha 0
 	Obituary "$OB_STEALTHCHAINGUY"
 }
-ACTOR NazisStealthDoomImp : StealthDoomImp
+ACTOR NazisStealthDoomImp : NazisDoomImp
 {
 	+STEALTH
 	RenderStyle Translucent
@@ -762,7 +777,7 @@ ACTOR NazisStealthDoomImp : StealthDoomImp
 	Obituary "$OB_STEALTHIMP"
 	HitObituary "$OB_STEALTHIMP"
 }
-ACTOR NazisStealthDemon : StealthDemon
+ACTOR NazisStealthDemon : NazisDemon
 {
 	+STEALTH
 	RenderStyle Translucent
@@ -770,7 +785,7 @@ ACTOR NazisStealthDemon : StealthDemon
 	Obituary "$OB_STEALTHDEMON"
 	HitObituary "$OB_STEALTHDEMON"
 }
-ACTOR NazisStealthRevenant : StealthRevenant
+ACTOR NazisStealthRevenant : NazisRevenant
 {
 	+STEALTH
 	RenderStyle Translucent
@@ -778,7 +793,7 @@ ACTOR NazisStealthRevenant : StealthRevenant
 	Obituary "$OB_STEALTHUNDEAD"
 	HitObituary "$OB_STEALTHUNDEAD"
 }
-ACTOR NazisStealthHellKnight : StealthHellKnight
+ACTOR NazisStealthHellKnight : NazisHellKnight
 {
 	+STEALTH
 	RenderStyle Translucent
@@ -786,7 +801,7 @@ ACTOR NazisStealthHellKnight : StealthHellKnight
 	Obituary "$OB_STEALTHKNIGHT"
 	HitObituary "$OB_STEALTHKNIGHT"
 }
-ACTOR NazisStealthBaron : StealthBaron
+ACTOR NazisStealthBaron : NazisBaronOfHell
 {
 	+STEALTH
 	RenderStyle Translucent
@@ -794,21 +809,21 @@ ACTOR NazisStealthBaron : StealthBaron
 	Obituary "$OB_STEALTHBARON"
 	HitObituary "$OB_STEALTHBARON"
 }
-ACTOR NazisStealthArchvile : StealthArchvile
+ACTOR NazisStealthArchvile : NazisArchvile
 {
 	+STEALTH
 	RenderStyle Translucent
 	Alpha 0
 	Obituary "$OB_STEALTHVILE"
 }
-ACTOR NazisStealthArachnotron : StealthArachnotron
+ACTOR NazisStealthArachnotron : NazisArachnotron
 {
 	+STEALTH
 	RenderStyle Translucent
 	Alpha 0
 	Obituary "$OB_STEALTHBABY"
 }
-ACTOR NazisStealthCacodemon : StealthCacodemon
+ACTOR NazisStealthCacodemon : NazisCacodemon
 {
 	+STEALTH
 	RenderStyle Translucent
@@ -816,7 +831,7 @@ ACTOR NazisStealthCacodemon : StealthCacodemon
 	Obituary "$OB_STEALTHCACO"
 	HitObituary "$OB_STEALTHCACO"
 }
-ACTOR NazisStealthFatso : StealthFatso
+ACTOR NazisStealthFatso : NazisFatso
 {
 	+STEALTH
 	RenderStyle Translucent
@@ -968,6 +983,9 @@ ACTOR NazisHereticImp : HereticImp
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -982,6 +1000,9 @@ ACTOR NazisHereticImpLeader : HereticImpLeader
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -1093,6 +1114,9 @@ ACTOR NazisBeast : Beast
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -1248,6 +1272,9 @@ ACTOR NazisFlemoidusCommonus : FlemoidusCommonus
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -1262,6 +1289,9 @@ ACTOR NazisFlemoidusBipedicus : FlemoidusBipedicus
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -1276,6 +1306,9 @@ ACTOR NazisArmoredFlemoidusBipedicus : ArmoredFlemoidusBipedicus
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster

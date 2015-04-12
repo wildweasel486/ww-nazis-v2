@@ -124,6 +124,9 @@ ACTOR NazisFlemoidusCommonusV3 : FlemoidusCommonusV3
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -138,6 +141,9 @@ ACTOR NazisFlemoidusBipedicusV3 : FlemoidusBipedicusV3
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -152,6 +158,9 @@ ACTOR NazisArmoredFlemoidusBipedicusV3 : ArmoredFlemoidusBipedicusV3
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
@@ -264,6 +273,9 @@ ACTOR NazisQuadrumpus : Quadrumpus
 	Death:
 		TNT1 A 0 A_KillMaster
 		Goto Super::Death
+	XDeath:
+		TNT1 A 0 A_KillMaster
+		Goto Super::XDeath
 	Ice:
 		"####" "#" 5 A_GenericFreezeDeath
 		"----" A 0 A_KillMaster
