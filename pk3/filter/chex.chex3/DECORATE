@@ -4,7 +4,7 @@ ACTOR FlemoidusCommonusV3Spawner : FlemoidusCommonusSpawner replaces FlemoidusCo
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisFlemoidusCommonusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisFlemoidusCommonusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
@@ -13,7 +13,7 @@ ACTOR FlemoidusBipedicusV3Spawner : FlemoidusBipedicusSpawner replaces Flemoidus
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisFlemoidusBipedicusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisFlemoidusBipedicusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
@@ -22,7 +22,7 @@ ACTOR ArmoredFlemoidusBipedicusV3Spawner : ArmoredFlemoidusBipedicusSpawner repl
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisArmoredFlemoidusBipedicusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisArmoredFlemoidusBipedicusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
@@ -31,7 +31,7 @@ ACTOR FlemoidusStridicusSpawner : RevenantSpawner replaces FlemoidusCycloptisCom
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisFlemoidusStridicus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisFlemoidusStridicus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
@@ -40,7 +40,7 @@ ACTOR FlemoidusCycloptisCommonusV3Spawner : FlemoidusCycloptisCommonusSpawner re
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisFlemoidusCycloptisCommonusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisFlemoidusCycloptisCommonusV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
@@ -49,7 +49,7 @@ ACTOR FlemMineSpawner : ChexSoulSpawner replaces ChexSoul
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisFlemMine",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisFlemMine",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
@@ -58,7 +58,7 @@ ACTOR SuperCycloptisSpawner : CacodemonSpawner replaces SuperCycloptis
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisSuperCycloptis",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisSuperCycloptis",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
@@ -67,7 +67,7 @@ ACTOR FlemoidusMaximusSpawner : FlembraneSpawner replaces Flembrane
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisFlemoidusMaximus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisFlemoidusMaximus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
@@ -76,7 +76,7 @@ ACTOR FlembraneV3Spawner : FlembraneSpawner replaces FlembraneV3
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisFlembraneV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisFlembraneV3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
@@ -85,7 +85,7 @@ ACTOR LarvaSpawner : FlemoidusCycloptisCommonusSpawner replaces Larva
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisLarva",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisLarva",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
@@ -94,17 +94,16 @@ ACTOR QuadrumpusSpawner : ArmoredFlemoidusBipedicusSpawner replaces Quadrumpus
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisQuadrumpus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisQuadrumpus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
-
 ACTOR SnotfolusSpawner : CyberdemonSpawner replaces Snotfolus
 {
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisSnotfolus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisSnotfolus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
@@ -113,21 +112,200 @@ ACTOR FlembominationSpawner : SpiderMastermindSpawner replaces Flembomination
 	States
 	{
 	Default:
-		TNT1 A 0 A_SpawnItemEx("NazisFlembomination",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL,0,tid)
+		TNT1 A -1 A_SpawnItemEx("NazisFlembomination",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
 		Stop
 	}
 }
 
-ACTOR NazisFlemoidusCommonusV3 : FlemoidusCommonusV3{}
-ACTOR NazisFlemoidusBipedicusV3 : FlemoidusBipedicusV3{}
-ACTOR NazisArmoredFlemoidusBipedicusV3 : ArmoredFlemoidusBipedicusV3{}
-ACTOR NazisFlemoidusStridicus : FlemoidusStridicus{}
-ACTOR NazisFlemoidusCycloptisCommonusV3 : FlemoidusCycloptisCommonusV3{}
-ACTOR NazisFlemMine : FlemMine{}
-ACTOR NazisSuperCycloptis : SuperCycloptis{}
-ACTOR NazisFlemoidusMaximus : FlemoidusMaximus{}
-ACTOR NazisFlembraneV3 : FlembraneV3{}
-ACTOR NazisLarva : Larva{}
-ACTOR NazisQuadrumpus : Quadrumpus{}
-ACTOR NazisSnotfolus : Snotfolus{}
-ACTOR NazisFlembomination : Flembomination{}
+ACTOR NazisFlemoidusCommonusV3 : FlemoidusCommonusV3
+{
+	States
+	{
+	Death:
+		TNT1 A 0 A_KillMaster
+		Goto Super::Death
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+ACTOR NazisFlemoidusBipedicusV3 : FlemoidusBipedicusV3
+{
+	States
+	{
+	Death:
+		TNT1 A 0 A_KillMaster
+		Goto Super::Death
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+ACTOR NazisArmoredFlemoidusBipedicusV3 : ArmoredFlemoidusBipedicusV3
+{
+	States
+	{
+	Death:
+		TNT1 A 0 A_KillMaster
+		Goto Super::Death
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+ACTOR NazisFlemoidusStridicus : FlemoidusStridicus
+{
+	States
+	{
+	Death:
+		TNT1 A 0 A_KillMaster
+		Goto Super::Death
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+ACTOR NazisFlemoidusCycloptisCommonusV3 : FlemoidusCycloptisCommonusV3
+{
+	States
+	{
+	Death:
+		TNT1 A 0 A_KillMaster
+		Goto Super::Death
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+ACTOR NazisFlemMine : FlemMine
+{
+	States
+	{
+	Death:
+		TNT1 A 0 A_KillMaster
+		Goto Super::Death
+	}
+}
+ACTOR NazisSuperCycloptis : SuperCycloptis
+{
+	States
+	{
+	Death:
+		TNT1 A 0 A_KillMaster
+		Goto Super::Death
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+ACTOR NazisFlemoidusMaximus : FlemoidusMaximus
+{
+	States
+	{
+	Death:
+		BOSS I  8
+		BOSS J  8 A_Scream
+		BOSS K  8
+		BOSS L  8 A_NoBlocking
+		BOSS MN 8
+		BOSS O -1 A_KillMaster
+		Stop
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+ACTOR NazisFlembraneV3 : FlembraneV3
+{
+	States
+	{
+	Death:
+		TNT1 A 0 A_KillMaster
+		Goto Super::Death
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+ACTOR NazisLarva : Larva
+{
+	States
+	{
+	Death:
+		TNT1 A 0 A_KillMaster
+		Goto Super::Death
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+ACTOR NazisQuadrumpus : Quadrumpus
+{
+	States
+	{
+	Death:
+		TNT1 A 0 A_KillMaster
+		Goto Super::Death
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+ACTOR NazisSnotfolus : Snotfolus
+{
+	States
+	{
+	Death:
+		CYBR H 10
+		CYBR I 10 A_Scream
+		CYBR JKL 10
+		CYBR M 10 A_NoBlocking
+		CYBR NO 10
+		CYBR P 30
+		CYBR P -1 A_KillMaster
+		Stop
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
+ACTOR NazisFlembomination : Flembomination
+{
+	States
+	{
+	Death:
+		SPID J 20 A_Scream
+		SPID K 10 A_NoBlocking
+		SPID LMNOPQR 10
+		SPID S 30
+		SPID S -1 A_KillMaster
+		Stop
+	Ice:
+		"####" "#" 5 A_GenericFreezeDeath
+		"----" A 0 A_KillMaster
+		"----" A 1 A_FreezeDeathChunks
+		Wait
+	}
+}
