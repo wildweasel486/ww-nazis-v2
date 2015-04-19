@@ -13,16 +13,6 @@ Script "RecoilAmount"(void)
 {
 	SetResultValue(GetCVar("recoilamount"));
 }
-Script "MonsterType"(void)
-{
-	SetResultValue(GetCVar("monstertype"));
-}
-Script "SleepChildren"(void)
-{
-	delay(1);
-	GiveInventory("DormantToggleX",1);
-	SetActorState(0,"Sleep");
-}
 str taunts[18]=
 {
 	"allcaps/taunt","allcaps/reload","allcaps/grenadecall",

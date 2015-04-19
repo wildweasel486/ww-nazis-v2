@@ -1,1363 +1,145 @@
-//These allow for choosing between Nazis and IWAD default monsters, primarily inspired
-//by how Heretic and Chex Quest support were set up.
-ACTOR DormantToggle : CustomInventory
-{
-	+INVENTORY.ALWAYSPICKUP
-	Inventory.MaxAmount 0
-	States
-	{
-	Pickup:
-		TNT1 A 0 Thing_Deactivate(0)
-		Stop
-	}
-}
-ACTOR DormantToggleX : DormantToggle
-{
-	States
-	{
-	Pickup:
-		TNT1 A 0 A_GiveToChildren("DormantToggle")
-		Stop
-	}
-}
-ACTOR MonsterToggle : SwitchableDecoration
-{
-	+NOCLIP
-	+SHOOTABLE
-	+NONSHOOTABLE
-	States
-	{
-	Spawn:
-	Inactive:
-		TNT1 A 0 ACS_NamedExecuteAlways("SleepChildren",0)
-	Active:
-		TNT1 A 0 A_JumpIf(CallACS("MonsterType")==1,"Nazis")
-		TNT1 A 0 A_Jump(256,"Default")
-		Stop
-	Death:
-		TNT1 A 1 A_BossDeath
-		Stop
-	}
-}
-
 //Doom
-ACTOR ZombiemanSpawner : MonsterToggle replaces Zombieman
-{
-	States
-	{
-	Nazis:
-		TNT1 A 0 A_Jump(256,1,2,3)
-		TNT1 A -1 A_SpawnItemEx("Guard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("SSGuard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("WGuard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisZombieman",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+ACTOR ZombiemanSpawner : RandomSpawner replaces Zombieman
+{	
+	DropItem Guard
+	DropItem SSGuard
+	DropItem WGuard
 }
-ACTOR ShotgunGuySpawner : MonsterToggle replaces ShotgunGuy
+ACTOR ShotgunGuySpawner : RandomSpawner replaces ShotgunGuy
 {
-	States
-	{
-	Nazis:
-		TNT1 A 0 A_Jump(256,1,2,3)
-		TNT1 A -1 A_SpawnItemEx("MP40Guard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("SSMP40Guard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("WMP40Guard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisShotgunGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem MP40Guard
+	DropItem SSMP40Guard
+	DropItem WMP40Guard 
 }
-ACTOR WolfensteinSSSpawner : ShotgunGuySpawner replaces WolfensteinSS
+ACTOR WolfensteinSSSpawner : ShotgunGuySpawner replaces WolfensteinSS{}
+ACTOR ChaingunGuySpawner : RandomSpawner replaces ChaingunGuy
 {
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisWolfensteinSS",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem RifleGuard
+	DropItem WRifleGuard
+	DropItem WaffenSS  
 }
-ACTOR ChaingunGuySpawner : MonsterToggle replaces ChaingunGuy
+ACTOR SpectreSpawner : RandomSpawner replaces Spectre
 {
-	States
-	{
-	Nazis:
-		TNT1 A 0 A_Jump(256,1,2,3)
-		TNT1 A -1 A_SpawnItemEx("RifleGuard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("WRifleGuard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("WaffenSS",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisChaingunGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem Paratrooper
+	DropItem Mutant 
 }
-ACTOR SpectreSpawner : MonsterToggle replaces Spectre
+ACTOR DoomImpSpawner : RandomSpawner replaces DoomImp
 {
-	States
-	{
-	Nazis:
-		TNT1 A 0 A_Jump(256,1,2)
-		TNT1 A -1 A_SpawnItemEx("Paratrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("Mutant",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisSpectre",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem Officer
+	DropItem WOfficer
+	DropItem SSOfficer   
 }
-ACTOR DoomImpSpawner : MonsterToggle replaces DoomImp
+ACTOR DemonSpawner : RandomSpawner replaces Demon
 {
-	States
-	{
-	Nazis:
-		TNT1 A 0 A_Jump(256,1,2,3)
-		TNT1 A -1 A_SpawnItemEx("Officer",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("WOfficer",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("SSOfficer",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisDoomImp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem Rottweiler
+	DropItem GermanShepherd
+	DropItem Doberman 
 }
-ACTOR DemonSpawner : MonsterToggle replaces Demon
+ACTOR RevenantSpawner : RandomSpawner replaces Revenant
 {
-	States
-	{
-	Nazis:
-		TNT1 A 0 A_Jump(256,1,2,3)
-		TNT1 A -1 A_SpawnItemEx("Rottweiler",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("GermanShepherd",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("Doberman",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem RocketMan
+	DropItem MadDoctor 
 }
-ACTOR RevenantSpawner : MonsterToggle replaces Revenant
+ACTOR HellKnightSpawner : RandomSpawner replaces HellKnight
 {
-	States
-	{
-	Nazis:
-		TNT1 A 0 A_Jump(256,1,1,2)
-		TNT1 A -1 A_SpawnItemEx("RocketMan",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("MadDoctor",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisRevenant",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem SuperSoldier
+	DropItem SuperSoldierGirl  
 }
-ACTOR HellKnightSpawner : MonsterToggle replaces HellKnight
+ACTOR BaronOfHellSpawner : RandomSpawner replaces BaronOfHell
 {
-	States
-	{
-	Nazis:
-		TNT1 A 0 A_Jump(256,1,1,1,1,1,1,1,2)
-		TNT1 A -1 A_SpawnItemEx("SuperSoldier",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-		TNT1 A -1 A_SpawnItemEx("SuperSoldierGirl",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisHellKnight",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem SuperSoldierElite  
 }
-ACTOR BaronOfHellSpawner : MonsterToggle replaces BaronOfHell
+ACTOR ArchvileSpawner : RandomSpawner replaces Archvile
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("SuperSoldierElite",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisBaronOfHell",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem General  
 }
-ACTOR ArchvileSpawner : MonsterToggle replaces Archvile
+ACTOR ArachnotronSpawner : RandomSpawner replaces Arachnotron
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("General",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisArchvile",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem FlamerMan   
 }
-ACTOR ArachnotronSpawner : MonsterToggle replaces Arachnotron
+ACTOR CacodemonSpawner : RandomSpawner replaces Cacodemon
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("FlamerMan",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisArachnotron",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem HitlerGhost 
 }
-ACTOR CacodemonSpawner : MonsterToggle replaces Cacodemon
+ACTOR LostSoulSpawner : RandomSpawner replaces LostSoul
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("HitlerGhost",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisCacodemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem Geist 
 }
-ACTOR LostSoulSpawner : MonsterToggle replaces LostSoul
+ACTOR PainElementalSpawner : RandomSpawner replaces PainElemental
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("Geist",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisLostSoul",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem NaziGeist 
 }
-ACTOR PainElementalSpawner : MonsterToggle replaces PainElemental
+ACTOR CyberdemonSpawner : RandomSpawner replaces Cyberdemon
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("NaziGeist",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisPainElemental",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem DeathKnight  
 }
-ACTOR CyberdemonSpawner : MonsterToggle replaces Cyberdemon
+ACTOR SpiderMastermindSpawner : RandomSpawner replaces SpiderMastermind
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("DeathKnight",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisCyberdemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem Hitler  
 }
-ACTOR SpiderMastermindSpawner : MonsterToggle replaces SpiderMastermind
+ACTOR FatsoSpawner : RandomSpawner replaces Fatso
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("Hitler",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisSpiderMastermind",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR FatsoSpawner : MonsterToggle replaces Fatso
-{
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("ChairGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisFatso",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem ChairGuy  
 }
 
-ACTOR DeadZombieManSpawner : MonsterToggle replaces DeadZombieMan
+ACTOR DeadZombieManSpawner : RandomSpawner replaces DeadZombieMan
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("DeadGuard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisDeadZombieMan",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem DeadGuard 
 }
-ACTOR DeadShotgunGuySpawner : MonsterToggle replaces DeadShotgunGuy
+ACTOR DeadShotgunGuySpawner : RandomSpawner replaces DeadShotgunGuy
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("DeadMP40Guard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisDeadShotgunGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem DeadMP40Guard 
 }
-ACTOR DeadDoomImpSpawner : MonsterToggle replaces DeadDoomImp
+ACTOR DeadDoomImpSpawner : RandomSpawner replaces DeadDoomImp
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("DeadOfficer",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisDeadDoomImp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem DeadOfficer 
 }
-ACTOR DeadDemonSpawner : MonsterToggle replaces DeadDemon
+ACTOR DeadDemonSpawner : RandomSpawner replaces DeadDemon
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("DeadDog",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisDeadDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem DeadDog 
 }
-ACTOR DeadCacodemonSpawner : MonsterToggle replaces DeadCacodemon
+ACTOR DeadCacodemonSpawner : RandomSpawner replaces DeadCacodemon
 {
-	States
-	{
-	Nazis:
-		TNT1 A -1 A_SpawnItemEx("DeadHitlerGhost",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisDeadCacodemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
+	DropItem DeadHitlerGhost  
 }
 
-ACTOR StealthZombieManSpawner : ZombieManSpawner replaces StealthZombieMan
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthZombieMan",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR StealthShotgunGuySpawner : ShotgunGuySpawner replaces StealthShotgunGuy
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthShotgunGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR StealthChaingunGuySpawner : ChaingunGuySpawner replaces StealthChaingunGuy
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthChaingunGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR StealthDoomImpSpawner : DoomImpSpawner replaces StealthDoomImp
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthDoomImp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR StealthDemonSpawner : DemonSpawner replaces StealthDemon
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR StealthRevenantSpawner : RevenantSpawner replaces StealthRevenant
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthRevenant",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR StealthHellKnightSpawner : HellKnightSpawner replaces StealthHellKnight
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthHellKnight",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR StealthBaronSpawner : BaronOfHellSpawner replaces StealthBaron
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthBaron",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR StealthArchvileSpawner : ArchvileSpawner replaces StealthArchvile
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthArchvile",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR StealthArachnotronSpawner : ArachnotronSpawner replaces StealthArachnotron
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthArachnotron",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR StealthCacodemonSpawner : CacodemonSpawner replaces StealthCacodemon
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthCacodemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR StealthFatsoSpawner : FatsoSpawner replaces StealthFatso
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisStealthFatso",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-
-ACTOR NazisZombieman : Zombieman
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	XDeath:
-		TNT1 A 0 A_KillMaster
-		Goto Super::XDeath
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisShotgunGuy : ShotgunGuy
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	XDeath:
-		TNT1 A 0 A_KillMaster
-		Goto Super::XDeath
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisWolfensteinSS : WolfensteinSS
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	XDeath:
-		TNT1 A 0 A_KillMaster
-		Goto Super::XDeath
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisChaingunGuy : ChaingunGuy
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	XDeath:
-		TNT1 A 0 A_KillMaster
-		Goto Super::XDeath
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisSpectre : Spectre
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisDoomImp : DoomImp
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	XDeath:
-		TNT1 A 0 A_KillMaster
-		Goto Super::XDeath
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisDemon : Demon
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisRevenant : Revenant
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisHellKnight : HellKnight
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisBaronOfHell : BaronOfHell
-{
-	States
-	{
-	Death:
-		BOSS I 8
-		BOSS J 8 A_Scream
-		BOSS K 8
-		BOSS L 8 A_NoBlocking
-		BOSS MN 8
-		BOSS O -1 A_KillMaster
-		Stop
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisArchvile : Archvile
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisArachnotron : Arachnotron
-{
-	States
-	{
-	Death:
-		BSPI J 20 A_Scream
-		BSPI K 7 A_NoBlocking
-		BSPI LMNO 7
-		BSPI P -1 A_KillMaster
-		Stop
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisCacodemon : Cacodemon
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisLostSoul : LostSoul
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	}
-}
-ACTOR NazisPainElemental : PainElemental
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisCyberdemon : Cyberdemon
-{
-	States
-	{
-	Death:
-		CYBR H 10
-		CYBR I 10 A_Scream
-		CYBR JKL 10
-		CYBR M 10 A_NoBlocking
-		CYBR NO 10
-		CYBR P 30
-		CYBR P -1 A_KillMaster
-		Stop
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisSpiderMastermind : SpiderMastermind
-{
-	States
-	{
-	Death:
-		SPID J 20 A_Scream
-		SPID K 10 A_NoBlocking
-		SPID LMNOPQR 10
-		SPID S 30
-		SPID S -1 A_KillMaster
-		Stop
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisFatso : Fatso
-{
-	States
-	{
-	Death:
-		FATT K 6
-		FATT L 6 A_Scream
-		FATT M 6 A_NoBlocking
-		FATT NOPQRS 6
-		FATT T -1 A_KillMaster
-		Stop
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisDeadZombieMan : DeadZombieMan{}
-ACTOR NazisDeadShotgunGuy : DeadShotgunGuy{}
-ACTOR NazisDeadDoomImp : DeadDoomImp{}
-ACTOR NazisDeadDemon : DeadDemon{}
-ACTOR NazisDeadCacodemon : DeadCacodemon{}
-ACTOR NazisStealthZombieMan : NazisZombieMan
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHZOMBIE"
-}
-ACTOR NazisStealthShotgunGuy : NazisShotgunGuy
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHSHOTGUNGUY"
-}
-ACTOR NazisStealthChaingunGuy : NazisChaingunGuy
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHCHAINGUY"
-}
-ACTOR NazisStealthDoomImp : NazisDoomImp
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHIMP"
-	HitObituary "$OB_STEALTHIMP"
-}
-ACTOR NazisStealthDemon : NazisDemon
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHDEMON"
-	HitObituary "$OB_STEALTHDEMON"
-}
-ACTOR NazisStealthRevenant : NazisRevenant
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHUNDEAD"
-	HitObituary "$OB_STEALTHUNDEAD"
-}
-ACTOR NazisStealthHellKnight : NazisHellKnight
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHKNIGHT"
-	HitObituary "$OB_STEALTHKNIGHT"
-}
-ACTOR NazisStealthBaron : NazisBaronOfHell
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHBARON"
-	HitObituary "$OB_STEALTHBARON"
-}
-ACTOR NazisStealthArchvile : NazisArchvile
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHVILE"
-}
-ACTOR NazisStealthArachnotron : NazisArachnotron
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHBABY"
-}
-ACTOR NazisStealthCacodemon : NazisCacodemon
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHCACO"
-	HitObituary "$OB_STEALTHCACO"
-}
-ACTOR NazisStealthFatso : NazisFatso
-{
-	+STEALTH
-	RenderStyle Translucent
-	Alpha 0
-	Obituary "$OB_STEALTHFATSO"
-}
+ACTOR StealthZombieManSpawner : ZombieManSpawner replaces StealthZombieMan{} 
+ACTOR StealthShotgunGuySpawner : ShotgunGuySpawner replaces StealthShotgunGuy{}
+ACTOR StealthChaingunGuySpawner : ChaingunGuySpawner replaces StealthChaingunGuy{}
+ACTOR StealthDoomImpSpawner : DoomImpSpawner replaces StealthDoomImp{}
+ACTOR StealthDemonSpawner : DemonSpawner replaces StealthDemon{}
+ACTOR StealthRevenantSpawner : RevenantSpawner replaces StealthRevenant{}
+ACTOR StealthHellKnightSpawner : HellKnightSpawner replaces StealthHellKnight{}
+ACTOR StealthBaronSpawner : BaronOfHellSpawner replaces StealthBaron{}
+ACTOR StealthArchvileSpawner : ArchvileSpawner replaces StealthArchvile{}
+ACTOR StealthArachnotronSpawner : ArachnotronSpawner replaces StealthArachnotron{}
+ACTOR StealthCacodemonSpawner : CacodemonSpawner replaces StealthCacodemon{}
+ACTOR StealthFatsoSpawner : FatsoSpawner replaces StealthFatso{}
 
 //Heretic
-ACTOR HereticImpSpawner : LostSoulSpawner replaces HereticImp
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisHereticImp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR HereticImpLeaderSpawner : ZombiemanSpawner replaces HereticImpLeader
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisHereticImpLeader",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR MummySpawner : DoomImpSpawner replaces Mummy
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisMummy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR MummyGhostSpawner : ShotgunGuySpawner replaces MummyGhost
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisMummyGhost",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR MummyLeaderSpawner : ChaingunGuySpawner replaces MummyLeader
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisMummyLeader",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR MummyLeaderGhostSpawner : SpectreSpawner replaces MummyLeaderGhost
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisMummyLeaderGhost",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR KnightSpawner : HellKnightSpawner replaces Knight
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisKnight",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR KnightGhostSpawner : BaronOfHellSpawner replaces KnightGhost
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisKnightGhost",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR ClinkSpawner : DemonSpawner replaces Clink
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisClink",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR BeastSpawner : RevenantSpawner replaces Beast
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisBeast",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR SnakeSpawner : ArachnotronSpawner replaces Snake
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisSnake",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR WizardSpawner : CacodemonSpawner replaces Wizard
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisWizard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR IronLichSpawner : ArchvileSpawner replaces IronLich
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisIronLich",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR MinotaurSpawner : CyberdemonSpawner replaces Minotaur
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisMinotaur",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR Sorcerer1Spawner : SpiderMastermindSpawner replaces Sorcerer1
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisSorcerer1",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-
-ACTOR NazisHereticImp : HereticImp
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	XDeath:
-		TNT1 A 0 A_KillMaster
-		Goto Super::XDeath
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisHereticImpLeader : HereticImpLeader
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	XDeath:
-		TNT1 A 0 A_KillMaster
-		Goto Super::XDeath
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisMummy : Mummy
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisMummyGhost : MummyGhost
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisMummyLeader : MummyLeader
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisMummyLeaderGhost : MummyLeaderGhost
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisKnight : Knight
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisKnightGhost : KnightGhost
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisClink : Clink
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait}
-}
-ACTOR NazisBeast : Beast
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	XDeath:
-		TNT1 A 0 A_KillMaster
-		Goto Super::XDeath
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisSnake : Snake
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisWizard : Wizard
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisIronLich : IronLich
-{
-	States
-	{
-	Death:
-		LICH C 7
-		LICH D 7 A_Scream
-		LICH EF 7
-		LICH G 7 A_NoBlocking
-		LICH H 7
-		LICH I -1 A_KillMaster
-		Stop
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisMinotaur : Minotaur
-{
-	States
-	{
-	Death:
-		MNTR F 6 A_MinotaurDeath
-		MNTR G 5
-		MNTR H 6 A_Scream
-		MNTR I 5
-		MNTR J 6
-		MNTR K 5
-		MNTR L 6
-		MNTR M 5 A_NoBlocking
-		MNTR N 6
-		MNTR O 5
-		MNTR P 6
-		MNTR Q 5
-		MNTR R 6
-		MNTR S 5
-		MNTR T -1 A_KillMaster
-		Stop
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisSorcerer1 : Sorcerer1
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	}
-}
+ACTOR HereticImpSpawner : LostSoulSpawner replaces HereticImp{}
+ACTOR HereticImpLeaderSpawner : ZombiemanSpawner replaces HereticImpLeader{}
+ACTOR MummySpawner : DoomImpSpawner replaces Mummy{}
+ACTOR MummyGhostSpawner : ShotgunGuySpawner replaces MummyGhost{}
+ACTOR MummyLeaderSpawner : ChaingunGuySpawner replaces MummyLeader{}
+ACTOR MummyLeaderGhostSpawner : SpectreSpawner replaces MummyLeaderGhost{}
+ACTOR KnightSpawner : HellKnightSpawner replaces Knight{}
+ACTOR KnightGhostSpawner : BaronOfHellSpawner replaces KnightGhost{}
+ACTOR ClinkSpawner : DemonSpawner replaces Clink{}
+ACTOR BeastSpawner : RevenantSpawner replaces Beast{}
+ACTOR SnakeSpawner : ArachnotronSpawner replaces Snake{}
+ACTOR WizardSpawner : CacodemonSpawner replaces Wizard{}
+ACTOR IronLichSpawner : ArchvileSpawner replaces IronLich{}
+ACTOR MinotaurSpawner : CyberdemonSpawner replaces Minotaur{}
+ACTOR Sorcerer1Spawner : SpiderMastermindSpawner replaces Sorcerer1{}
 
 //Chex Quest 1/2
-ACTOR FlemoidusCommonusSpawner : ZombiemanSpawner replaces FlemoidusCommonus
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisFlemoidusCommonus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR FlemoidusBipedicusSpawner : ShotgunGuySpawner replaces FlemoidusBipedicus
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisFlemoidusBipedicus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR ArmoredFlemoidusBipedicusSpawner : DoomImpSpawner replaces ArmoredFlemoidusBipedicus
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisArmoredFlemoidusBipedicus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR FlemoidusCycloptisCommonusSpawner : DemonSpawner replaces FlemoidusCycloptisCommonus
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisFlemoidusCycloptisCommonus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR FlembraneSpawner : BaronOfHellSpawner replaces Flembrane
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisFlembrane",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-ACTOR ChexSoulSpawner : LostSoulSpawner replaces ChexSoul
-{
-	States
-	{
-	Default:
-		TNT1 A -1 A_SpawnItemEx("NazisChexSoul",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_SETMASTER|SXF_CLEARCALLERTID,0,tid)
-		Stop
-	}
-}
-
-ACTOR NazisFlemoidusCommonus : FlemoidusCommonus
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	XDeath:
-		TNT1 A 0 A_KillMaster
-		Goto Super::XDeath
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisFlemoidusBipedicus : FlemoidusBipedicus
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	XDeath:
-		TNT1 A 0 A_KillMaster
-		Goto Super::XDeath
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisArmoredFlemoidusBipedicus : ArmoredFlemoidusBipedicus
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	XDeath:
-		TNT1 A 0 A_KillMaster
-		Goto Super::XDeath
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisFlemoidusCycloptisCommonus : FlemoidusCycloptisCommonus
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisFlembrane : Flembrane
-{
-	States
-	{
-	Death:
-		BOSS I 8
-		BOSS J 8 A_Scream
-		BOSS K 8
-		BOSS L 8 A_NoBlocking
-		BOSS MN 8
-		BOSS O -1 A_KillMaster
-		Stop
-	Ice:
-		"####" "#" 5 A_GenericFreezeDeath
-		"----" A 0 A_KillMaster
-		"----" A 1 A_FreezeDeathChunks
-		Wait
-	}
-}
-ACTOR NazisChexSoul : ChexSoul
-{
-	States
-	{
-	Death:
-		TNT1 A 0 A_KillMaster
-		Goto Super::Death
-	}
-}
+ACTOR FlemoidusCommonusSpawner : ZombiemanSpawner replaces FlemoidusCommonus{}
+ACTOR FlemoidusBipedicusSpawner : ShotgunGuySpawner replaces FlemoidusBipedicus{}
+ACTOR ArmoredFlemoidusBipedicusSpawner : DoomImpSpawner replaces ArmoredFlemoidusBipedicus{}
+ACTOR FlemoidusCycloptisCommonusSpawner : DemonSpawner replaces FlemoidusCycloptisCommonus{}
+ACTOR FlembraneSpawner : BaronOfHellSpawner replaces Flembrane{}
+ACTOR ChexSoulSpawner : LostSoulSpawner replaces ChexSoul{}
 
 //Strife
 //TBD
