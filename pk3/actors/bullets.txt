@@ -14,7 +14,7 @@ ACTOR Tracer : FastProjectile
 	States
 	{
 	Spawn:
-		PUFF A 1 BRIGHT A_JumpIfTracerCloser(192,"Whiz")
+		PUFF A 1 BRIGHT A_JumpIfTracerCloser(96,"Whiz")
 		Loop
 	Whiz:
 		PUFF A -1 BRIGHT A_SpawnItemEx("Whizzer")
@@ -217,8 +217,8 @@ ACTOR 9MMCasing
 	+BOUNCEONACTORS
 	BounceType Doom
 	BounceSound "bulletcasing/bounce"
-	BounceFactor 0.5
-	WallBounceFactor 0.2
+	BounceFactor .5
+	WallBounceFactor .2
 	Mass 5
 	Radius 3
 	Height 3
@@ -287,25 +287,26 @@ ACTOR STGCasing : MauserRifleCasing{}
 // Enemy tracer variants for Normal mode.
 ACTOR EnemyPistolTracer : Tracer
 {
+	+THRUGHOST
 	Damage (random(4,8))
 }
 
-ACTOR EnemySMGTracer : Tracer
+ACTOR EnemySMGTracer : EnemyPistolTracer
 {
 	Damage (random(6,7))
 }
 
-ACTOR EnemyRifleTracer : Tracer
+ACTOR EnemyRifleTracer : EnemyPistolTracer
 {
 	Damage (random(15,30))
 }
 
-ACTOR EnemyStGTracer : Tracer
+ACTOR EnemyStGTracer : EnemyPistolTracer
 {
 	Damage (random(7,8))
 }
 
-ACTOR EnemyChaingunTracer : Tracer
+ACTOR EnemyChaingunTracer : EnemyPistolTracer
 {
 	Damage (random(6,8))
 }
@@ -366,29 +367,24 @@ ACTOR EasyEnemyChaingunTracer : EnemyChaingunTracer
 ACTOR HardEnemyPistolTracer : EnemyPistolTracer
 {
 	Speed 90
-	+THRUGHOST
 }
 
 ACTOR HardEnemySMGTracer : EnemySMGTracer
 {
 	Speed 90
-	+THRUGHOST
 }
 
 ACTOR HardEnemyRifleTracer : EnemyRifleTracer
 {
 	Speed 90
-	+THRUGHOST
 }
 
 ACTOR HardEnemyStGTracer : EnemyStGTracer
 {
 	Speed 90
-	+THRUGHOST
 }
 
 ACTOR HardEnemyChaingunTracer : EnemyChaingunTracer
 {
 	Speed 90
-	+THRUGHOST
 }

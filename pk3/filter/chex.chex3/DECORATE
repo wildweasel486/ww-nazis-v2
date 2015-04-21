@@ -1,0 +1,14 @@
+//Chex Quest 3
+ACTOR FlemoidusCommonusV3Spawner : FlemoidusCommonusSpawner replaces FlemoidusCommonus{}
+ACTOR FlemoidusBipedicusV3Spawner : FlemoidusBipedicusSpawner replaces FlemoidusBipedicus{}
+ACTOR ArmoredFlemoidusBipedicusV3Spawner : ArmoredFlemoidusBipedicusSpawner replaces ArmoredFlemoidusBipedicus{}
+ACTOR FlemoidusStridicusSpawner : RevenantSpawner replaces FlemoidusCycloptisCommonus{}
+ACTOR FlemoidusCycloptisCommonusV3Spawner : FlemoidusCycloptisCommonusSpawner replaces FlemoidusCycloptisCommonusV3{}
+ACTOR FlemMineSpawner : ChexSoulSpawner replaces ChexSoul{}
+ACTOR SuperCycloptisSpawner : CacodemonSpawner replaces SuperCycloptis{}
+ACTOR FlemoidusMaximusSpawner : FlembraneSpawner replaces Flembrane{}
+ACTOR FlembraneV3Spawner : FlembraneSpawner replaces FlembraneV3{}
+ACTOR LarvaSpawner : FlemoidusCycloptisCommonusSpawner replaces Larva{}
+ACTOR QuadrumpusSpawner : ArmoredFlemoidusBipedicusSpawner replaces Quadrumpus{}
+ACTOR SnotfolusSpawner : CyberdemonSpawner replaces Snotfolus{}
+ACTOR FlembominationSpawner : SpiderMastermindSpawner replaces Flembomination{}

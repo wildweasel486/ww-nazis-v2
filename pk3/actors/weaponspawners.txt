@@ -1,9 +1,3 @@
-ACTOR RifleSpawner : RandomSpawner
-{
-	DropItem G43Spawner
-	DropItem Kar98kSpawner
-}
-
 //Doom
 ACTOR ClipSpawner : RandomSpawner replaces Clip
 {
@@ -155,7 +149,6 @@ ACTOR MaulerSpawner : BFG9000Spawner replaces Mauler{}
 
 ACTOR ClipOfBulletsSpawner2 : CustomInventory
 {
-	ConversationID 179
 	States
 	{
 	Pickup:
@@ -165,7 +158,6 @@ ACTOR ClipOfBulletsSpawner2 : CustomInventory
 }
 ACTOR BoxOfBulletsSpawner2 : CustomInventory
 {
-	ConversationID 180
 	States
 	{
 	Pickup:
@@ -175,7 +167,6 @@ ACTOR BoxOfBulletsSpawner2 : CustomInventory
 }
 ACTOR PoisonBoltsSpawner2 : CustomInventory
 {
-	ConversationID 185
 	States
 	{
 	Pickup:
@@ -185,7 +176,6 @@ ACTOR PoisonBoltsSpawner2 : CustomInventory
 }
 ACTOR ElectricBoltsSpawner2 : CustomInventory
 {
-	ConversationID 186
 	States
 	{
 	Pickup:
@@ -195,7 +185,6 @@ ACTOR ElectricBoltsSpawner2 : CustomInventory
 }
 ACTOR MiniMissilesSpawner2 : CustomInventory
 {
-	ConversationID 181
 	States
 	{
 	Pickup:
@@ -205,7 +194,6 @@ ACTOR MiniMissilesSpawner2 : CustomInventory
 }
 ACTOR CrateOfMissilesSpawner2 : CustomInventory
 {
-	ConversationID 182
 	States
 	{
 	Pickup:
@@ -213,17 +201,10 @@ ACTOR CrateOfMissilesSpawner2 : CustomInventory
 		Stop
 	}
 }
-ACTOR HEGrenadeRoundsSpawner2 : MiniMissilesSpawner2
-{
-	ConversationID 177
-}
-ACTOR PhosphorusGrenadeRoundsSpawner2 : MiniMissilesSpawner2
-{
-	ConversationID 178
-}
+ACTOR HEGrenadeRoundsSpawner2 : MiniMissilesSpawner2{}
+ACTOR PhosphorusGrenadeRoundsSpawner2 : MiniMissilesSpawner2{}
 ACTOR EnergyPodSpawner2 : CustomInventory
 {
-	ConversationID 183
 	States
 	{
 	Pickup:
@@ -233,7 +214,6 @@ ACTOR EnergyPodSpawner2 : CustomInventory
 }
 ACTOR EnergyPackSpawner2 : CustomInventory
 {
-	ConversationID 184
 	States
 	{
 	Pickup:
@@ -244,7 +224,6 @@ ACTOR EnergyPackSpawner2 : CustomInventory
 
 ACTOR StrifeCrossbowSpawner2 : CustomInventory
 {
-	ConversationID 194
 	States
 	{
 	Pickup:
@@ -254,7 +233,6 @@ ACTOR StrifeCrossbowSpawner2 : CustomInventory
 }
 ACTOR MiniMissileLauncherSpawner2 : CustomInventory
 {
-	ConversationID 192
 	States
 	{
 	Pickup:
@@ -264,7 +242,6 @@ ACTOR MiniMissileLauncherSpawner2 : CustomInventory
 }
 ACTOR AssaultGunSpawner2 : CustomInventory
 {
-	ConversationID 188
 	States
 	{
 	Pickup:
@@ -272,13 +249,9 @@ ACTOR AssaultGunSpawner2 : CustomInventory
 		Stop
 	}
 }
-ACTOR AssaultGunStandingSpawner2 : AssaultGunSpawner2
-{
-	ConversationID 189
-}
+ACTOR AssaultGunStandingSpawner2 : AssaultGunSpawner2{}
 ACTOR StrifeGrenadeLauncherSpawner2 : CustomInventory
 {
-	ConversationID 195
 	States
 	{
 	Pickup:
@@ -288,7 +261,6 @@ ACTOR StrifeGrenadeLauncherSpawner2 : CustomInventory
 }
 ACTOR FlameThrowerSpawner2 : CustomInventory
 {
-	ConversationID 190
 	States
 	{
 	Pickup:
@@ -298,7 +270,6 @@ ACTOR FlameThrowerSpawner2 : CustomInventory
 }
 ACTOR MaulerSpawner2 : CustomInventory
 {
-	ConversationID 193
 	States
 	{
 	Pickup:

@@ -13,10 +13,6 @@ Script "RecoilAmount"(void)
 {
 	SetResultValue(GetCVar("recoilamount"));
 }
-Script "MonsterType"(void)
-{
-	SetResultValue(GetCVar("monstertype"));
-}
 str taunts[18]=
 {
 	"allcaps/taunt","allcaps/reload","allcaps/grenadecall",

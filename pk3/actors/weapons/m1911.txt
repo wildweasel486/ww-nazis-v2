@@ -66,7 +66,7 @@ ACTOR M1911 : NaziWeapon
 		HGRL NNOOP 1
 		Goto Ready
 	Spawn:
-		COLP A -1	//Really not a fan of this sprite...
+		1911 Z -1	//Really not a fan of this sprite...
 		Stop
 	}
 }
@@ -76,7 +76,7 @@ ACTOR M1911Loaded : Ammo
 	Tag ".45 ACP"
 	+IGNORESKILL
 	Inventory.MaxAmount 7
-	Inventory.Icon COLPA0
+	Inventory.Icon 1911Z0
 }
 
 ACTOR M1911Spawner
@@ -95,7 +95,7 @@ ACTOR M1911Pickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		COLP A -1
+		1911 Z -1
 		Stop
 	Pickup:
 		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",6)

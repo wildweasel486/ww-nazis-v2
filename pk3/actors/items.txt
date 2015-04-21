@@ -49,7 +49,6 @@ ACTOR FlakJacket : GreenArmor replaces GreenArmor
 {
 	Inventory.Pickupmessage "Picked up a flak jacket."
 	Inventory.Icon "ARM3A0"
-	ConversationID 130
 	States
 	{
 	Spawn:
@@ -63,7 +62,6 @@ ACTOR HeavyArmor : BlueArmor replaces BlueArmor
 {
 	Inventory.Pickupmessage "Picked up a heavy armor vest!"
 	Inventory.Icon "ARM4A0"
-	ConversationID 129
 	States
 	{
 	Spawn:
@@ -77,7 +75,6 @@ ACTOR NazisBackpack : BackpackItem
 {
 	Height 26
 	Inventory.PickupMessage "Picked up an ammo pack."
-	ConversationID 187
 	States
 	{
 	Spawn:
@@ -116,7 +113,6 @@ ACTOR NaziSupercharge : Soulsphere replaces Soulsphere
 {
 	Inventory.PickupMessage "Supercharge!"
 	Inventory.PickupSound "misc/p_pkup"
-	ConversationID 127
 	States
 	{
 	Spawn:
