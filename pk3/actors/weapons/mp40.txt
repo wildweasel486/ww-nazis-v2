@@ -1,6 +1,7 @@
 //Rate of fire: 500-550 rounds/min - Wikipedia
 ACTOR MP40 : NaziWeapon
 {
+	Weapon.SlotNumber 3
 	Scale .5
 	Weapon.SelectionOrder 600
 	weapon.kickback 60

@@ -52,9 +52,7 @@ ACTOR CellPackSpawner : RandomSpawner replaces CellPack
 
 ACTOR ChainsawSpawner : RandomSpawner replaces Chainsaw
 {
-	DropItem EnfieldSpawner
-	DropItem GarandSpawner
-	//DropItem ShovelPickup
+	DropItem ShovelPickup
 	DropItem KnuckleDustersPickup
 	DropItem FirebrandPickup
 }
@@ -74,6 +72,7 @@ ACTOR SuperShotgunSpawner : RandomSpawner replaces SuperShotgun
 ACTOR ChaingunSpawner : RandomSpawner replaces Chaingun
 {
 	DropItem ThompsonSpawner
+	DropItem PPSH41Spawner
 }
 ACTOR RocketLauncherSpawner : RandomSpawner replaces RocketLauncher
 {
@@ -81,7 +80,8 @@ ACTOR RocketLauncherSpawner : RandomSpawner replaces RocketLauncher
 }
 ACTOR PlasmaRifleSpawner : RandomSpawner replaces PlasmaRifle
 {
-	DropItem PPSH41Spawner
+	DropItem EnfieldSpawner
+	DropItem GarandSpawner
 }
 ACTOR BFG9000Spawner : RandomSpawner replaces BFG9000
 {

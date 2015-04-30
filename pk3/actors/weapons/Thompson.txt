@@ -1,12 +1,13 @@
 //Rate of fire: 700 rounds/min - Wikipedia
 ACTOR Thompson : NaziWeapon
 {
+	Weapon.SlotNumber 3
 	Weapon.SelectionOrder 600
-	inventory.pickupmessage "You got the Thompson M1A1! (slot 4)"
+	Inventory.PickupMessage "You got the Thompson M1A1! (slot 4)"
 	Weapon.AmmoType "ThompsonLoaded"
 	Weapon.AmmoUse 1
-	weapon.ammotype2 "45ACPAmmo"
-	weapon.ammouse2 1
+	Weapon.AmmoType2 "45ACPAmmo"
+	Weapon.AmmoUse2 1
 	Scale 0.5
 	Tag "Thompson M1A1"
 	States

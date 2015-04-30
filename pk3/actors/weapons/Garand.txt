@@ -1,5 +1,6 @@
 ACTOR Garand : NaziWeapon
 {
+	Weapon.SlotNumber 4
 	Weapon.AmmoType "GarandLoaded"
 	Weapon.AmmoUse 1
 	Weapon.AmmoType2 "3006Ammo"

@@ -1,5 +1,6 @@
 ACTOR TrenchShotgun : NaziWeapon
 {
+	Weapon.SlotNumber 3
 	Weapon.SelectionOrder 400
 	Weapon.AmmoType "TrenchShotgunLoaded"
 	Weapon.AmmoUse 1

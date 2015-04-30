@@ -108,8 +108,6 @@ script "WWNaziStartingInventoryCheck" ENTER
 }
 script "WWNaziCheatCheck" ENTER
 {
-	if(!CheckActorClass(0,"WWNazisPlayer"))
-		terminate;
 	if(CheckInventory("ICheated"))
 	{
 		TakeInventory("ICheated",1);
@@ -123,11 +121,6 @@ script "WWNaziCheatCheck" ENTER
 }
 script "WWNaziWeaponCollect"(int weapon)
 {
-	if(!CheckActorClass(0,"WWNazisPlayer"))
-	{
-		SetResultValue(0);
-		terminate;
-	}
 	int load,i,currentweapon,min,max;
 	if(weapon<=2)//Melee
 	{
@@ -198,8 +191,6 @@ script "WWNaziWeaponDrop"(int currentweapon,int weapon)
 function void giveweapon(int weapon)
 {
 	GiveInventory(weapons[weapon],1);
-	if(!GetCVAR("neverswitchonpickup"))
-		SetWeapon(weapons[weapon]);
 	if(weapon>=3&&weapon!=19&&weapon!=21)
 	{
 		if(!CheckInventory(StrParam(s:weapons[weapon],s:"StartCheck")))
@@ -208,4 +199,6 @@ function void giveweapon(int weapon)
 			GiveInventory(StrParam(s:weapons[weapon],s:"Loaded"),999);
 		}
 	}
+	if(!GetCVAR("neverswitchonpickup"))
+		SetWeapon(weapons[weapon]);
 }

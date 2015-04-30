@@ -1,5 +1,6 @@
 ACTOR Panzerschreck : NaziWeapon
 {
+	Weapon.SlotNumber 5
 	Weapon.SelectionOrder 10000
 	Inventory.PickupMessage "You got the Panzerschreck! (slot 8)"
 	Tag "Panzerschreck"

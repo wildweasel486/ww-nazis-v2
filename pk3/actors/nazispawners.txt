@@ -1,109 +1,109 @@
 //Doom
 ACTOR ZombiemanSpawner : RandomSpawner replaces Zombieman
-{	
+{
 	DropItem Guard
-	DropItem SSGuard
 	DropItem WGuard
+	DropItem SSGuard
 }
 ACTOR ShotgunGuySpawner : RandomSpawner replaces ShotgunGuy
 {
 	DropItem MP40Guard
+	DropItem WMP40Guard
 	DropItem SSMP40Guard
-	DropItem WMP40Guard 
 }
 ACTOR WolfensteinSSSpawner : ShotgunGuySpawner replaces WolfensteinSS{}
 ACTOR ChaingunGuySpawner : RandomSpawner replaces ChaingunGuy
 {
 	DropItem RifleGuard
 	DropItem WRifleGuard
-	DropItem WaffenSS  
+	DropItem WaffenSS
 }
 ACTOR SpectreSpawner : RandomSpawner replaces Spectre
 {
 	DropItem Paratrooper
-	DropItem Mutant 
+	DropItem Mutant
 }
 ACTOR DoomImpSpawner : RandomSpawner replaces DoomImp
 {
 	DropItem Officer
 	DropItem WOfficer
-	DropItem SSOfficer   
+	DropItem SSOfficer
 }
 ACTOR DemonSpawner : RandomSpawner replaces Demon
 {
 	DropItem Rottweiler
 	DropItem GermanShepherd
-	DropItem Doberman 
+	DropItem Doberman
 }
 ACTOR RevenantSpawner : RandomSpawner replaces Revenant
 {
 	DropItem RocketMan
-	DropItem MadDoctor 
+	DropItem MadDoctor
 }
 ACTOR HellKnightSpawner : RandomSpawner replaces HellKnight
 {
 	DropItem SuperSoldier
-	DropItem SuperSoldierGirl  
+	DropItem SuperSoldierGirl
 }
 ACTOR BaronOfHellSpawner : RandomSpawner replaces BaronOfHell
 {
-	DropItem SuperSoldierElite  
+	DropItem SuperSoldierElite
 }
 ACTOR ArchvileSpawner : RandomSpawner replaces Archvile
 {
-	DropItem General  
+	DropItem General
 }
 ACTOR ArachnotronSpawner : RandomSpawner replaces Arachnotron
 {
-	DropItem FlamerMan   
+	DropItem FlamerMan
 }
 ACTOR CacodemonSpawner : RandomSpawner replaces Cacodemon
 {
-	DropItem HitlerGhost 
+	DropItem HitlerGhost
 }
 ACTOR LostSoulSpawner : RandomSpawner replaces LostSoul
 {
-	DropItem Geist 
+	DropItem Geist
 }
 ACTOR PainElementalSpawner : RandomSpawner replaces PainElemental
 {
-	DropItem NaziGeist 
+	DropItem NaziGeist
 }
 ACTOR CyberdemonSpawner : RandomSpawner replaces Cyberdemon
 {
-	DropItem DeathKnight  
+	DropItem DeathKnight
 }
 ACTOR SpiderMastermindSpawner : RandomSpawner replaces SpiderMastermind
 {
-	DropItem Hitler  
+	DropItem Hitler
 }
 ACTOR FatsoSpawner : RandomSpawner replaces Fatso
 {
-	DropItem ChairGuy  
+	DropItem ChairGuy
 }
 
 ACTOR DeadZombieManSpawner : RandomSpawner replaces DeadZombieMan
 {
-	DropItem DeadGuard 
+	DropItem DeadGuard
 }
 ACTOR DeadShotgunGuySpawner : RandomSpawner replaces DeadShotgunGuy
 {
-	DropItem DeadMP40Guard 
+	DropItem DeadMP40Guard
 }
 ACTOR DeadDoomImpSpawner : RandomSpawner replaces DeadDoomImp
 {
-	DropItem DeadOfficer 
+	DropItem DeadOfficer
 }
 ACTOR DeadDemonSpawner : RandomSpawner replaces DeadDemon
 {
-	DropItem DeadDog 
+	DropItem DeadDog
 }
 ACTOR DeadCacodemonSpawner : RandomSpawner replaces DeadCacodemon
 {
-	DropItem DeadHitlerGhost  
+	DropItem DeadHitlerGhost
 }
 
-ACTOR StealthZombieManSpawner : ZombieManSpawner replaces StealthZombieMan{} 
+ACTOR StealthZombieManSpawner : ZombieManSpawner replaces StealthZombieMan{}
 ACTOR StealthShotgunGuySpawner : ShotgunGuySpawner replaces StealthShotgunGuy{}
 ACTOR StealthChaingunGuySpawner : ChaingunGuySpawner replaces StealthChaingunGuy{}
 ACTOR StealthDoomImpSpawner : DoomImpSpawner replaces StealthDoomImp{}

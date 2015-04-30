@@ -1,5 +1,6 @@
 ACTOR M1911 : NaziWeapon
 {
+	Weapon.SlotNumber 2
 	Weapon.AmmoType "M1911Loaded"
 	Weapon.AmmoUse 1
 	Weapon.AmmoType2 "45ACPAmmo"
