@@ -59,7 +59,7 @@ ACTOR NebelwerferPickup : NaziWeaponPickup
 		NEBL A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",19)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",20)
 		Stop
 	}
 }

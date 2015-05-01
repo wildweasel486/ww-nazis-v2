@@ -136,7 +136,7 @@ ACTOR FG42Pickup : NaziWeaponPickup
 		FG42 P -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",17)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",18)
 		Stop
 	}
 }

@@ -121,7 +121,7 @@ ACTOR WeaselsRevolverPickup : NaziWeaponPickup
 		REVP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",5)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",6)
 		Stop
 	}
 }

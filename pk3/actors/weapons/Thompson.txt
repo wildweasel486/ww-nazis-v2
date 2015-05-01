@@ -124,7 +124,7 @@ ACTOR ThompsonPickup : NaziWeaponPickup
 		THOM P -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",11)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",12)
 		Stop
 	}
 }

@@ -106,7 +106,7 @@ ACTOR Luger9mmPickup : NaziWeaponPickup
 		LUGP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",3)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",4)
 		Stop
 	}
 }

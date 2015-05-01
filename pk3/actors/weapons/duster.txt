@@ -12,9 +12,11 @@ ACTOR KnuckleDusters : NaziWeapon
 		PUNG A 1 A_WeaponReady
 		Loop
 	Deselect:
+		PUNG A 0 A_Lower
 		PUNG A 1 A_Lower
 		Loop
 	Select:
+		PUNG A 0 A_Raise
 		PUNG A 1 A_Raise
 		Loop
 	Fire:
@@ -53,7 +55,7 @@ ACTOR KnuckleDustersPickup : NaziWeaponPickup
 		PUNG Z -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",1)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",2)
 		Stop
 	}
 }

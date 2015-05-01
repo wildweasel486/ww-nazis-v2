@@ -111,7 +111,7 @@ ACTOR Kar98kPickup : NaziWeaponPickup
 		K98K A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",12)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",13)
 		Stop
 	}
 }

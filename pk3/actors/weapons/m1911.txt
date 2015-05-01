@@ -99,7 +99,7 @@ ACTOR M1911Pickup : NaziWeaponPickup
 		1911 Z -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",6)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",7)
 		Stop
 	}
 }

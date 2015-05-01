@@ -154,7 +154,7 @@ ACTOR EnfieldPickup : NaziWeaponPickup
 		ENFP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",14)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",15)
 		Stop
 	}
 }

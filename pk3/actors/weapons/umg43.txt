@@ -88,7 +88,7 @@ ACTOR UMG43Pickup : NaziWeaponPickup
 		UMGP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",21)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",22)
 		Stop
 	}
 }

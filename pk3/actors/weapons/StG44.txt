@@ -113,7 +113,7 @@ ACTOR STG44Pickup : NaziWeaponPickup
 		STGI A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",16)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",17)
 		Stop
 	}
 }

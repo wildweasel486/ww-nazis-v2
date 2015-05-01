@@ -356,7 +356,7 @@ revolver/in		revin
 revolver/load	revload
 
 //Colt M1911
-m1911/fire		1911A
+m1911/fire		1911
 m1911/slide		SLIDE
 m1911/reload	LOAD
 m1911/snap		SNAP

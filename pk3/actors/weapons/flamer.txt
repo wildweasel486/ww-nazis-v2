@@ -197,7 +197,7 @@ ACTOR PyrolightPickup : NaziWeaponPickup
 		FLMT A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",18)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",19)
 		Stop
 	}
 }

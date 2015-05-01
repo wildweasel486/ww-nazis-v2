@@ -131,7 +131,7 @@ ACTOR MP40Pickup : NaziWeaponPickup
 		MP40 A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",9)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",10)
 		Stop
 	}
 }
