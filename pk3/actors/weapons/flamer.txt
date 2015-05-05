@@ -33,7 +33,7 @@ ACTOR Pyrolight : NaziWeapon
 		FFTR A 1 A_Raise
 		Loop
 	Fire:
-		RIFF A 0 A_JumpIfInventory("PyrolightLoaded",1,1)
+		FFTR A 0 A_JumpIfInventory("PyrolightLoaded",1,1)
 		Goto Dryfire
 		FFTF A 0 A_Light2
 		FFTF A 0 A_AlertMonsters
