@@ -1,5 +1,6 @@
 ACTOR G43 : NaziWeapon
 {
+	Weapon.SlotNumber 4
 	Weapon.SelectionOrder 750
 	Weapon.AmmoType "G43Loaded"
 	Weapon.AmmoUse 1
@@ -111,7 +112,7 @@ ACTOR G43Pickup : NaziWeaponPickup
 		M1GP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",13)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",14)
 		Stop
 	}
 }

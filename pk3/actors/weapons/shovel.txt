@@ -1,5 +1,6 @@
 ACTOR Shovel : NaziWeapon
 {
+	Weapon.SlotNumber 1
 	Scale .5
 	Weapon.SelectionOrder 9999
 	Tag "The Shovel!"
@@ -72,7 +73,7 @@ ACTOR ShovelPickup : NaziWeaponPickup
 		SHUV Z -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",0)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",1)
 		Stop
 	}
 }

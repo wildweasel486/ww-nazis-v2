@@ -1,5 +1,6 @@
 ACTOR UMG43 : NaziWeapon
 {
+	Weapon.SlotNumber 5
 	Weapon.SelectionOrder 900
 	Inventory.PickupMessage "You got the Ubermaschinengewehr 43! (slot 9)"
 	Inventory.PickupSound "chaingun/get"
@@ -87,7 +88,7 @@ ACTOR UMG43Pickup : NaziWeaponPickup
 		UMGP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",21)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",22)
 		Stop
 	}
 }

@@ -1,7 +1,8 @@
 //Rate of fire: 900-1000+ rounds/min - Wikipedia
 ACTOR PPSH41 : NaziWeapon
 {
-	scale .8
+	Weapon.SlotNumber 3
+	Scale .8
 	Weapon.SelectionOrder 600
 	Weapon.AmmoType "PPSH41Loaded"
 	Weapon.AmmoUse 1
@@ -147,7 +148,7 @@ ACTOR PPSH41Pickup : NaziWeaponPickup
 		PPSH A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",10)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",11)
 		Stop
 	}
 }

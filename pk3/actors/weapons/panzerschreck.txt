@@ -1,5 +1,6 @@
 ACTOR Panzerschreck : NaziWeapon
 {
+	Weapon.SlotNumber 5
 	Weapon.SelectionOrder 10000
 	Inventory.PickupMessage "You got the Panzerschreck! (slot 8)"
 	Tag "Panzerschreck"
@@ -132,7 +133,7 @@ ACTOR PanzerschreckPickup : NaziWeaponPickup
 		PANP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",20)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",21)
 		Stop
 	}
 }

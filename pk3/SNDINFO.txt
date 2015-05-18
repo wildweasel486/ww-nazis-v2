@@ -1,7 +1,6 @@
 $playeralias	weasel	male	*grunt		weaseloof
 $playersound	weasel	male	*land		wwoof
 $playersound	weasel	male	*usefail	wwnoway
-$playersound	weasel	male	*weaponlaugh	dswpnup
 $playeralias	weasel	male	*evillaugh	dsempty
 
 $random allcaps/taunt { 1taunt1 1taunt2 1taunt3 1taunt4 1taunt5 1taunt6 1taunt7 1taunt8 1taunt9 1taunt10 1taunt11 1taunt12 1taunt13 1taunt14 1taunt15 }
@@ -328,7 +327,7 @@ scasesb2 scasesb2
 
 //Fists
 melee/miss	dspmiss
-melee/hit	dspunch
+melee/hit	dsphit
 melee/wall	dspwall
 
 //Shovel
@@ -357,15 +356,10 @@ revolver/in		revin
 revolver/load	revload
 
 //Colt M1911
+m1911/fire		1911
 m1911/slide		SLIDE
 m1911/reload	LOAD
 m1911/snap		SNAP
-
-$random m1911/fire {1911A 1911B 1911C 1911D}
-1911A	1911A
-1911B	1911B
-1911C	1911C
-1911D	1911D
 
 //M1897 Trenchgun
 shotgun/fire	SHOTFIRE
@@ -378,7 +372,7 @@ browning/load	ba5load
 browning/cock	ba5cock
 
 //MP-40
-mp40/fire 	dsrifle
+mp40/fire 	mp40fire
 mp40/reload	loadmp40
 
 //PPSh-41
@@ -459,110 +453,8 @@ grenexp3 grenexp3
 grenexp4 grenexp4
 grenade/pickup grenpick
 
-
-// Basic guards
-$random guard/sight { guard/sight1 guard/sight2 guard/sight3 guard/sight4 guard/sight5 guard/sight6 guard/sight7 guard/sight8 guard/sight9 }
-$random guard/death { guard/death1 guard/death1 guard/death3 guard/death4 guard/death5 guard/death6 guard/death7 guard/death8 guard/death9 }
-
-guard/sight1		dsgdsit1
-guard/sight2		dsgdsit2
-guard/sight3		dsgdsit3
-guard/sight4		dsgdsit4
-guard/sight5		dsgdsit5
-guard/sight6		dsgdsit6
-guard/sight7		dsgdsit7
-guard/sight8		dsgdsit8
-guard/sight9		dsgdsit9
-
-guard/death1		dsgddth1
-guard/death2		dsgddth2
-guard/death3		dsgddth3
-guard/death4		dsgddth4
-guard/death5		dsgddth5
-guard/death6		dsgddth6
-guard/death7		dsgddth7
-guard/death8		dsgddth8
-guard/death9		dsgddth9
-
-// Officers
-$random officer/sight { officer/sight1 officer/sight2 officer/sight3 officer/sight4 }
-$random officer/death { officer/death1 officer/death2 officer/death3 officer/death4 }
-
-officer/sight1		dsofsit1
-officer/sight2		dsofsit2
-officer/sight3		dsofsit3
-officer/sight4		dsofsit4
-
-officer/death1		dsofdth1
-officer/death2		dsofdth2
-officer/death3		dsofdth3
-officer/death4		dsofdth4
-
-// SS
-$random ss/sight { ss/sight1 ss/sight2 ss/sight3 ss/sight4 }
-$random ss/death { ss/death1 ss/death2 ss/death3 ss/death4 }
-
-ss/sight1			dsposit1
-ss/sight2			dsposit2
-ss/sight3			dsposit3
-ss/sight4			dsposit4
-
-ss/death1			dspodth1
-ss/death2			dspodth2
-ss/death3			dspodth3
-ss/death4			dspodth4
-
-// Dogs
-$random dog/sight 		{ dog/sight1  dog/sight2  dog/sight3 }
-dog/sight1  			DSDGSIT1
-dog/sight2  			DSDGSIT2
-dog/sight3  			DSDGSIT3
-$random dog/active 		{dog/act1 dog/act2}
-dog/act1  			DSDGACT1
-dog/act2 			DSDGACT2
-$random dog/death 		{ dog/death1  dog/death2  dog/death3 }
-dog/death1  			DSDGDIE1
-dog/death2  			DSDGDIE2
-dog/death3  			DSDGDIE3
-dog/pain			dsdgpai
-dog/attack			dsdogatk
-
-// Chair Guy
-krist/sight		dskrisit
-krist/death		dskridth
-
-// Death Knight
-deathknight/sight	dsdtksit
-deathknight/death	dsdtkdth
-
-// Hitler
-hitler/sight	dshitsit
-hitler/pain		dshitpai
-hitler/death	dshitdth
-hitler/gib		hitlrgib
-hitler/walk		dshitwlk
-hitler/act		hghdie
-
-// Fat Man
-fatman/sight	dsfatsit
-fatman/death	dsfatdth
-
-// Machines
-metal/pain		dsping
-
-boss/pain		dsbospai
-
-// Weapons
-nazi/pistol DSNLUGER
-
-$random nazi/mp40 {mp401 mp402}
-mp401	dsmp401
-mp402	dsmp402
-
-nazi/stg44		dsstg44
-nazi/missilef	dsmissil
-
 // Miscellaneous
+misc/w_pkup			dsgetwep
 misc/k_pkup			dsgetkey
 misc/armor_pkup		dsgetarm
 misc/health_pkup	dsgethlt
@@ -604,7 +496,15 @@ grnx4 dsbarex4
 //=======================
 //GARGANTUAN NAZI SECTION
 //=======================
+// Weapons
+nazi/pistol DSNLUGER
+nazi/stg44		dsstg44
+nazi/missilef	dsmissil
+$random nazi/mp40 {mp401 mp402}
+mp401	dsmp401
+mp402	dsmp402
 // Grosse
+boss/pain	dsbospai
 Boss1/Death Bos1Dt01
 $random Boss1/Sighted { Bos1St01 Bos1St02 Bos1St03 Bos1St04 Bos1St05 Bos1St06 Bos1St07 Bos1St08 Bos1St09 }
 Bos1St01 Bos1St01
@@ -628,7 +528,7 @@ gretsee2 gretsee2
 gretsee3 gretsee3
 gretsee4 gretsee4
 BossGirl/Pain gretpain
-// Colonel
+// Doctor
 Boss2/Death Bos2Dt01
 $random Boss2/Sighted { bos2st01 bos2st02 bos2st03 bos2st04 bos2st05 bos2st06 bos2st07 bos2st08 }
 Bos2St01 Bos2St01
@@ -642,6 +542,44 @@ Bos2St08 Bos2St08
 // General
 Boss3/Death Bos3Dt01
 Boss3/Sighted Bos3St01
+// Chair Guy
+krist/sight		dskrisit
+krist/death		dskridth
+// Death Knight
+deathknight/sight	dsdtksit
+deathknight/death	dsdtkdth
+// Hitler
+hitler/sight	dshitsit
+hitler/pain		dshitpai
+hitler/death	dshitdth
+hitler/gib		hitlrgib
+hitler/walk		dshitwlk
+hitler/act		hghdie
+// Machines
+metal/pain	dsping
+// Dogs
+$random dog/sight 	{ dog/sight1  dog/sight2  dog/sight3 }
+dog/sight1  		DSDGSIT1
+dog/sight2  		DSDGSIT2
+dog/sight3  		DSDGSIT3
+$random dog/active 	{dog/act1 dog/act2}
+dog/act1  			DSDGACT1
+dog/act2 			DSDGACT2
+$random dog/death	{ dog/death1  dog/death2  dog/death3 }
+dog/death1  		DSDGDIE1
+dog/death2  		DSDGDIE2
+dog/death3  		DSDGDIE3
+dog/pain			dsdgpai
+dog/attack			dsdogatk
+// Geist
+geist/pain		geisthit
+geist/die		geistdie
+geist/active	geistact
+// Mutant
+mutant/death dsmutdt
+// Fake Hitler
+hitlerghost/see hghsee
+hitlerghost/die hghdie
 // Voice 1
 $random Nazi1/Death { Naz1Dt02 Naz1Dt02 Naz1Dt03 Naz1Dt03 Naz1Dt04 Naz1Dt04 Naz1Dt05 Naz1Dt05 Naz1Dt06 Naz1Dt06 Naz1Dt07 Naz1Dt07 Naz1Dt08 Naz1Dt08 Naz1Dt09 Naz1Dt09 Naz1Dt10 Naz1Dt10 Naz1Dt11 Naz1Dt11 Naz1Dt12 Naz1Dt12 }
 $random Nazi1/Pain { Naz1Pn02 Naz1Pn02 Naz1Pn03 Naz1Pn03 Naz1Pn04 Naz1Pn04 Naz1Pn05 Naz1Pn05 Naz1Pn06 Naz1Pn06 Naz1Pn07 Naz1Pn07 Naz1Pn08 Naz1Pn08 Naz1Pn09 Naz1Pn09 }
@@ -883,16 +821,7 @@ Naz4St45 Naz4St45
 Naz4St46 Naz4St46
 Naz4St47 Naz4St47
 Naz4St48 Naz4St48
-
-hitlerghost/see hghsee
-hitlerghost/die hghdie
-
-geist/pain		geisthit
-geist/die		geistdie
-geist/active	geistact
-
-mutant/death dsmutdt
-
+// Burning
 $random death/burning { burndth1 burndth2 burndth3 burndth4 burndth5 burndth6 burndth7 burndth8 burndth9 burndtha burndthb burndthc }
 burndth1 burndth1
 burndth2 burndth2

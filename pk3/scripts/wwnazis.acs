@@ -82,17 +82,17 @@ script "WWNaziSkillCheck" (void)
 {
 	SetResultValue(GameSkill());
 }
-str weapons[22]=
+str weapons[23]=
 {
-	"Shovel","KnuckleDusters","Firebrand","Luger9mm","Walther9mm","WeaselsRevolver",
+	"","Shovel","KnuckleDusters","Firebrand","Luger9mm","Walther9mm","WeaselsRevolver",
 	"M1911","TrenchShotgun","Browning5","MP40","PPSH41",
 	"Thompson","Kar98k","G43","Enfield","Garand",
 	"STG44","FG42","Pyrolight","Nebelwerfer","Panzerschreck",
 	"UMG43"
 };
-str weaponsfancy[22]=
+str weaponsfancy[23]=
 {
-	"Shovel","Knuckle Dusters","Firebrand","Luger P08","Walther P38",".357 Revolver",
+	"","Shovel","Knuckle Dusters","Firebrand","Luger P08","Walther P38",".357 Revolver",
 	"Colt M1911","M1897 Trenchgun","Browning Auto-5","MP 40","PPSh-41",
 	"Thompson M1A1","Karabiner 98k","Gewehr 43","Lee-Enfield SMLE","M1 Garand",
 	"Sturmgewehr 44","FG 42","PyroLight","Klein Nebelwerfer","Panzerschreck",
@@ -100,21 +100,19 @@ str weaponsfancy[22]=
 };
 script "WWNaziStartingInventoryCheck" ENTER
 {
-	for(int i=3;i<=20;i++)
+	for(int i=4;i<=21;i++)
 	{
-		if(i!=19&&CheckInventory(weapons[i]))
+		if(i!=20&&CheckInventory(weapons[i]))
 			GiveInventory(StrParam(s:weapons[i],s:"StartCheck"),1);
 	}
 }
 script "WWNaziCheatCheck" ENTER
 {
-	if(!CheckActorClass(0,"WWNazisPlayer"))
-		terminate;
 	if(CheckInventory("ICheated"))
 	{
 		TakeInventory("ICheated",1);
 		GiveInventory("IJustTraded",1);
-		for(int i=3;i<=21;i++)
+		for(int i=1;i<=22;i++)
 			DropItem(0,StrParam(s:weapons[i],s:"Pickup"));
 		hudmessage(s:"Weapons! Take your pick!!";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
 	}
@@ -123,36 +121,31 @@ script "WWNaziCheatCheck" ENTER
 }
 script "WWNaziWeaponCollect"(int weapon)
 {
-	if(!CheckActorClass(0,"WWNazisPlayer"))
-	{
-		SetResultValue(0);
-		terminate;
-	}
 	int load,i,currentweapon,min,max;
-	if(weapon<=2)//Melee
+	if(weapon>=1&&weapon<=3)//Melee
 	{
-		min=0;
-		max=2;
+		min=1;
+		max=3;
 	}
-	else if(weapon>=3&&weapon<=6)//Pistol
+	else if(weapon>=4&&weapon<=7)//Pistol
 	{
-		min=3;
-		max=6;
+		min=4;
+		max=7;
 	}
-	else if(weapon>=7&&weapon<=11)//Shotgun/SMG
+	else if(weapon>=8&&weapon<=12)//Shotgun/SMG
 	{
-		min=7;
-		max=11;
+		min=8;
+		max=12;
 	}
-	else if(weapon>=12&&weapon<=17)//Rifle/Machinegun
+	else if(weapon>=13&&weapon<=18)//Rifle/Machinegun
 	{
-		min=12;
-		max=17;
+		min=13;
+		max=18;
 	}
-	else if(weapon>=18)//Heavy
+	else if(weapon>=19)//Heavy
 	{
-		min=18;
-		max=21;
+		min=19;
+		max=22;
 	}
 	for(i=min;i<=max;i++)
 	{
@@ -198,9 +191,7 @@ script "WWNaziWeaponDrop"(int currentweapon,int weapon)
 function void giveweapon(int weapon)
 {
 	GiveInventory(weapons[weapon],1);
-	if(!GetCVAR("neverswitchonpickup"))
-		SetWeapon(weapons[weapon]);
-	if(weapon>=3&&weapon!=19&&weapon!=21)
+	if(weapon>=4&&weapon!=20&&weapon!=22)
 	{
 		if(!CheckInventory(StrParam(s:weapons[weapon],s:"StartCheck")))
 		{
@@ -208,4 +199,6 @@ function void giveweapon(int weapon)
 			GiveInventory(StrParam(s:weapons[weapon],s:"Loaded"),999);
 		}
 	}
+	if(!GetCVAR("neverswitchonpickup"))
+		SetWeapon(weapons[weapon]);
 }

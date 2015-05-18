@@ -1,5 +1,6 @@
 ACTOR Browning5 : NaziWeapon
 {
+	Weapon.SlotNumber 3
 	Weapon.SelectionOrder 400
 	Weapon.AmmoUse 1
 	Weapon.AmmoType "Browning5Loaded"
@@ -138,7 +139,7 @@ ACTOR Browning5Pickup : NaziWeaponPickup
 		BA5P A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",8)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",9)
 		Stop
 	}
 }

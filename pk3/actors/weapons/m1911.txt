@@ -1,5 +1,6 @@
 ACTOR M1911 : NaziWeapon
 {
+	Weapon.SlotNumber 2
 	Weapon.AmmoType "M1911Loaded"
 	Weapon.AmmoUse 1
 	Weapon.AmmoType2 "45ACPAmmo"
@@ -26,7 +27,7 @@ ACTOR M1911 : NaziWeapon
 		1911 A 1 A_Raise
 		Loop
 	Fire:
-		TNT1 A 0 A_JumpIfInventory("M1911Loaded",1,1)
+		1911 A 0 A_JumpIfInventory("M1911Loaded",1,1)
 		Goto Dryfire
 		1911 B 0 A_GunFlash
 		1911 B 0 A_PlaySound("m1911/fire",CHAN_WEAPON)
@@ -98,7 +99,7 @@ ACTOR M1911Pickup : NaziWeaponPickup
 		1911 Z -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",6)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",7)
 		Stop
 	}
 }

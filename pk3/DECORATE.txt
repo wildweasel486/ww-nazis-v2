@@ -20,13 +20,13 @@ ACTOR NaziWeapon : Weapon
 ACTOR NaziWeaponPickup : CustomInventory
 {
 	+DONTGIB
-	Inventory.PickupSound "*weaponlaugh"
+	Inventory.PickupSound "misc/w_pkup"
 }
 
 #include "actors/weapons/shovel.txt"
 #include "actors/weapons/duster.txt"
-#include "actors/weapons/Luger.txt"
-#include "actors/weapons/P38.txt"
+#include "actors/weapons/luger.txt"
+#include "actors/weapons/p38.txt"
 #include "actors/weapons/revolver.txt"
 #include "actors/weapons/m1911.txt"
 #include "actors/weapons/shotgun.txt"
@@ -34,9 +34,9 @@ ACTOR NaziWeaponPickup : CustomInventory
 #include "actors/weapons/ppsh41.txt"
 #include "actors/weapons/mp40.txt"
 #include "actors/weapons/thompson.txt"
-#include "actors/weapons/Kar98k.txt"
+#include "actors/weapons/kar98k.txt"
 #include "actors/weapons/g43.txt"
-#include "actors/weapons/Enfield.txt"
+#include "actors/weapons/enfield.txt"
 #include "actors/weapons/garand.txt"
 #include "actors/weapons/stg44.txt"
 #include "actors/weapons/fg42.txt"
@@ -53,26 +53,16 @@ ACTOR NaziWeaponPickup : CustomInventory
 #include "actors/nazispawners.txt"
 #include "actors/weapons/seekrit!.txt"
 
-ACTOR WWNazisPlayer : DoomPlayer
+ACTOR WWNazisPlayer : PlayerPawn
 {
 	Player.InvulnerabilityMode "reflective"
-	Player.WeaponSlot 1,Shovel,KnuckleDusters,Firebrand
-	Player.WeaponSlot 2,Luger9mm,Walther9mm,WeaselsRevolver,M1911
-	Player.WeaponSlot 3,TrenchShotgun,Browning5,MP40,PPSH41,Thompson
-	Player.WeaponSlot 4,Kar98k,G43,Enfield,Garand,STG44,FG42
-	Player.WeaponSlot 5,Pyrolight,Nebelwerfer,Panzerschreck,UMG43
-	Player.WeaponSlot 6,""
-	Player.WeaponSlot 7,""
 	Player.StartItem WeaselsRevolver
 	Player.StartItem Shovel
 	Player.StartItem WeaselsRevolverLoaded,6
 	Player.StartItem 357Ammo,30
 	Player.StartItem GrenadePickup
 	Player.ViewHeight 49
-	Player.AttackZOffset 17
-	Player.ColorRange 0,0
 	Player.AttackZOffset 18
-	Player.CrouchSprite ""
 	Player.DisplayName "Some Guy with a Magnum"
 	Player.SoundClass "Weasel"
 	Scale 1.1

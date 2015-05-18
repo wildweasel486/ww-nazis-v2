@@ -1,5 +1,6 @@
 ACTOR Luger9mm : NaziWeapon
 {
+	Weapon.SlotNumber 2
 	Weapon.SelectionOrder 9998
 	Weapon.AmmoType "Luger9mmLoaded"
 	Weapon.AmmoUse 1
@@ -105,7 +106,7 @@ ACTOR Luger9mmPickup : NaziWeaponPickup
 		LUGP A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",3)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",4)
 		Stop
 	}
 }

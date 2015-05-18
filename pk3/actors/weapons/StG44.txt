@@ -1,6 +1,7 @@
 //Rate of fire: 550-600 rounds/min - Wikipedia
 ACTOR STG44 : NaziWeapon
 {
+	Weapon.SlotNumber 4
 	Weapon.SelectionOrder 700
 	inventory.pickupmessage "You got the Sturmgewehr 44! (slot 6)"
 	Weapon.AmmoType "STG44Loaded"
@@ -112,7 +113,7 @@ ACTOR STG44Pickup : NaziWeaponPickup
 		STGI A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",16)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",17)
 		Stop
 	}
 }

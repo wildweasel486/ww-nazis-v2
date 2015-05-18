@@ -87,14 +87,13 @@ ACTOR Guard : Nazi
 		"####" F 0 A_Jump(256,"See")
 		Stop
 	Death:
-		"####" I 5 A_KillMaster
+		"####" I 5 
 		"####" J 5 A_Scream
 		"####" K 5 A_NoBlocking
 		"####" L 5
 		"####" M -1
 		Stop
 	Death.Fire:
-		BURN A 0 A_KillMaster
 		BURN A 5 BRIGHT A_SetScale(1.0)
 		BURN BC 5 BRIGHT
 		BURN D 5 BRIGHT A_PlaySound("death/burning")
@@ -506,7 +505,7 @@ ACTOR Mutant : Nazi
 		MTNT I 6
 		Goto See
 	Death:
-		MTNT J 3 A_KillMaster
+		MTNT J 3 
 		MTNT K 3 A_Scream
 		MTNT L 3 A_NoBlocking
 		MTNT MN 3
@@ -588,7 +587,7 @@ ACTOR Rottweiler : Nazi
 		"####" M 2 A_Pain
 		Goto See
 	Death:
-		"####" H 8 A_KillMaster
+		"####" H 8 
 		"####" I 8 A_Scream
 		"####" J 6
 		"####" K -1 A_NoBlocking
@@ -650,7 +649,7 @@ ACTOR RocketMan : Nazi
 		OTTO K 3 A_Pain
 		Goto See
 	Death:
-		"####" G 5 A_KillMaster
+		"####" G 5 
 		"####" H 5 A_Scream
 		"####" I 5
 		"####" J -1 A_NoBlocking
@@ -769,7 +768,7 @@ ACTOR SuperSoldier : Nazi
 		HANS G 0 A_FaceTarget
  		Goto Missile+1
 	Death:
-		"####" I 5 A_KillMaster
+		"####" I 5 
 		"####" J 5 A_Scream
 		"####" K 5
 		"####" L -1 A_NoBlocking
@@ -880,7 +879,7 @@ ACTOR General : RocketMan
 		FETT I 3 A_Pain
 		Goto See
 	Death:
-		FETT J 5 A_KillMaster
+		FETT J 5 
 		FETT K 5 A_Scream
 		FETT L 5
 		FETT M -1 A_NoBlocking
@@ -938,7 +937,7 @@ ACTOR FlamerMan : RocketMan
 		FLAM A 3 A_Pain
 		Goto See
 	Death:
-		FLAM G 5 A_KillMaster
+		FLAM G 5 
 		FLAM H 5 A_Scream
 		FLAM I 5
 		FLAM J -1 A_NoBlocking
@@ -1015,7 +1014,6 @@ ACTOR HitlerGhost : Nazi
 		HGST A 4
 		Goto See
 	Death:
-		HGST E 0 A_KillMaster
 		HGST E 6 A_Scream
 		HGST FGHI 6
 		HGST J -1 A_NoBlocking
@@ -1098,7 +1096,6 @@ ACTOR Geist : Nazi
 		TNT1 A 0 A_Jump(256,"See")
 		Stop
 	Death:
-		"####" E 0 A_KillMaster
 		"####" E 5 A_SetTranslucent(0.5)
 		"####" E 6 A_Scream
 		"####" FG 6
@@ -1252,7 +1249,7 @@ ACTOR MiniShip : Nazi
 		"####" A 3 A_Pain
 		Goto See
 	Death:
-		SHIP A -1 A_KillMaster
+		SHIP A -1 
 		Wait
 	Crash:
 		BARX A 0 A_SetFloorClip
@@ -1378,7 +1375,6 @@ ACTOR DeathKnight : Nazi
 		DKGT E 3 A_Pain
 		Goto See
 	Death:
-		DKGT M 0 A_KillMaster
 		DKGT M 5 A_Scream
 		DKGT NOP 5
 		DKGT Q 5 A_NoBlocking
@@ -1439,7 +1435,6 @@ ACTOR Hitler : DeathKnight
 		HITL Q 3 A_Pain
 		Goto See
 	Death:
-		HITL H 0 A_KillMaster
 		HITL H 10 A_Scream
 		HITL I 10 A_SpawnItemEx("HitlerSuitScrap",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
 		HITL JK 10
@@ -1502,7 +1497,6 @@ ACTOR ChairGuy : Nazi
 		KRIS G 6 BRIGHT A_CustomMissile("MiniMiniRocket",48,-15)
 		Goto See
 	Death:
-		KRIS H 0 A_KillMaster
 		KRIS H 8 A_Scream
 		KRIS HHH 8 A_SetAngle(angle+45)
 		KRIS HHHHHH 4 A_SetAngle(angle+45)

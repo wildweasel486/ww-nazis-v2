@@ -1,5 +1,6 @@
 ACTOR Pyrolight : NaziWeapon
 {
+	Weapon.SlotNumber 5
 	Weapon.SelectionOrder 800
 	Inventory.PickupMessage "You got the Pyrolight! (slot 7)"
 	Weapon.AmmoType "PyrolightLoaded"
@@ -32,7 +33,7 @@ ACTOR Pyrolight : NaziWeapon
 		FFTR A 1 A_Raise
 		Loop
 	Fire:
-		RIFF A 0 A_JumpIfInventory("PyrolightLoaded",1,1)
+		FFTR A 0 A_JumpIfInventory("PyrolightLoaded",1,1)
 		Goto Dryfire
 		FFTF A 0 A_Light2
 		FFTF A 0 A_AlertMonsters
@@ -196,7 +197,7 @@ ACTOR PyrolightPickup : NaziWeaponPickup
 		FLMT A -1
 		Stop
 	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",18)
+		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",19)
 		Stop
 	}
 }
