@@ -37,13 +37,13 @@ ACTOR DemonSpawner : RandomSpawner replaces Demon
 }
 ACTOR RevenantSpawner : RandomSpawner replaces Revenant
 {
-	DropItem RocketMan
-	DropItem MadDoctor
+	DropItem RocketMan,255,2
+	DropItem MadDoctor,255,1
 }
 ACTOR HellKnightSpawner : RandomSpawner replaces HellKnight
 {
-	DropItem SuperSoldier
-	DropItem SuperSoldierGirl
+	DropItem SuperSoldier,255,7
+	DropItem SuperSoldierGirl,255,1
 }
 ACTOR BaronOfHellSpawner : RandomSpawner replaces BaronOfHell
 {
