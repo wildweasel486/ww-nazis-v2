@@ -1,6 +1,5 @@
 ACTOR WeaselsRevolver : NaziWeapon
 {
-	Weapon.SlotNumber 2
 	Weapon.AmmoType "WeaselsRevolverLoaded"
 	Weapon.AmmoUse 1
 	Weapon.AmmoType2 "357Ammo"

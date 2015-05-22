@@ -1,6 +1,5 @@
 ACTOR Nebelwerfer : NaziWeapon
 {
-	Weapon.SlotNumber 5
 	Weapon.SelectionOrder 2500
 	Weapon.AmmoUse 1
 	Weapon.AmmoType "NebAmmo"

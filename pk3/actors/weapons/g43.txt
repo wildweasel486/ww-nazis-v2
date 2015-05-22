@@ -1,6 +1,5 @@
 ACTOR G43 : NaziWeapon
 {
-	Weapon.SlotNumber 4
 	Weapon.SelectionOrder 750
 	Weapon.AmmoType "G43Loaded"
 	Weapon.AmmoUse 1

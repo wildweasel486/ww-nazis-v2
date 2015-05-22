@@ -1,7 +1,6 @@
 //Rate of fire: 900-1000+ rounds/min - Wikipedia
 ACTOR PPSH41 : NaziWeapon
 {
-	Weapon.SlotNumber 3
 	Scale .8
 	Weapon.SelectionOrder 600
 	Weapon.AmmoType "PPSH41Loaded"

@@ -1,6 +1,5 @@
 ACTOR Shovel : NaziWeapon
 {
-	Weapon.SlotNumber 1
 	Scale .5
 	Weapon.SelectionOrder 9999
 	Tag "The Shovel!"
