@@ -1,7 +1,6 @@
 //Rate of fire: 700 rounds/min - Wikipedia
 ACTOR Thompson : NaziWeapon
 {
-	Weapon.SlotNumber 3
 	Weapon.SelectionOrder 600
 	Inventory.PickupMessage "You got the Thompson M1A1! (slot 4)"
 	Weapon.AmmoType "ThompsonLoaded"

@@ -1,7 +1,6 @@
 //Rate of fire: ~750-900 rounds/min - Wikipedia
 ACTOR FG42 : NaziWeapon
 {
-	Weapon.SlotNumber 4
 	Weapon.SelectionOrder 700
 	Inventory.PickupMessage "You got the Fallschirmjagergewehr 42! (slot 6)"
 	Weapon.AmmoType "FG42Loaded"

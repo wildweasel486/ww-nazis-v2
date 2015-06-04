@@ -1,6 +1,5 @@
 ACTOR Pyrolight : NaziWeapon
 {
-	Weapon.SlotNumber 5
 	Weapon.SelectionOrder 800
 	Inventory.PickupMessage "You got the Pyrolight! (slot 7)"
 	Weapon.AmmoType "PyrolightLoaded"

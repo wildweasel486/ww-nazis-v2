@@ -1,6 +1,5 @@
 ACTOR Firebrand : NaziWeapon
 {
-	Weapon.SlotNumber 1
 	Weapon.SelectionOrder 9999
 	Inventory.PickupMessage "Mad Jack Churchill now considers you properly dressed! (slot 1)"
 	Inventory.PickupSound "sword/draw"

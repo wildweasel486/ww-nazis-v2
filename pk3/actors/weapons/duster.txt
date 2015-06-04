@@ -1,6 +1,5 @@
 ACTOR KnuckleDusters : NaziWeapon
 {
-	Weapon.SlotNumber 1
 	Scale .1
 	Tag "Knuckle Dusters"
 	-WEAPON.AMMO_CHECKBOTH

@@ -4,7 +4,6 @@
 
 ACTOR Enfield : NaziWeapon
 {
-	Weapon.SlotNumber 4
 	Weapon.SelectionOrder 750
 	Weapon.AmmoType "EnfieldLoaded"
 	Weapon.AmmoUse 1
