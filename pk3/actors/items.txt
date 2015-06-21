@@ -9,38 +9,38 @@ ACTOR DogFood : HealthBonus replaces HealthBonus
 	}
 }
 
-ACTOR Bandages : Stimpack replaces Stimpack
+ACTOR Medikit_Small  : Stimpack replaces Stimpack
 {
-	Scale .75
-	Inventory.PickupMessage "Picked up some bandages."
+	Inventory.PickupMessage "Picked up a small medikit."
 	States
 	{
 	Spawn:
-		MEDK A -1
+		MEDI A -1
 		Stop
 	}
 }
 
-ACTOR FirstAidKit : Medikit replaces Medikit
+ACTOR Medikit_Medium : Medikit replaces Medikit
 {
-	Inventory.PickupMessage "Picked up a first aid kit."
+	Inventory.PickupMessage "Picked up a medium medikit."
 	Health.LowMessage 25, "Picked up a first aid kit that you REALLY needed!"
 	States
 	{
 	Spawn:
-		MEDK B -1
+		MEDI B -1
 		Stop
 	}
 }
 
-ACTOR ArmorPlate : ArmorBonus replaces ArmorBonus
+ACTOR Stahlhelm : ArmorBonus replaces ArmorBonus
 {
-	Inventory.PickupMessage "Picked up an armor bonus."
-	Inventory.Icon "ARM1A0"
+	Scale 0.5
+	Inventory.PickupMessage "Picked up a Stahlhelm."
+	Inventory.Icon "STALA0"
 	States
 	{
 	Spawn:
-		BON2 ABCDCB 6
+		STAL A -1
 		Loop
 	}
 }
