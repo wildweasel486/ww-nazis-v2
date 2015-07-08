@@ -203,11 +203,11 @@ ACTOR HazmatSuit : RadSuit replaces RadSuit
 //Heretic
 ACTOR CrystalVialSpawner : RandomSpawner replaces CrystalVial
 {
-	DropItem Bandages
+	DropItem Medikit_Small
 }
 ACTOR ArtiHealthSpawner : RandomSpawner replaces ArtiHealth
 {
-	DropItem FirstAidKit
+	DropItem Medikit_Medium
 }
 ACTOR SilverShieldSpawner : RandomSpawner replaces SilverShield
 {

@@ -338,8 +338,8 @@ Intermission Doom2Cast
 
 conversationids
 {
-	125 = Bandages
-	126 = FirstAidKit
+	125 = Medikit_Small
+	126 = Medikit_Medium
 	127 = NaziSupercharge
 	129 = HeavyArmor
 	130 = FlakJacket
