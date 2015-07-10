@@ -9,6 +9,7 @@ ACTOR TrenchShotgun : NaziWeapon
 	+WEAPON.NOAUTOFIRE
 	Scale .5
 	Tag "M1897 Trenchgun"
+	Weapon.UpSound "shotgun/select"
 	States
 	{
 	Select:

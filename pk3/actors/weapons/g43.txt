@@ -8,6 +8,7 @@ ACTOR G43 : NaziWeapon
 	Inventory.PickupMessage "You got the Gewehr 43! (slot 5)"
 	Tag "Gewehr 43"
 	+WEAPON.NOAUTOFIRE
+	Weapon.UpSound "g43/select"
 	States
 	{
 	Select:

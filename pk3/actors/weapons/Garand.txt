@@ -8,6 +8,7 @@ ACTOR Garand : NaziWeapon
 	Weapon.SelectionOrder 750
 	+WEAPON.NOAUTOFIRE
 	Tag "M1 Garand"
+	Weapon.UpSound "garand/select"
 	States
 	{
 	Ready:

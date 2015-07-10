@@ -9,6 +9,7 @@ ACTOR PPSH41 : NaziWeapon
 	weapon.ammouse2 1
 	Tag "PPSh-41"
 	Inventory.PickupMessage "You got the PPSh-41! (slot 4)"
+	Weapon.UpSound "ppsh/select"
 	States
 	{
 	Ready:

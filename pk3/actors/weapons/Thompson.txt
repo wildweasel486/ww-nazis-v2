@@ -9,6 +9,7 @@ ACTOR Thompson : NaziWeapon
 	Weapon.AmmoUse2 1
 	Scale 0.5
 	Tag "Thompson M1A1"
+	Weapon.UpSound "thompson/select"
 	States
 	{
 	Ready:

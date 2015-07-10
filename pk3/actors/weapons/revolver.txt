@@ -8,6 +8,7 @@ ACTOR WeaselsRevolver : NaziWeapon
 	Tag ".357 Revolver"
 	Inventory.PickupMessage "You got the revolver! (slot 2)"
 	Scale .5
+	Weapon.UpSound "revolver/select"
 	States
 	{
 	Select:

@@ -11,6 +11,7 @@ ACTOR Panzerschreck : NaziWeapon
 	Height 12
 	+WEAPON.NOAUTOFIRE
 	Scale .7
+	Weapon.UpSound "panzer/select"
 	States
 	{
 	Deselect:

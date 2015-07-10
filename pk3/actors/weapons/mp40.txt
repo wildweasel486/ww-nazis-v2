@@ -10,6 +10,7 @@ ACTOR MP40 : NaziWeapon
 	weapon.ammouse2 1
 	Tag "MP 40"
 	Inventory.PickupMessage "You got the MP 40! (slot 4)"
+	Weapon.UpSound "mp40/select"
 	States
 	{
 	Ready:

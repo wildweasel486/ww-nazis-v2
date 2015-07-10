@@ -8,6 +8,7 @@ ACTOR Nebelwerfer : NaziWeapon
 	Obituary "%o rode %k's rocket."
 	-WEAPON.NOALERT
 	-WEAPON.AMMO_CHECKBOTH
+	Weapon.UpSound "nebelwerfer/select"
 	States
 	{
 	Ready:
