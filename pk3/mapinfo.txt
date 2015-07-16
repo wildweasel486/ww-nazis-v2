@@ -3,12 +3,12 @@ gameinfo
 	playerclasses = "WWNazisPlayer"
 	quitmessages = "$QUITMSG", "$QUITMSG1", "$QUITMSG2", "$QUITMSG3", "$QUITMSG4", "$QUITMSG5", "$QUITMSG6", "$QUITMSG7", "$QUITMSG8", "$QUITMSG9", "$QUITMSG10", "$QUITMSG11", "$QUITMSG12", "$QUITMSG13", "$QUITMSG14"
 	menufontcolor_title = "UNTRANSLATED"
-    menufontcolor_label = "UNTRANSLATED"
-    menufontcolor_value = "GOLD"
-    menufontcolor_action = "UNTRANSLATED"
-    menufontcolor_header = "UNTRANSLATED"
-    menufontcolor_highlight = "YELLOW"
-    menufontcolor_selection = "YELLOW"
+	menufontcolor_label = "UNTRANSLATED"
+	menufontcolor_value = "GOLD"
+	menufontcolor_action = "UNTRANSLATED"
+	menufontcolor_header = "UNTRANSLATED"
+	menufontcolor_highlight = "YELLOW"
+	menufontcolor_selection = "YELLOW"
 	statscreen_mapnamefont = "wen18, gray"
 	statscreen_finishedfont = "har22", "gray"
 	statscreen_enteringfont = "har22", "gray"
@@ -338,8 +338,8 @@ Intermission Doom2Cast
 
 conversationids
 {
-	125 = Bandages
-	126 = FirstAidKit
+	125 = Medikit_Small
+	126 = Medikit_Medium
 	127 = NaziSupercharge
 	129 = HeavyArmor
 	130 = FlakJacket
