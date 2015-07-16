@@ -8,6 +8,7 @@ ACTOR Kar98k : NaziWeapon
 	Weapon.SelectionOrder 750
 	+WEAPON.NOAUTOFIRE
 	Tag "Karabiner 98k"
+	Weapon.UpSound "mauser/select"
 	States
 	{
 	Ready:

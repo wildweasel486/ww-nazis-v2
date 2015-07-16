@@ -9,6 +9,7 @@ ACTOR STG44 : NaziWeapon
 	weapon.ammouse2 1
 	Scale .5
 	Tag "Sturmgewehr 44"
+	Weapon.UpSound "stg44/select"
 	States
 	{
 	Ready:

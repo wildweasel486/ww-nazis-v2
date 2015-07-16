@@ -313,17 +313,22 @@ poof-5 ploof5
 
 // Shell Casings
 $random bulletcasing/bounce {bcase1 bcase2 bcase3 bcase4}
+$rolloff bulletcasing/bounce 64 512
 bcase1 bcase1
 bcase2 bcase2
 bcase3 bcase3
 bcase4 bcase4
 $random shellcasing/bounce {scasesb1 scasesb2}
+$rolloff shellcasing/bounce 64 512
 $random shellcasing/stop {scases1 scases2 scases3}
 scases1 scases1
 scases2 scases2
 scases3 scases3
 scasesb1 scasesb1
 scasesb2 scasesb2
+
+// Dryfire
+weapon/dryfire click
 
 //Fists
 melee/miss	dspmiss
@@ -334,7 +339,8 @@ melee/wall	dspwall
 $random shovel/impact {shovel/impact1 shovel/impact2}
 shovel/impact1	dsshvi1
 shovel/impact2	dsshvi2
-shovel/wall		dsshvi3
+shovel/wall	dsshvi3
+shovel/select	shovlsel
 
 $random shovel/miss {shovel/miss1 shovel/miss2 shovel/miss3}
 shovel/miss1	dsshvw1
@@ -342,93 +348,111 @@ shovel/miss2	dsshvw2
 shovel/miss3	dsshvw3
 
 //Luger P-08
-luger/fire		lugrfire
+luger/fire	lugrfire
 luger/reload	lugrload
+luger/select	pstlsel
 
 //Walther P-38
 walther/fire	waltfir
 walther/reload	loadp38
+walther/select	pstlsel
 
 //.357 Revolver
 revolver/fire	revfire
 revolver/out	revout
-revolver/in		revin
+revolver/in	revin
 revolver/load	revload
+revolver/select	pstlsel
 
 //Colt M1911
-m1911/fire		1911
-m1911/slide		SLIDE
+m1911/fire	1911
+m1911/slide	SLIDE
 m1911/reload	LOAD
-m1911/snap		SNAP
+m1911/snap	SNAP
+m1911/select	pstlsel
 
 //M1897 Trenchgun
 shotgun/fire	SHOTFIRE
 shotgun/load	SHOTLOAD
 shotgun/pump	SHOTPUMP
+shotgun/select	shotsel
 
 //Browning Auto-5
 browning/fire	ba5fire
 browning/load	ba5load
 browning/cock	ba5cock
+browning/select	shotsel
 
 //MP-40
 mp40/fire 	mp40fire
 mp40/reload	loadmp40
+mp40/select	mp44sel
 
 //PPSh-41
 ppsh/fire	ppshfire
 ppsh/reload	ppshload
+ppsh/select	smgsel
 
 //Thompson M1A1
 thompson/fire	THOMFIRE
 thompson/reload	THOMLOAD
+thompson/select	smgsel
 
 //Karabiner 98k
-mauser/fire		DSMAUS
-mauser/cock		DSMCLACK
-mauser/open		DSPOP
+mauser/fire	DSMAUS
+mauser/cock	DSMCLACK
+mauser/open	DSPOP
 mauser/insert	DSINSERT
-mauser/shut		DSCLACK
+mauser/shut	DSCLACK
+mauser/select 	riflesel
 
 //Gewehr 43
 g43/fire	m1fire
 g43/reload	loadg43
+g43/select	riflesel
 
 //Lee-Enfield SMLE
 enfield/fire		EnflFire
 enfield/boltback	EnflBack
 enfield/boltfwd		EnflFwd
 enfield/load		EnflLoad
+enfield/select	 	riflesel
 
 //Garand
-garand/fire		M1AFIRE
+garand/fire	M1AFIRE
 garand/unload	M1UNLOAD
-garand/load		M1LOAD
-garand/ping		M1PING
+garand/load	M1LOAD
+garand/ping	M1PING
+garand/select	riflesel
 
 //STG44
-stg44/fire		STGFIRE
+stg44/fire	STGFIRE
 stg44/reload	loadstg
+stg44/select	mp44sel
 
 //FG42
 fg42/fire	FG42FIRE
 fg42/reload	FG42LOAD
+fg42/select	mp44sel
 
 //Pyrolight
-flamer/fire		dsfthrow
+flamer/fire	dsfthrow
 flamer/steam	dssteam
 flamer/napalm	THERMFIR
 flamer/reload	THERMRLD
+flamer/select	hwpnsel
 
 //Nebelwerfer
 nebelwerfer/fire	dsnebsht
 nebelwerfer/xplode	dsnebxpl
+nebelwerfer/select	hwpnsel
 
 //Panzerschreck
-panzer/fire		panzfire
-panzer/load		panzload
-panzer/fly		panzfly
+panzer/fire	panzfire
+panzer/load	panzload
+panzer/fly	panzfly
 panzer/explode	panzexpl
+panzer/select	bazoosel
 
 //UMG43
 chaingun/fire	dscgun
@@ -436,6 +460,7 @@ chaingun/start	chaingo
 chaingun/loop	chainlp
 chaingun/stop	chainstp
 chaingun/get	p_cgun
+chaingun/select	hwpnsel
 
 $random grenade/throw { grenthr1 grenthr2 grenthr3 }
 $random grenade/bounce { grenbnc1 grenbnc2 grenbnc3 grenbnc4 }

@@ -4,7 +4,7 @@ ACTOR Nazi
 	Height 56
 	Mass 100
 	PainChance 200
-	Speed 8
+	Speed 2
 	Monster
 	+FLOORCLIP
 	+DONTHARMSPECIES
@@ -21,14 +21,9 @@ ACTOR Nazi
 		"####" "#" 0 A_Jump(256,"Look")
 		Stop
 	Look:
-		"####" "#" 10 A_LookEx(0,0,0,0,0,"SeeFirst")
+		"####" "#" 10 A_Look
 		Loop
-	SeeFirst:
-		"####" A 4 A_Chase
-		"####" A 0 A_SetSpeed(2)
-		Goto See+5
 	See:
-		"####" A 0 A_SetSpeed(2)
 		"####" A 1 A_Chase
 		"####" AAA 1 A_Chase("","")
 		"####" A 1 A_Chase
@@ -116,6 +111,7 @@ ACTOR Guard : Nazi
 
 ACTOR SSGuard : Guard
 {
+	Speed 2.66666667
 	Obituary "%o was killed by an SS guard."
 	Health 40
 	States
@@ -123,12 +119,7 @@ ACTOR SSGuard : Guard
 	Spawn:
 		SSPG N 0
 		Goto SkillCheck
-	SeeFirst:
-		"####" A 3 A_Chase
-		"####" A 0 A_SetSpeed(8.0/3.0)
-		Goto See+4
 	See:
-		"####" A 0 A_SetSpeed(8.0/3.0)
 		"####" A 1 A_Chase
 		"####" AA 1 A_Chase("","")
 		"####" A 1 A_Chase
@@ -161,7 +152,7 @@ ACTOR SSGuard : Guard
 
 ACTOR WGuard : Guard
 {
-	Speed 10
+	Speed 2.5
 	Obituary "%o was shot by a Wehrmacht soldier."
 	Health 30
 	PainChance 185
@@ -172,29 +163,6 @@ ACTOR WGuard : Guard
 	Spawn:
 		GRD2 N 0
 		Goto SkillCheck
-	SeeFirst:
-		"####" A 4 A_Chase
-		"####" A 0 A_SetSpeed(2.5)
-		Goto See+5
-	See:
-		"####" A 0 A_SetSpeed(2.5)
-		"####" A 1 A_Chase
-		"####" AAA 1 A_Chase("","")
-		"####" A 1 A_Chase
-		"####" AAA 1 A_Chase("","")
-		"####" B 1 A_Chase
-		"####" BBB 1 A_Chase("","")
-		"####" B 1 A_Chase
-		"####" BBB 1 A_Chase("","")
-		"####" C 1 A_Chase
-		"####" CCC 1 A_Chase("","")
-		"####" C 1 A_Chase
-		"####" CCC 1 A_Chase("","")
-		"####" D 1 A_Chase
-		"####" DDD 1 A_Chase("","")
-		"####" D 1 A_Chase
-		"####" DDD 1 A_Chase("","")
-		Loop
 	Missile:
 		GRD2 EF 2 A_FaceTarget
 		GRD2 G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
@@ -275,7 +243,7 @@ ACTOR WMP40Guard : MP40Guard
 {
 	Obituary "%o was plugged by a trigger-happy Wehrmacht."
 	Health 30
-	Speed 10
+	Speed 2.5
 	+MISSILEMORE
 	+MISSILEEVENMORE
 	States
@@ -283,29 +251,6 @@ ACTOR WMP40Guard : MP40Guard
 	Spawn:
 		MGR2 N 0
 		Goto SkillCheck
-	SeeFirst:
-		"####" A 4 A_Chase
-		"####" A 0 A_SetSpeed(2.5)
-		Goto See+5
-	See:
-		"####" A 0 A_SetSpeed(2.5)
-		"####" A 1 A_Chase
-		"####" AAA 1 A_Chase("","")
-		"####" A 1 A_Chase
-		"####" AAA 1 A_Chase("","")
-		"####" B 1 A_Chase
-		"####" BBB 1 A_Chase("","")
-		"####" B 1 A_Chase
-		"####" BBB 1 A_Chase("","")
-		"####" C 1 A_Chase
-		"####" CCC 1 A_Chase("","")
-		"####" C 1 A_Chase
-		"####" CCC 1 A_Chase("","")
-		"####" D 1 A_Chase
-		"####" DDD 1 A_Chase("","")
-		"####" D 1 A_Chase
-		"####" DDD 1 A_Chase("","")
-		Loop
 	Missile:
 		MGR2 EF 2 A_FaceTarget
 		MGR2 G 0 A_PlaySound("nazi/mp40",CHAN_WEAPON)
@@ -328,6 +273,7 @@ ACTOR OfficerSpawner : RandomSpawner
 
 ACTOR Officer : Guard
 {
+	Speed 4
 	Obituary "%o was executed by an officer."
 	SeeSound "Nazi4/Sighted"
 	PainSound "Nazi4/Pain"
@@ -338,12 +284,7 @@ ACTOR Officer : Guard
 	Spawn:
 		OFFI N 0
 		Goto SkillCheck
-	SeeFirst:
-		"####" A 2 A_Chase
-		"####" A 0 A_SetSpeed(4)
-		Goto See+3
 	See:
-		"####" A 0 A_SetSpeed(4)
 		"####" A 1 A_Chase
 		"####" A 1 A_Chase("","")
 		"####" A 1 A_Chase
@@ -383,7 +324,7 @@ ACTOR Officer : Guard
 
 ACTOR SSOfficer : Officer
 {
-	Speed 16
+	Speed 5.33333333
 	Obituary "%o was viciously executed by an SS officer."
 	Health 40
 	States
@@ -391,29 +332,6 @@ ACTOR SSOfficer : Officer
 	Spawn:
 		SSOF N 0
 		Goto SkillCheck
-	SeeFirst:
-		"####" A 2 A_Chase
-		"####" A 0 A_SetSpeed(16.0/3.0)
-		Goto See+3
-	See:
-		"####" A 0 A_SetSpeed(16.0/3.0)
-		"####" A 1 A_Chase
-		"####" A 1 A_Chase("","")
-		"####" A 1 A_Chase
-		"####" A 1 A_Chase("","")
-		"####" B 1 A_Chase
-		"####" B 1 A_Chase("","")
-		"####" B 1 A_Chase
-		"####" B 1 A_Chase("","")
-		"####" C 1 A_Chase
-		"####" C 1 A_Chase("","")
-		"####" C 1 A_Chase
-		"####" C 1 A_Chase("","")
-		"####" D 1 A_Chase
-		"####" D 1 A_Chase("","")
-		"####" D 1 A_Chase
-		"####" D 1 A_Chase("","")
-		Loop
 	}
 }
 
@@ -421,7 +339,7 @@ ACTOR WOfficer : Officer
 {
 	Obituary "%o was quickly executed by an officer."
 	Health 30
-	Speed 10
+	Speed 5
 	PainChance 180
 	+MISSILEMORE
 	+MISSILEEVENMORE
@@ -430,29 +348,6 @@ ACTOR WOfficer : Officer
 	Spawn:
 		OFR2 N 0
 		Goto SkillCheck
-	SeeFirst:
-		"####" A 2 A_Chase
-		"####" A 0 A_SetSpeed(5)
-		Goto See+3
-	See:
-		"####" A 0 A_SetSpeed(5)
-		"####" A 1 A_Chase
-		"####" A 1 A_Chase("","")
-		"####" A 1 A_Chase
-		"####" A 1 A_Chase("","")
-		"####" B 1 A_Chase
-		"####" B 1 A_Chase("","")
-		"####" B 1 A_Chase
-		"####" B 1 A_Chase("","")
-		"####" C 1 A_Chase
-		"####" C 1 A_Chase("","")
-		"####" C 1 A_Chase
-		"####" C 1 A_Chase("","")
-		"####" D 1 A_Chase
-		"####" D 1 A_Chase("","")
-		"####" D 1 A_Chase
-		"####" D 1 A_Chase("","")
-		Loop
 	Missile:
 		OFR2 EF 2 A_FaceTarget
 		OFR2 G 0 A_PlaySound("nazi/pistol",CHAN_WEAPON)
@@ -501,7 +396,7 @@ ACTOR WRifleGuard : RifleGuard
 {
 	Obituary "%o was snap-shot by a rifle soldier."
 	Health 30
-	Speed 10
+	Speed 2.5
 	+MISSILEMORE
 	+MISSILEEVENMORE
 	DropItem G43Spawner
@@ -510,29 +405,6 @@ ACTOR WRifleGuard : RifleGuard
 	Spawn:
 		RGR2 N 0
 		Goto SkillCheck
-	SeeFirst:
-		"####" A 4 A_Chase
-		"####" A 0 A_SetSpeed(2.5)
-		Goto See+5
-	See:
-		"####" A 0 A_SetSpeed(2.5)
-		"####" A 1 A_Chase
-		"####" AAA 1 A_Chase("","")
-		"####" A 1 A_Chase
-		"####" AAA 1 A_Chase("","")
-		"####" B 1 A_Chase
-		"####" BBB 1 A_Chase("","")
-		"####" B 1 A_Chase
-		"####" BBB 1 A_Chase("","")
-		"####" C 1 A_Chase
-		"####" CCC 1 A_Chase("","")
-		"####" C 1 A_Chase
-		"####" CCC 1 A_Chase("","")
-		"####" D 1 A_Chase
-		"####" DDD 1 A_Chase("","")
-		"####" D 1 A_Chase
-		"####" DDD 1 A_Chase("","")
-		Loop
 	Missile:
 		RGR2 EF 10 A_FaceTarget
 		RGR2 G 0 A_PlaySound("garand/fire",CHAN_WEAPON)
@@ -590,7 +462,7 @@ ACTOR Mutant : Nazi
 {
 	Obituary "%o did the dance of doom with a Mutant."
 	Health 90
-	Speed 6
+	Speed 3
 	DeathSound "mutant/Death"
 	BloodColor "Green"
 	+MISSILEMORE
@@ -600,10 +472,6 @@ ACTOR Mutant : Nazi
 	Spawn:
 		MTNT A 0
 		Goto SkillCheck
-	SeeFirst:
-		"####" B 2 A_Chase
-		"####" B 0 A_SetSpeed(3)
-		Goto See+3
 	See:
 		MTNT A 0 A_SetSpeed(3)
 		MTNT B 1 A_Chase
@@ -884,7 +752,10 @@ ACTOR SuperSoldier : Nazi
 		HANS A 0
 		Goto SkillCheck
 	Missile:
-		HANS E 20 A_FaceTarget
+		HANS E 6 A_FaceTarget
+		HANS E 4 A_PlaySound("chaingun/start",CHAN_AUTO)
+		HANS E 0 A_PlaySound("chaingun/loop",CHAN_AUTO)
+		HANS E 10 A_FaceTarget
 		HANS F 0 A_PlaySound("chaingun/fire",CHAN_WEAPON)
 		HANS F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,16,random(-11,11))
 		HANS F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,-16,random(-11,11))
@@ -898,7 +769,7 @@ ACTOR SuperSoldier : Nazi
 		HANS F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,-16,random(-11,11))
 		HANS G 2 BRIGHT A_MonsterRefire(30,"See")
 		HANS G 0 A_FaceTarget
- 		Goto Missile+1
+ 		Goto Missile+4
 	Death:
 		"####" I 5
 		"####" J 5 A_Scream
@@ -953,7 +824,10 @@ ACTOR SuperSoldierElite : SuperSoldier
 		TRAN A 0
 		Goto SkillCheck
 	Missile:
-		TRAN E 20 A_FaceTarget
+		TRAN E 6 A_FaceTarget
+		TRAN E 4 A_PlaySound("chaingun/start",CHAN_AUTO)
+		TRAN E 0 A_PlaySound("chaingun/loop",CHAN_AUTO)
+		TRAN E 10 A_FaceTarget
 		TRAN F 0 A_PlaySound("chaingun/fire",CHAN_WEAPON)
 		TRAN F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,16,random(-11,11))
 		TRAN F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,-16,random(-11,11))
@@ -971,7 +845,7 @@ ACTOR SuperSoldierElite : SuperSoldier
 		TRAN F 1 BRIGHT A_CustomMissile("EnemyChaingunTracer",32,-16,random(-11,11))
 		TRAN G 2 BRIGHT A_MonsterRefire(30,"See")
 		TRAN G 0 A_FaceTarget
-		Goto Missile+1
+		Goto Missile+4
 	}
 }
 
@@ -1024,6 +898,7 @@ ACTOR General : RocketMan
 
 ACTOR FlamerMan : RocketMan
 {
+	Speed 2.66666667
 	+LOOKALLAROUND
 	Obituary "%o was roasted by a Nazi with a flamethrower."
 	Health 500
@@ -1035,12 +910,7 @@ ACTOR FlamerMan : RocketMan
 	Spawn:
 		FLAM A 0
 		Goto SkillCheck
-	SeeFirst:
-		FLAM A 3 A_Chase
-		FLAM A 0 A_SetSpeed(8.0/3.0)
-		Goto See+4
 	See:
-		FLAM A 0 A_SetSpeed(8.0/3.0)
 		FLAM A 1 A_Chase
 		FLAM AA 1 A_Chase("","")
 		FLAM A 1 A_Chase
@@ -1117,7 +987,7 @@ ACTOR HitlerGhost : Nazi
 	Obituary "%o thought %g saw Hitler."
 	Health 250
 	Mass 1000
-	Speed 13
+	Speed 2.16666667
 	Floatspeed .67
 	PainChance 24
 	DeathSound "hitlerghost/die"
@@ -1131,12 +1001,7 @@ ACTOR HitlerGhost : Nazi
 	Spawn:
 		HGST A 0
 		Goto SkillCheck
-	SeeFirst:
-		HGST A 6 A_Chase("Missile","Missile",CHF_FASTCHASE)
-		HGST A 0 A_SetSpeed(13.0/6.0)
-		Goto See+7
 	See:
-		HGST A 0 A_SetSpeed(13.0/6.0)
 		HGST A 1 A_Chase("Missile","Missile",CHF_FASTCHASE)
 		HGST AAAAA 1 A_Chase("","")
 		HGST B 1 A_Chase
@@ -1446,7 +1311,7 @@ ACTOR DeathKnight : Nazi
 	Radius 64
 	Height 96
 	Mass 1000
-	Speed 14
+	Speed 3.5
 	PainChance 20
 	SeeSound "deathknight/sight"
 	PainSound "boss/pain"
@@ -1460,12 +1325,7 @@ ACTOR DeathKnight : Nazi
 	Spawn:
 		DKGT A 0
 		Goto SkillCheck
-	SeeFirst:
-		"####" A 4 A_Chase
-		"####" A 0 A_SetSpeed(3.5)
-		Goto See+5
 	See:
-		"####" A 0 A_SetSpeed(3.5)
 		"####" A 1 A_Chase
 		"####" AAA 1 A_Chase("","",CHF_NOPLAYACTIVE)
 		"####" A 1 A_Chase
@@ -1555,7 +1415,7 @@ ACTOR Hitler : DeathKnight
 	Health 2500
 	Radius 32
 	Height 64
-	Speed 10
+	Speed 2.5
 	SeeSound "hitler/sight"
 	PainSound "hitler/pain"
 	DeathSound "hitler/death"
@@ -1566,31 +1426,6 @@ ACTOR Hitler : DeathKnight
 	Spawn:
 		HITL A 0
 		Goto SkillCheck
-	SeeFirst:
-		"####" A 4 A_Chase
-		"####" A 0 A_SetSpeed(2.5)
-		Goto See+5
-	See:
-		"####" A 0 A_SetSpeed(2.5)
-		"####" A 1 A_Chase
-		"####" AAA 1 A_Chase("","",CHF_NOPLAYACTIVE)
-		"####" A 1 A_Chase
-		"####" AAA 1 A_Chase("","",CHF_NOPLAYACTIVE)
-		"####" B 1 A_Chase
-		"####" BBB 1 A_Chase("","",CHF_NOPLAYACTIVE)
-		"####" B 1 A_Chase
-		"####" BBB 1 A_Chase("","",CHF_NOPLAYACTIVE)
-		"####" A 0 A_PlaySound("hitler/walk")
-		"####" C 1 A_Chase
-		"####" CCC 1 A_Chase("","",CHF_NOPLAYACTIVE)
-		"####" C 1 A_Chase
-		"####" CCC 1 A_Chase("","",CHF_NOPLAYACTIVE)
-		"####" D 1 A_Chase
-		"####" DDD 1 A_Chase("","",CHF_NOPLAYACTIVE)
-		"####" D 1 A_Chase
-		"####" DDD 1 A_Chase("","",CHF_NOPLAYACTIVE)
-		"####" A 0 A_PlaySound("hitler/walk")
-		Loop
 	Missile:
 		HITL E 10 A_FaceTarget
 		HITL F 0 A_FaceTarget
@@ -1647,12 +1482,7 @@ ACTOR ChairGuy : Nazi
 	Spawn:
 		KRIS A 0
 		Goto SkillCheck
-	SeeFirst:
-		"####" A 4 A_Chase
-		"####" A 0 A_SetSpeed(2)
-		Goto See+5
 	See:
-		"####" A 0 A_SetSpeed(2)
 		KRIS A 1 A_Chase
 		KRIS AAA 1 A_Chase("","")
 		KRIS A 1 A_Chase

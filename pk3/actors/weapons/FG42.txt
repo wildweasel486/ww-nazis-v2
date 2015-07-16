@@ -9,6 +9,7 @@ ACTOR FG42 : NaziWeapon
 	weapon.ammouse2 1
 	Scale .38
 	Tag "FG 42"
+	Weapon.UpSound "fg42/select"
 	States
 	{
 	Ready:

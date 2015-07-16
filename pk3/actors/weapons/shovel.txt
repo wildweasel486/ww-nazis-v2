@@ -6,6 +6,7 @@ ACTOR Shovel : NaziWeapon
 	Inventory.PickupMessage "You got the shovel! (slot 1)"
 	+WEAPON.NOAUTOFIRE
 	-WEAPON.AMMO_CHECKBOTH
+	Weapon.UpSound "shovel/select"
 	States
 	{
 	Ready:

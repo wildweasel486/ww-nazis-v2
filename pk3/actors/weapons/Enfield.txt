@@ -12,6 +12,7 @@ ACTOR Enfield : NaziWeapon
 	Tag "Lee-Enfield SMLE"
 	Inventory.PickupMessage "You got the Lee-Enfield SMLE! (slot 5)"
 	+WEAPON.NOAUTOFIRE
+	Weapon.UpSound "enfield/select"
 	States
 	{
 	Select:

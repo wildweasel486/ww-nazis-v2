@@ -7,6 +7,7 @@ ACTOR Walther9mm : NaziWeapon
 	weapon.ammouse2 1
 	Tag "Walther P38"
 	Inventory.PickupMessage "You got the Walther P38! (slot 2)"
+	Weapon.UpSound "walther/select"
 	States
 	{
 	Ready:

@@ -8,6 +8,7 @@ ACTOR M1911 : NaziWeapon
 	Inventory.Pickupmessage "You got the M1911! (slot 2)"
 	+WEAPON.NOAUTOFIRE
 	Tag "Colt M1911"
+	Weapon.UpSound "m1911/select"
 	States
 	{
 	Ready:

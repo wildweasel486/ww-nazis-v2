@@ -1,0 +1,12 @@
+///////////
+//WEAPONS
+///////////
+
+//Luger
+Brightmap Sprite LUGGD0 { Map "graphics/brightmaps/BMLUGGD0.png" }
+
+//Chaingun
+Brightmap Sprite UMGGE0 { Map "graphics/brightmaps/BMUMGGE0.png" }
+Brightmap Sprite UMGGF0 { Map "graphics/brightmaps/BMUMGGF0.png" }
+Brightmap Sprite UMGGG0 { Map "graphics/brightmaps/BMUMGGG0.png" }
+Brightmap Sprite UMGGH0 { Map "graphics/brightmaps/BMUMGGH0.png" }
