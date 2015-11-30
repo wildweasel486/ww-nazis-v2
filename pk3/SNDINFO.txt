@@ -399,12 +399,13 @@ thompson/reload	THOMLOAD
 thompson/select	smgsel
 
 //Karabiner 98k
-mauser/fire	DSMAUS
-mauser/cock	DSMCLACK
-mauser/open	DSPOP
+mauser/fire		DSMAUS
+mauser/cock		DSMCLACK
+mauser/open		DSPOP
 mauser/insert	DSINSERT
-mauser/shut	DSCLACK
-mauser/select 	riflesel
+mauser/shut		DSCLACK
+mauser/select	riflesel
+mauser/scope	KSCOPE1
 
 //Gewehr 43
 g43/fire	m1fire
@@ -480,7 +481,7 @@ grenade/pickup grenpick
 
 // Miscellaneous
 misc/w_pkup			dsgetwep
-misc/k_pkup			dsgetkey
+misc/k_pkup			dskeyup
 misc/armor_pkup		dsgetarm
 misc/health_pkup	dsgethlt
 misc/ammo_pkup		dsammoup
