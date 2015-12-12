@@ -30,6 +30,7 @@ skill Nazis1
 	replaceactor = "EnemyRifleTracer", "BabyEnemyRifleTracer"
 	replaceactor = "EnemySTGTracer", "BabyEnemySTGTracer"
 	replaceactor = "EnemyChaingunTracer", "BabyEnemyChaingunTracer"
+	totalinfighting
 }
 
 skill Nazis2
@@ -44,6 +45,7 @@ skill Nazis2
 	replaceactor = "EnemyRifleTracer", "EasyEnemyRifleTracer"
 	replaceactor = "EnemySTGTracer", "EasyEnemySTGTracer"
 	replaceactor = "EnemyChaingunTracer", "EasyEnemyChaingunTracer"
+	totalinfighting
 }
 
 skill Nazis3
