@@ -4,7 +4,7 @@ ACTOR Garand : NaziWeapon
 	Weapon.AmmoUse 1
 	Weapon.AmmoType2 "3006Ammo"
 	Weapon.AmmoUse2 1
-	Inventory.PickupMessage "You got the M1 Garand! (slot 5)"
+	Inventory.PickupMessage "You got the M1 Garand!"
 	Weapon.SelectionOrder 750
 	+WEAPON.NOAUTOFIRE
 	Tag "M1 Garand"
@@ -135,11 +135,8 @@ ACTOR GarandPickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		M1AP A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",16)
-		Stop
+		M1AP A 0 NODELAY A_SetUserVar("user_weapon",17)
+		Goto Idle
 	}
 }
 

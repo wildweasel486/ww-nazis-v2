@@ -4,7 +4,7 @@ ACTOR Nebelwerfer : NaziWeapon
 	Weapon.AmmoUse 1
 	Weapon.AmmoType "NebAmmo"
 	Tag "Klein Nebelwerfer"
-	Inventory.PickupMessage "You got the Klein Nebelwerfer! (slot 8)"
+	Inventory.PickupMessage "You got the Klein Nebelwerfer!"
 	Obituary "%o rode %k's rocket."
 	-WEAPON.NOALERT
 	-WEAPON.AMMO_CHECKBOTH
@@ -56,11 +56,8 @@ ACTOR NebelwerferPickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		NEBL A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",20)
-		Stop
+		NEBL A 0 NODELAY A_SetUserVar("user_weapon",21)
+		Goto Idle
 	}
 }
 

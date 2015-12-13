@@ -5,7 +5,7 @@ ACTOR TrenchShotgun : NaziWeapon
 	Weapon.AmmoUse 1
 	Weapon.AmmoType2 "12GaugeAmmo"
 	Weapon.AmmoUse2 1
-	Inventory.PickupMessage "You got the Winchester Trenchgun! (slot 3)"
+	Inventory.PickupMessage "You got the Winchester Trenchgun!"
 	+WEAPON.NOAUTOFIRE
 	Scale .5
 	Tag "M1897 Trenchgun"
@@ -155,11 +155,8 @@ ACTOR TrenchShotgunPickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		SHOT A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",8)
-		Stop
+		SHOT A 0 NODELAY A_SetUserVar("user_weapon",8)
+		Goto Idle
 	}
 }
 

@@ -8,7 +8,7 @@ ACTOR PPSH41 : NaziWeapon
 	weapon.ammotype2 "TokarevAmmo"
 	weapon.ammouse2 1
 	Tag "PPSh-41"
-	Inventory.PickupMessage "You got the PPSh-41! (slot 4)"
+	Inventory.PickupMessage "You got the PPSh-41!"
 	Weapon.UpSound "ppsh/select"
 	States
 	{
@@ -145,10 +145,7 @@ ACTOR PPSH41Pickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		PPSH A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",11)
-		Stop
+		PPSH A 0 NODELAY A_SetUserVar("user_weapon",11)
+		Goto Idle
 	}
 }

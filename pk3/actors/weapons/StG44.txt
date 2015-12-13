@@ -2,7 +2,7 @@
 ACTOR STG44 : NaziWeapon
 {
 	Weapon.SelectionOrder 700
-	inventory.pickupmessage "You got the Sturmgewehr 44! (slot 6)"
+	inventory.pickupmessage "You got the Sturmgewehr 44!"
 	Weapon.AmmoType "STG44Loaded"
 	Weapon.AmmoUse 1
 	weapon.ammotype2 "792KurzAmmo"
@@ -110,10 +110,7 @@ ACTOR STG44Pickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		STGI A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",17)
-		Stop
+		STGI A 0 NODELAY A_SetUserVar("user_weapon",18)
+		Goto Idle
 	}
 }

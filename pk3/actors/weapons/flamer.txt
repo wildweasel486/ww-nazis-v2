@@ -1,7 +1,7 @@
 ACTOR Pyrolight : NaziWeapon
 {
 	Weapon.SelectionOrder 800
-	Inventory.PickupMessage "You got the Pyrolight! (slot 7)"
+	Inventory.PickupMessage "You got the Pyrolight!"
 	Weapon.AmmoType "PyrolightLoaded"
 	Weapon.AmmoType2 "FlameAmmo"
 	Weapon.AmmoUse 1
@@ -194,11 +194,8 @@ ACTOR PyrolightPickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		FLMT A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",19)
-		Stop
+		FLMT A 0 NODELAY A_SetUserVar("user_weapon",20)
+		Goto Idle
 	}
 }
 
@@ -234,7 +231,7 @@ ACTOR Flamebolt
 		FBLX E 0 A_Explode(2,64)
 		FBLX E 2 BRIGHT A_SetScale(scalex-0.05)
 		FBLX FGHI 2 BRIGHT A_SetScale(scalex-0.1)
-		FBLX JK 2 BRIGHT A_SetScale(scalex-0.15)	
+		FBLX JK 2 BRIGHT A_SetScale(scalex-0.15)
 	Death:
 		FBLX A 1 Bright A_Explode(2,64)
 		FBLX BCDEFGHIJK 1 BRIGHT

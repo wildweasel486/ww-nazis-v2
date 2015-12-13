@@ -4,7 +4,7 @@ ACTOR Kar98k : NaziWeapon
 	Weapon.AmmoUse 1
 	Weapon.AmmoType2 "MauserAmmo"
 	Weapon.AmmoUse2 1
-	Inventory.PickupMessage "You got the Mauser Kar98k! (slot 5)"
+	Inventory.PickupMessage "You got the Mauser Kar98k!"
 	Weapon.SelectionOrder 750
 	+WEAPON.NOAUTOFIRE
 	Tag "Karabiner 98k"
@@ -161,10 +161,7 @@ ACTOR Kar98kPickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		K98K A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",13)
-		Stop
+		K98K A 0 NODELAY A_SetUserVar("user_weapon",14)
+		Goto Idle
 	}
 }

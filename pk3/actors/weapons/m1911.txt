@@ -5,7 +5,7 @@ ACTOR M1911 : NaziWeapon
 	Weapon.AmmoType2 "45ACPAmmo"
 	Weapon.AmmoUse2 1
 	Weapon.SelectionOrder 9990
-	Inventory.Pickupmessage "You got the M1911! (slot 2)"
+	Inventory.Pickupmessage "You got the M1911!"
 	+WEAPON.NOAUTOFIRE
 	Tag "Colt M1911"
 	Weapon.UpSound "m1911/select"
@@ -96,10 +96,7 @@ ACTOR M1911Pickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		1911 Z -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",7)
-		Stop
+		1911 Z 0 NODELAY A_SetUserVar("user_weapon",7)
+		Goto Idle
 	}
 }
