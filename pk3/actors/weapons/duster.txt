@@ -4,7 +4,7 @@ ACTOR KnuckleDusters : NaziWeapon
 	Tag "Knuckle Dusters"
 	-WEAPON.AMMO_CHECKBOTH
 	Weapon.SelectionOrder 10000
-	Inventory.PickupMessage "You got the knuckle dusters! (slot 1)"
+	Inventory.PickupMessage "You got the knuckle dusters!"
 	States
 	{
 	Ready:
@@ -51,11 +51,8 @@ ACTOR KnuckleDustersPickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		PUNG Z -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",2)
-		Stop
+		PUNG Z 0 NODELAY A_SetUserVar("user_weapon",2)
+		Goto Idle
 	}
 }
 

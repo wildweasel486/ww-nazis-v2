@@ -2,7 +2,7 @@
 ACTOR Thompson : NaziWeapon
 {
 	Weapon.SelectionOrder 600
-	Inventory.PickupMessage "You got the Thompson M1A1! (slot 4)"
+	Inventory.PickupMessage "You got the Thompson M1A1!"
 	Weapon.AmmoType "ThompsonLoaded"
 	Weapon.AmmoUse 1
 	Weapon.AmmoType2 "45ACPAmmo"
@@ -121,10 +121,7 @@ ACTOR ThompsonPickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		THOM P -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",12)
-		Stop
+		THOM P 0 NODELAY A_SetUserVar("user_weapon",13)
+		Goto Idle
 	}
 }

@@ -2,7 +2,7 @@
 ACTOR FG42 : NaziWeapon
 {
 	Weapon.SelectionOrder 700
-	Inventory.PickupMessage "You got the Fallschirmjagergewehr 42! (slot 6)"
+	Inventory.PickupMessage "You got the Fallschirmjagergewehr 42!"
 	Weapon.AmmoType "FG42Loaded"
 	Weapon.AmmoUse 1
 	weapon.ammotype2 "MauserAmmo"
@@ -133,10 +133,7 @@ ACTOR FG42Pickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		FG42 P -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",18)
-		Stop
+		FG42 P 0 NODELAY A_SetUserVar("user_weapon",19)
+		Goto Idle
 	}
 }

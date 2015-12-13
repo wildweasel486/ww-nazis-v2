@@ -1,7 +1,7 @@
 ACTOR Panzerschreck : NaziWeapon
 {
 	Weapon.SelectionOrder 10000
-	Inventory.PickupMessage "You got the Panzerschreck! (slot 8)"
+	Inventory.PickupMessage "You got the Panzerschreck!"
 	Tag "Panzerschreck"
 	Weapon.AmmoType "PanzerschreckLoaded"
 	Weapon.AmmoUse 1
@@ -130,11 +130,8 @@ ACTOR PanzerschreckPickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		PANP A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",21)
-		Stop
+		PANP A 0 NODELAY A_SetUserVar("user_weapon",22)
+		Goto Idle
 	}
 }
 

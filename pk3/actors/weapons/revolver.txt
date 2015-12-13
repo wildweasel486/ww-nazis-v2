@@ -6,7 +6,7 @@ ACTOR WeaselsRevolver : NaziWeapon
 	Weapon.AmmoUse2 1
 	Weapon.SelectionOrder 9996
 	Tag ".357 Revolver"
-	Inventory.PickupMessage "You got the revolver! (slot 2)"
+	Inventory.PickupMessage "You got the revolver!"
 	Scale .5
 	Weapon.UpSound "revolver/select"
 	States
@@ -118,11 +118,8 @@ ACTOR WeaselsRevolverPickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		REVP A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",6)
-		Stop
+		REVP A 0 NODELAY A_SetUserVar("user_weapon",6)
+		Goto Idle
 	}
 }
 

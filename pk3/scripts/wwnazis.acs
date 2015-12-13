@@ -82,18 +82,18 @@ script "WWNaziSkillCheck" (void)
 {
 	SetResultValue(GameSkill());
 }
-str weapons[23]=
+str weapons[24]=
 {
 	"","Shovel","KnuckleDusters","Firebrand","Luger9mm","Walther9mm","WeaselsRevolver",
-	"M1911","TrenchShotgun","Browning5","MP40","PPSH41",
+	"M1911","TrenchShotgun","Browning5","MP40","PPSH41","Sten",
 	"Thompson","Kar98k","G43","Enfield","Garand",
 	"STG44","FG42","Pyrolight","Nebelwerfer","Panzerschreck",
 	"UMG43"
 };
-str weaponsfancy[23]=
+str weaponsfancy[24]=
 {
 	"","Shovel","Knuckle Dusters","Firebrand","Luger P08","Walther P38",".357 Revolver",
-	"Colt M1911","M1897 Trenchgun","Browning Auto-5","MP 40","PPSh-41",
+	"Colt M1911","M1897 Trenchgun","Browning Auto-5","MP 40","PPSh-41","Suppressed STEN Mk II",
 	"Thompson M1A1","Karabiner 98k","Gewehr 43","Lee-Enfield SMLE","M1 Garand",
 	"Sturmgewehr 44","FG 42","PyroLight","Klein Nebelwerfer","Panzerschreck",
 	"UMG 43"
@@ -121,6 +121,7 @@ script "WWNaziCheatCheck" ENTER
 }
 script "WWNaziWeaponCollect"(int weapon)
 {
+	SetActivator(0,AAPTR_TARGET);
 	int load,i,currentweapon,min,max;
 	if(weapon>=1&&weapon<=3)//Melee
 	{
@@ -135,17 +136,17 @@ script "WWNaziWeaponCollect"(int weapon)
 	else if(weapon>=8&&weapon<=12)//Shotgun/SMG
 	{
 		min=8;
-		max=12;
+		max=13;
 	}
-	else if(weapon>=13&&weapon<=18)//Rifle/Machinegun
+	else if(weapon>=14&&weapon<=19)//Rifle/Machinegun
 	{
-		min=13;
-		max=18;
+		min=14;
+		max=19;
 	}
-	else if(weapon>=19)//Heavy
+	else if(weapon>=20)//Heavy
 	{
-		min=19;
-		max=22;
+		min=20;
+		max=23;
 	}
 	for(i=min;i<=max;i++)
 	{
@@ -165,6 +166,12 @@ script "WWNaziWeaponCollect"(int weapon)
 				GiveInventory("IJustTraded",1);
 				giveweapon(weapon);
 				ACS_NamedExecuteAlways("WWNaziWeaponDrop",0,currentweapon,weapon);
+				if(weapon==3)
+					PlaySound(0,"sword/draw",CHAN_ITEM);
+				else if(weapon==23)
+					PlaySound(0,"chaingun/get",CHAN_ITEM);
+				else
+					PlaySound(0,"misc/w_pkup",CHAN_ITEM);
 				hudmessage(s:"Traded the ",s:weaponsfancy[currentweapon],s:" for the ",s:weaponsfancy[weapon],s:"!";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
 				SetResultValue(1);
 			}
@@ -175,6 +182,12 @@ script "WWNaziWeaponCollect"(int weapon)
 	else
 	{
 		giveweapon(weapon);
+		if(weapon==3)
+			PlaySound(0,"sword/draw",CHAN_ITEM);
+		else if(weapon==23)
+			PlaySound(0,"chaingun/get",CHAN_ITEM);
+		else
+			PlaySound(0,"misc/w_pkup",CHAN_ITEM);
 		hudmessage(s:"Picked up the ",s:weaponsfancy[weapon],s:"!";HUDMSG_PLAIN,887,CR_GOLD,0.5,0.3,2.0);
 		SetResultValue(1);
 	}
@@ -191,7 +204,7 @@ script "WWNaziWeaponDrop"(int currentweapon,int weapon)
 function void giveweapon(int weapon)
 {
 	GiveInventory(weapons[weapon],1);
-	if(weapon>=4&&weapon!=20&&weapon!=22)
+	if(weapon>=4&&weapon!=21&&weapon!=23)
 	{
 		if(!CheckInventory(StrParam(s:weapons[weapon],s:"StartCheck")))
 		{

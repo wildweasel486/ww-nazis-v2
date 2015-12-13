@@ -1,7 +1,7 @@
 ACTOR UMG43 : NaziWeapon
 {
 	Weapon.SelectionOrder 900
-	Inventory.PickupMessage "You got the Ubermaschinengewehr 43! (slot 9)"
+	Inventory.PickupMessage "You got the Ubermaschinengewehr 43!"
 	Inventory.PickupSound "chaingun/get"
 	Tag "UMG 43"
 	Weapon.AmmoType "9mmAmmo"
@@ -61,7 +61,7 @@ ACTOR UMG43 : NaziWeapon
 		TNT1 A 2 A_Light1
 		Goto LightDone
 		UMGF C 1 BRIGHT A_Light2
-		Goto Flash+1	
+		Goto Flash+1
 	Flash2:
 		UMGF B 0 A_Jump(128,2)
 		UMGF B 1 BRIGHT A_Light2
@@ -87,14 +87,10 @@ ACTOR UMG43Spawner
 
 ACTOR UMG43Pickup : NaziWeaponPickup
 {
-	Inventory.PickupSound "chaingun/get"
 	States
 	{
 	Spawn:
-		UMGP A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",22)
-		Stop
+		UMGP A 0 NODELAY A_SetUserVar("user_weapon",23)
+		Goto Idle
 	}
 }

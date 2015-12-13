@@ -9,7 +9,7 @@ ACTOR MP40 : NaziWeapon
 	weapon.ammotype2 "9mmAmmo"
 	weapon.ammouse2 1
 	Tag "MP 40"
-	Inventory.PickupMessage "You got the MP 40! (slot 4)"
+	Inventory.PickupMessage "You got the MP 40!"
 	Weapon.UpSound "mp40/select"
 	States
 	{
@@ -128,11 +128,8 @@ ACTOR MP40Pickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		MP40 A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",10)
-		Stop
+		MP40 A 0 NODELAY A_SetUserVar("user_weapon",10)
+		Goto Idle
 	}
 }
 

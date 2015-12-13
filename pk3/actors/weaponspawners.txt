@@ -73,6 +73,7 @@ ACTOR ChaingunSpawner : RandomSpawner replaces Chaingun
 {
 	DropItem ThompsonSpawner
 	DropItem PPSH41Spawner
+	DropItem StenSpawner
 }
 ACTOR RocketLauncherSpawner : RandomSpawner replaces RocketLauncher
 {

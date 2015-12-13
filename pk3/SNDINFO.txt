@@ -393,6 +393,11 @@ ppsh/fire	ppshfire
 ppsh/reload	ppshload
 ppsh/select	smgsel
 
+//Sten MkII
+sten/fire	STENFIRE
+sten/reload	STENLOAD
+sten/select smgsel
+
 //Thompson M1A1
 thompson/fire	THOMFIRE
 thompson/reload	THOMLOAD

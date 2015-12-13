@@ -1,7 +1,7 @@
 ACTOR Firebrand : NaziWeapon
 {
 	Weapon.SelectionOrder 9999
-	Inventory.PickupMessage "Mad Jack Churchill now considers you properly dressed! (slot 1)"
+	Inventory.PickupMessage "Mad Jack Churchill now considers you properly dressed!"
 	Inventory.PickupSound "sword/draw"
 	Weapon.UpSound "sword/draw"
 	+WEAPON.NOAUTOFIRE
@@ -127,16 +127,12 @@ ACTOR Firebrand : NaziWeapon
 
 ACTOR FirebrandPickup : NaziWeaponPickup
 {
-	Inventory.PickupSound "sword/draw"
 	Scale .8
 	States
 	{
 	Spawn:
-		SRDP A -1 BRIGHT
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",3)
-		Stop
+		SRDP A 0 NODELAY A_SetUserVar("user_weapon",3)
+		Goto Idle
 	}
 }
 

@@ -6,7 +6,7 @@ ACTOR Walther9mm : NaziWeapon
 	weapon.ammotype2 "9mmAmmo"
 	weapon.ammouse2 1
 	Tag "Walther P38"
-	Inventory.PickupMessage "You got the Walther P38! (slot 2)"
+	Inventory.PickupMessage "You got the Walther P38!"
 	Weapon.UpSound "walther/select"
 	States
 	{
@@ -103,10 +103,7 @@ ACTOR Walther9mmPickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		WALP A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",5)
-		Stop
+		WALP A 0 NODELAY A_SetUserVar("user_weapon",5)
+		Goto Idle
 	}
 }

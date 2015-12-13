@@ -6,7 +6,7 @@ ACTOR Browning5 : NaziWeapon
 	Weapon.AmmoType2 "12GaugeAmmo"
 	Weapon.AmmoUse2 1
 	Scale .5
-	Inventory.PickupMessage "You got the Browning Auto-5! (slot 3)"
+	Inventory.PickupMessage "You got the Browning Auto-5!"
 	Tag "Browning Auto-5"
 	+WEAPON.NOAUTOFIRE
 	Weapon.UpSound "browning/select"
@@ -136,10 +136,7 @@ ACTOR Browning5Pickup : NaziWeaponPickup
 	States
 	{
 	Spawn:
-		BA5P A -1
-		Stop
-	Pickup:
-		TNT1 A 0 ACS_NamedExecuteWithResult("WWNaziWeaponCollect",9)
-		Stop
+		BA5P A 0 NODELAY A_SetUserVar("user_weapon",9)
+		Goto Idle
 	}
 }

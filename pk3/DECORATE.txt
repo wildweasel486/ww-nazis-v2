@@ -13,16 +13,30 @@ ACTOR NaziWeapon : Weapon
 	Dryfire:
 		"####" "#" 1 A_JumpIf(CallACS("Autoreload")==1,"Reload")
 		"####" "#" 1 Offset(0,35) A_PlaySound("weapon/dryfire",CHAN_WEAPON)
-		"####" "#" 9 Offset(0,34) 
+		"####" "#" 9 Offset(0,34)
 		"####" "#" 0 A_Jump(256,"Ready")
 		Stop
 	}
 }
 
-ACTOR NaziWeaponPickup : CustomInventory
+ACTOR NaziWeaponPickup
 {
-	+DONTGIB
-	Inventory.PickupSound "misc/w_pkup"
+	var int user_weapon;
+	+LOOKALLAROUND
+	States
+	{
+	Idle:
+		"####" "#" 1 A_LookEx(LOF_NOSOUNDCHECK)
+		Wait
+	See:
+		"####" "#" 1 A_JumpIfCloser(radius*1.5,"Pickup")
+		Goto Idle
+	Pickup:
+		"####" "#" 1 A_JumpIf(ACS_NamedExecuteWithResult("WWNaziWeaponCollect",user_weapon),1)
+		Goto See
+		TNT1 A 0
+		Stop
+	}
 }
 
 #include "actors/weapons/shovel.txt"
@@ -40,6 +54,7 @@ ACTOR NaziWeaponPickup : CustomInventory
 #include "actors/weapons/g43.txt"
 #include "actors/weapons/enfield.txt"
 #include "actors/weapons/garand.txt"
+#include "actors/weapons/sten.txt"
 #include "actors/weapons/stg44.txt"
 #include "actors/weapons/fg42.txt"
 #include "actors/weapons/flamer.txt"
