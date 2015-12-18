@@ -106,10 +106,11 @@ ACTOR StenSpawner
 
 ACTOR StenPickup : NaziWeaponPickup
 {
+	Scale .5
 	States
 	{
 	Spawn:
-		THOM P 0 NODELAY A_SetUserVar("user_weapon",12)
+		STEN Z 0 NODELAY A_SetUserVar("user_weapon",12)
 		Goto Idle
 	}
 }
