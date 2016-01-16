@@ -294,26 +294,25 @@ ACTOR STGCasing : MauserRifleCasing{}
 // Enemy tracer variants for Normal mode.
 ACTOR EnemyPistolTracer : Tracer
 {
-	+THRUGHOST
 	Damage (random(4,8))
 }
 
-ACTOR EnemySMGTracer : EnemyPistolTracer
+ACTOR EnemySMGTracer : Tracer
 {
 	Damage (random(6,7))
 }
 
-ACTOR EnemyRifleTracer : EnemyPistolTracer
+ACTOR EnemyRifleTracer : Tracer
 {
 	Damage (random(15,30))
 }
 
-ACTOR EnemyStGTracer : EnemyPistolTracer
+ACTOR EnemyStGTracer : Tracer
 {
 	Damage (random(7,8))
 }
 
-ACTOR EnemyChaingunTracer : EnemyPistolTracer
+ACTOR EnemyChaingunTracer : Tracer
 {
 	Damage (random(6,8))
 }
@@ -378,20 +377,24 @@ ACTOR HardEnemyPistolTracer : EnemyPistolTracer
 
 ACTOR HardEnemySMGTracer : EnemySMGTracer
 {
+	+MTHRUSPECIES
 	Speed 90
 }
 
 ACTOR HardEnemyRifleTracer : EnemyRifleTracer
 {
+	+MTHRUSPECIES
 	Speed 90
 }
 
 ACTOR HardEnemyStGTracer : EnemyStGTracer
 {
+	+MTHRUSPECIES
 	Speed 90
 }
 
 ACTOR HardEnemyChaingunTracer : EnemyChaingunTracer
 {
+	+MTHRUSPECIES
 	Speed 90
 }
