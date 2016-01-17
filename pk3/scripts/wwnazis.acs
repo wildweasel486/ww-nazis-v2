@@ -78,10 +78,6 @@ script "PlayerScream" (void)
 		level=1;
 	PlaySound(0,scream[level+((pack*2)-2)],CHAN_VOICE,1.0);
 }
-script "WWNaziSkillCheck" (void)
-{
-	SetResultValue(GameSkill());
-}
 str weapons[24]=
 {
 	"","Shovel","KnuckleDusters","Firebrand","Luger9mm","Walther9mm","WeaselsRevolver",

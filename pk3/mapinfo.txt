@@ -22,7 +22,6 @@ skill Nazis1
 	Aggressiveness = -0.5
 	SpawnFilter = Easy
 	EasyBossBrain
-	ACSReturn = 0
 	Key = 1
 	Name = "Bund Deutscher Madel" // "German Girls" - the division of the Hitler Youth for girls aged 10-14.
 	replaceactor = "EnemyPistolTracer", "BabyEnemyPistolTracer"
@@ -37,7 +36,6 @@ skill Nazis2
 {
 	DamageFactor = 0.75
 	SpawnFilter = Easy
-	ACSReturn = 1
 	Key = 2
 	Name = "Morgenspaziergang" // "Morning Stroll" - borrowed from the title of a Kraftwerk song.
 	replaceactor = "EnemyPistolTracer", "EasyEnemyPistolTracer"
@@ -51,7 +49,6 @@ skill Nazis2
 skill Nazis3
 {
 	SpawnFilter = Normal
-	ACSReturn = 2
 	Key = 3
 	Name = "Gewohnlichen" // "Ordinary" - from Google translate.
 }
@@ -60,7 +57,6 @@ skill Nazis4
 {
 	Aggressiveness = 0.5
 	SpawnFilter = Hard
-	ACSReturn = 3
 	Key = 4
 	Name = "Ubermensch" // "Super Man"
 	replaceactor = "EnemyPistolTracer", "HardEnemyPistolTracer"
@@ -68,6 +64,13 @@ skill Nazis4
 	replaceactor = "EnemyRifleTracer", "HardEnemyRifleTracer"
 	replaceactor = "EnemySTGTracer", "HardEnemySTGTracer"
 	replaceactor = "EnemyChaingunTracer", "HardEnemyChaingunTracer"
+	replaceactor = "MiniRocket", "HardMiniRocket"
+	replaceactor = "FlyingNeedle", "HardFlyingNeedle"
+	replaceactor = "EnemyFlamerShot", "HardEnemyFlamerShot"
+	replaceactor = "EnemyFlamebolt", "HardEnemyFlamebolt"
+	replaceactor = "EnemyFlamebolt2", "HardEnemyFlamebolt2"
+	replaceactor = "NebRocketEnemy", "HardNebRocketEnemy"
+	replaceactor = "MiniMiniRocket", "HardMiniMiniRocket"
 }
 
 skill Nazis5
@@ -75,7 +78,6 @@ skill Nazis5
 	DamageFactor = 2.0
 	Aggressiveness = 1
 	SpawnFilter = Hard
-	ACSReturn = 4
 	Key = 5
 	DisableCheats
 	MustConfirm = "You'll be pleading for your life soon enough. -ww"
@@ -86,6 +88,13 @@ skill Nazis5
 	replaceactor = "EnemyRifleTracer", "HardEnemyRifleTracer"
 	replaceactor = "EnemySTGTracer", "HardEnemySTGTracer"
 	replaceactor = "EnemyChaingunTracer", "HardEnemyChaingunTracer"
+	replaceactor = "MiniRocket", "HardMiniRocket"
+	replaceactor = "FlyingNeedle", "HardFlyingNeedle"
+	replaceactor = "EnemyFlamerShot", "HardEnemyFlamerShot"
+	replaceactor = "EnemyFlamebolt", "HardEnemyFlamebolt"
+	replaceactor = "EnemyFlamebolt2", "HardEnemyFlamebolt2"
+	replaceactor = "NebRocketEnemy", "HardNebRocketEnemy"
+	replaceactor = "MiniMiniRocket", "HardMiniMiniRocket"
 }
 
 Intermission Inter_Cast
