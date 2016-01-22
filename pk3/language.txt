@@ -13,7 +13,7 @@ QUITMSG9 = "If you press Y,\nyou press with Hitler!";
 QUITMSG10 = "I have ways of making you press N.";
 QUITMSG11 = "Okay, whatever, but that Y key\nmight release mustard gas...";
 QUITMSG12 = "Might want to make sure your Y key\nwon't detonate you, first.";
-QUITMSG13 = "Go to Skulltag Forums, tell 'em\nWeasel sent you!\n(and that ww-nazis won't run! =P)";
+QUITMSG13 = "Go to Zandronum Forums, tell 'em\nWeasel sent you!\n(and that ww-nazis still won't run! =P)";
 QUITMSG14 = "Hey ron, can we say \"fuck\"\nin the game? -JR";
 TXT_YES = "Ja";
 TXT_NO = "Nein";
