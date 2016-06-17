@@ -202,6 +202,7 @@ ACTOR Browning5StartCheck : StartCheck{}
 ACTOR MP40StartCheck : StartCheck{}
 ACTOR PPSH41StartCheck : StartCheck{}
 ACTOR ThompsonStartCheck : StartCheck{}
+ACTOR StenStartCheck : StartCheck{}
 ACTOR Kar98kStartCheck : StartCheck{}
 ACTOR G43StartCheck : StartCheck{}
 ACTOR EnfieldStartCheck : StartCheck{}

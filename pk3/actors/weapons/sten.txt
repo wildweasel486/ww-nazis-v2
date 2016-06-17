@@ -106,7 +106,6 @@ ACTOR StenSpawner
 
 ACTOR StenPickup : NaziWeaponPickup
 {
-	Scale .5
 	States
 	{
 	Spawn:
