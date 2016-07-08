@@ -129,7 +129,7 @@ script "WWNaziWeaponCollect"(int weapon)
 		min=4;
 		max=7;
 	}
-	else if(weapon>=8&&weapon<=12)//Shotgun/SMG
+	else if(weapon>=8&&weapon<=13)//Shotgun/SMG
 	{
 		min=8;
 		max=13;
