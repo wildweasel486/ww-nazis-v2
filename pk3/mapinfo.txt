@@ -23,7 +23,7 @@ skill Nazis1
 	SpawnFilter = Easy
 	EasyBossBrain
 	Key = 1
-	Name = "Bund Deutscher Madel" // "German Girls" - the division of the Hitler Youth for girls aged 10-14.
+	Name = "Just let me shoot things" // Changed to something a bit less misogynistic.
 	replaceactor = "EnemyPistolTracer", "BabyEnemyPistolTracer"
 	replaceactor = "EnemySMGTracer", "BabyEnemySMGTracer"
 	replaceactor = "EnemyRifleTracer", "BabyEnemyRifleTracer"
